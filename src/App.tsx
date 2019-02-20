@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 //notice for our component import we are using the default import from the container file
 //we need to do this so that redux can connect our component to the store and actions
 import  LoginComponent  from './components/login/Login.container';
+import RegisterComponent  from './components/register/Register.container';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <BrowserRouter>
 
             <Route path='/login' component={LoginComponent}/>
+            <Route path='/register' component={RegisterComponent}/>
           </BrowserRouter>
         </div>
       </Provider>
