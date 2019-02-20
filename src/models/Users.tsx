@@ -1,6 +1,7 @@
 export class Users{
     userId:number;
     username:string;
+    displayName:string;
     password:string;
     firstName:string;
     lastName:string;
@@ -13,6 +14,7 @@ export class Users{
         this.firstName = '';
         this.lastName = ''
         this.email = '';
+        this.displayName = ''
     }
     
 }
