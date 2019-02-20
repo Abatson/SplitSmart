@@ -18,7 +18,7 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
 
-            {/* <Route path='/login' component={LoginComponent}/> */}
+            {<Route path='/login' component={LoginComponent}/>}
             <Route path='/register' component={RegisterComponent}/>
           </BrowserRouter>
         </div>
