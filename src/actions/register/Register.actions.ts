@@ -93,19 +93,10 @@ export const updatePhone = (phone:string) => {
 
 }
 
-export const registerRequest = (username, password, displayName, firstName, lastName, email, phone) => async (dispatch ) => {
+export const registerRequest = (newUser) => async (dispatch ) => {
     
-    const credentials = {
-        username: username,
-        password: password,
-        displayName: displayName,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phone: phone
-    }
     try {
-      const res = await ssClient.post('/register', credentials);
+      const res = await ssClient.post('/register', newUser);
       console.log(res)
       dispatch({
           payload:{
@@ -118,6 +109,7 @@ export const registerRequest = (username, password, displayName, firstName, last
       console.log(err);
       dispatch({
         payload:{
+        // needs to send correct error message
         },
         type: registerTypes.FAILED_REGISTER
     })
