@@ -1,3 +1,5 @@
+import { Url } from "url";
+
 export class Users{
     userId:number;
     username:string;
@@ -7,6 +9,7 @@ export class Users{
     lastName:string;
     email:string;
     phone:string;
+    picture:Url;
 
     constructor() {
         this.userId = 0;
@@ -17,6 +20,10 @@ export class Users{
         this.email = '';
         this.displayName = '';
         this.phone = '';
+        this.picture = {
+            port: '',
+            query: ''
+        }
     }
     
 }
