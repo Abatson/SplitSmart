@@ -20,16 +20,14 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
       super(props);
     }
 
-  //when we load the component, clear the old message
-componentDidMount() {
+  componentDidMount() {
     this.props.clearMessage();
   }
   
-  // whenever the change the username input, call the updateUsername action with the value
     updateUsername = (event) => {
       this.props.updateUsername(event.target.value) 
     }
-  // whenever the change the password input, call the updatePassword action with the value
+
     updatePassword = (event) => {
       this.props.updatePassword(event.target.value)
     }
@@ -54,18 +52,15 @@ componentDidMount() {
       this.props.updatePhone(event.target.value)
     }
   
-    //when they hit submit, send the username value and password value into our login action
     register = (event) => {
-      event.preventDefault(); // prevent default form submission
+      event.preventDefault();
       this.props.registerRequest(this.props.register.newUser.username, this.props.register.newUser.password,this.props.register.newUser.displayName,this.props.register.newUser.firstName,this.props.register.newUser.lastName, this.props.register.newUser.email, this.props.register.newUser.phone);
     }
   
   
     render() {
-      //get our password and username from the passed in state
       const {username, password, displayName, firstName, lastName, email, phone } = this.props.register.newUser
       return (
-          //onsubmit{this.login}
         <div className='terminal'>
         <form className="form-signin" onSubmit={this.register}>
           <h1 className="h3 mb-3 font-weight-normal">Please register your information</h1>

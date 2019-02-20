@@ -2,7 +2,7 @@ import { IRegisterState } from ".";
 import { Users } from "../models/Users";
 import { registerTypes } from "../actions/register/Register.actions";
 
-//this is our intialstate of the interface we declared for the login component
+
 const initialState: IRegisterState = {
     newUser: new Users,
     registerFeedback: '',
@@ -10,8 +10,7 @@ const initialState: IRegisterState = {
   
   export const registerReducer = (state = initialState, action: any) => {
     switch (action.type) {
-        //if the action is of type update password, take action payload and update our password
-        //we need ...state, cause we want the rest of the state to stay the same
+      
       case registerTypes.UPDATE_PASSWORD:
         return {
           ...state,
@@ -20,7 +19,7 @@ const initialState: IRegisterState = {
               password: action.payload.password
             }
         }
-        //same as up above
+        
       case registerTypes.UPDATE_USERNAME:
       return {
           ...state,
@@ -69,8 +68,7 @@ const initialState: IRegisterState = {
           username: action.payload.phone
           }
       }
-      //this is one where we don't need a payload cause we dont need any outside information to reset a field
-      //just the action to reset is good enough
+      
       case registerTypes.CLEAR_REGISTER_MESSAGE:
       return {
           ...state,
@@ -79,7 +77,7 @@ const initialState: IRegisterState = {
           feedbackMessage: ''
           }
       }
-      //reset our credentials and update the user field with our recieved user inforamtion
+      
       case registerTypes.REGISTER:{
           return {
               ...state,
@@ -87,7 +85,6 @@ const initialState: IRegisterState = {
           }
       } 
   
-      //reset the credentials and tell them to try again
       case registerTypes.FAILED_REGISTER: {
           return {
               ...state,
