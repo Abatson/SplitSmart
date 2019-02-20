@@ -94,7 +94,7 @@ export const updatePhone = (phone:string) => {
 }
 
 export const registerRequest = (username, password, displayName, firstName, lastName, email, phone) => async (dispatch ) => {
-    
+    // Should probably send in newUser Object
     const credentials = {
         username: username,
         password: password,
