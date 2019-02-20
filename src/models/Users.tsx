@@ -6,6 +6,7 @@ export class Users{
     firstName:string;
     lastName:string;
     email:string;
+    phone:string;
 
     constructor() {
         this.userId = 0;
@@ -14,7 +15,8 @@ export class Users{
         this.firstName = '';
         this.lastName = ''
         this.email = '';
-        this.displayName = ''
+        this.displayName = '';
+        this.phone = '';
     }
     
 }
