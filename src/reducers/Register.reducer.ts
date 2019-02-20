@@ -33,7 +33,7 @@ const initialState: IRegisterState = {
           ...state,
           newUser:{
             ...state.newUser,
-          username: action.payload.displayName
+          displayName: action.payload.displayName
           }
       }
       case registerTypes.UPDATE_FIRST_NAME:
@@ -41,7 +41,7 @@ const initialState: IRegisterState = {
           ...state,
           newUser:{
             ...state.newUser,
-          username: action.payload.firstName
+          firstName: action.payload.firstName
           }
       }
       case registerTypes.UPDATE_LAST_NAME:
@@ -49,7 +49,7 @@ const initialState: IRegisterState = {
           ...state,
           newUser:{
             ...state.newUser,
-          username: action.payload.lastName
+          lastName: action.payload.lastName
           }
       }
       case registerTypes.UPDATE_EMAIL:
@@ -57,7 +57,7 @@ const initialState: IRegisterState = {
           ...state,
           newUser:{
             ...state.newUser,
-          username: action.payload.email
+          email: action.payload.email
           }
       }
       case registerTypes.UPDATE_PHONE:
@@ -65,7 +65,7 @@ const initialState: IRegisterState = {
           ...state,
           newUser:{
             ...state.newUser,
-          username: action.payload.phone
+          phone: action.payload.phone
           }
       }
       
