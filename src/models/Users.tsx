@@ -1,11 +1,11 @@
-export class Users{
-    userId:number;
-    username:string;
-    displayName:string;
-    password:string;
-    firstName:string;
-    lastName:string;
-    email:string;
+export class Users {
+    userId: number;
+    username: string;
+    displayName: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+    email: string;
 
     constructor() {
         this.userId = 0;
@@ -16,5 +16,5 @@ export class Users{
         this.email = '';
         this.displayName = ''
     }
-    
+
 }
