@@ -4,11 +4,12 @@ import {
     updateProfilePicture, updatePhoneNumber, deactivateAccount, clearMessage
 } from '../../actions/accountsettings/AccountSettings.actions';
 import { IState } from '../../reducers/index';
-import { AccountSettingsComponent } from './AccountSettingsComponent';
+import { AccountSettingsComponent } from './AccountSettings.component';
 //container
 const mapStateToProps = (state: IState) => {
     return {
         user: state.login.user,
+        updatedUser: state.accountSettings.updatedUser,
     }
 }
 const mapDispatchToProps = {

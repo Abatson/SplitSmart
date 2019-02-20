@@ -11,6 +11,7 @@ interface IAccountSettingsProps {
     // email: "dunieski@gmail.com",//User,
     // phonenumber: '7684949302',//User,
     user: Users,
+    updatedUser: Users,
     updateUsername: (username: string) => void,
     updateDisplayName: (displayName: string) => void,
     updatePassword: (password: string) => void,
@@ -30,6 +31,13 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
 
     componentDidMount() {
         this.props.clearMessage();
+        this.props.updateUsername(this.props.user.username);
+        this.props.updateDisplayName(this.props.user.displayName);
+        this.props.updatePassword(this.props.user.password);
+        this.props.updateFirstName(this.props.user.firstName);
+        this.props.updateLastName(this.props.user.lastName);
+        this.props.updateEmail(this.props.user.email);
+        this.props.updatePhoneNumber(this.props.user.phone);
     }
 
     updateUsername = (event) => {
@@ -61,13 +69,13 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
     render() {//renders here 
         return (
             <div>
-                <p>{this.props.user.username}</p>
-                <p>{this.props.user.displayName}></p>
-                <p>{this.props.user.password}></p>
-                <p>{this.props.user.firstName}></p>
-                <p>{this.props.user.lastName}></p>
-                <p>{this.props.user.email}</p>
-                <p>{this.props.user.phone}</p>
+                <p>{this.props.updatedUser.username}</p>
+                <p>{this.props.updatedUser.displayName}></p>
+                <p>{this.props.updatedUser.password}></p>
+                <p>{this.props.updatedUser.firstName}></p>
+                <p>{this.props.updatedUser.lastName}></p>
+                <p>{this.props.updatedUser.email}</p>
+                <p>{this.props.updatedUser.phone}</p>
             </div>
 
         )
