@@ -12,6 +12,7 @@ import  AccountSettingsComponent  from './components/accountsettings/AccountSett
 
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
 import RegisterComponent  from './components/register/Register.container';
+import  NavBarComponent  from './components/navbar/Navbar.container';
 
 
 
@@ -25,10 +26,11 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
             <div>
+              <NavBarComponent/>
               <Route path='/login' component={LoginComponent}/>
               <Route path='/usersettings' component={AccountSettingsComponent}/>
-              <Route path='/profileinfo/:username' component={ProfileInfoComponent}/>
-              <Route path='/register' component={RegisterComponent}/>
+              <Route path='/profile' search='?sort=username' component={ProfileInfoComponent}/>
+              <Route path='/register' component={RegisterComponent} />
 
 
             </div>

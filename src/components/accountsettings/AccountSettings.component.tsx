@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users } from '../../models/Users';
-import { reduxForm, Field } from 'redux-form';
+//import { reduxForm, Field } from 'redux-form';
 import { Container } from 'reactstrap';
 
 
@@ -62,6 +62,10 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
         this.props.deactivateAccount();
     }
 
+    updateUser = (event) =>{
+        event.preventDefault();
+    }
+
     style = {
         border: "1px solid black"
         
@@ -70,40 +74,40 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
     render() {//renders here 
         return (
 
-            <form>
+            <form onSubmit={this.updateUser}>
                 <table style={this.style} id="accountSettingsTable" >
                     <tr>
                         <td><label htmlFor="username-input">Username </label>
-                            <input type="text" className="form-control" value="dunieski" id="username-input"/*value={this.props.updatedUser.username}*/></input>
+                            <input type="text" className="form-control"  id="username-input" value={this.props.updatedUser.username} onChange={this.updateUsername} ></input>
                         </td>
                         <td><label htmlFor="displayName-input">Display Name </label>
-                            <input type="text" className="form-control" value="duni" id="displayName-input"/*value={this.props.updatedUser.displayName}*/ />
+                            <input type="text" className="form-control"  id="displayName-input" value={this.props.updatedUser.displayName} onChange={this.updateDisplayName} />
                         </td></tr>
                     <tr>
                         <td><label htmlFor="password-input">Password </label>
-                            <input type="text" className="form-control" value="password" id="password-input" /*value={this.props.updatedUser.password}*/ />
+                            <input type="text" className="form-control"  id="password-input"  value={this.props.updatedUser.password} onChange={this.updatePassword} />
                         </td>
                         <td>
                             <label htmlFor="firstname-input">First Name </label>
-                            <input type="text" className="form-control" value="Dunieski" id="firstname-input" /*value={this.props.updatedUser.firstName}*/ />
+                            <input type="text" className="form-control"  id="firstname-input"  value={this.props.updatedUser.firstName} onChange={this.updateFirstName} />
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <label htmlFor="lastname-input">Last Name </label>
-                            <input type="text" className="form-control" value="Otano" id="lastname-input"/*value={this.props.updatedUser.lastName}*/ />
+                            <input type="text" className="form-control"  id="lastname-input" value={this.props.updatedUser.lastName} onChange={this.updateLastName}/>
                         </td>
                         <td>
 
 
                             <label htmlFor="email-input">Email </label>
-                            <input type="text" className="form-control" value="dunieskiotano@gmail.com" id="email-input"/*value={this.props.updatedUser.email}*/ />
+                            <input type="text" className="form-control"  id="email-input" value={this.props.updatedUser.email} onChange={this.updateEmail} />
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <label htmlFor="phone-input">Phone </label>
-                            <input type="text" className="form-control" value="786984234" id="phone-input"/*value={this.props.updatedUser.phone}*/ />
+                            <input type="text" className="form-control"  id="phone-input" value={this.props.updatedUser.phone} onChange={this.updatePhoneNumber}/>
                         </td>
                         <td>
                             <button type="submit" className="btn btn-primary">Update</button>

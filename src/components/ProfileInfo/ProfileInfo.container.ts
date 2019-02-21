@@ -5,13 +5,14 @@ import { IState } from "../../reducers";
 import { LoginComponent } from "../login/Login.component";
 import { ProfileInfoComponent } from '../ProfileInfo/ProfileInfo.component';
 import { Users } from "../../models/Users";
+import qs from 'stringquery'
 
 //This is getting every field from the login state in the interface IState
 const mapStateToProps = (state: IState, ownProps) => {
     return {
        // login: state.login,
-        //user: Users,
-        params: ownProps.match.params,
+        user: state.login.user,
+        params: qs(ownProps.location.search),
         profileUser: state.profileInfo.userProfile
     }
 }
@@ -23,8 +24,8 @@ const mapStateToProps = (state: IState, ownProps) => {
 
 //This is getting all of the actions that our login component will be able to call
 const mapDispatchToProps = {
-    loginRequest,
-    clearMessage,
+    // loginRequest,
+    // clearMessage,
     getUserProfile
 
 }

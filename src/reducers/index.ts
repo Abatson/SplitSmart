@@ -55,7 +55,7 @@ export interface IState {
 
 
 
-}
+
 
 //This needs a reducer with the name of every interface we have in the IState interface
 export const state = combineReducers<IState>({
