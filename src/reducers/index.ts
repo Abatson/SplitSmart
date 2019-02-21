@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { Users } from "../models/Users";
 import { loginReducer } from "./Login.reducer";
 import { registerReducer } from "./Register.reducer";
+import { Debts } from "../models/Debts";
 
 //this represents the state needed by one of our components.
 //To log in, we need to keep track of the username and password that the use inputs
@@ -17,6 +18,10 @@ export interface ILoginState{
 export interface IRegisterState{
     newUser: Users,
     registerFeedback: string
+}
+
+export interface IDebtState{
+    debts: Debts[]
 }
 
 
