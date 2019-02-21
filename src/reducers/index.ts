@@ -6,6 +6,7 @@ import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
 import { Debts } from "../models/Debts";
+import { DebtReducer } from "./Debt.reducer";
 
 
 
@@ -52,7 +53,8 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
-    register: IRegisterState
+    register: IRegisterState,
+    debt: IDebtState,
 
     
 
@@ -69,6 +71,7 @@ export const state = combineReducers<IState>({
     accountSettings: accountSettingsReducer,
     profileInfo:profileInfoReducer,
     register: registerReducer,
+    debt: DebtReducer,
 
 
 

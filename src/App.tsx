@@ -9,7 +9,7 @@ import './include/Bootstrap';
 
 import  LoginComponent  from './components/login/Login.container';
 import  AccountSettingsComponent  from './components/accountsettings/AccountSettings.container';
-import DebtComponent from './components/debt/Debt.container';
+// import DebtComponent from './components/debt/Debt.container';
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
 import RegisterComponent  from './components/register/Register.container';
 import  NavBarComponent  from './components/navbar/Navbar.container';

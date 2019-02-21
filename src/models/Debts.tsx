@@ -1,7 +1,9 @@
+import {Users} from './Users'
+
 export class Debts{
     debtId:number;
-    sender:string;
-    claimer:string;
+    sender:Users;
+    claimer:Users;
     amount:number;
     timestamp:string;
     paid: boolean;
@@ -9,8 +11,8 @@ export class Debts{
 
     constructor() {
         this.debtId = 0;
-        this.sender = '';
-        this.claimer = '';
+        this.sender = new Users;
+        this.claimer = new Users;
         this.amount = 0;
         this.timestamp = '';
         this.paid = false;

@@ -9,7 +9,7 @@ export const profileInfoTypes = {
 
 
 export const getUserProfile = (username: string) => async (dispatch) => {
-    try {//
+    try {
         const res = await ssClient.get(`/users/${username}`);// we might change this path
         dispatch({
             payload: {
