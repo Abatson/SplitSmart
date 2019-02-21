@@ -11,7 +11,15 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import  ReceiptComponent  from './components/receipt/Receipt.container'
 //notice for our component import we are using the default import from the container file
 //we need to do this so that redux can connect our component to the store and actions
+
 import  LoginComponent  from './components/login/Login.container';
+import  AccountSettingsComponent  from './components/accountsettings/AccountSettings.container';
+
+import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
+import RegisterComponent  from './components/register/Register.container';
+import  NavBarComponent  from './components/navbar/Navbar.container';
+
+
 
 
 class App extends Component {
@@ -21,13 +29,21 @@ class App extends Component {
       //we need to have all other components inside of the provider
       //however this is easy
       <Provider store={store}>
-     <Router>
-      <div>
-        <Switch>
-          <Route path="/receipt" component={ReceiptComponent} />
-        </Switch>
-      </div>
-    </Router>
+        <div className="App">
+          <BrowserRouter>
+            <div>
+              <NavBarComponent/>
+              <Route path='/login' component={LoginComponent}/>
+              <Route path='/receipt' component={ReceiptComponent}/>
+              <Route path='/usersettings' component={AccountSettingsComponent}/>
+              <Route path='/profile' search='?sort=username' component={ProfileInfoComponent}/>
+              <Route path='/register' component={RegisterComponent} />
+
+
+            </div>
+
+          </BrowserRouter>
+        </div>
       </Provider>
     );
   }
