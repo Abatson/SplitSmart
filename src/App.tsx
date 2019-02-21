@@ -10,6 +10,7 @@ import LoginComponent from './components/login/Login.container';
 import AccountSettingsComponent from './components/accountsettings/AccountSettings.container';
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
 import UserJoinsAGroupComponent from './components/UserJoinsAGroup/UserJoinsAGroup.container';
+import UserRemovesOthersComponent from './components/UserRemovesOthers/UserRemovesIOthers.container';
 
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profileinfo/:username' component={ProfileInfoComponent} />
               <Route path='/userjoinsgroup/' component={UserJoinsAGroupComponent} />
+              <Route path='/removeuser/:username' component={UserRemovesOthersComponent}/>
             </div>
           </BrowserRouter>
         </div>
