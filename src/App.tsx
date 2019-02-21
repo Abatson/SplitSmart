@@ -31,14 +31,7 @@ class App extends Component {
               <Route path='/usersettings' component={AccountSettingsComponent}/>
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent}/>
               <Route path='/register' component={RegisterComponent} />
-
-
             </div>
-
-<<<<<<< HEAD
-            <Route path='/login' component={LoginComponent}/>
-=======
->>>>>>> ee4a39fd345f582383405236141a68e32b1126ef
           </BrowserRouter>
         </div>
       </Provider>
