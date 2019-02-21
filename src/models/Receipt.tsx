@@ -3,14 +3,17 @@ import { Line } from "./Line";
 export class Receipt{
 
 
-    constructor(lines) {
-        this.lines = []; //one receipt can have multiple lines
-        this.claimants = []; //one receipt can have multiple claimants
+    constructor(id, lines : any = [], name : any = "Unnamed Receipt") {
+        this.id = id;
+        this.lines = lines; //one receipt can have multiple lines
+        this.claimant = -1; //-1 means no claimant
+        this.name = name; //the name of the receipt
     }
     
- 
+    id : number;
     lines : Line[];
-    claimants : number[];
+    claimant : number;
+    name : any;
   
     
 

@@ -11,7 +11,7 @@ export const receiptTypes = {
 
   //After a receipt has been claimed, we want someone who can claim the lines of the receipt
   //claimed is the id of the line in the receipt that was claimed
-  export const claimLine = (claimant: number, claimed: number) => {
+  export const claimLine = (receiptID: number, claimant: number, claimed: number) => {
     return {
         payload:{
             claimant,
@@ -25,7 +25,7 @@ export const receiptTypes = {
     //Initially we want someone to claim the receipt
   //claimant is the user ID of the person who claims the receipt
   //claimant is the user ID of the person who claims the line
-export const claimReceipt = (claimant:number) => {
+export const claimReceipt = (receiptID: number, claimant:number) => {
     return {
         payload:{
             claimant

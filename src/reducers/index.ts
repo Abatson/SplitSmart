@@ -26,6 +26,8 @@ export interface IReceiptState{
     claimant: number
 }
 
+
+//The group state that we want to get the list of receipts from
 export interface IGroupState{
     groupReceipts:Receipt[],
 }
@@ -35,12 +37,12 @@ export interface IGroupState{
 //Also, every interface here needs a reducer of the same name down in combine reducers
 export interface IState {
     login: ILoginState,
-    receipt: IReceiptState
+    receipt: IGroupState,
 }
 
 
 //This needs a reducer with the name of every interface we have in the IState interface
 export const state = combineReducers<IState>({
     login: loginReducer,
-    receipt: receiptReducer,
+    receipt: receiptReducer
 })

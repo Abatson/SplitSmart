@@ -1,11 +1,10 @@
-import { IReceiptState } from ".";
+import { IGroupState } from ".";
 import { receiptTypes } from "../actions/receipt/Receipt.actions";
 import { Line } from "../models/Line";
 
 //this is our intialstate of the interface we declared for the receipt component
-const initialState: IReceiptState = {
-    lines: [],
-    claimant: -1
+const initialState: IGroupState = {
+        groupReceipts: [],
 }
 
 export const receiptReducer = (state = initialState, action: any) => {
@@ -14,18 +13,24 @@ export const receiptReducer = (state = initialState, action: any) => {
  
       //same as up above
     case receiptTypes.CLAIM_RECEIPT:
+    {
+    let newGroupReceipts = state.groupReceipts;
+    newGroupReceipts[action.payload.receiptID].claimant;
+
     return {
         ...state,
-        claimant: action.payload.claimant
+        groupReceipts : newGroupReceipts,
+    }
     }
     //same as up above
     case receiptTypes.CLAIM_LINE:
     {
-        let newLines = state.lines;
-        newLines[action.payload.claimed] = action.payload.claimant;
+        let newGroupReceipts = state.groupReceipts;
+        newGroupReceipts[action.payload.receiptID].lines[action.payload.claimed].claimant = action.payload.claimant;
+    
         return {
             ...state,
-            lines: newLines
+            groupReceipts : newGroupReceipts,
         }
     }
 
