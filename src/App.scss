@@ -22,7 +22,17 @@
 .App-link {
   color: #61dafb;
 }
-
+body{
+  margin: 80px;
+}
+.container{
+  padding: 10px;
+  margin: 80px 350px 350px 350px;
+  width: 20px;
+  height: 40%;
+  border: 1px solid black;
+  box-shadow: 0 16px 16px black;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -30,4 +40,27 @@
   to {
     transform: rotate(360deg);
   }
+}
+@media (min-width: 500px){
+  .container{
+      width: 450px;
+  }
+}
+.container input{
+  width: 20%;
+}
+#accountSettingsTable{
+  border: 1px;
+  margin-left: 33em;
+  margin-top: 3em;
+  padding: 45px;
+  box-shadow: 0 16px 16px black;
+  font-weight: bold;
+}
+#accountSettingsTable td{
+  padding: 30px;
+}
+.surroundingBox{
+  border: 1px solid black;
+  margin: 150px 250px 150px 250px;
 }
