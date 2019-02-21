@@ -1,5 +1,6 @@
 import React from 'react';
 import { IRegisterState } from '../../reducers';
+import { Users } from '../../models/Users';
 
 interface IRegisterProps {
     register: IRegisterState,
@@ -10,7 +11,7 @@ interface IRegisterProps {
     updateLastName: (lastName:string) => void,
     updateEmail: (email:string) => void,
     updatePhone: (phone:string) => void,
-    registerRequest: ( username:string, password:string, displayName:string, firstName:string, lastName: string, email:string, phone:string) => void,
+    registerRequest: ( newUser:Users) => void,
     clearMessage: () => void
 
 }
@@ -54,7 +55,7 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
   
     register = (event) => {
       event.preventDefault();
-      this.props.registerRequest(this.props.register.newUser.username, this.props.register.newUser.password,this.props.register.newUser.displayName,this.props.register.newUser.firstName,this.props.register.newUser.lastName, this.props.register.newUser.email, this.props.register.newUser.phone);
+      this.props.registerRequest(this.props.register.newUser);
     }
   
   
@@ -65,6 +66,7 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
         <form className="form-signin" onSubmit={this.register}>
           <h1 className="h3 mb-3 font-weight-normal">Please register your information</h1>
           <label htmlFor="inputUsername" className="sr-only">Username</label>
+          <br/>
           <input type="text"
             id="inputUsername"
             className="text-form"
@@ -72,7 +74,10 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
             value={username}
             onChange={this.updateUsername}
             required />
-          <label htmlFor="inputUsername" className="sr-only">Display Name</label>
+            <br/>
+            <br/>
+          <label htmlFor="inputDisplayName" className="sr-only">Display Name</label>
+          <br/>
           <input type="text"
             id="inputDisplayName"
             className="text-form"
@@ -80,7 +85,10 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
             value={displayName}
             onChange={this.updateDisplayName}
             required />
-            <label htmlFor="inputUsername" className="sr-only">First Name</label>
+            <br/>
+            <br/>
+            <label htmlFor="inputFirstName" className="sr-only">First Name</label>
+            <br/>
           <input type="text"
             id="inputFirstName"
             className="text-form"
@@ -88,7 +96,10 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
             value={firstName}
             onChange={this.updateFirstName}
             required />
-            <label htmlFor="inputUsername" className="sr-only">Last Name</label>
+            <br/>
+            <br/>
+            <label htmlFor="inputLastName" className="sr-only">Last Name</label>
+            <br/>
           <input type="text"
             id="inputLastName"
             className="text-form"
@@ -96,7 +107,10 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
             value={lastName}
             onChange={this.updateLastName}
             required />
+            <br/>
+            <br/>
           <label htmlFor="inputPassword" className="sr-only">Password</label>
+          <br/>
           <input type="password"
             id="inputPassword"
             className="text-form"
@@ -104,15 +118,22 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
             value={password}
             onChange={this.updatePassword}
             required />
-            <label htmlFor="inputUsername" className="sr-only">Email</label>
-          <input type="text"
+            <br/>
+            <br/>
+            <label htmlFor="inputEmail" className="sr-only">Email</label>
+            <br/>
+          <input type="email"
+            name="emailaddress"
             id="inputEmail"
             className="text-form"
             placeholder="Email"
             value={email}
             onChange={this.updateEmail}
             required />
-            <label htmlFor="inputEmail" className="sr-only">Phone Number</label>
+            <br/>
+            <br/>
+            <label htmlFor="inputPhone" className="sr-only">Phone Number</label>
+            <br/>
           <input type="tel"
             id="inputPhone"
             className="text-form"

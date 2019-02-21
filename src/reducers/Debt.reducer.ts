@@ -6,5 +6,6 @@ const initialState: IDebtState = {
     debts: []
   }
 
-  
+  export const DebtReducer = (state = initialState, action: any) => {
 
+  }

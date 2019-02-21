@@ -5,8 +5,8 @@ export const registerTypes = {
     UPDATE_USERNAME: 'REGISTER_UPDATE_USERNAME',
     UPDATE_PASSWORD: 'REGISTER_UPDATE_PASSWORD',
     UPDATE_DISPLAY_NAME: 'REGISTER_UPDATE_DISPLAY_NAME',
-    UPDATE_FIRST_NAME: 'REGISTER_UPDATE_DISPLAY_NAME',
-    UPDATE_LAST_NAME: 'REGISTER_UPDATE_DISPLAY_NAME',
+    UPDATE_FIRST_NAME: 'REGISTER_UPDATE_FIRST_NAME',
+    UPDATE_LAST_NAME: 'REGISTER_UPDATE_LAST_NAME',
     UPDATE_EMAIL: 'REGISTER_UPDATE_EMAIL',
     UPDATE_PHONE: 'REGISTER_UPDATE_PHONE',
     REGISTER: 'REGISTER',
@@ -92,6 +92,7 @@ export const updatePhone = (phone:string) => {
     }
 
 }
+<<<<<<< HEAD
 //                               username, password, displayName, firstName, lastName, email, phone
 export const registerRequest = (newUser) => async (dispatch ) => {
     // Should probably send in newUser Object
@@ -105,8 +106,13 @@ export const registerRequest = (newUser) => async (dispatch ) => {
         // phone: phone
         newUser
     }
+=======
+
+export const registerRequest = (newUser) => async (dispatch ) => {
+    
+>>>>>>> f24be5e1e5c1a1a19b8e08384fa9fcc358ec0667
     try {
-      const res = await ssClient.post('/register', credentials);
+      const res = await ssClient.post('/register', newUser);
       console.log(res)
       dispatch({
           payload:{
@@ -119,7 +125,11 @@ export const registerRequest = (newUser) => async (dispatch ) => {
       console.log(err);
       dispatch({
         payload:{
+<<<<<<< HEAD
             // needs to send correct error message
+=======
+        // needs to send correct error message
+>>>>>>> f24be5e1e5c1a1a19b8e08384fa9fcc358ec0667
         },
         type: registerTypes.FAILED_REGISTER
     })
