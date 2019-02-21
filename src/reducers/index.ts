@@ -19,6 +19,9 @@ export interface IRegisterState{
     registerFeedback: string
 }
 
+export interface IAddGroupState{
+    
+}
 
 
 //This interface represents the entirety of our store. All of the state of the program.

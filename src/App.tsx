@@ -18,12 +18,8 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
 
-<<<<<<< HEAD
-            <Route path='/login' component={LoginComponent} />
-=======
             <Route path='/login' component={LoginComponent}/>
             <Route path='/register' component={RegisterComponent}/>
->>>>>>> f24be5e1e5c1a1a19b8e08384fa9fcc358ec0667
           </BrowserRouter>
         </div>
       </Provider>
