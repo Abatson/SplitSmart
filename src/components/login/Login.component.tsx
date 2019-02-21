@@ -1,5 +1,6 @@
 import React from 'react';
 import { ILoginState } from '../../reducers';
+import { Link } from 'react-router-dom';
 
 
 
@@ -68,7 +69,10 @@ export class LoginComponent extends React.Component<ILoginProps, any> {
           <p id="error-message">{this.props.login.feedbackMessage}</p>
           <button className="button-form" type="submit">Sign in</button>
         </form>
+        <Link to='/register'> Register A New Account</Link>
       </div>
+      
+
     )
   }
 
