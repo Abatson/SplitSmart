@@ -2,13 +2,13 @@ import { Users } from "./Users";
 import { Url } from "url";
 
 export class Groups {
-    groupId: Number;
-    groupName: String;
+    groupId: number;
+    groupName: string;
     groupMembers: Users[];
     groupReceipts: Receipts[];
     groupPicture: Url;
     groupOwner: Users;
-    groupDescription: String;
+    groupDescription: string;
 
     constructor() {
         this.groupId = 0;
