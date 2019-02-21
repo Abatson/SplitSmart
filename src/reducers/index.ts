@@ -3,7 +3,9 @@ import { Users } from "../models/Users";
 import { loginReducer } from "./Login.reducer";
 
 import { accountSettingsReducer } from "./AccountSettings.reducer";
+import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
+
 
 
 //this represents the state needed by one of our components.
@@ -22,10 +24,16 @@ export interface IAccountSettingsState {
     updatedUser: Users
 }
 
+
+export interface IProfileInfoState{
+    userProfile: Users
+}
+
 export interface IRegisterState{
     newUser: Users,
     registerFeedback: string
 }
+
 
 
 
@@ -35,10 +43,12 @@ export interface IRegisterState{
 export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
+    profileInfo: IProfileInfoState,
     register: IRegisterState
 
     
 }
+
 
 
 }
@@ -47,6 +57,8 @@ export interface IState {
 export const state = combineReducers<IState>({
     login: loginReducer,
     accountSettings: accountSettingsReducer,
+    profileInfo:profileInfoReducer,
     register: registerReducer,
+
 
 })
