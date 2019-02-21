@@ -19,7 +19,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
         return (
             <div className="navbar">
                 <NavLink className='innerNavBar' to={{
-                    pathname: '/Profile',
+                    pathname: '/profile',
                     search: `?sort=${this.props.user.username}`,
                     state: { fromDashboard: true }
                 }} > Profile

@@ -1,15 +1,11 @@
 import React from 'react';
 import { Users } from '../../models/Users';
+//import { reduxForm, Field } from 'redux-form';
+import { Container } from 'reactstrap';
+
 
 
 interface IAccountSettingsProps {
-    // username: "dunieskiotano",//User
-    // displayname: "dunieski",//GroupUser
-    // password: "password",//User,
-    // firstname: 'Dunieski',
-    // lastname: 'Otano',
-    // email: "dunieski@gmail.com",//User,
-    // phonenumber: '7684949302',//User,
     user: Users,
     updatedUser: Users,
     updateUsername: (username: string) => void,
@@ -66,17 +62,60 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
         this.props.deactivateAccount();
     }
 
+    updateUser = (event) =>{
+        event.preventDefault();
+    }
+
+    style = {
+        border: "1px solid black"
+        
+
+    }
     render() {//renders here 
         return (
-            <div>
-                <p>{this.props.updatedUser.username}</p>
-                <p>{this.props.updatedUser.displayName}></p>
-                <p>{this.props.updatedUser.password}></p>
-                <p>{this.props.updatedUser.firstName}></p>
-                <p>{this.props.updatedUser.lastName}></p>
-                <p>{this.props.updatedUser.email}</p>
-                <p>{this.props.updatedUser.phone}</p>
-            </div>
+
+            <form onSubmit={this.updateUser}>
+                <table style={this.style} id="accountSettingsTable" >
+                    <tr>
+                        <td><label htmlFor="username-input">Username </label>
+                            <input type="text" className="form-control"  id="username-input" value={this.props.updatedUser.username} onChange={this.updateUsername} ></input>
+                        </td>
+                        <td><label htmlFor="displayName-input">Display Name </label>
+                            <input type="text" className="form-control"  id="displayName-input" value={this.props.updatedUser.displayName} onChange={this.updateDisplayName} />
+                        </td></tr>
+                    <tr>
+                        <td><label htmlFor="password-input">Password </label>
+                            <input type="text" className="form-control"  id="password-input"  value={this.props.updatedUser.password} onChange={this.updatePassword} />
+                        </td>
+                        <td>
+                            <label htmlFor="firstname-input">First Name </label>
+                            <input type="text" className="form-control"  id="firstname-input"  value={this.props.updatedUser.firstName} onChange={this.updateFirstName} />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label htmlFor="lastname-input">Last Name </label>
+                            <input type="text" className="form-control"  id="lastname-input" value={this.props.updatedUser.lastName} onChange={this.updateLastName}/>
+                        </td>
+                        <td>
+
+
+                            <label htmlFor="email-input">Email </label>
+                            <input type="text" className="form-control"  id="email-input" value={this.props.updatedUser.email} onChange={this.updateEmail} />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label htmlFor="phone-input">Phone </label>
+                            <input type="text" className="form-control"  id="phone-input" value={this.props.updatedUser.phone} onChange={this.updatePhoneNumber}/>
+                        </td>
+                        <td>
+                            <button type="submit" className="btn btn-primary">Update</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
 
         )
     }
