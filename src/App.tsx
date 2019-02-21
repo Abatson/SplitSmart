@@ -7,6 +7,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 //we need to do this so that redux can connect our component to the store and actions
 import  LoginComponent  from './components/login/Login.container';
 import  AccountSettingsComponent  from './components/accountsettings/AccountSettings.container';
+import RegisterComponent  from './components/register/Register.container';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <div>
               <Route path='/login' component={LoginComponent}/>
               <Route path='/usersettings' component={AccountSettingsComponent}/>
+              <Route path='/register' component={RegisterComponent}/>
             </div>
           </BrowserRouter>
         </div>

@@ -1,7 +1,10 @@
 import { combineReducers } from "redux";
 import { Users } from "../models/Users";
 import { loginReducer } from "./Login.reducer";
+
 import { accountSettingsReducer } from "./AccountSettings.reducer";
+import { registerReducer } from "./Register.reducer";
+
 
 //this represents the state needed by one of our components.
 //To log in, we need to keep track of the username and password that the use inputs
@@ -14,9 +17,17 @@ export interface ILoginState{
     feedbackMessage: string
 }
 
+
 export interface IAccountSettingsState {
     updatedUser: Users
 }
+
+export interface IRegisterState{
+    newUser: Users,
+    registerFeedback: string
+}
+
+
 
 //This interface represents the entirety of our store. All of the state of the program.
 //We make it out of other more specific interfaces.
@@ -24,6 +35,11 @@ export interface IAccountSettingsState {
 export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
+    register: IRegisterState
+
+    
+}
+
 
 }
 
@@ -31,4 +47,6 @@ export interface IState {
 export const state = combineReducers<IState>({
     login: loginReducer,
     accountSettings: accountSettingsReducer,
+    register: registerReducer,
+
 })
