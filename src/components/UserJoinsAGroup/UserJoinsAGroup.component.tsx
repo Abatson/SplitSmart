@@ -101,6 +101,7 @@ export class UserJoinsAGroupComponent extends React.Component<IUserJoinsAGroupPr
                             <button type="submit" className="btn btn-primary">Save</button>
                         </td>
                     </tr>
+                    
                 </table>
             </form>
 
