@@ -66,13 +66,13 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
                             <ul>
                                 <li><NavLink to={{
                                     pathname: '/'
-                                }}>Profile</NavLink></li>
+                                }}></NavLink></li>
                                 <li><NavLink to={{
                                     pathname: '/'
-                                }}>Groups</NavLink></li>
+                                }}></NavLink></li>
                                 <li><NavLink to={{
                                     pathname: '/'
-                                }}>Debts</NavLink></li>
+                                }}></NavLink></li>
                             </ul>
                         </div>
                     </nav>
