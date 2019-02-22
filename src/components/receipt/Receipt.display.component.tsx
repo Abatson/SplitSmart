@@ -22,7 +22,10 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
     receiptHTML.push(  <p>
       Receipt Name: {this.props.receipt.name}
       <p>
-      Claim Receipt:  <input onClick={this.props.onClick} type="checkbox" id="scales" name="scales"
+      <p>
+      Claimant: {this.props.receipt.claimant}  
+      </p>
+      Claim Receipt:  <input onClick={this.props.onClick1} type="checkbox" id="scales" name="scales"
      ></input>
       </p>
       <p>
@@ -30,16 +33,20 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       </p>
     </p>);
 
-
+      let tempJSX : any = [];
       for (let i = 0; i < this.props.receipt.lines.length; i++)
       {
-        receiptHTML.push(<li><input type="checkbox" id="scales" name="scales"
-        ></input>Purchase Name: {i}</li>)
+        tempJSX.push(<li><input onClick={this.props.onClick2} type="checkbox" id="scales" name="scales"
+        ></input>Purchase Name: {this.props.receipt.lines[i].name}</li>)
+
+        
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-                receiptHTML.push(<div>Item : {this.props.receipt.lines[i].name} ItemPrice : {this.props.receipt.lines[i].items[j].itemPrice}</div>)
+                tempJSX.push(<React.Fragment>Item : {this.props.receipt.lines[i].name} ItemPrice : {this.props.receipt.lines[i].items[j].itemPrice}</React.Fragment>)
               }
-        receiptHTML.push()
+        
+        receiptHTML.push(<div>{tempJSX}</div>)
+        tempJSX = [];
       }
 
     return (

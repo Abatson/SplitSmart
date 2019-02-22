@@ -68,7 +68,7 @@ componentWillMount()
 
     for (const key of this.props.groupReceipts)
     {
-      receiptHTML.push(<li><ReceiptDisplayComponent onClick={()=>{this.props.claimReceipt(key.id, 0); alert(key.id)} } claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent></li>)
+      receiptHTML.push(<li><ReceiptDisplayComponent onClick1={()=>{this.props.claimReceipt(key.id, 0); alert(key.id)} } onClick2={()=>{this.props.claimLine(key.id, 0, 0); alert(key.id)} } claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent></li>)
     }
 
 
