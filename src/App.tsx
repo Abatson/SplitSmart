@@ -9,8 +9,7 @@ import './include/Bootstrap';
 import LoginComponent from './components/login/Login.container';
 import AccountSettingsComponent from './components/accountsettings/AccountSettings.container';
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
-import UserJoinsAGroupComponent from './components/UserJoinsAGroup/UserJoinsAGroup.container';
-import UserRemovesOthersComponent from './components/UserRemovesOthers/UserRemovesIOthers.container';
+
 import SideBarComponent from './components/SideBar/SideBar.container';
 
 
@@ -24,11 +23,10 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
             <div>
+              <SideBarComponent/>
               <Route path='/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profileinfo/:username' component={ProfileInfoComponent} />
-              <Route path='/userjoinsgroup/' component={UserJoinsAGroupComponent} />
-              <Route path='/removeuser/:username' component={UserRemovesOthersComponent}/>
               <Route path='/profilepage' component={SideBarComponent}/>
             </div>
           </BrowserRouter>

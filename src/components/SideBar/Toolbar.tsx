@@ -1,6 +1,6 @@
 import React from 'react';
 import DrawerToggleButton from '../../components/SideBar/DrawerToggleButton';
-
+//Whole class needs to be moved to our navbar
 const toolbar = props => {
     return (
         <header className="toolbar">

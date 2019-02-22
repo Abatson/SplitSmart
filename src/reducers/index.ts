@@ -3,8 +3,6 @@ import { Users } from "../models/Users";
 import { loginReducer } from "./Login.reducer";
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
-import { userJoinsAGroupReducer } from "./UserJoinsAGroup.reducer";
-import {userRemovesOtherReducer} from "./UserRemovesOthers.reducer";
 
 //this represents the state needed by one of our components.
 //To log in, we need to keep track of the username and password that the use inputs
@@ -25,13 +23,7 @@ export interface IProfileInfoState{
     userProfile: Users
 }
 
-export interface IUserJoinsAGroupState{
-    addedUser: Users
-}
 
-export interface IUserRemovesOthersState{
-    removedUser: Users
-}
 //This interface represents the entirety of our store. All of the state of the program.
 //We make it out of other more specific interfaces.
 //Also, every interface here needs a reducer of the same name down in combine reducers
@@ -39,8 +31,7 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
-    userJoined: IUserJoinsAGroupState,
-    userRemoved: IUserRemovesOthersState,
+    
 
 }
 
@@ -49,6 +40,5 @@ export const state = combineReducers<IState>({
     login: loginReducer,
     accountSettings: accountSettingsReducer,
     profileInfo:profileInfoReducer,
-    userJoined: userJoinsAGroupReducer,
-    userRemoved: userRemovesOtherReducer,
+   
 })

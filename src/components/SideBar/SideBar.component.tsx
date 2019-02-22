@@ -17,10 +17,13 @@ interface ISideBarProps {
 export class SideBarComponent extends React.Component<ISideBarProps, any> {
     constructor(props) {
         super(props);
+        //NO STATE
         this.state = {
             sideDrawerOpen: false
         }
     }
+
+    //SHOULD BE ACTIONS
     drawerToggleClickHandler = () => {
         this.setState((prevState) => {
             return {
@@ -28,17 +31,20 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
             };
         })
     }
+    //SHOULD BE ACTIONS
     backdropClickHandler = () => {
         this.setState({ sideDrawerOpen: false })
     }
 
     render() {
         let backDrop;
-
+        //THIS SHOULD BE IN PROPS
         if (this.state.sideDrawerOpen) {
            
             backDrop = <BackDrop click={this.backdropClickHandler} />
         }
+        //I THINK MOVING THE TOOLBAR AWAY IS FINE BECAUSE OF REDUX
+        //SIDEDRAWER HAS ALL THE ACTUAL STUFF
         return (
             <div style={{ height: '100%' }}>
                 <Toolbar drawerToggleClickHandler={this.drawerToggleClickHandler} />

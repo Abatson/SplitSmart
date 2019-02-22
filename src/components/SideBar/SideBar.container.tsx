@@ -7,6 +7,8 @@ import { SideBarComponent  } from "./SideBar.component";
 const mapStateToProps = (state: IState) => {
     return {
         user: state.login.user
+        //pass in boolean for display
+        //also action for toggleing display
     }
 }
 
