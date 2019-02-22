@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { updatePassword, updateUsername, loginRequest, clearMessage } from '../../actions/login/Login.actions'
 import { IState } from "../../reducers";
-import { SideBarComponent  } from "../SideBar/SideBar.component";
+import { SideBarComponent  } from "./SideBar.component";
 
 //This is getting every field from the Navbar state in the interface IState
 const mapStateToProps = (state: IState) => {
