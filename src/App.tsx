@@ -11,6 +11,7 @@ import AccountSettingsComponent from './components/accountsettings/AccountSettin
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
 import UserJoinsAGroupComponent from './components/UserJoinsAGroup/UserJoinsAGroup.container';
 import UserRemovesOthersComponent from './components/UserRemovesOthers/UserRemovesIOthers.container';
+import SideBarComponent from './components/SideBar/SideBar.container';
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
               <Route path='/profileinfo/:username' component={ProfileInfoComponent} />
               <Route path='/userjoinsgroup/' component={UserJoinsAGroupComponent} />
               <Route path='/removeuser/:username' component={UserRemovesOthersComponent}/>
+              <Route path='/profilepage' component={SideBarComponent}/>
             </div>
           </BrowserRouter>
         </div>
