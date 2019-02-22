@@ -1,6 +1,7 @@
 import React from 'react';
 import {Item} from '../../models/Item';
 import {Receipt} from '../../models/Receipt';
+import { claimReceipt } from '../../actions/receipt/Receipt.actions';
 
 interface iReceiptProps{
     receipt: Receipt
@@ -19,23 +20,24 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
 
     receiptHTML.push(  <p>
-      Receipt ID: {this.props.receipt.id}
+      Receipt Name: {this.props.receipt.name}
       <p>
-      Claim Receipt:  <input type="checkbox" id="scales" name="scales"
+      Claim Receipt:  <input onClick={this.props.onClick} type="checkbox" id="scales" name="scales"
      ></input>
       </p>
       <p>
-      Receipt Lines: 
+      Purchases: 
       </p>
     </p>);
 
 
       for (let i = 0; i < this.props.receipt.lines.length; i++)
       {
-        receiptHTML.push(<li>Line : {i}</li>)
+        receiptHTML.push(<li><input type="checkbox" id="scales" name="scales"
+        ></input>Purchase Name: {i}</li>)
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-                receiptHTML.push(<li>Item : {this.props.receipt.lines[i].name} ItemPrice : {this.props.receipt.lines[i].items[j].itemPrice}</li>)
+                receiptHTML.push(<div>Item : {this.props.receipt.lines[i].name} ItemPrice : {this.props.receipt.lines[i].items[j].itemPrice}</div>)
               }
         receiptHTML.push()
       }
