@@ -38,7 +38,7 @@ export const receiptReducer = (state = initialState, action: any) => {
     case receiptTypes.CLAIM_RECEIPT:
     {
     let newGroupReceipts = state.groupReceipts;
-    newGroupReceipts[action.payload.receiptID].claimant;
+    newGroupReceipts[action.payload.receiptID].claimant = action.payload.claimant;
 
     return {
         ...state,
