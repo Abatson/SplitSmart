@@ -18,6 +18,7 @@ interface ISideBarProps {
 export class SideBarComponent extends React.Component<ISideBarProps, any> {
     constructor(props) {
         super(props);
+        //NO STATE
         this.state = {
             sideDrawerOpen: false
         }
@@ -30,30 +31,33 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
             };
         })
     }
+    //SHOULD BE ACTIONS
     backdropClickHandler = () => {
         this.setState({ sideDrawerOpen: false })
     }
 
     render() {
-
         let drawerClasses = ['side-drawer'];
-        let style;
+        let backDrop;
+        //THIS SHOULD BE IN PROPS
         if (this.state.sideDrawerOpen) {
             drawerClasses = ['side-drawer', 'open'];
-            
+
         }
         else {
             drawerClasses = ['side-drawer', 'close'];
-           
+
         }
 
-        let backDrop;
+
         if (this.state.sideDrawerOpen) {
             backDrop = (
                 <div className="backdrop" onClick={this.backdropClickHandler} />
             )
             //backDrop= <BackDrop click={this.backdropClickHandler} />
         }
+        //I THINK MOVING THE TOOLBAR AWAY IS FINE BECAUSE OF REDUX
+        //SIDEDRAWER HAS ALL THE ACTUAL STUFF
         return (
             <div style={{ height: '100%' }}>
                 {/* <Toolbar drawerToggleClickHandler={this.drawerToggleClickHandler} />  */}
@@ -87,7 +91,7 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
 
                 {/* ***************** SIDE BAR ******************* */}
                 {/* <SideDrawer show={this.state.sideDrawerOpen} /> */}
-                <nav className={drawerClasses.join(' ')} style={style} >
+                <nav className={drawerClasses.join(' ')}  >
                     <ul>
                         <li><a href="/">Profile</a></li>
                         <li><a href="/">Groups</a></li>

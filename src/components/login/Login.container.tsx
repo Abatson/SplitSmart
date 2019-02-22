@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
-import {updatePassword, updateUsername, loginRequest, clearMessage} from '../../actions/login/Login.actions'
+import { updatePassword, updateUsername, loginRequest, clearMessage } from '../../actions/login/Login.actions'
 import { IState } from "../../reducers";
 import { LoginComponent } from "./Login.component";
 
 //This is getting every field from the login state in the interface IState
 const mapStateToProps = (state: IState) => {
   return {
-   login: state.login
+    login: state.login
   }
 }
 //we could also do this instead

@@ -1,14 +1,12 @@
 import { connect } from "react-redux";
 import { updatePassword, updateUsername, loginRequest, clearMessage } from '../../actions/login/Login.actions'
 import { IState } from "../../reducers";
-import { SideBarComponent  } from "./SideBar.component";
+import { NavBarComponent } from "./Navbar.component";
 
 //This is getting every field from the Navbar state in the interface IState
 const mapStateToProps = (state: IState) => {
     return {
         user: state.login.user
-        //pass in boolean for display
-        //also action for toggleing display
     }
 }
 
@@ -16,4 +14,4 @@ const mapStateToProps = (state: IState) => {
 
 //This statement gives all the above information to our component and as such
 //this is the export we want when we make this component in our app.tsx, or anywhere else we need it
-export default connect(mapStateToProps)(SideBarComponent);
+export default connect(mapStateToProps)(NavBarComponent);
