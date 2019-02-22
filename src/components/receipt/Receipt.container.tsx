@@ -6,8 +6,9 @@ import { ReceiptComponent } from "./Receipt.component";
 //This is getting every field from the receipt state in the interface IState
 const mapStateToProps = (state: IState, ownProps) => {
   return {
-    receipt: ownProps.receipt,
-    groupReceipts: state.receipt.groupReceipts
+    // receipt: ownProps.receipt,
+    groupReceipts: state.receipt.groupReceipts,
+    user: state.login.user
   }
 }
 //This is getting all of the actions that our receipt component will be able to call

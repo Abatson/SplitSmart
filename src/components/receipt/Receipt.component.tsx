@@ -4,7 +4,8 @@ import { ReceiptDisplayComponent } from './Receipt.display.component';
 import { Receipt } from '../../models/Receipt';
 import { Line } from '../../models/Line';
 import { Item } from '../../models/Item';
-import { initializeReceipts } from '../../actions/receipt/Receipt.actions';
+import { Users } from '../../models/Users';
+
 
 //requires the importing of Line and Item classes, which should also be in Store
  
@@ -16,8 +17,9 @@ import { initializeReceipts } from '../../actions/receipt/Receipt.actions';
  
 //passing everything thru props
 interface IGroupProps {
-    receipt: Receipt,
-    groupReceipts: any,
+    // receipt: Receipt,
+    user: Users,
+    groupReceipts: Receipt[],
     //lines have a 1:M relationship with items
     initializeReceipts: ()  => void,
     claimReceipt: (receiptID: number, claimant:number) => void, //as a user I would like to be able to claim a receipt
@@ -34,8 +36,8 @@ initializeReceipts = () => {
 }
 
 // whenever the change the username input, call the updateUsername action with the value
-claimReceipt = () => {
-  this.props.claimReceipt(this.props.receipt.id, 0) 
+claimReceipt = (id:number, claiment:number) => {
+  this.props.claimReceipt(id, claiment) 
 }
 
 // whenever the change the username input, call the updateUsername action with the value
@@ -47,7 +49,7 @@ claimLine = (event) => {
 
 componentWillMount()
 {
-  initializeReceipts();
+  this.props.initializeReceipts();
 }
 
   render() {
@@ -64,15 +66,17 @@ componentWillMount()
 
     
 
-    for (var i = 0; i < this.props.groupReceipts.length; i++)
+    for (const key of this.props.groupReceipts)
     {
-      receiptHTML.push(<li><ReceiptDisplayComponent onClick={()=>{this.props.claimReceipt(i, 0); alert(i)} } claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={receiptTest[i]}></ReceiptDisplayComponent></li>)
+      receiptHTML.push(<li><ReceiptDisplayComponent onClick={()=>{this.props.claimReceipt(key.id, 0); alert(key.id)} } claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent></li>)
     }
 
 
     return (
       <div>
-          {<ul>{receiptHTML}</ul>}
+        <ul>
+          {receiptHTML}
+        </ul>
       </div>
     )
   }
