@@ -5,7 +5,6 @@ import { getUserProfile } from '../../actions/profileinfo/ProfileInfo.actions';
 
 interface IProfileInfo {
     user: Users,
-    allUsers: Users[],
     params: any,
     profileUser: Users,
     getUserProfile: (username: string) => void
@@ -17,11 +16,13 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
     }
 
 componentDidMount() {
-    this.props.getUserProfile(this.props.params.username);
+    this.props.getUserProfile(this.props.params.sort);
 }
 
     render() {
-        
+        // const params = qs(this.props.ownProps.location.search)
+        // console.log(this.props.ownProps.location.search)
+        // console.log(params.sort)
         
         return (
             <div className="surroundingBox">
@@ -29,7 +30,7 @@ componentDidMount() {
                 <div>
                     <img src="" width="" height=""></img>
                 </div>
-                <label>{this.props.profileUser.username}sdfs</label>
+                <label>{this.props.params.sort}sdfs</label>
                 <label>{this.props.profileUser.displayName}sdf</label>
                 <label>{this.props.profileUser.password}sdf</label>
                 <label>{this.props.profileUser.firstName}</label>

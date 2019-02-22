@@ -1,16 +1,17 @@
 import React from 'react';
 import { ILoginState } from '../../reducers';
+import { Link } from 'react-router-dom';
 
 
 
 //this interface is just saying what we are going to get as props from our container component
 //we coulddo this with props any but by specifying it makes it easier with out intellisense
 interface ILoginProps {
-    login: ILoginState,
-    updatePassword: (password:string) => void,
-    updateUsername: (username:string) => void,
-    loginRequest: ( username:string, password:string) => void,
-    clearMessage: () => void
+  login: ILoginState,
+  updatePassword: (password: string) => void,
+  updateUsername: (username: string) => void,
+  loginRequest: (username: string, password: string) => void,
+  clearMessage: () => void
 
 }
 
@@ -21,15 +22,15 @@ export class LoginComponent extends React.Component<ILoginProps, any> {
   }
 
   //when we load the component, clear the old message
-componentDidMount() {
-  this.props.clearMessage();
-}
-
-// whenever the change the username input, call the updateUsername action with the value
-  updateUsername = (event) => {
-    this.props.updateUsername(event.target.value) 
+  componentDidMount() {
+    this.props.clearMessage();
   }
-// whenever the change the password input, call the updatePassword action with the value
+
+  // whenever the change the username input, call the updateUsername action with the value
+  updateUsername = (event) => {
+    this.props.updateUsername(event.target.value)
+  }
+  // whenever the change the password input, call the updatePassword action with the value
   updatePassword = (event) => {
     this.props.updatePassword(event.target.value)
   }
@@ -43,32 +44,35 @@ componentDidMount() {
 
   render() {
     //get our password and username from the passed in state
-    const {username, password} = this.props.login
+    const { username, password } = this.props.login
     return (
-        //onsubmit{this.login}
+      //onsubmit{this.login}
       <div className='terminal'>
-      <form className="form-signin" onSubmit={this.login}>
-        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label htmlFor="inputUsername" className="sr-only">Username</label>
-        <input type="text"
-          id="inputUsername"
-          className="text-form"
-          placeholder="Username"
-          value={username}
-          onChange={this.updateUsername}
-          required />
-        <label htmlFor="inputPassword" className="sr-only">Password</label>
-        <input type="password"
-          id="inputPassword"
-          className="text-form"
-          placeholder="Password"
-          value={password}
-          onChange={this.updatePassword}
-          required />
-        <p id="error-message">{this.props.login.feedbackMessage}</p>
-        <button className="button-form" type="submit">Sign in</button>
-      </form>
+        <form className="form-signin" onSubmit={this.login}>
+          <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <label htmlFor="inputUsername" className="sr-only">Username</label>
+          <input type="text"
+            id="inputUsername"
+            className="text-form"
+            placeholder="Username"
+            value={username}
+            onChange={this.updateUsername}
+            required />
+          <label htmlFor="inputPassword" className="sr-only">Password</label>
+          <input type="password"
+            id="inputPassword"
+            className="text-form"
+            placeholder="Password"
+            value={password}
+            onChange={this.updatePassword}
+            required />
+          <p id="error-message">{this.props.login.feedbackMessage}</p>
+          <button className="button-form" type="submit">Sign in</button>
+        </form>
+        <Link to='/register'> Register A New Account</Link>
       </div>
+      
+
     )
   }
 
