@@ -4,7 +4,7 @@ import { debtTypes } from "../actions/debt/Debt.actions";
 // import { DebtTypes } from "../actions/debt/Debt.actions";
 
 const initialState: IDebtState = {
-    debts: []
+    allDebts: []
   }
 
   export const DebtReducer = (state = initialState, action: any) => {

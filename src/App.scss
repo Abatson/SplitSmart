@@ -64,3 +64,26 @@ body{
   border: 1px solid black;
   margin: 150px 250px 150px 250px;
 }
+
+#iou {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#iou td, #iou th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#iou tr:nth-child(even){background-color: #f2f2f2;}
+
+// #iou tr:hover {background-color: #ddd;}
+
+#iou thead {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #000000;
+  color: white;
+}

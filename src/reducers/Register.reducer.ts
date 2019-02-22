@@ -74,12 +74,7 @@ const initialState: IRegisterState = {
           ...state,
           newUser:{
             ...state.newUser,
-<<<<<<< HEAD
-          feedbackMessage: ''
-          // this needs to be registerFeedback
-=======
           registerFeedback: ''
->>>>>>> f24be5e1e5c1a1a19b8e08384fa9fcc358ec0667
           }
       }
       

@@ -38,7 +38,7 @@ export interface IRegisterState{
 }
 
 export interface IDebtState{
-    debts: Debts[]
+    allDebts: Debts[]
 }
 
 
