@@ -5,6 +5,8 @@ import { loginReducer } from "./Login.reducer";
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
+import { Groups } from "../models/Groups";
+import { addGroupReducer } from "./AddGroup.reducer";
 
 
 
@@ -25,17 +27,21 @@ export interface IAccountSettingsState {
 }
 
 
-export interface IProfileInfoState{
+export interface IProfileInfoState {
     userProfile: Users
 }
 
-export interface IRegisterState{
+export interface IRegisterState {
     newUser: Users,
     registerFeedback: string
 }
 
-export interface IAddGroupState{
-    
+export interface IAddGroupState {
+    newGroup: Groups
+}
+export interface IGroupsState {
+    allGroups: Groups[]
+
 }
 
 
@@ -49,9 +55,9 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
-    register: IRegisterState
+    register: IRegisterState,
+    addNewGroup: IAddGroupState
 
-    
 }
 
 
@@ -62,9 +68,9 @@ export interface IState {
 export const state = combineReducers<IState>({
     login: loginReducer,
     accountSettings: accountSettingsReducer,
-    profileInfo:profileInfoReducer,
+    profileInfo: profileInfoReducer,
     register: registerReducer,
-
+    addNewGroup: addGroupReducer
 
 
 })

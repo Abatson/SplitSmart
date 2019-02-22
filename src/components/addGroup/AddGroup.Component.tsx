@@ -6,12 +6,11 @@ import { Groups } from '../../models/Groups';
 
 interface IAddGroupProps {
     user: Users,
-    allUsers: Users[]
     newGroup: Groups,
     updateGroupName: (groupName: string) => void,
     updateGroupPicture: (Url: Url) => void,
     updateGroupDescription: (groupDescription: string) => void,
-    inviteUserToGroup: (usersArray: Users[]) => void,
+    inviteUserToGroup: () => void,
     updateGroup: (newGroup: Groups) => void
 }
 
@@ -66,7 +65,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         required />
                                 </td>
                                 <td>
-                                    <input type="image"
+                                    <input type="url"
                                         id="Group Picture"
                                         className="text-form"
                                         placeholder="Description"
@@ -74,9 +73,9 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         onChange={this.updateDescription}
                                         required />
                                 </td>
-                                <td>
+                                <td> 
                                     <div >
-                                       <tr>Invite Users</tr> 
+                                       <tr>Invite Users</tr> {/*to do*/}
                                     </div>
                                 </td>
                             </tr>
