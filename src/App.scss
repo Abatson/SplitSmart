@@ -142,6 +142,13 @@ SIDEDRAWER
 .side-drawer.open{
     transform: translateX(0)
 }
+.side-drawer.close{
+transition: transform 0.3s ease-in;
+ opacity: 0;
+ transform: translateX(-100%);
+ 
+ }
+
 .side-drawer ul{
     height: 100%;
     list-style: none;
@@ -164,11 +171,11 @@ SIDEDRAWER
     color: #fa923f;
 }
 
-/* @media(min-width: 769px){
-    .side-drawer{
-        display: none;
-    }
-} */
+//  @media(min-width: 969px){
+//     .side-drawer{
+//         display: none;
+//     }
+// } 
 
 /***********************************
 TOOLBAR
