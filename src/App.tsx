@@ -29,11 +29,13 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
             <div>
-              <NavBarComponent/>
+              {/* <NavBarComponent/> */}
+              <SideBarComponent/>
               <Route path='/login' component={LoginComponent}/>
               <Route path='/usersettings' component={AccountSettingsComponent}/>
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent}/>
               <Route path='/register' component={RegisterComponent} />
+              <Route path='/profilepage' component={SideBarComponent}/>
 
 
             </div>
