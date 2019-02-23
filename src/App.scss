@@ -138,11 +138,12 @@ SIDEDRAWER
   
     height:100%;
     background: white;
-    box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 14px 14px black;
     position: fixed;
-    top: 0.1; 
+    margin-top: 1px;
+    //top:0; 
     left: 0;
-    width: 60%;
+    width: 40%;
     max-width: 400px;
     z-index: 200;
     transform: translateX(-100%);
@@ -191,7 +192,7 @@ TOOLBAR
 .toolbar{
   width: 100%;
   position: fixed;
-  background-color: rgb(37, 60, 110);
+  background-color: rgb(20, 52, 78);
   height: 63px;
   top: 0;
   left: 0;
@@ -201,7 +202,8 @@ TOOLBAR
 }
 .toolbar_toggle a:hover,
 .toolbar_toggle a:active{
-  color: #fa923f;
+  color:black;
+   
 }
 .toolbar_toggle a{
 color: white;
@@ -235,7 +237,8 @@ display: flex;
 }
 .toolbar_navigation-items a:hover,
 .toolbar_navigation-items a:active{
-  color: #fa923f;
+  color: black;
+  
 }
 
 /* @media(max-width: 768px){
@@ -286,4 +289,60 @@ BACKDROP
   left: 0;
   background: rgba(0,0,0,0.3);
   z-index: 100;
+}
+.search-input{
+ font-size: 19px;
+  
+}
+#button-search{
+  height: 38px;
+}
+.backdropModal{
+width:100%;
+height: 100%;
+position: fixed;
+z-index: 100;
+background: rgba(0,0,0,0.5);
+left: 0;
+top:0;
+}
+
+/*******************************
+MODAL
+*********************************/
+.Modal{
+  position: fixed;
+  color: black;
+  z-index: 500;
+  background-color: rgb(236, 240, 245);
+  width: 70%;
+  border: 1px solid black;
+  box-shadow: 0 14px 14px black;
+  padding: 16px; 
+  left: 15%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 500ms ease;
+  transform: translate (0px, -50px);
+}
+
+@media (min-width: 600px){
+  .Modal{
+      width: 500px;
+      left: calc(50% - 250px);
+  }
+}
+.Modal.open{
+  transform: translateY(0);
+  opacity: 1;
+}
+.Modal.close{
+  transform: translateY(-100vh);
+  opacity: 0;
+  transition: all 500ms ease;
+}
+.button-close{
+float: right;
+border: 1px solid black;
+background-color: white;
 }

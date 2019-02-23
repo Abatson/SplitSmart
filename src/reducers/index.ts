@@ -5,6 +5,9 @@ import { loginReducer } from "./Login.reducer";
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
+import { sideBarReducer } from "./Sidebar.reducer";
+import { modalReducer } from "./Modal.reducer";
+
 
 
 
@@ -26,16 +29,21 @@ export interface IAccountSettingsState {
 }
 
 
-export interface IProfileInfoState{
+export interface IProfileInfoState {
     userProfile: Users
 }
 
-export interface IRegisterState{
+export interface IRegisterState {
     newUser: Users,
     registerFeedback: string
 }
 
-
+export interface ISideBarState {
+    sideDrawerOpen: boolean
+}
+export interface IModalState {
+    showModal: boolean
+}
 
 
 
@@ -47,11 +55,12 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
-    register: IRegisterState
-
-    
+    register: IRegisterState,
+    sideBar: ISideBarState,
+    modal: IModalState,
 
 }
+
 
 
 
@@ -62,8 +71,11 @@ export const state = combineReducers<IState>({
 
     login: loginReducer,
     accountSettings: accountSettingsReducer,
-    profileInfo:profileInfoReducer,
+    profileInfo: profileInfoReducer,
     register: registerReducer,
+    sideBar: sideBarReducer,
+    modal: modalReducer,
+
 
 
 

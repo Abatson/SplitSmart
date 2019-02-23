@@ -7,63 +7,21 @@ import { Fragment } from 'react';
 /*This component is the navigation bar we will use at the top of our site for navigation purposes.
 */
 interface ISideBarProps {
-    user: Users
+    user: Users,
+    sideDrawerOpen: boolean,
+    backdropClick: () => void,
 }
 export class SideBarComponent extends React.Component<ISideBarProps, any> {
     constructor(props) {
         super(props);
-        //NO STATE
-        this.state = {
-            sideDrawerOpen: false
-        }
-    }
-    drawerToggleClickHandler = (event) => {
-        event.preventDefault(); // Let's stop this event.
-        event.stopPropagation(); // Really this time.
-        this.setState((prevState) => {
-            return {
-                sideDrawerOpen: !prevState.sideDrawerOpen
-            };
-        })
-    }
-    //SHOULD BE ACTIONS
-    backdropClickHandler = () => {
-        this.setState({ sideDrawerOpen: false })
+
     }
     render() {
         //I THINK MOVING THE TOOLBAR AWAY IS FINE BECAUSE OF REDUX
         //SIDEDRAWER HAS ALL THE ACTUAL STUFF
         return (
             <div style={{ height: '100%' }}>
-                <header className="toolbar">
-                    <nav className="toolbar_navigation">
-                        <div className="toolbar_toggle-button">
-                            <button className="toggle-button" onClick={this.drawerToggleClickHandler}>
-                                <div className="toggle-button_line" />
-                                <div className="toggle-button_line" />
-                                <div className="toggle-button_line" />
-                            </button>
-                        </div>
-                        <div className="toolbar_toggle"><NavLink to={{
-                            pathname: '/'
-                        }}>Toggle Sidebar</NavLink></div>
-                        <div className="spacer"></div>
-                        <div className="toolbar_navigation-items">
-                            <ul>
-                                <li><NavLink to={{
-                                    pathname: '/'
-                                }}></NavLink></li>
-                                <li><NavLink to={{
-                                    pathname: '/'
-                                }}></NavLink></li>
-                                <li><NavLink to={{
-                                    pathname: '/'
-                                }}></NavLink></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </header>
-                {this.state.sideDrawerOpen ? <nav className='side-drawer open'> :
+                {this.props.sideDrawerOpen ? <nav className='side-drawer open'> :
                     <ul>
                         <li><NavLink to={{
                             pathname: '/'
@@ -74,8 +32,8 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
                     </ul>
                 </nav> : <nav className='side-drawer close'></nav>}
                 {
-                    this.state.sideDrawerOpen ?
-                        <div className="backdrop" onClick={this.backdropClickHandler} /> : null}
+                    this.props.sideDrawerOpen ?
+                        <div className="backdrop" onClick={this.props.backdropClick} /> : null}
 
                 <main style={{ marginTop: "64px" }}></main>
             </div>
