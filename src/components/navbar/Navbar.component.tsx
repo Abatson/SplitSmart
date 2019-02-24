@@ -13,7 +13,6 @@ This component is the navigation bar we will use at the top of our site for navi
 
 interface INavbarProps {
     user: Users,
-
     drawerToggle: () => void
 
 
@@ -43,13 +42,13 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </div>
                         <div className="toolbar_toggle"><NavLink to={{
                             pathname: '/'
-                        }}><FaArrowLeft/></NavLink></div>
-                        <div className="splitsmart" style={{textAlign:"center"}}>Split$mart</div>
+                        }}><FaArrowLeft /></NavLink></div>
+                        <div className="splitsmart" style={{ textAlign: "center" }}>Split$mart</div>
                         <div className="spacer"></div>
                         <div className="toolbar_navigation-items">
-                        
+
                             <ul>
-                                
+
                                 <li><NavLink to={{
                                     pathname: '/profile',
                                     search: `?sort=${this.props.user.username}`,
@@ -65,11 +64,12 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
                                 }}>Debts</NavLink></li>
+
                                 <li><NavLink className='innerNavBar' to={{
                                     pathname: '/logout',
                                 }} > Logout
                             </NavLink></li>
-                            <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }}>
+                                <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }}>
                                     <button className="btn btn-danger my-2 my-sm-0" type="submit">< FaSearch /></button>
                                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                                 </form></li>

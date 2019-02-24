@@ -20,6 +20,7 @@ import SideBarComponent from './components/SideBar/SideBar.container';
 import ModalASComponent from './components/modals/ModalAS.container';
 import ModalGSComponent from './components/modals/ModalGS.container';
 import ModalAGComponent from './components/modals/ModalAG.container';
+import FooterComponent from './components/footer/Footer.container';
 
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
               <ModalASComponent />
               <ModalGSComponent />
               <ModalAGComponent />
+              <FooterComponent/>
               <Route path='/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
