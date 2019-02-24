@@ -5,6 +5,11 @@ import { loginReducer } from "./Login.reducer";
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
+import { sideBarReducer } from "./Sidebar.reducer";
+import { modalASReducer } from "./ModalAS.reducer";
+import { modalGSReducer } from "./ModalGS.reducer";
+import { modalAGReducer } from "./ModalAG.reducer";
+
 
 
 
@@ -26,17 +31,27 @@ export interface IAccountSettingsState {
 }
 
 
-export interface IProfileInfoState{
+export interface IProfileInfoState {
     userProfile: Users
 }
 
-export interface IRegisterState{
+export interface IRegisterState {
     newUser: Users,
     registerFeedback: string
 }
 
-
-
+export interface ISideBarState {
+    sideDrawerOpen: boolean
+}
+export interface IModalASState {
+    showASModal: boolean
+}
+export interface IModalGSState {
+    showGSModal: boolean
+}
+export interface IModalAGState {
+    showAGModal: boolean
+}
 
 
 //This interface represents the entirety of our store. All of the state of the program.
@@ -47,11 +62,14 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
-    register: IRegisterState
-
-    
+    register: IRegisterState,
+    sideBar: ISideBarState,
+    modalAS: IModalASState,
+    modalGS: IModalGSState,
+    modalAG: IModalAGState,
 
 }
+
 
 
 
@@ -62,8 +80,13 @@ export const state = combineReducers<IState>({
 
     login: loginReducer,
     accountSettings: accountSettingsReducer,
-    profileInfo:profileInfoReducer,
+    profileInfo: profileInfoReducer,
     register: registerReducer,
+    sideBar: sideBarReducer,
+    modalAS: modalASReducer,
+    modalGS: modalGSReducer,
+    modalAG: modalAGReducer,
+
 
 
 
