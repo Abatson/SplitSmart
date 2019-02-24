@@ -15,7 +15,6 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
 
   render() {
-    const {props} = this.props;
     let receiptHTML : any = [];
 
 
@@ -23,7 +22,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       Receipt Name: {this.props.receipt.name}
       <p>
       <p>
-      Claimant: {this.props.receipt.claimant}  
+      {(this.props.receipt.claimant == -1) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.claimant == -1) ? "" : this.props.receipt.claimant}  
       </p>
       Claim Receipt:  <input onClick={this.props.onClick1} type="checkbox" id="scales" name="scales"
      ></input>
@@ -36,17 +35,20 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       let tempJSX : any = [];
       for (let i = 0; i < this.props.receipt.lines.length; i++)
       {
-        tempJSX.push(<li><input onClick={this.props.onClick2} type="checkbox" id="scales" name="scales"
+        tempJSX.push(<li><input onClick={this.props.onClick2[i]} type="checkbox" id="scales" name="scales"
         ></input>Purchase Name: {this.props.receipt.lines[i].name}</li>)
 
-        
+        tempJSX.push(<p>Price Before Split: {this.props.receipt.lines[i].itemPrice}</p>);
+        tempJSX.push(<p>Equal Price Split:</p>);
+
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-                tempJSX.push(<React.Fragment>Item : {this.props.receipt.lines[i].name} ItemPrice : {this.props.receipt.lines[i].items[j].itemPrice}</React.Fragment>)
+                tempJSX.push(<div>{this.props.receipt.lines[i].name} pays ${this.props.receipt.lines[i].itemPrice/(this.props.receipt.lines[i].items.length)}  </div>)
               }
         
         receiptHTML.push(<div>{tempJSX}</div>)
         tempJSX = [];
+        receiptHTML.push(<p></p>)
       }
 
     return (

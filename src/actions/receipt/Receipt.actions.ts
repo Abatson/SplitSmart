@@ -4,7 +4,7 @@ export const receiptTypes = {
     CLAIM_RECEIPT:  'L_CLAIM_RECEIPT' ,
     CLAIM_LINE:  'L_CLAIM_LINE' ,
     INITIALIZE_RECEIPTS:  'L_INITIALIZE_RECEIPTS' ,
-
+ 
   }
   
 

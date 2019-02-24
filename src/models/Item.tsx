@@ -1,11 +1,9 @@
 export class Item {
 
     
-    constructor(itemPrice, itemRecipient) {
-        this.itemPrice = itemPrice,
-        this.itemRecipient = itemRecipient
+    constructor(claimant) {
+        this.claimant = claimant;
     }
     
-    itemPrice : number;
-    itemRecipient : string
+    claimant : number;
 }
