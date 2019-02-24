@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { ILoginState } from '../../reducers';
 import { Link, NavLink } from 'react-router-dom';
 import { Users } from '../../models/Users';
-import { FaUserAlt, FaSearch, Fa500px } from 'react-icons/fa';
-import { ModalComponent } from '../modal/Modal.component';
+import { FaUserAlt, FaSearch, FaArrowLeft } from 'react-icons/fa';
+import { ModalASComponent } from '../modals/ModalAS.component';
 import Modal from 'reactstrap/lib/Modal';
 
 /*
@@ -12,8 +12,11 @@ This component is the navigation bar we will use at the top of our site for navi
 */
 
 interface INavbarProps {
-    user: Users
+    user: Users,
+
     drawerToggle: () => void
+
+
 }
 
 export class NavBarComponent extends React.Component<INavbarProps, any> {
@@ -21,11 +24,13 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
         super(props);
     }
 
-    
+
+
+
     render() {
         return (
             <Fragment>
-             
+
 
                 <header className="toolbar">
                     <nav className="toolbar_navigation">
@@ -38,14 +43,13 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </div>
                         <div className="toolbar_toggle"><NavLink to={{
                             pathname: '/'
-                        }}>Split$mart</NavLink></div>
+                        }}><FaArrowLeft/></NavLink></div>
+                        <div className="splitsmart" style={{textAlign:"center"}}>Split$mart</div>
                         <div className="spacer"></div>
                         <div className="toolbar_navigation-items">
+                        
                             <ul>
-                                <li><form className="form-inline my-2 my-lg-0">
-                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                                    <button className="btn btn-outline-danger my-2 my-sm-0" type="submit">< FaSearch /></button></form></li>
-
+                                
                                 <li><NavLink to={{
                                     pathname: '/profile',
                                     search: `?sort=${this.props.user.username}`,
@@ -65,12 +69,28 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     pathname: '/logout',
                                 }} > Logout
                             </NavLink></li>
+                            <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }}>
+                                    <button className="btn btn-danger my-2 my-sm-0" type="submit">< FaSearch /></button>
+                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                                </form></li>
 
                             </ul>
                         </div>
                     </nav>
-                   
+                    <div className="currencies">
+                        <select className="custom-select">
+                            <option value="USD" >United States Dollars- USD</option>
+                            <option value="EUR">Euro- EUR</option>
+                            <option value="GBP">United Kingdom Pounds- GBP</option>
+                            <option value="CAD">Canadian Dollars- CAD</option>
+                            <option value="RUR">Russia Rubles- RUR</option>
+                            <option value="JPY">Japan Yen- JPY</option>
+                        </select>
+                    </div>
                 </header>
+
+
+
 
             </Fragment>
         )

@@ -21,14 +21,17 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
         //SIDEDRAWER HAS ALL THE ACTUAL STUFF
         return (
             <div style={{ height: '100%' }}>
-                {this.props.sideDrawerOpen ? <nav className='side-drawer open'> :
+                {this.props.sideDrawerOpen ? <nav className='side-drawer open'>
+                    <div className="sidebarTop">
+                        <span className="groupHeading">Groups</span>
+                    </div>
                     <ul>
                         <li><NavLink to={{
                             pathname: '/'
-                        }}>Profile</NavLink></li>
+                        }}></NavLink></li>
                         <li><NavLink to={{
                             pathname: '/'
-                        }}>Groups</NavLink></li>
+                        }}></NavLink></li>
                     </ul>
                 </nav> : <nav className='side-drawer close'></nav>}
                 {

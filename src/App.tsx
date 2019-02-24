@@ -17,7 +17,9 @@ import NavBarComponent from './components/navbar/Navbar.container';
 
 
 import SideBarComponent from './components/SideBar/SideBar.container';
-import ModalComponent from './components/modal/Modal.container';
+import ModalASComponent from './components/modals/ModalAS.container';
+import ModalGSComponent from './components/modals/ModalGS.container';
+import ModalAGComponent from './components/modals/ModalAG.container';
 
 class App extends Component {
   render() {
@@ -31,14 +33,16 @@ class App extends Component {
             <div>
               <NavBarComponent />
               <SideBarComponent />
-              <ModalComponent />
+              <ModalASComponent />
+              <ModalGSComponent />
+              <ModalAGComponent />
               <Route path='/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
               <Route path='/register' component={RegisterComponent} />
               <Route path='/profilepage' component={SideBarComponent} />
-              <Route path='/profilepage' component={ModalComponent} />
-
+              
+              
 
             </div>
 

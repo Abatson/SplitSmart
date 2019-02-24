@@ -6,7 +6,9 @@ import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
 import { sideBarReducer } from "./Sidebar.reducer";
-import { modalReducer } from "./Modal.reducer";
+import { modalASReducer } from "./ModalAS.reducer";
+import { modalGSReducer } from "./ModalGS.reducer";
+import { modalAGReducer } from "./ModalAG.reducer";
 
 
 
@@ -41,10 +43,15 @@ export interface IRegisterState {
 export interface ISideBarState {
     sideDrawerOpen: boolean
 }
-export interface IModalState {
-    showModal: boolean
+export interface IModalASState {
+    showASModal: boolean
 }
-
+export interface IModalGSState {
+    showGSModal: boolean
+}
+export interface IModalAGState {
+    showAGModal: boolean
+}
 
 
 //This interface represents the entirety of our store. All of the state of the program.
@@ -57,7 +64,9 @@ export interface IState {
     profileInfo: IProfileInfoState,
     register: IRegisterState,
     sideBar: ISideBarState,
-    modal: IModalState,
+    modalAS: IModalASState,
+    modalGS: IModalGSState,
+    modalAG: IModalAGState,
 
 }
 
@@ -74,7 +83,9 @@ export const state = combineReducers<IState>({
     profileInfo: profileInfoReducer,
     register: registerReducer,
     sideBar: sideBarReducer,
-    modal: modalReducer,
+    modalAS: modalASReducer,
+    modalGS: modalGSReducer,
+    modalAG: modalAGReducer,
 
 
 
