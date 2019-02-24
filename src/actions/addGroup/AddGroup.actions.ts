@@ -3,19 +3,23 @@ import { Url } from "url";
 import { ssClient } from "../../axios/ss.client";
 
 export const addGroupTypes = {
-    UPDATE_GROUP: 'L_UPDATE_GROUP',
-    UPDATE_GROUP_NAME: 'L_UPDATE_GROUP_NAME',
-    UPDATE_GROUP_PICTURE: 'L_UPDATE_GROUP_PICTURE',
-    UPDATE_GROUP_DESCRIPTION: 'L_UPDATE_GROUP_DESCRIPTION',
-    INVITE_USER_TO_GROUP: 'L_INVITE_USER_TO_GROUP',
-    FAILED_TO_ADD_GROUP: 'L_FAILED_TO_ADD_GROUP'
+    CREATE_GROUP: 'A_CREATE_GROUP',
+    UPDATE_GROUP_NAME: 'A_UPDATE_GROUP_NAME',
+    UPDATE_GROUP_PICTURE: 'A_UPDATE_GROUP_PICTURE',
+    UPDATE_GROUP_DESCRIPTION: 'A_UPDATE_GROUP_DESCRIPTION',
+    INVITE_USER_TO_GROUP: 'A_INVITE_USER_TO_GROUP',
+    FAILED_TO_ADD_GROUP: 'A_FAILED_TO_ADD_GROUP',
+    UPDATE_GROUP_OWNER: 'A_UPDATE_GROUP_OWNER',
+    FAILED_TO_ADD_USER_TO_GROUP: 'A_FAILED_TO_ADD_USER_TO_GROUP',
+    RESET_ADD_FORM: 'A_RESET_ADD_FORM',
+    UPDATE_USER_TO_ADD: 'A_UPDATE_USER_TO_ADD'
 }
 
-export const updateGroup = (newGroup: Groups) => async (dispatch) => {
+export const createGroup = (newGroup: Groups) => async (dispatch) => {
 
     
     try{
-        const res = await ssClient.post('/login', newGroup);
+        const res = await ssClient.post('/addGroup', newGroup);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods
@@ -23,7 +27,7 @@ export const updateGroup = (newGroup: Groups) => async (dispatch) => {
             payload: {
                 group: res.data
             },
-            type: addGroupTypes.UPDATE_GROUP
+            type: addGroupTypes.CREATE_GROUP
         })
 
     }catch (err) {
@@ -38,6 +42,13 @@ export const updateGroup = (newGroup: Groups) => async (dispatch) => {
 
 }
 }
+export const resetAddForm = () => {
+    return {
+      payload: {
+      },
+      type:addGroupTypes.RESET_ADD_FORM
+    }
+  }
 
 export const updateGroupName = (groupName: string) => {
     return {
@@ -67,8 +78,47 @@ export const updateGroupDescription = (groupDescription: string) => {
     }
 
 }
-export const inviteUserToGroup = () => {
-    payload: {
-
+export const updateGroupOwner = (userId: number) => {
+    return {
+        payload: {
+            userId: userId
+        },
+        type: addGroupTypes.UPDATE_GROUP_OWNER
     }
+}
+
+export const updateUserToInvite = (usernameToAdd: string) => {
+    return {
+        payload: {
+            usernameToAdd: usernameToAdd
+        },
+        type: addGroupTypes.UPDATE_USER_TO_ADD
+    }
+}
+
+export const inviteUserToGroup = (username: string) => async (dispatch) => {
+
+    try{
+        console.log(username)
+        const res = await ssClient.post('/findByUsername', username);
+        console.log(res)
+        //when doing an async action, we have to call the dispatcher ourselves
+        //this is the same thing as returning the payload up above in our other methods
+        dispatch({
+            payload: {
+                user: res.data
+            },
+            type: addGroupTypes.INVITE_USER_TO_GROUP
+        })
+
+    }catch (err) {
+        //impediment, how to get api message from error
+        console.log(err);
+        dispatch({
+            payload: {
+            },
+            type: addGroupTypes.FAILED_TO_ADD_USER_TO_GROUP
+        })
+
+}
 }

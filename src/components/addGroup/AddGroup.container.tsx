@@ -1,11 +1,13 @@
 import { IState } from "../../reducers";
 import { AddGroupComponent } from "./AddGroup.Component";
 import { connect } from "react-redux";
-import { updateGroupPicture, updateGroupName, updateGroupDescription, inviteUserToGroup, updateGroup } from "../../actions/addGroup/AddGroup.actions";
+import { updateGroupPicture, updateGroupName, updateGroupDescription, inviteUserToGroup, createGroup, updateGroupOwner, resetAddForm } from "../../actions/addGroup/AddGroup.actions";
+import { string } from "prop-types";
 
 const mapStateToProps = (state: IState) => {
     return {
         user: state.login.user,
+        usernameToAdd: string,
         newGroup: state.addNewGroup.newGroup
     }
 }
@@ -15,7 +17,9 @@ const mapDispatchToProps = {
     updateGroupPicture,
     updateGroupDescription,
     inviteUserToGroup,
-    updateGroup
+    createGroup,
+    updateGroupOwner,
+    resetAddForm
 }
 
 

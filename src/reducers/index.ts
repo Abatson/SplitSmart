@@ -37,7 +37,8 @@ export interface IRegisterState {
 }
 
 export interface IAddGroupState {
-    newGroup: Groups
+    newGroup: Groups,
+    usernameToAdd: string
 }
 export interface IGroupsState {
     allGroups: Groups[]

@@ -12,6 +12,7 @@ import  AccountSettingsComponent  from './components/accountsettings/AccountSett
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
 import RegisterComponent  from './components/register/Register.container';
 import  NavBarComponent  from './components/navbar/Navbar.container';
+import  AddGroupComponent  from './components/addGroup/AddGroup.container';
 
 
 
@@ -30,7 +31,7 @@ class App extends Component {
               <Route path='/usersettings' component={AccountSettingsComponent}/>
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent}/>
               <Route path='/register' component={RegisterComponent} />
-
+              <Route path='/addGroup' component={AddGroupComponent} />
 
             </div>
           </BrowserRouter>
