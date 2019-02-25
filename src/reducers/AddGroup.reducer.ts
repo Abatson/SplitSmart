@@ -65,10 +65,16 @@ export const addGroupReducer = (state = initialState, action: any) => {
         ...state,
         addGroupFeedback: 'Incorrect Data'
       } 
+      case addGroupTypes.UPDATE_USER_TO_ADD:
+      return{
+        ...state,
+        usernameToAdd: action.payload.usernameToAdd
+      }
       case addGroupTypes.INVITE_USER_TO_GROUP:
       console.log(action.payload.user)
       let newArray = [...state.newGroup.groupMembers];
       newArray.push(action.payload.user)
+      action.payload.usernameToAdd = '';
       return{
         ...state,
         newGroup: {
@@ -79,8 +85,8 @@ export const addGroupReducer = (state = initialState, action: any) => {
 
       }
       case addGroupTypes.RESET_ADD_FORM:
-        action.payload.user = '';
-        return action.payload.user;
+        initialState.usernameToAdd = '';
+        return initialState;
 
   }
   return state

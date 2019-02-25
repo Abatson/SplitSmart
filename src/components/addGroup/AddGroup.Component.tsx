@@ -14,8 +14,8 @@ interface IAddGroupProps {
     inviteUserToGroup: (username: string) => void,
     createGroup: (newGroup: Groups) => void,
     updateGroupOwner: (ownerId: number) => void,
-    resetAddForm: () => void,
-    updateUserToInvite: (usernameToAdd: string) => void
+    resetAddForm: (usernameToAdd: string) => void,
+    updateUserToAdd: (usernameToAdd: string) => void
 }
 
 export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
@@ -42,11 +42,14 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     }
     inviteUserToGroup = (event) => {
         event.preventDefault();
-        this.props.inviteUserToGroup(this.props.user.username)
+        this.props.inviteUserToGroup(this.props.usernameToAdd)
     }
-    updateUserToInvite = (event) => {
+    updateUserToAdd = (event) => {
         event.preventDefault();
-        this.props.updateUserToInvite(event.target.value)
+        this.props.updateUserToAdd(event.target.value)
+    }
+    resetAddForm = (event) => {
+        this.props.resetAddForm(event.target.value)
     }
 
     render() {
@@ -95,7 +98,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                     </table>
                     <button className="button-form" type="submit">Create</button>
                 </form>
-                <form onSubmit={this.inviteUserToGroup} className="invite-user-to-group-form">
+                <form onSubmit={this.inviteUserToGroup} onReset={this.resetAddForm} className="invite-user-to-group-form">
                     <table id='add-group-header'>
                         <tbody>
                             <tr>
@@ -105,14 +108,14 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         className="addUserToGroup"
                                         placeholder="Invite User"
                                         value={this.props.usernameToAdd}
-                                        onChange={this.updateUserToInvite}
+                                        onChange={this.updateUserToAdd}
                                         required />
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <button className="button-form" type="submit">Add User</button>
-
+                    <button className="button-form" type="reset">Reset Entry</button>
                 </form>
             </div >
         );

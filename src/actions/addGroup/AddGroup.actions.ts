@@ -42,13 +42,7 @@ export const createGroup = (newGroup: Groups) => async (dispatch) => {
 
 }
 }
-export const resetAddForm = () => {
-    return {
-      payload: {
-      },
-      type:addGroupTypes.RESET_ADD_FORM
-    }
-  }
+
 
 export const updateGroupName = (groupName: string) => {
     return {
@@ -87,12 +81,21 @@ export const updateGroupOwner = (userId: number) => {
     }
 }
 
-export const updateUserToInvite = (usernameToAdd: string) => {
+export const updateUserToAdd = (usernameToAdd: string) => {
     return {
         payload: {
             usernameToAdd: usernameToAdd
         },
         type: addGroupTypes.UPDATE_USER_TO_ADD
+    }
+}
+
+export const resetAddForm = (usernameToAdd: string) => {
+    return {
+        payload: {
+            usernameToAdd: usernameToAdd
+        },
+        type: addGroupTypes.RESET_ADD_FORM
     }
 }
 
