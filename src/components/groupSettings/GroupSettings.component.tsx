@@ -4,30 +4,25 @@ import { Users } from '../../models/Users';
 import { Url } from 'url';
 import { Groups } from '../../models/Groups';
 
-interface IAddGroupProps {
+interface IGroupSettingsProps {
     user: Users,
-    newGroup: Groups,
+    currentGroup: Groups,
     usernameToAdd: string,
     updateGroupName: (groupName: string) => void,
     updateGroupPicture: (Url: Url) => void,
     updateGroupDescription: (groupDescription: string) => void,
     inviteUserToGroup: (username: string) => void,
-    createGroup: (newGroup: Groups) => void,
-    updateGroupOwner: (ownerId: number) => void,
     resetAddForm: (usernameToAdd: string) => void,
-    updateUserToAdd: (usernameToAdd: string) => void
+    updateUserToAdd: (usernameToAdd: string) => void,
+    updateGroup: (currentGroup: Groups) => void
 }
 
-export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
+export class GroupSettingsComponent extends React.Component<IGroupSettingsProps, any> {
     constructor(props) {
         super(props);
     }
-    componentDidMount() {
-        this.props.updateGroupOwner(this.props.user.userId)
-    }
-    createGroup = (event) => {
-        event.preventDefault(); //prevent default form submission
-        this.props.createGroup(this.props.newGroup);
+    updateGroup = (event) => {
+        this.props.updateGroup(event.target.value)
     }
     updateGroupName = (event) => {
         event.preventDefault(); //prevent default form submission
@@ -55,11 +50,11 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     render() {
         //console.log(this.props.newGroup)
         return (
-            <div className="add-group-page">
-                <form onSubmit={this.createGroup} className="add-group-form">
-                    <table id='add-group-header'>
+            <div className="group-settings-page">
+                <form onSubmit={this.updateGroup} className="group-settings-form">
+                    <table id='group-settings-header'>
                         <tbody>
-                            <tr id='add-group-row'>
+                            <tr id='group-settings-row'>
                                 <td>Group Name</td>
                                 <td>Description</td>
                                 <td>Picture</td>
@@ -71,7 +66,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         id="Group Name"
                                         className="text-form"
                                         placeholder="Group Name"
-                                        value={this.props.newGroup.groupName}
+                                        value={this.props.currentGroup.groupName}
                                         onChange={this.updateGroupName}
                                         required />
                                 </td>
@@ -80,7 +75,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         id="Group Description"
                                         className="text-form"
                                         placeholder="Description"
-                                        value={this.props.newGroup.groupDescription}
+                                        value={this.props.currentGroup.groupDescription}
                                         onChange={this.updateDescription}
                                         required />
                                 </td>
@@ -89,7 +84,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         id="Group Picture"
                                         className="text-form"
                                         placeholder="URL"
-                                        value={this.props.newGroup.groupPicture}
+                                        value={this.props.currentGroup.groupPicture}
                                         onChange={this.updateGroupPicture}
                                         required />
                                 </td>
@@ -99,7 +94,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                     <button className="button-form" type="submit">Create</button>
                 </form>
                 <form onSubmit={this.inviteUserToGroup} onReset={this.resetAddForm} className="invite-user-to-group-form">
-                    <table id='add-group-header'>
+                    <table id='group-settings-header'>
                         <tbody>
                             <tr>
                                 <td>
