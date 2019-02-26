@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ILoginState } from '../../reducers';
+import { Link } from 'react-router-dom';
+import { FaUser, FaLock } from 'react-icons/fa';
+
 
 
 
 //this interface is just saying what we are going to get as props from our container component
 //we coulddo this with props any but by specifying it makes it easier with out intellisense
 interface ILoginProps {
-    login: ILoginState,
-    updatePassword: (password:string) => void,
-    updateUsername: (username:string) => void,
-    loginRequest: ( username:string, password:string) => void,
-    clearMessage: () => void
+  login: ILoginState,
+  updatePassword: (password: string) => void,
+  updateUsername: (username: string) => void,
+  loginRequest: (username: string, password: string) => void,
+  clearMessage: () => void
+
+
 
 }
+
 
 //our actual component, however when we want to instatiate it, we will use the export in the container
 export class LoginComponent extends React.Component<ILoginProps, any> {
@@ -20,16 +26,20 @@ export class LoginComponent extends React.Component<ILoginProps, any> {
     super(props);
   }
 
-  //when we load the component, clear the old message
-componentDidMount() {
-  this.props.clearMessage();
-}
-
-// whenever the change the username input, call the updateUsername action with the value
-  updateUsername = (event) => {
-    this.props.updateUsername(event.target.value) 
+  componentWillMount() {
+    document.body.style.backgroundColor = "#ccc";
   }
-// whenever the change the password input, call the updatePassword action with the value
+
+  //when we load the component, clear the old message
+  componentDidMount() {
+    this.props.clearMessage();
+  }
+
+  // whenever the change the username input, call the updateUsername action with the value
+  updateUsername = (event) => {
+    this.props.updateUsername(event.target.value)
+  }
+  // whenever the change the password input, call the updatePassword action with the value
   updatePassword = (event) => {
     this.props.updatePassword(event.target.value)
   }
@@ -40,14 +50,48 @@ componentDidMount() {
     this.props.loginRequest(this.props.login.username, this.props.login.password);
   }
 
-
   render() {
+
     //get our password and username from the passed in state
-    const {username, password} = this.props.login
+    const { username, password } = this.props.login
     return (
-        //onsubmit{this.login}
-      <div className='terminal'>
-      <form className="form-signin" onSubmit={this.login}>
+
+
+      //onsubmit{this.login}
+      // <div className='terminal
+      <div className="body">
+        <div className="login-box">
+          <form className="login-form" onSubmit={this.login}>
+            <h1>Login</h1>
+            <div className="textbox">
+              <FaUser className="fa" />
+              <input
+                type="text"
+                className="txtb"
+                placeholder="Username"
+                value={username}
+                onChange={this.updateUsername}
+                required />
+            </div>
+            <div className="textbox">
+              <FaLock className="fa" />
+              <input
+                type="password"
+                className="txtb"
+                placeholder="Password"
+                value={password}
+                onChange={this.updatePassword}
+                required />
+            </div>
+            <p id="error-message">{this.props.login.feedbackMessage}</p>
+            <button className="login-btn" type="submit">Sign in</button>
+          </form>
+
+          <Link className="link-to-newAccount" to='/register'> Register A New Account</Link>
+        </div>
+      </div>
+
+      /* <form className="form-signin" onSubmit={this.login}>
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label htmlFor="inputUsername" className="sr-only">Username</label>
         <input type="text"
@@ -68,8 +112,13 @@ componentDidMount() {
         <p id="error-message">{this.props.login.feedbackMessage}</p>
         <button className="button-form" type="submit">Sign in</button>
       </form>
-      </div>
+      <Link to='/register'> Register A New Account</Link>
+    </div>
+     */
+
+
     )
+
   }
 
 }
