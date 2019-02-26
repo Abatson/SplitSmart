@@ -3,7 +3,7 @@ const dev = {
   }
   
   const prod = {
-    ssContext: 'http://ec2-18-222-173-186.us-east-2.compute.amazonaws.com:5500'
+    ssContext: 'http://ec2-52-15-85-15.us-east-2.compute.amazonaws.com:5500'
   }
   
   export let environment = prod;
