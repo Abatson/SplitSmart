@@ -10,6 +10,7 @@ import { Debts } from "../models/Debts";
 import { DebtReducer } from "./Debt.reducer";
 
 import { Groups } from "../models/Groups";
+import { GroupSettingsReducer } from "./GroupSettings.reducer";
 import { addGroupReducer } from "./AddGroup.reducer";
 import { sideBarReducer } from "./Sidebar.reducer";
 import { modalASReducer } from "./ModalAS.reducer";
@@ -59,6 +60,9 @@ export interface IGroupsState {
     allGroups: Groups[]
 
 }
+export interface IGroupSettingsState{
+    usernameToAdd: string,
+}
 
 export interface ISideBarState {
     sideDrawerOpen: boolean
@@ -83,6 +87,7 @@ export interface IState {
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
     register: IRegisterState,
+    groupSettings: IGroupSettingsState,
     debt: IDebtState,
     addNewGroup: IAddGroupState,
     sideBar: ISideBarState,
@@ -105,6 +110,7 @@ export const state = combineReducers<IState>({
     accountSettings: accountSettingsReducer,
     profileInfo: profileInfoReducer,
     register: registerReducer,
+    groupSettings: GroupSettingsReducer,
     debt: DebtReducer,
     addNewGroup: addGroupReducer,
     sideBar: sideBarReducer,
