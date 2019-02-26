@@ -1,6 +1,9 @@
 /*************************
 LOGIN FORM
 *************************/
+*{
+  font-family: Helvetica;
+}
 .body{
   font-family: Helvetica;
   width: 100%;
@@ -139,12 +142,75 @@ LOGIN FORM
 #accountSettingsTable td{
   padding: 30px;
 }
+
+/********************************
+PROFILE INFO
+********************************/
+.profileInfo{
+  width: 100%;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  padding: 5px;
+  letter-spacing: 0.2pc;
+}
 .surroundingBox{
   border: 1px solid black;
-  margin: 150px 250px 150px 250px;
+  margin: 100px 100px 0px 340px;
+  width: 800px;
+  height: 32em;
+  //padding: 50px;
+  box-shadow: 0 5px 5px black;
+  background-color: rgb(250, 246, 246);
+  font-family: sans-serif;
+  border-radius: 10px;
+  background-color: white;
 }
 
 
+.picture{
+  border: 1px solid black;
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  margin-left: 90px;
+  margin-top: 30px;
+  
+}
+.profileInfoBox{
+  margin-left: 270px;
+  margin-top: 10px;
+  position: absolute;
+  width: 500px;
+  text-align: left;
+  padding: 20px;
+}
+.profileInfoBox label{
+    font-weight: bold;
+    left: 0;
+}
+.profile{
+  background-color: #ccc;
+  margin-bottom: 20px;
+}
+
+.profileInfoBox button{
+  float: right;
+}
+.buttonSettings{
+  border: 1px solid black;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  font-family: Helvetica;
+
+}
+.buttonSettings:hover,
+.buttonSettings:active{
+  background-color: black;
+
+}
 #iou {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -353,7 +419,7 @@ TOOLBAR
   top: 0;
   left: 0;
   border: 1px solid black;
-  box-shadow: 0 13px 13px black;
+  //box-shadow: 0 13px 13px black;
 }
 .toolbar_toggle{
   margin-left: 1rem;
@@ -577,6 +643,7 @@ background-color: white;
   border: 1px solid black;
   border: 0 1px 1px 1px;
   border-radius: 10px;
+  display: none;
 }
 select option{
   font-weight: bold;
@@ -616,4 +683,12 @@ select option{
   height: 20px;
   border-radius: 15px;
 }
-
+.showASModal{
+  display: none;
+}
+.buttonAG{
+  display: none;
+}
+.buttonGS{
+  display: none;
+}

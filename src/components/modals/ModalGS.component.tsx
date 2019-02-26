@@ -17,7 +17,7 @@ export class ModalGSComponent extends React.Component<IModalGSProps, any >{
 
         return (
             <div >
-                <button type="button" onClick={this.props.openGSModal}>Show GS Modal</button>
+                <button type="button" onClick={this.props.openGSModal} className="buttonGS">Show GS Modal</button>
                 {
                     this.props.showGSModal ?
                         <div className="ModalGS open">
