@@ -5,6 +5,10 @@ import { loginReducer } from "./Login.reducer";
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
+
+import { Debts } from "../models/Debts";
+import { DebtReducer } from "./Debt.reducer";
+
 import { Groups } from "../models/Groups";
 import { addGroupReducer } from "./AddGroup.reducer";
 import { sideBarReducer } from "./Sidebar.reducer";
@@ -42,6 +46,10 @@ export interface IRegisterState {
     registerFeedback: string
 }
 
+export interface IDebtState{
+    allDebts: Debts[]
+}
+
 
 export interface IAddGroupState {
     newGroup: Groups,
@@ -75,11 +83,13 @@ export interface IState {
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
     register: IRegisterState,
+    debt: IDebtState,
     addNewGroup: IAddGroupState,
     sideBar: ISideBarState,
     modalAS: IModalASState,
     modalGS: IModalGSState,
     modalAG: IModalAGState,
+
 
 
 }
@@ -95,12 +105,12 @@ export const state = combineReducers<IState>({
     accountSettings: accountSettingsReducer,
     profileInfo: profileInfoReducer,
     register: registerReducer,
+    debt: DebtReducer,
     addNewGroup: addGroupReducer,
     sideBar: sideBarReducer,
     modalAS: modalASReducer,
     modalGS: modalGSReducer,
     modalAG: modalAGReducer,
-
 
 
 

@@ -9,12 +9,11 @@ import './include/Bootstrap';
 
 import  LoginComponent  from './components/login/Login.container';
 import  AccountSettingsComponent  from './components/accountsettings/AccountSettings.container';
-
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
 import RegisterComponent  from './components/register/Register.container';
 import  NavBarComponent  from './components/navbar/Navbar.container';
+import DebtComponent from './components/debt/Debt.container';
 import  AddGroupComponent  from './components/addGroup/AddGroup.container';
-
 
 
 
@@ -44,6 +43,9 @@ class App extends Component {
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
               <Route path='/register' component={RegisterComponent} />
+              //need a better path
+              <Route path='/iou' component={DebtComponent} />
+
               <Route path='/addGroup' component={AddGroupComponent} />
 
             </div>
