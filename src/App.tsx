@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './include/Bootstrap';
 //notice for our component import we are using the default import from the container file
 //we need to do this so that redux can connect our component to the store and actions
+
 import  LoginComponent  from './components/login/Login.container';
 import  AccountSettingsComponent  from './components/accountsettings/AccountSettings.container';
 
@@ -15,6 +16,13 @@ import  NavBarComponent  from './components/navbar/Navbar.container';
 import  AddGroupComponent  from './components/addGroup/AddGroup.container';
 
 
+
+
+import SideBarComponent from './components/SideBar/SideBar.container';
+import ModalASComponent from './components/modals/ModalAS.container';
+import ModalGSComponent from './components/modals/ModalGS.container';
+import ModalAGComponent from './components/modals/ModalAG.container';
+import FooterComponent from './components/footer/Footer.container';
 
 class App extends Component {
   render() {
@@ -26,10 +34,15 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
             <div>
-              <NavBarComponent/>
-              <Route path='/login' component={LoginComponent}/>
-              <Route path='/usersettings' component={AccountSettingsComponent}/>
-              <Route path='/profile' search='?sort=username' component={ProfileInfoComponent}/>
+              <NavBarComponent />
+              <SideBarComponent />
+              <ModalASComponent />
+              <ModalGSComponent />
+              <ModalAGComponent />
+              <FooterComponent/>
+              <Route path='/login' component={LoginComponent} />
+              <Route path='/usersettings' component={AccountSettingsComponent} />
+              <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
               <Route path='/register' component={RegisterComponent} />
               <Route path='/addGroup' component={AddGroupComponent} />
 

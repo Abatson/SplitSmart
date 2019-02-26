@@ -7,6 +7,12 @@ import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
 import { Groups } from "../models/Groups";
 import { addGroupReducer } from "./AddGroup.reducer";
+import { sideBarReducer } from "./Sidebar.reducer";
+import { modalASReducer } from "./ModalAS.reducer";
+import { modalGSReducer } from "./ModalGS.reducer";
+import { modalAGReducer } from "./ModalAG.reducer";
+
+
 
 
 
@@ -36,6 +42,7 @@ export interface IRegisterState {
     registerFeedback: string
 }
 
+
 export interface IAddGroupState {
     newGroup: Groups,
     usernameToAdd: string
@@ -45,7 +52,18 @@ export interface IGroupsState {
 
 }
 
-
+export interface ISideBarState {
+    sideDrawerOpen: boolean
+}
+export interface IModalASState {
+    showASModal: boolean
+}
+export interface IModalGSState {
+    showGSModal: boolean
+}
+export interface IModalAGState {
+    showAGModal: boolean
+}
 
 
 
@@ -57,9 +75,15 @@ export interface IState {
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
     register: IRegisterState,
-    addNewGroup: IAddGroupState
+    addNewGroup: IAddGroupState,
+    sideBar: ISideBarState,
+    modalAS: IModalASState,
+    modalGS: IModalGSState,
+    modalAG: IModalAGState,
+
 
 }
+
 
 
 
@@ -71,7 +95,14 @@ export const state = combineReducers<IState>({
     accountSettings: accountSettingsReducer,
     profileInfo: profileInfoReducer,
     register: registerReducer,
-    addNewGroup: addGroupReducer
+    addNewGroup: addGroupReducer,
+    sideBar: sideBarReducer,
+    modalAS: modalASReducer,
+    modalGS: modalGSReducer,
+    modalAG: modalAGReducer,
+
+
+
 
 
 })
