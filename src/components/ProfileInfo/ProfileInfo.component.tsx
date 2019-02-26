@@ -28,7 +28,7 @@ componentDidMount() {
             <div className="surroundingBox">
                 <h1>Profile</h1>
                 <div>
-                    <img src={this.props.profileUser.picture.toString()} width="" height=""></img>
+                    <img src={this.props.profileUser.picture && this.props.profileUser.picture.toString()} width="" height=""></img>
                 </div>
                 <label>Username: {this.props.params.sort}</label>
                 <br>
