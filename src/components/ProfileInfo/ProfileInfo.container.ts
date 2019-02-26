@@ -5,7 +5,7 @@ import { IState } from "../../reducers";
 import { LoginComponent } from "../login/Login.component";
 import { ProfileInfoComponent } from '../ProfileInfo/ProfileInfo.component';
 import { Users } from "../../models/Users";
-import qs from 'stringquery'
+import qs from 'stringquery';
 
 //This is getting every field from the login state in the interface IState
 const mapStateToProps = (state: IState, ownProps) => {

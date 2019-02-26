@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import './App.scss';
 import { store } from './Store';
 import { Provider } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Link,
+  Switch,
+} from 'react-router-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
-import './include/Bootstrap';
+import  ReceiptComponent  from './components/receipt/Receipt.container'
 //notice for our component import we are using the default import from the container file
 //we need to do this so that redux can connect our component to the store and actions
 
@@ -24,6 +29,7 @@ import ModalAGComponent from './components/modals/ModalAG.container';
 import FooterComponent from './components/footer/Footer.container';
 import  GroupSettingsComponent  from './components/groupSettings/GroupSettings.container';
 
+
 class App extends Component {
   render() {
     return (
@@ -43,10 +49,11 @@ class App extends Component {
               <Route path='/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
+
               <Route path='/register' component={RegisterComponent} />
               {/* //need a better path */}
               <Route path='/iou' component={DebtComponent} />
-
+              <Route path='/receipt' component={ReceiptComponent}/>
               <Route path='/addGroup' component={AddGroupComponent} />
               <Route path='/gsettings' component={GroupSettingsComponent}/>
 

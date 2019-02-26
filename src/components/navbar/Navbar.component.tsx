@@ -29,9 +29,8 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
     render() {
         return (
 
+
             <Fragment>
-
-
                 <header className="toolbar">
                     <nav className="toolbar_navigation">
                         <div className="toolbar_toggle-button">
@@ -89,6 +88,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                     </div>
                 </header>
           </Fragment>
+
         )
     }
 }
