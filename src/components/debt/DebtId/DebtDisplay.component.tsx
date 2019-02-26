@@ -23,8 +23,9 @@ export class DebtIdDisplayComponent extends React.PureComponent<IDebtIdDisplayPr
           <td >{this.props.debt.claimer.picture} </td>
           <td >{this.props.debt.claimer}</td>
           <td >{this.props.debt.amount}</td>
-      <td >{(this.props.owes && !this.props.debt.paid) && <button onClick={this.props.onClickPaid}>Send Payment</button>}
-      {(this.props.debt.paid && !this.props.debt.verified && !this.props.owes) && <button onClick={this.props.onClickVerify}>Verify Payment</button>}</td>
+      <td >{(this.props.owes && !this.props.debt.paid) && <button className="button3" onClick={this.props.onClickPaid}>Send Payment</button>}
+      {(this.props.debt.paid && !this.props.debt.verified && !this.props.owes) && <button className="button2" onClick={this.props.onClickVerify}>Verify Payment</button>}
+      {<p>No action needed</p>}</td>
         </tr>}
       
       </>
