@@ -8,19 +8,27 @@ interface IGroupSettingsProps {
     user: Users,
     currentGroup: Groups,
     usernameToAdd: string,
+    updatedGroup: Groups,
     updateGroupName: (groupName: string) => void,
     updateGroupPicture: (Url: Url) => void,
     updateGroupDescription: (groupDescription: string) => void,
     inviteUserToGroup: (username: string) => void,
     resetAddForm: (usernameToAdd: string) => void,
     updateUserToAdd: (usernameToAdd: string) => void,
-    updateGroup: (currentGroup: Groups) => void
+    updateGroup: (updatedGroup: Groups) => void,
+    initializeGroupSettings: (currentGroup: Groups) => void,
 }
 
 export class GroupSettingsComponent extends React.Component<IGroupSettingsProps, any> {
     constructor(props) {
         super(props);
     }
+
+    componentDidMount() {
+        this.props.initializeGroupSettings(this.props.currentGroup);
+    }
+
+
     updateGroup = (event) => {
         this.props.updateGroup(event.target.value)
     }
@@ -66,7 +74,7 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                                         id="Group Name"
                                         className="text-form"
                                         placeholder="Group Name"
-                                        value={this.props.currentGroup.groupName}
+                                        value={this.props.updatedGroup.groupName}
                                         onChange={this.updateGroupName}
                                         required />
                                 </td>
@@ -75,7 +83,7 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                                         id="Group Description"
                                         className="text-form"
                                         placeholder="Description"
-                                        value={this.props.currentGroup.groupDescription}
+                                        value={this.props.updatedGroup.groupDescription}
                                         onChange={this.updateDescription}
                                         required />
                                 </td>
@@ -84,7 +92,7 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                                         id="Group Picture"
                                         className="text-form"
                                         placeholder="URL"
-                                        value={this.props.currentGroup.groupPicture}
+                                        value={this.props.updatedGroup.groupPicture}
                                         onChange={this.updateGroupPicture}
                                         required />
                                 </td>

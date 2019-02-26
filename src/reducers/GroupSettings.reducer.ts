@@ -5,22 +5,31 @@ import { Url } from 'url';
 import { GroupSettingsTypes } from "../actions/GroupSettings/GroupSettings.actions";
 import { registerTypes } from "../actions/register/Register.actions";
 const initialState: IGroupSettingsState = {
-  usernameToAdd: ''
+  usernameToAdd: '',
+  updatedGroup: new Groups,
 }
 
 export const GroupSettingsReducer = (state = initialState, action: any) => {
   switch (action.type) {
+    case GroupSettingsTypes.INITIALIZE_GROUP_SETTINGS:
+      return {
+        ...state,
+        updatedGroup: {
+          ...action.payload.updatedGroup,
+        }
+      }
+
     case GroupSettingsTypes.UPDATE_GROUP:
       return {
         ...state,
-        currentGroup: new Groups
+        updatedGroup: new Groups
       }
 
     case GroupSettingsTypes.UPDATE_GROUP_NAME:
       return {
         ...state,
-        newGroup: {
-          ...state.currentGroup,
+        updatedGroup: {
+          ...state.updatedGroup,
           groupName: action.payload.groupName
         }
       }
@@ -28,8 +37,8 @@ export const GroupSettingsReducer = (state = initialState, action: any) => {
     case GroupSettingsTypes.UPDATE_GROUP_DESCRIPTION:
       return {
         ...state,
-        newGroup: {
-          ...state.currentGroup,
+        updatedGroup: {
+          ...state.updatedGroup,
           groupDescription: action.payload.groupDescription
         }
       }
@@ -37,8 +46,8 @@ export const GroupSettingsReducer = (state = initialState, action: any) => {
     case GroupSettingsTypes.UPDATE_GROUP_PICTURE:
       return {
         ...state,
-        newGroup: {
-          ...state.currentGroup,
+        updatedGroup: {
+          ...state.updatedGroup,
           groupPicture: action.payload.groupPicture
         }
       }
@@ -62,17 +71,17 @@ export const GroupSettingsReducer = (state = initialState, action: any) => {
         usernameToAdd: action.payload.usernameToAdd
       }
       case GroupSettingsTypes.INVITE_USER_TO_GROUP:
-      console.log(action.payload.user)
-      let newArray = [...state.currentGroup.groupMembers];
-      newArray.push(action.payload.user)
-      action.payload.usernameToAdd = '';
-      return{
-        ...state,
-        newGroup: {
-          ...state.currentGroup,
-          groupMembers: newArray
-        }
-        
+        console.log(action.payload.user)
+        let newArray = [...state.updatedGroup.groupMembers];
+        newArray.push(action.payload.user)
+        action.payload.usernameToAdd = '';
+        return{
+          ...state,
+          updatedGroup: {
+            ...state.updatedGroup,
+            groupMembers: newArray
+          }
+          
 
       }
       case GroupSettingsTypes.RESET_ADD_FORM:

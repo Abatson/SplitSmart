@@ -57,11 +57,13 @@ export interface IAddGroupState {
     usernameToAdd: string
 }
 export interface IGroupsState {
-    allGroups: Groups[]
+    allGroups: Groups[],
+    currentGroup: Groups,
 
 }
 export interface IGroupSettingsState{
     usernameToAdd: string,
+    updatedGroup: Groups,
 }
 
 export interface ISideBarState {

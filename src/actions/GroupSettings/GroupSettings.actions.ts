@@ -11,7 +11,8 @@ export const GroupSettingsTypes = {
     FAILED_TO_UPDATE_GROUP: 'GS_FAILED_TO_ADD_GROUP',
     FAILED_TO_ADD_USER_TO_GROUP: 'GS_FAILED_TO_ADD_USER_TO_GROUP',
     RESET_ADD_FORM: 'GS_RESET_ADD_FORM',
-    UPDATE_USER_TO_ADD: 'GS_UPDATE_USER_TO_ADD'
+    UPDATE_USER_TO_ADD: 'GS_UPDATE_USER_TO_ADD',
+    INITIALIZE_GROUP_SETTINGS: 'INITIALIZE_GROUP_SETTINGS'
 }
 
 export const updateGroup = (currentGroup: Groups) => async (dispatch) => {
@@ -89,6 +90,18 @@ export const resetAddForm = (usernameToAdd: string) => {
         type: GroupSettingsTypes.RESET_ADD_FORM
     }
 }
+
+
+
+export const initializeGroupSettings = (currentGroup: Groups) => {
+    return {
+        payload: {
+            updatedGroup: currentGroup
+        },
+        type: GroupSettingsTypes.INITIALIZE_GROUP_SETTINGS
+    }
+}
+
 
 export const inviteUserToGroup = (username: string) => async (dispatch) => {
 

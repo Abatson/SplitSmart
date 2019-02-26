@@ -22,6 +22,7 @@ import ModalASComponent from './components/modals/ModalAS.container';
 import ModalGSComponent from './components/modals/ModalGS.container';
 import ModalAGComponent from './components/modals/ModalAG.container';
 import FooterComponent from './components/footer/Footer.container';
+import  GroupSettingsComponent  from './components/groupSettings/GroupSettings.container';
 
 class App extends Component {
   render() {
@@ -43,10 +44,11 @@ class App extends Component {
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
               <Route path='/register' component={RegisterComponent} />
-              //need a better path
+              {/* //need a better path */}
               <Route path='/iou' component={DebtComponent} />
 
               <Route path='/addGroup' component={AddGroupComponent} />
+              <Route path='/gsettings' component={GroupSettingsComponent}/>
 
             </div>
           </BrowserRouter>
