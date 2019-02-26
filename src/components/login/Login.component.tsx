@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ILoginState } from '../../reducers';
+import { Link } from 'react-router-dom';
+import { FaUser, FaLock } from 'react-icons/fa';
+
 
 
 
@@ -12,12 +15,19 @@ interface ILoginProps {
   loginRequest: (username: string, password: string) => void,
   clearMessage: () => void
 
+
+
 }
+
 
 //our actual component, however when we want to instatiate it, we will use the export in the container
 export class LoginComponent extends React.Component<ILoginProps, any> {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    document.body.style.backgroundColor = "#ccc";
   }
 
   //when we load the component, clear the old message
@@ -40,36 +50,75 @@ export class LoginComponent extends React.Component<ILoginProps, any> {
     this.props.loginRequest(this.props.login.username, this.props.login.password);
   }
 
-
   render() {
+
     //get our password and username from the passed in state
     const { username, password } = this.props.login
     return (
+
+
       //onsubmit{this.login}
-      <div className='terminal'>
-        <form className="form-signin" onSubmit={this.login}>
-          <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-          <label htmlFor="inputUsername" className="sr-only">Username</label>
-          <input type="text"
-            id="inputUsername"
-            className="text-form"
-            placeholder="Username"
-            value={username}
-            onChange={this.updateUsername}
-            required />
-          <label htmlFor="inputPassword" className="sr-only">Password</label>
-          <input type="password"
-            id="inputPassword"
-            className="text-form"
-            placeholder="Password"
-            value={password}
-            onChange={this.updatePassword}
-            required />
-          <p id="error-message">{this.props.login.feedbackMessage}</p>
-          <button className="button-form" type="submit">Sign in</button>
-        </form>
+      // <div className='terminal
+      <div className="body">
+        <div className="login-box">
+          <form className="login-form" onSubmit={this.login}>
+            <h1>Login</h1>
+            <div className="textbox">
+              <FaUser className="fa" />
+              <input
+                type="text"
+                className="txtb"
+                placeholder="Username"
+                value={username}
+                onChange={this.updateUsername}
+                required />
+            </div>
+            <div className="textbox">
+              <FaLock className="fa" />
+              <input
+                type="password"
+                className="txtb"
+                placeholder="Password"
+                value={password}
+                onChange={this.updatePassword}
+                required />
+            </div>
+            <p id="error-message">{this.props.login.feedbackMessage}</p>
+            <button className="login-btn" type="submit">Sign in</button>
+          </form>
+
+          <Link className="link-to-newAccount" to='/register'> Register A New Account</Link>
+        </div>
       </div>
+
+      /* <form className="form-signin" onSubmit={this.login}>
+        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label htmlFor="inputUsername" className="sr-only">Username</label>
+        <input type="text"
+          id="inputUsername"
+          className="text-form"
+          placeholder="Username"
+          value={username}
+          onChange={this.updateUsername}
+          required />
+        <label htmlFor="inputPassword" className="sr-only">Password</label>
+        <input type="password"
+          id="inputPassword"
+          className="text-form"
+          placeholder="Password"
+          value={password}
+          onChange={this.updatePassword}
+          required />
+        <p id="error-message">{this.props.login.feedbackMessage}</p>
+        <button className="button-form" type="submit">Sign in</button>
+      </form>
+      <Link to='/register'> Register A New Account</Link>
+    </div>
+     */
+
+
     )
+
   }
 
 }

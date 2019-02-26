@@ -11,6 +11,19 @@ import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
 
+import { Debts } from "../models/Debts";
+import { DebtReducer } from "./Debt.reducer";
+
+import { Groups } from "../models/Groups";
+import { GroupSettingsReducer } from "./GroupSettings.reducer";
+import { addGroupReducer } from "./AddGroup.reducer";
+import { sideBarReducer } from "./Sidebar.reducer";
+import { modalASReducer } from "./ModalAS.reducer";
+import { modalGSReducer } from "./ModalGS.reducer";
+import { modalAGReducer } from "./ModalAG.reducer";
+
+
+
 
 
 //this represents the state needed by one of our components.
@@ -38,22 +51,51 @@ export interface IGroupState{
     groupReceipts:any,
 }
 
-
 export interface IAccountSettingsState {
     updatedUser: Users
 }
 
 
-export interface IProfileInfoState{
+export interface IProfileInfoState {
     userProfile: Users
 }
 
-export interface IRegisterState{
+export interface IRegisterState {
     newUser: Users,
     registerFeedback: string
 }
 
+export interface IDebtState{
+    allDebts: Debts[]
+}
 
+
+export interface IAddGroupState {
+    newGroup: Groups,
+    usernameToAdd: string
+}
+export interface IGroupsState {
+    allGroups: Groups[],
+    currentGroup: Groups,
+
+}
+export interface IGroupSettingsState{
+    usernameToAdd: string,
+    updatedGroup: Groups,
+}
+
+export interface ISideBarState {
+    sideDrawerOpen: boolean
+}
+export interface IModalASState {
+    showASModal: boolean
+}
+export interface IModalGSState {
+    showGSModal: boolean
+}
+export interface IModalAGState {
+    showAGModal: boolean
+}
 
 
 
@@ -61,13 +103,19 @@ export interface IRegisterState{
 //We make it out of other more specific interfaces.
 //Also, every interface here needs a reducer of the same name down in combine reducers
 export interface IState {
-
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
     register: IRegisterState
     receipt: IGroupState,
-    
+    register: IRegisterState,
+    groupSettings: IGroupSettingsState,
+    debt: IDebtState,
+    addNewGroup: IAddGroupState,
+    sideBar: ISideBarState,
+    modalAS: IModalASState,
+    modalGS: IModalGSState,
+    modalAG: IModalAGState,
 
 }
 
@@ -75,14 +123,24 @@ export interface IState {
 
 
 
+
 //This needs a reducer with the name of every interface we have in the IState interface
 export const state = combineReducers<IState>({
-
     login: loginReducer,
     accountSettings: accountSettingsReducer,
-    profileInfo:profileInfoReducer,
+    profileInfo: profileInfoReducer,
     register: registerReducer,
-    receipt: receiptReducer
+    receipt: receiptReducer,
+    groupSettings: GroupSettingsReducer,
+    debt: DebtReducer,
+    addNewGroup: addGroupReducer,
+    sideBar: sideBarReducer,
+    modalAS: modalASReducer,
+    modalGS: modalGSReducer,
+    modalAG: modalAGReducer,
+
+
+
 
 
 })

@@ -14,12 +14,20 @@ import  ReceiptComponent  from './components/receipt/Receipt.container'
 
 import  LoginComponent  from './components/login/Login.container';
 import  AccountSettingsComponent  from './components/accountsettings/AccountSettings.container';
-
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
 import RegisterComponent  from './components/register/Register.container';
 import  NavBarComponent  from './components/navbar/Navbar.container';
+import DebtComponent from './components/debt/Debt.container';
+import  AddGroupComponent  from './components/addGroup/AddGroup.container';
 
 
+
+import SideBarComponent from './components/SideBar/SideBar.container';
+import ModalASComponent from './components/modals/ModalAS.container';
+import ModalGSComponent from './components/modals/ModalGS.container';
+import ModalAGComponent from './components/modals/ModalAG.container';
+import FooterComponent from './components/footer/Footer.container';
+import  GroupSettingsComponent  from './components/groupSettings/GroupSettings.container';
 
 
 class App extends Component {
@@ -32,16 +40,24 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
             <div>
-              <NavBarComponent/>
-              <Route path='/login' component={LoginComponent}/>
-              <Route path='/receipt' component={ReceiptComponent}/>
-              <Route path='/usersettings' component={AccountSettingsComponent}/>
-              <Route path='/profile' search='?sort=username' component={ProfileInfoComponent}/>
-              <Route path='/register' component={RegisterComponent} />
+              <NavBarComponent />
+              <SideBarComponent />
+              <ModalASComponent />
+              <ModalGSComponent />
+              <ModalAGComponent />
+              <FooterComponent/>
+              <Route path='/login' component={LoginComponent} />
+              <Route path='/usersettings' component={AccountSettingsComponent} />
+              <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
 
+              <Route path='/register' component={RegisterComponent} />
+              {/* //need a better path */}
+              <Route path='/iou' component={DebtComponent} />
+              <Route path='/receipt' component={ReceiptComponent}/>
+              <Route path='/addGroup' component={AddGroupComponent} />
+              <Route path='/gsettings' component={GroupSettingsComponent}/>
 
             </div>
-
           </BrowserRouter>
         </div>
       </Provider>
