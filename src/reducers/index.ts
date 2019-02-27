@@ -107,7 +107,7 @@ export interface IState {
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
     receipt: IGroupState,
-    register: IRegisterState,
+    //register: IRegisterState,
     groupSettings: IGroupSettingsState,
     debt: IDebtState,
     addNewGroup: IAddGroupState,

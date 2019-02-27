@@ -25,32 +25,39 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
         // console.log(params.sort)
 
         return (
+            <div className="body">
             <div className="surroundingBox">
                 <div className="profile">
                     <h1>{this.props.profileUser.firstName} Dunieski Otano {this.props.profileUser.lastName}</h1>
                 </div>
-                <hr/>
+               
                 <div className="picture">
                     <img src={this.props.profileUser.picture && this.props.profileUser.picture.toString()} width="" height=""></img>
                   
                 </div>
-            
+                <div className="line"></div>
                 <div className="profileInfoBox">
                 <div className="profileInfo">Profile
+               
                 </div>
                 <label>Username: {this.props.params.sort}</label>
-                <br>
-                </br>
+                <br/>
+                <br/>
                 <label>Display Name: {this.props.profileUser.displayName}</label>
-                <br>
-                </br>
-                <label>Password: {this.props.profileUser.password}</label><br>
-                </br>
+                <br/>
+                <br/>
+                <label>Password: {this.props.profileUser.password}</label>
+                <br/>
+                <br/>
                 <label>First Name: {this.props.profileUser.firstName}</label>
-                <br>
-                </br>
-                <label>Last Name: {this.props.profileUser.lastName}</label><br></br>
-                <label>Email: {this.props.profileUser.email}</label><br></br>
+                <br/>
+                <br/>
+                <label>Last Name: {this.props.profileUser.lastName}</label>
+                <br/>
+                <br/>
+                <label>Email: {this.props.profileUser.email}</label>
+                <br/>
+                <br/>
                 <label>Phone: {this.props.profileUser.phone}</label><br>
                 </br>
                 <hr/>
@@ -58,6 +65,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 </div>
                 
                
+            </div>
             </div>
 
         )
