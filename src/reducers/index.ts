@@ -1,6 +1,11 @@
 import { combineReducers } from "redux";
 import { Users } from "../models/Users";
+import { Line } from "../models/Line";
+
+
 import { loginReducer } from "./Login.reducer";
+import { receiptReducer } from "./Receipt.reducer";
+import { Receipt } from "../models/Receipt";
 
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
@@ -32,6 +37,19 @@ export interface ILoginState {
     feedbackMessage: string
 }
 
+//this represents the state needed by one of our components.
+//To we need to keep track of the receipt's lines (which include items) and the receipt claimants (One receipt may have multiple claimants)
+
+export interface IReceiptState{
+    lines: Line[],
+    claimant: number
+}
+
+
+//The group state that we want to get the list of receipts from
+export interface IGroupState{
+    groupReceipts:any,
+}
 
 export interface IAccountSettingsState {
     updatedUser: Users
@@ -88,6 +106,8 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
+    register: IRegisterState
+    receipt: IGroupState,
     register: IRegisterState,
     groupSettings: IGroupSettingsState,
     debt: IDebtState,
@@ -96,8 +116,6 @@ export interface IState {
     modalAS: IModalASState,
     modalGS: IModalGSState,
     modalAG: IModalAGState,
-
-
 
 }
 
@@ -112,6 +130,7 @@ export const state = combineReducers<IState>({
     accountSettings: accountSettingsReducer,
     profileInfo: profileInfoReducer,
     register: registerReducer,
+    receipt: receiptReducer,
     groupSettings: GroupSettingsReducer,
     debt: DebtReducer,
     addNewGroup: addGroupReducer,
@@ -119,6 +138,7 @@ export const state = combineReducers<IState>({
     modalAS: modalASReducer,
     modalGS: modalGSReducer,
     modalAG: modalAGReducer,
+
 
 
 
