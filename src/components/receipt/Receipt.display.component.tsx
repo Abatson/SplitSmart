@@ -18,19 +18,21 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
     let receiptHTML : any = [];
 
 
-    receiptHTML.push(  <p class="receiptName">
+    receiptHTML.push(  <div className="receiptName" >
       Receipt Name: {this.props.receipt.name}
-      <p>
+
       <p>
       {(this.props.receipt.claimant == -1) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.claimant == -1) ? "" : this.props.receipt.claimant}  
       </p>
+      <p>
       Claim Receipt:  <input onClick={this.props.onClick1} type="checkbox" id="scales" name="scales"
      ></input>
       </p>
       <p>
       Purchases: 
       </p>
-    </p>);
+      </div>
+    );
 
       let tempJSX : any = [];
       for (let i = 0; i < this.props.receipt.lines.length; i++)

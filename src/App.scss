@@ -390,17 +390,32 @@ SIDEDRAWER
 }
 .splitsmart{
     font-style: italic;
-    font-size: 35px;
+    font-size: 2.25vmin;
     font-weight: bold;
     font-family: Helvetica;
-  margin-left: 470px;
+
+    
+
+
   color: white;
-  letter-spacing: 1.5pc;
+  letter-spacing: 1.0vmin;
   text-shadow: 0 18px 18px black;
-  
+
+  position:absolute;
+  display:block;
+
+  left:40%;
   
   
 }
+
+@media (max-width: 700px) {
+  .splitsmart {
+    margin-left: 0;
+    font-size: 2vmin;
+  }
+}
+
 .side-drawer{
   
     height:82%;
@@ -458,9 +473,9 @@ TOOLBAR
 ***********************************/
 .toolbar{
   width: 100%;
-  position: fixed;
+  position: absolute;
   background-image: linear-gradient(to right, rgb(4, 21, 27), rgb(7, 46, 58), rgb(25, 107, 133), rgb(129, 170, 199));
-  height: 63px;
+  height: 10%;
   top: 0;
   left: 0;
  
@@ -486,7 +501,9 @@ font-size: 1.5rem;
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 1rem;
+  //padding: 0 1rem;
+
+
 }
 .toolbar_navigation-items ul{
 list-style: none;
@@ -494,10 +511,15 @@ margin: 0;
 padding: 0;
 display: flex;
 
+left:65%;
+top:40%;
+font-size: 2.25vmin;
+position:absolute;
+
 }
 
 .toolbar_navigation-items li{
-  padding: 0 0.5rem;
+  padding: 0 1vmin;
 }
 .toolbar_navigation-items a{
   color: white;
@@ -705,17 +727,21 @@ select option{
 .showASModal{
   margin-top: 46px;
 }
+
 .footer{
   width: 100%;
   border: 1px solid black;
   position: absolute;
-  bottom: 0px;
-  height: 70px;
+  bottom: 0%;
+  height: 10%;
   background-color: rgb(25, 107, 133);
+  background: rgb(25, 107, 133);
   padding: 3px;
   
-  
+
 }
+
+
 .copyright{
   font-weight: bold;
   letter-spacing: 0.8;
@@ -725,6 +751,11 @@ select option{
   color: white;
   padding: 0;
   margin: 0;
+
+  font-style: italic;
+  font-size: 2.25vmin;
+  font-weight: bold;
+  font-family: Helvetica;
 }
 .social{
   padding: 1px;
@@ -735,8 +766,13 @@ select option{
   font-style: italic;
   color: white;
   padding: 4px;
-  height: 20px;
+  height: 10%;
   border-radius: 15px;
+
+  font-style: italic;
+  font-size: 2.25vmin;
+  font-weight: bold;
+  font-family: Helvetica;
 }
 .showASModal{
   display: none;
