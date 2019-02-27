@@ -1,9 +1,11 @@
 const dev = {
-    ssContext: 'localhost:5500'
+
+    ssContext: 'http://localhost:5500'
+
   }
   
   const prod = {
-    ssContext: 'some aws url'
+    ssContext: 'http://ec2-52-15-85-15.us-east-2.compute.amazonaws.com:5500'
   }
   
   export let environment = dev;

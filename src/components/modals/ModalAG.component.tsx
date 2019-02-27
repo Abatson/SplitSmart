@@ -17,7 +17,7 @@ export class ModalAGComponent extends React.Component<IModalAGProps, any >{
 
         return (
             <div >
-                <button type="button" onClick={this.props.openAGModal}>Show AS Modal</button>
+                <button type="button" onClick={this.props.openAGModal} className="buttonAG">Show AS Modal</button>
                 {
                     this.props.showAGModal ?
                         <div className="ModalAG open">

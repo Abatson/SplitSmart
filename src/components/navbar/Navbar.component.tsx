@@ -28,9 +28,9 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
 
     render() {
         return (
+
+
             <Fragment>
-
-
                 <header className="toolbar">
                     <nav className="toolbar_navigation">
                         <div className="toolbar_toggle-button">
@@ -59,12 +59,11 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
                                 }}>Group</NavLink></li>
-                                <li><NavLink to={{
-                                    pathname: '/Debts',
-                                    search: `?sort=${this.props.user.username}`,
+                                <li><NavLink className='innerNavBar' to={{
+                                   pathname: '/iou',
+                                   search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
-                                }}>Debts</NavLink></li>
-
+                                  }} > IOUs</NavLink></li>
                                 <li><NavLink className='innerNavBar' to={{
                                     pathname: '/logout',
                                 }} > Logout
@@ -88,11 +87,8 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </select>
                     </div>
                 </header>
+          </Fragment>
 
-
-
-
-            </Fragment>
         )
     }
 }
