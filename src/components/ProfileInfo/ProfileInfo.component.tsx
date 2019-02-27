@@ -25,6 +25,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
         // console.log(params.sort)
 
         return (
+            <div className="body">
             <div className="surroundingBox">
                 <div className="profile">
                     <h1>{this.props.profileUser.firstName} Dunieski Otano {this.props.profileUser.lastName}</h1>
@@ -37,11 +38,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 <div className="line"></div>
                 <div className="profileInfoBox">
                 <div className="profileInfo">Profile
-                <div>
-                <div className="line1"></div>
-                <div className="line2"></div>
-                <div className="line3"></div>
-                </div>
+               
                 </div>
                 <label>Username: {this.props.params.sort}</label>
                 <br/>
@@ -68,6 +65,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 </div>
                 
                
+            </div>
             </div>
 
         )

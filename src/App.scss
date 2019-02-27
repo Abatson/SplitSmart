@@ -5,10 +5,11 @@ LOGIN FORM
   font-family: Helvetica;
 }
 .body{
-  font-family: Helvetica;
+  position: absolute;
   width: 100%;
-  background-image: "url('./public/image.jpg')";
+  background-color: #ccc;
   
+  height: 80%;
 }
 
 .linkNav{
@@ -147,6 +148,17 @@ LOGIN FORM
 PROFILE INFO
 ********************************/
 .profileInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  //background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+
   width: 100%;
   height: 95%;
   background-color: rgb(25, 107, 133);
@@ -159,7 +171,7 @@ PROFILE INFO
   border: 1px solid black;
   margin: 35px 100px 0px 360px;
   width: 800px;
-  height: 28em;
+  height: 29em;
   //padding: 50px;
   position: absolute;
   box-shadow: 0 5px 5px black;
@@ -168,7 +180,9 @@ PROFILE INFO
   border-radius: 10px;
   background-color: white;
   padding: 0px;
+  margin-top: 50px;
 }
+
 
 
 .picture{
@@ -205,7 +219,7 @@ PROFILE INFO
 }
 .profile{
   position: relative;
-  background-color: #eee;
+  background-color: rgb(25, 107, 133);
   margin-bottom: 20px;
   left:0;
   font-weight: bold;
@@ -213,29 +227,14 @@ PROFILE INFO
   margin-top: 0px;
   height: 50px;
   padding: 10px;
-  border-bottom: 1px solid rgb(25, 107, 133);
+  //border-bottom: 1px solid rgb(25, 107, 133);
+  color: white;
+  text-shadow: 0 16px 16px black;
 }
-.line1{
-  position: absolute;
-  width: 50px;
-  margin-left: 70px;
-  border-top: 1px solid white;
-}
-.line2{
-  position: absolute;
-  width: 50px;
-  height: 10px;
-  margin-left: 70px;
-  border-top: 1px solid white;
-}
-.line3{
-  position: absolute;
-  width: 50px;
-  margin-left: 70px;
-  border-top: 1px solid white;
-}
+
 h1{
-  margin: auto;
+ float: right;
+ margin-top: 5px;
 }
 
 .profileInfoBox button{
@@ -704,7 +703,7 @@ select option{
   bottom: 0px;
   height: 70px;
   background-color: rgb(25, 107, 133);
-  padding: 5px;
+  padding: 3px;
   
   
 }
