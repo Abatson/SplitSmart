@@ -16,16 +16,16 @@ LOGIN FORM
 }
 
 .login-box{
-  width: 280px;
+  width: 250px;
   position: absolute;
-  top: 50%;
+  top: 49%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
   border: 1px solid black;
   padding: 35px;
   width: 27%;
-  //box-shadow: 0 16px 16px black;
+  box-shadow: 0 16px 16px black;
   border-radius: 15px;
   opacity: 0.9;
   background: white;
@@ -34,7 +34,7 @@ LOGIN FORM
 .login-box h1{
   //float: left;
   font-size: 40px;
-  border-bottom: 6px solid #4caf50;
+  border-bottom: 6px solid rgb(25, 107, 133);
   margin-bottom: 50px;
   padding: 13px 0
 }
@@ -44,7 +44,7 @@ LOGIN FORM
   font-size: 20px;
   padding: 10px 0;
   margin: 8px 0;
-  border-bottom: 1px solid #4caf50;
+  border-bottom: 1px solid rgb(25, 107, 133);
 }
 .textbox input{
   border: none;
@@ -67,7 +67,7 @@ LOGIN FORM
 }
 .login-btn{
   width: 100%;
-  background: #4caf50;
+  background: rgb(25, 107, 133);
   border: 2px solid black;
   color: white;
   font-weight: bold;
@@ -205,7 +205,7 @@ PROFILE INFO
 }
 .profile{
   position: relative;
-  background-color: #ccc;
+  background-color: #eee;
   margin-bottom: 20px;
   left:0;
   font-weight: bold;

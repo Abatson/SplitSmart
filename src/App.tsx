@@ -46,7 +46,7 @@ class App extends Component {
               <ModalGSComponent />
               <ModalAGComponent />
               <FooterComponent/>
-              <Route path='/login' component={LoginComponent} />
+              <Route path='/users/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
 
