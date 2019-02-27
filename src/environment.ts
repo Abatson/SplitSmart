@@ -5,10 +5,10 @@ const dev = {
   }
   
   const prod = {
-    ssContext: 'http://ec2-52-15-85-15.us-east-2.compute.amazonaws.com:5500'
+    ssContext: 'http://ec2-18-222-206-16.us-east-2.compute.amazonaws.com:5500'
   }
   
-  export let environment = dev;
+  export let environment = prod;
   
   if (process.env.NODE_ENV === 'production') {
     environment = prod;

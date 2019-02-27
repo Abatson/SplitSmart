@@ -19,11 +19,12 @@ export const getUserProfile = (username: string) => async (dispatch) => {
         })
     } catch (err) {
         console.log(err);
-    } dispatch({
-        payload: {
-
-        },
-        type: profileInfoTypes.BAD_USER_REQUEST
-
-    })
+        dispatch({
+            payload: {
+    
+            },
+            type: profileInfoTypes.BAD_USER_REQUEST
+    
+        })
+    } 
 }
