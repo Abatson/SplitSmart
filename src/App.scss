@@ -155,10 +155,11 @@ PROFILE INFO
 }
 .surroundingBox{
   border: 1px solid black;
-  margin: 100px 100px 0px 340px;
+  margin: 35px 100px 0px 360px;
   width: 800px;
   height: 32em;
   //padding: 50px;
+  position: absolute;
   box-shadow: 0 5px 5px black;
   background-color: rgb(250, 246, 246);
   font-family: sans-serif;
@@ -184,7 +185,7 @@ PROFILE INFO
   width: 500px;
   text-align: left;
   padding: 20px;
-  border-left: 1px solid black;
+  border-left: 1px solid rgb(0, 0, 0);
 }
 .profileInfoBox label{
     font-weight: bold;
@@ -337,10 +338,10 @@ SIDEDRAWER
    width: 100%;
    height: 40px;
    color: white;
-   top:0;
+  
    text-align: center;
    border: 1px solid black;
-   box-shadow: 0 14px 14px black;;
+   //box-shadow: 0 14px 14px black;;
    
 }
 .groupHeading{
@@ -361,18 +362,18 @@ SIDEDRAWER
 }
 .side-drawer{
   
-    height:100%;
+    height:82%;
     background: white;
     box-shadow: 0 14px 14px black;
-    position: fixed;
-    margin-top: 1px;
-    //top:0; 
+   position: fixed;
+    margin-top: 0px; 
     left: 0;
-    width: 40%;
+    width: 25%;
     max-width: 400px;
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
+    
 }
 
 .side-drawer.open{
@@ -421,6 +422,7 @@ TOOLBAR
   height: 63px;
   top: 0;
   left: 0;
+ 
   border: 1px solid black;
   //box-shadow: 0 13px 13px black;
 }
