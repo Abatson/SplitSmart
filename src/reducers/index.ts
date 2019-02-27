@@ -40,14 +40,9 @@ export interface ILoginState {
 //this represents the state needed by one of our components.
 //To we need to keep track of the receipt's lines (which include items) and the receipt claimants (One receipt may have multiple claimants)
 
-export interface IReceiptState{
-    lines: Line[],
-    claimant: number
-}
-
 
 //The group state that we want to get the list of receipts from
-export interface IGroupState{
+export interface IReceiptState{
     groupReceipts:any,
 }
 
@@ -106,7 +101,7 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
-    receipt: IGroupState,
+    receipt: IReceiptState,
     register: IRegisterState,
     groupSettings: IGroupSettingsState,
     debt: IDebtState,

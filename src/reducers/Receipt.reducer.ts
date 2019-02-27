@@ -1,11 +1,11 @@
-import { IGroupState } from ".";
+import { IReceiptState } from ".";
 import { receiptTypes } from "../actions/receipt/Receipt.actions";
 import { Receipt } from "../models/Receipt";
 import { Line } from "../models/Line";
 import { Item } from "../models/Item";
 
 //this is our intialstate of the interface we declared for the receipt component
-const initialState: IGroupState = {
+const initialState: IReceiptState = {
         groupReceipts: []
         
         
@@ -19,7 +19,7 @@ export const receiptReducer = (state = initialState, action: any) => {
     
       //same as up above
       case receiptTypes.INITIALIZE_RECEIPTS:
-      {
+      { //set receipts to be action.payload.data
         let receiptTest:Receipt[] = [];
         let receiptLines : any =  [];
         receiptLines.push(new Line("Coffee", 2.52), new Line("Bagel", 5.33), new Line("Fruit", 1.25));

@@ -11,7 +11,7 @@ export const receiptTypes = {
   //After a receipt has been claimed, we want someone who can claim the lines of the receipt
   //claimed is the id of the line in the receipt that was claimed
   export const initializeReceipts = () => {
-
+//api call, change to a parameter that is a number, groupid send that data to reducer, then go to receipt reducer
     return {
         payload:{
         },
