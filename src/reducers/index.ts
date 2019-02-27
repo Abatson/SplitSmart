@@ -106,7 +106,6 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
-    register: IRegisterState
     receipt: IGroupState,
     register: IRegisterState,
     groupSettings: IGroupSettingsState,
