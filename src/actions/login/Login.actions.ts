@@ -55,7 +55,7 @@ export const loginRequest = (username, password) => async (dispatch) => {
         password: password
     }
     try {
-        const res = await ssClient.post('/login', credentials);
+        const res = await ssClient.post('/users/login', credentials);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods
