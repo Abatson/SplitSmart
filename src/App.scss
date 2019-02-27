@@ -25,7 +25,7 @@ LOGIN FORM
   border: 1px solid black;
   padding: 35px;
   width: 27%;
-  box-shadow: 0 16px 16px black;
+  //box-shadow: 0 16px 16px black;
   border-radius: 15px;
   opacity: 0.9;
   background: white;
@@ -113,7 +113,7 @@ LOGIN FORM
   width: 20px;
   height: 40%;
   border: 1px solid black;
-  box-shadow: 0 16px 16px black;
+ // box-shadow: 0 16px 16px black;
 }
 @keyframes App-logo-spin {
   from {
@@ -136,7 +136,7 @@ LOGIN FORM
   margin-left: 33em;
   margin-top: 3em;
   padding: 45px;
-  box-shadow: 0 16px 16px black;
+  //box-shadow: 0 16px 16px black;
   font-weight: bold;
 }
 #accountSettingsTable td{
@@ -269,7 +269,7 @@ PROFILE INFO
   margin-left: 33em;
   margin-top: 3em;
   padding: 85px;
-  box-shadow: 0 16px 16px black;
+  //box-shadow: 0 16px 16px black;
   font-weight: bold;
 }
 
@@ -424,7 +424,7 @@ TOOLBAR
   left: 0;
  
   border: 1px solid black;
-  //box-shadow: 0 13px 13px black;
+
 }
 .toolbar_toggle{
   margin-left: 1rem;
@@ -555,7 +555,7 @@ MODAL
   background-color: rgb(236, 240, 245);
   width: 70%;
   border: 1px solid black;
-  box-shadow: 0 14px 14px black;
+  //box-shadow: 0 14px 14px black;
   padding: 16px; 
   left: 15%;
   top: 30%;
@@ -570,7 +570,7 @@ MODAL
   background-color: rgb(236, 240, 245);
   width: 70%;
   border: 1px solid black;
-  box-shadow: 0 14px 14px black;
+  //box-shadow: 0 14px 14px black;
   padding: 16px; 
   left: 15%;
   top: 30%;
@@ -585,7 +585,7 @@ MODAL
   background-color: rgb(236, 240, 245);
   width: 70%;
   border: 1px solid black;
-  box-shadow: 0 14px 14px black;
+  //box-shadow: 0 14px 14px black;
   padding: 16px; 
   left: 15%;
   top: 30%;
@@ -635,7 +635,7 @@ background-color: white;
   float: right;
   margin-right: 5px;
   width: 17%;
-  box-shadow: 0 6px 6px black;
+  //box-shadow: 0 6px 6px black;
   border: 0 1px 1px 1px;
   border-radius: 10px;
   margin-top: 5px;
@@ -671,7 +671,7 @@ select option{
   letter-spacing: 0.8;
   font-size: 22px;
   font-family: Helvetica;
-  text-shadow: 0 14px 14px black;
+  //text-shadow: 0 14px 14px black;
   color: white;
   padding: 0;
   margin: 0;
