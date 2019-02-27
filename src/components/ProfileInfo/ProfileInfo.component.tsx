@@ -34,9 +34,14 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                     <img src={this.props.profileUser.picture && this.props.profileUser.picture.toString()} width="" height=""></img>
                   
                 </div>
-            
+                <div className="line"></div>
                 <div className="profileInfoBox">
                 <div className="profileInfo">Profile
+                <div>
+                <div className="line1"></div>
+                <div className="line2"></div>
+                <div className="line3"></div>
+                </div>
                 </div>
                 <label>Username: {this.props.params.sort}</label>
                 <br/>
