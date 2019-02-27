@@ -18,7 +18,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
     let receiptHTML : any = [];
 
 
-    receiptHTML.push(  <p>
+    receiptHTML.push(  <p class="receiptName">
       Receipt Name: {this.props.receipt.name}
       <p>
       <p>
