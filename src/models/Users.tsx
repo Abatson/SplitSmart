@@ -1,4 +1,3 @@
-
 import { Url } from "url";
 
 export class Users{
@@ -11,7 +10,6 @@ export class Users{
     email:string;
     phone:string;
     picture:Url;
-
 
     constructor() {
         this.userId = 0;
