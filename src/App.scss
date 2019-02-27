@@ -148,16 +148,18 @@ PROFILE INFO
 ********************************/
 .profileInfo{
   width: 100%;
+  height: 95%;
   background-color: rgb(25, 107, 133);
   color: white;
   padding: 5px;
+  margin: 5px;
   letter-spacing: 0.2pc;
 }
 .surroundingBox{
   border: 1px solid black;
   margin: 35px 100px 0px 360px;
   width: 800px;
-  height: 32em;
+  height: 28em;
   //padding: 50px;
   position: absolute;
   box-shadow: 0 5px 5px black;
@@ -165,6 +167,7 @@ PROFILE INFO
   font-family: sans-serif;
   border-radius: 10px;
   background-color: white;
+  padding: 5px;
 }
 
 
@@ -173,28 +176,31 @@ PROFILE INFO
   position: absolute;
   width: 170px;
   height: 170px;
-  margin-left: 90px;
+  margin-left: 70px;
   margin-top: 30px;
   border-radius: 10px;
   
 }
 .profileInfoBox{
-  margin-left: 270px;
-  margin-top: 10px;
+  margin-left: 250px;
+  margin-top: 5px;
   position: absolute;
-  width: 500px;
+  width: 490px;
   text-align: left;
   padding: 20px;
-  border-left: 1px solid rgb(0, 0, 0);
+  //border-left: 1px solid rgb(0, 0, 0);
 }
 .profileInfoBox label{
     font-weight: bold;
     left: 0;
+    padding: 10px;
 }
 .profile{
   background-color: #ccc;
   margin-bottom: 20px;
   font-weight: bold;
+  width: 100%;
+  margin-top: 0px;
 }
 
 .profileInfoBox button{
