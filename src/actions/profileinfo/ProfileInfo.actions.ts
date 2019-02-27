@@ -10,7 +10,7 @@ export const profileInfoTypes = {
 
 export const getUserProfile = (username: string) => async (dispatch) => {
     try {
-        const res = await ssClient.get(`/users/${username}`);// we might change this path
+        const res = await ssClient.get(`/users/username/${username}`);// we might change this path
         dispatch({
             payload: {
                 profileUser: res.data
@@ -19,11 +19,12 @@ export const getUserProfile = (username: string) => async (dispatch) => {
         })
     } catch (err) {
         console.log(err);
-    } dispatch({
-        payload: {
-
-        },
-        type: profileInfoTypes.BAD_USER_REQUEST
-
-    })
+        dispatch({
+            payload: {
+    
+            },
+            type: profileInfoTypes.BAD_USER_REQUEST
+    
+        })
+    } 
 }

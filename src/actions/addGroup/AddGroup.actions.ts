@@ -19,7 +19,7 @@ export const createGroup = (newGroup: Groups) => async (dispatch) => {
 
     
     try{
-        const res = await ssClient.post('/addGroup', newGroup);
+        const res = await ssClient.post('/groups', newGroup);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods
@@ -103,7 +103,7 @@ export const inviteUserToGroup = (username: string) => async (dispatch) => {
 
     try{
         console.log(username)
-        const res = await ssClient.post('/findByUsername', username);
+        const res = await ssClient.get(`/users/username/${username}`);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods
