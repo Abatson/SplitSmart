@@ -28,7 +28,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
             <div className="body">
             <div className="surroundingBox">
                 <div className="profile">
-                    <h1>{this.props.profileUser.firstName} Dunieski Otano {this.props.profileUser.lastName}</h1>
+                    <h1>{this.props.profileUser.firstName} {this.props.profileUser.lastName}</h1>
                 </div>
                
                 <div className="picture">
