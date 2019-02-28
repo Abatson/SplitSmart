@@ -19,7 +19,7 @@ export const receiptReducer = (state = initialState, action: any) => {
     
       //same as up above
       case receiptTypes.INITIALIZE_RECEIPTS:
-      { //set receipts to be action.payload.data
+      { //set receipts to be action.payload.data take a group id and fetch every receipt from that group id
         let receiptTest:Receipt[] = [];
         let receiptLines : any =  [];
         receiptLines.push(new Line("Coffee", 2.52), new Line("Bagel", 5.33), new Line("Fruit", 1.25));

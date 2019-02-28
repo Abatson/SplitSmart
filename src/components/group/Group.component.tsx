@@ -5,6 +5,7 @@ import { Receipt } from '../../models/Receipt';
 import { NavBarComponent } from '../navbar/Navbar.component';
 import { SideBarComponent } from '../SideBar/SideBar.component';
 import { bindActionCreators } from 'redux';
+import { initializeReceipts } from '../../actions/receipt/Receipt.actions';
 
 
 interface IGroupProps {
@@ -19,7 +20,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     }
 
     componentDidMount() {
-        //call action initialize receipts
+        initializeReceipts//call action initialize receipts
     }
 
     render() {
