@@ -7,7 +7,7 @@ LOGIN FORM
 .body{
   position: absolute;
   width: 100%;
-  background-color: #ccc;
+  // background-color: #ccc;
   
   height: 80%;
 }
@@ -733,7 +733,7 @@ select option{
   border: 1px solid black;
   position: absolute;
   bottom: 0%;
-  height: 10%;
+  height: 6%;
   background-color: rgb(25, 107, 133);
   background: rgb(25, 107, 133);
   padding: 3px;
@@ -800,4 +800,17 @@ span{
   margin-top: 10px;
   font-size: 20px;
   font-family: Helvetica;
+}
+
+/*******************************
+Images
+*********************************/
+
+html{
+  background-image: url('https://wallpaperplay.com/walls/full/b/0/2/29075.jpg');
+  
+}
+
+.logoThing{
+  height: 100px;
 }
