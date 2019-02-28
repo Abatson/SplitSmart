@@ -13,3 +13,5 @@ const mapStateToProps = (state: IState) => {
   }
 
   export default connect(mapStateToProps, mapDispatchToProps)(GroupComponent);
+
+  //test
