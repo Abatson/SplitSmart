@@ -64,7 +64,12 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
     return (
       <div className='terminal'>
         <form className="form-signin" onSubmit={this.register}>
-          <h1 className="h3 mb-3 font-weight-normal">Please register your information</h1>
+          <div className="registerSection">
+            <h2 className="h3 mb-3 font-weight-normal">Please Register your Information</h2>
+          </div>
+          <div className="pictureRegister">
+          </div>
+          <div className="dividerLine"></div>
           <label htmlFor="inputUsername" className="sr-only">Username</label>
           <br />
           <input type="text"
@@ -143,7 +148,8 @@ export class RegisterComponent extends React.Component<IRegisterProps, any> {
             onChange={this.updatePhone}
             required />
           <p id="error-message">{this.props.register.registerFeedback}</p>
-          <button className="button-form" type="submit">Register</button>
+          <hr />
+          <button className="registerButton" type="submit">Register</button>
         </form>
       </div>
     )
