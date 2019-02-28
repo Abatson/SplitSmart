@@ -6,10 +6,11 @@ import {ModalAGComponent} from '../modals/ModalAG.component';
 
 
 //This is getting every field from the Navbar state in the interface IState
-const mapStateToProps = (state: IState) => {
+const mapStateToProps = (state: IState, ownProps) => {
     return {
         user: state.login.user,
         showAGModal: state.modalAG.showAGModal,
+        ownProps: ownProps
     }
 }
 
