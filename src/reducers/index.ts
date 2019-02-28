@@ -6,7 +6,6 @@ import { Line } from "../models/Line";
 import { loginReducer } from "./Login.reducer";
 import { receiptReducer } from "./Receipt.reducer";
 import { Receipt } from "../models/Receipt";
-
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
@@ -71,10 +70,11 @@ export interface IDebtState{
 
 export interface IAddGroupState {
     newGroup: Groups,
-    usernameToAdd: string
+    usernameToAdd: string,
 }
 export interface IGroupState {
     currentGroup: Groups,
+    allGroups: Groups[],
 
 }
 export interface IGroupSettingsState{

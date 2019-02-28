@@ -67,18 +67,18 @@ componentWillMount()
     let receiptHTML : any = [];
 
 
-    let dummyUser = new Users();
+    /* let dummyUser = new Users();
     dummyUser.username = "csfrancis";
     dummyUser.firstName = "Chris";
     dummyUser.lastName = "Francis";
-    dummyUser.userId = 5;
+    dummyUser.userId = 5; */
 
     for (const key of this.props.groupReceipts)
     {
       let onClickFuncs : any = [];
       for (let i = 0; i < this.props.groupReceipts[key.id].lines.length; i ++)
           onClickFuncs.push(()=>{this.props.claimLine(key.id, 0, i); alert(key.id)});
-      receiptHTML.push(<li><ReceiptDisplayComponent user = {dummyUser} onClick1={()=>{this.props.claimReceipt(key.id, 0); alert(key.id)} } onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent></li>)
+      receiptHTML.push(<li><ReceiptDisplayComponent user = {this.props.user} onClick1={()=>{this.props.claimReceipt(key.id, 0); alert(key.id)} } onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent></li>)
     }
 
 
