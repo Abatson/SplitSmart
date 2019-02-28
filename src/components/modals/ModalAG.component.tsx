@@ -28,9 +28,11 @@ export class ModalAGComponent extends React.Component<IModalAGProps, any >{
                         <div className="ModalAG open">
                         <button className="button-close" onClick={this.props.closeAGModal}>X</button>
                             {this.props.showAGModal && (this.props.ownProps.type === 'AddGroup' && <AddGroupComponent/>)}
-                             
+                            
                             {this.props.showAGModal &&(this.props.ownProps.type === 'AccountSettings' && <AccountSettingsComponent/>)}
+                           
                             {this.props.showAGModal && (this.props.ownProps.type === 'GroupSettings' && <GroupSettingsComponent/>)}
+                           
                               
                             
                         </div> : <div className="ModalAG close"></div>}

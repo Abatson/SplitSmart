@@ -397,12 +397,9 @@ SIDEDRAWER
     font-size: 2.25vmin;
     font-weight: bold;
     font-family: Helvetica;
-
-    
-
-
-  color: white;
-  letter-spacing: 1.0vmin;
+    letter-spacing: 0.8pc;
+color: white;
+  letter-spacing: 0.1vmin;
   text-shadow: 0 18px 18px black;
 
   position:absolute;
@@ -781,9 +778,9 @@ select option{
 .showASModal{
   display: none;
 }
-.buttonAG{
-  display: none;
-}
+// .buttonAG{
+//  // display: none;
+// }
 .buttonGS{
   display: none;
 }
