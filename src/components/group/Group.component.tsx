@@ -20,7 +20,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     }
 
     componentDidMount() {
-        initializeReceipts//call action initialize receipts
+        initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
     }
 
     render() {

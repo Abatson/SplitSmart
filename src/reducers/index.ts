@@ -21,6 +21,7 @@ import { sideBarReducer } from "./Sidebar.reducer";
 import { modalASReducer } from "./ModalAS.reducer";
 import { modalGSReducer } from "./ModalGS.reducer";
 import { modalAGReducer } from "./ModalAG.reducer";
+import { groupReducer } from "./Group.Reducer";
 
 
 
@@ -45,7 +46,7 @@ export interface ILoginState {
 
 //The group state that we want to get the list of receipts from
 export interface IReceiptState{
-    groupReceipts:any,
+    groupReceipts: Receipt[],
 }
 
 export interface IAccountSettingsState {
@@ -72,8 +73,7 @@ export interface IAddGroupState {
     newGroup: Groups,
     usernameToAdd: string
 }
-export interface IGroupsState {
-    allGroups: Groups[],
+export interface IGroupState {
     currentGroup: Groups,
 
 }
@@ -113,6 +113,7 @@ export interface IState {
     modalAS: IModalASState,
     modalGS: IModalGSState,
     modalAG: IModalAGState,
+    group: IGroupState,
 
 }
 
@@ -124,7 +125,6 @@ export interface IState {
 //This needs a reducer with the name of every interface we have in the IState interface
 export const state = combineReducers<IState>({
     login: loginReducer,
-    
     accountSettings: accountSettingsReducer,
     profileInfo: profileInfoReducer,
     register: registerReducer,
@@ -136,6 +136,7 @@ export const state = combineReducers<IState>({
     modalAS: modalASReducer,
     modalGS: modalGSReducer,
     modalAG: modalAGReducer,
+    group: groupReducer,
 
 
 
