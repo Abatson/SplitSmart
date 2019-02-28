@@ -611,9 +611,23 @@ BACKDROP
   z-index: 100;
 }
 .search-input{
- font-size: 19px;
-  
+ font-size: 19%;
+  position: absolute;
+  width:1%;
+  display:block;
 }
+.searchBar{
+  font-size: 19%;
+   position: absolute;
+   width:25%;
+   display:block;
+ }
+ .searchButton{
+  font-size: 19%;
+   position: absolute;
+   width:5%;
+   display:block;
+ }
 #button-search{
   height: 38px;
 }

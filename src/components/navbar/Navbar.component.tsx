@@ -47,6 +47,8 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         <div className="spacer"></div>
                         <div className="toolbar_navigation-items">
 
+
+
                             <ul>
 
                                 <li><NavLink to={{
@@ -68,12 +70,16 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     pathname: '/logout',
                                 }} > Logout
                             </NavLink></li>
-                                <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }}>
-                                    <button className="btn btn-danger my-2 my-sm-0" type="submit">< FaSearch /></button>
-                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                                </form></li>
-
+                           <li>
+                               
+                            <form style={{ float: "right" }}>
+                                    <button className = "searchButton" type="submit">< FaSearch /></button>
+                                    <input className = "searchBar" type="search" placeholder="Search" aria-label="Search" />
+                                </form>
+                           </li>
                             </ul>
+                            
+
                         </div>
                     </nav>
                     <div className="currencies">
