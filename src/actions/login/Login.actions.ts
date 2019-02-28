@@ -8,8 +8,8 @@ export const loginTypes = {
     LOGIN: 'LOGIN',
     LOGOUT: 'LOGOUT',
     FAILED_LOGIN: 'FAILED_LOGIN',
-    CLEAR_LOGIN_MESSAGE: 'CLEAR_LOGIN_MESSAGE'
-    
+    CLEAR_LOGIN_MESSAGE: 'CLEAR_LOGIN_MESSAGE',
+      
     
 }
 
@@ -56,6 +56,7 @@ export const logout = () =>{
         type: loginTypes.LOGOUT
     }
 }
+
 
 //takes in a username and password and attempts to login to the api with them
 //this method is asyncronous so we have to use the dispatch method

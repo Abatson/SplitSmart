@@ -79,6 +79,7 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
 
                 <form onSubmit={this.updateUser}>
                     <table style={this.style} id="accountSettingsTable" >
+                    <tbody>
                         <tr>
                             <th colSpan={2} className="tHeading">ACCOUNT SETTINGS</th>
                         </tr>
@@ -123,6 +124,7 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
 
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </form>
             </div >

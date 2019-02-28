@@ -50,9 +50,8 @@ class App extends Component {
               <Route path='/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
-
               <Route path='/register' component={RegisterComponent} />
-            z  {/* //need a better path */}
+             {/* //need a better path */}
               <Route path='/iou' component={DebtComponent} />
               <Route path='/receipt' component={ReceiptComponent}/>
               <Route path='/addGroup' component={AddGroupComponent} />
