@@ -41,7 +41,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </div>
                         <div className="toolbar_toggle"><NavLink to={{
                             pathname: '/'
-                        }}><FaArrowLeft /></NavLink></div>
+                        }}><img className="logoThing" src="https://i.postimg.cc/RVc10x1x/logo.png"/></NavLink></div>
                         <div className="splitsmart" style={{ textAlign: "center" }}>Split$mart</div>
                         <div className="spacer"></div>
                         <div className="toolbar_navigation-items">

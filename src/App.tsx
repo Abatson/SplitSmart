@@ -52,7 +52,7 @@ class App extends Component {
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
 
               <Route path='/register' component={RegisterComponent} />
-              {/* //need a better path */}
+            z  {/* //need a better path */}
               <Route path='/iou' component={DebtComponent} />
               <Route path='/receipt' component={ReceiptComponent}/>
               <Route path='/addGroup' component={AddGroupComponent} />
