@@ -6,6 +6,7 @@ import { NavBarComponent } from '../navbar/Navbar.component';
 import { SideBarComponent } from '../SideBar/SideBar.component';
 import { bindActionCreators } from 'redux';
 import { initializeReceipts } from '../../actions/receipt/Receipt.actions';
+import  ReceiptComponent  from '../receipt/Receipt.container';
 
 
 interface IGroupProps {
@@ -27,7 +28,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
 
         return (
             <div>
-                
+                <ReceiptComponent />
             </div>
         )
     }
