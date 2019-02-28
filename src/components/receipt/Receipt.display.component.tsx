@@ -63,4 +63,4 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
     )
   }
 
-}
+} 

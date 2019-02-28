@@ -81,7 +81,7 @@ componentWillMount()
 
 
     return (
-      <div>
+      <div className = "receiptComponent">
         <ul>
           {receiptHTML}
         </ul>
