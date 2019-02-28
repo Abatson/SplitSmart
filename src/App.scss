@@ -868,4 +868,37 @@ font-weight: bold;
     margin-left: 235px;
       
   }
+
+  /********************************
+  GROUP SETTINGS
+  ********************************/ 
+  .group-settings-page{
+    position: absolute;
+    margin-left: 390px;
+    margin-top: 220px;
+    height: 200px;
+    border: 1px solid black;
+    width: 790px;
+    padding: 60px;
+  }
+
+  .addUserBtn{
+ background-color: rgb(25, 107, 133);
+ color: white;
+ border-radius: 10px;
+ font-weight: bold;
+
+  }
+  .resetEntryBtn{
+    background-color: rgb(25, 107, 133);
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  .createBtn{
+    background-color: rgb(25, 107, 133);
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+  }
   
