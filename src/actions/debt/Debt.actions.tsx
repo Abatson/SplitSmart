@@ -11,7 +11,7 @@ export const debtTypes = {
 
   export const getDebts = (userId:number) => async (dispatch) => {
     try {
-        const res = await ssClient.get(`/iou/${userId}`);
+        const res = await ssClient.get(`/debts/users/${userId}`);
         console.log(res)
         dispatch({
             payload: {
@@ -31,7 +31,7 @@ export const debtTypes = {
 
 export const paidDebt = (debtId:number) => async (dispatch) => {
   try {
-      const res = await ssClient.post(`/iou/paidDebt`,debtId);
+      const res = await ssClient.post(`/paid/${debtId}`);
       console.log(res)
       dispatch({
           payload: {
@@ -51,7 +51,7 @@ export const paidDebt = (debtId:number) => async (dispatch) => {
 
 export const acceptDebt = (debtId:number) => async (dispatch) => {
   try {
-      const res = await ssClient.post(`/iou/acceptDebt`,debtId);
+      const res = await ssClient.post(`/verified/${debtId}`);
       console.log(res)
       dispatch({
           payload: {

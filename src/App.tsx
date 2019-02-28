@@ -53,7 +53,7 @@ class App extends Component {
 
               <Route path='/register' component={RegisterComponent} />
             z  {/* //need a better path */}
-              <Route path='/iou' component={DebtComponent} />
+              <Route path='/debts' component={DebtComponent} />
               <Route path='/receipt' component={ReceiptComponent}/>
               <Route path='/addGroup' component={AddGroupComponent} />
               <Route path='/gsettings' component={GroupSettingsComponent}/>
