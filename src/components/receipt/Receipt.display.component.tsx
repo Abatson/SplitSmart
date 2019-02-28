@@ -2,9 +2,10 @@ import React from 'react';
 import {Item} from '../../models/Item';
 import {Receipt} from '../../models/Receipt';
 import { claimReceipt } from '../../actions/receipt/Receipt.actions';
-
+import { Users } from '../../models/Users';
 interface iReceiptProps{
-    receipt: Receipt
+    receipt: Receipt,
+    user: Users
 }
 export class ReceiptDisplayComponent extends React.Component<any, any> {
 
@@ -18,8 +19,8 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
     let receiptHTML : any = [];
 
 
-    receiptHTML.push(  <div className="receiptName" >
-      Receipt Name: {this.props.receipt.name}
+    receiptHTML.push(<div className="receiptName" >
+      Receipt Name: {this.props.user} {this.props.receipt.name}
 
       <p>
       {(this.props.receipt.claimant == -1) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.claimant == -1) ? "" : this.props.receipt.claimant}  

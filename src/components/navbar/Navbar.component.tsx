@@ -55,10 +55,10 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     state: { fromDashboard: true }
                                 }}><FaUserAlt /></NavLink></li>
                                 <li><NavLink to={{
-                                    pathname: '/Group',
-                                    search: `?sort=${this.props.user.username}`,
+                                    pathname: '/receipt',
+                                    //search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
-                                }}>Group</NavLink></li>
+                                }}>Receipt</NavLink></li>
                                 <li><NavLink className='innerNavBar' to={{
                                    pathname: '/iou',
                                    search: `?sort=${this.props.user.username}`,
