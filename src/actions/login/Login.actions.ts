@@ -6,8 +6,11 @@ export const loginTypes = {
     UPDATE_USERNAME: 'L_UPDATE_USERNAME',
     UPDATE_PASSWORD: 'L_UPDATE_PASSWORD',
     LOGIN: 'LOGIN',
+    LOGOUT: 'LOGOUT',
     FAILED_LOGIN: 'FAILED_LOGIN',
     CLEAR_LOGIN_MESSAGE: 'CLEAR_LOGIN_MESSAGE'
+    
+    
 }
 
 
@@ -44,6 +47,15 @@ export const updateUsername = (username: string) => {
 
 }
 
+
+export const logout = () =>{
+    return {
+        payload:{
+
+        },
+        type: loginTypes.LOGOUT
+    }
+}
 
 //takes in a username and password and attempts to login to the api with them
 //this method is asyncronous so we have to use the dispatch method

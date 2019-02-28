@@ -26,6 +26,7 @@ import { modalAGReducer } from "./ModalAG.reducer";
 
 
 
+
 //this represents the state needed by one of our components.
 //To log in, we need to keep track of the username and password that the use inputs
 //And we need to set the error message if they fail, and get the user info if they succeed
@@ -34,7 +35,8 @@ export interface ILoginState {
     user: Users,
     username: string,
     password: string,
-    feedbackMessage: string
+    feedbackMessage: string,
+    
 }
 
 //this represents the state needed by one of our components.
@@ -54,6 +56,7 @@ export interface IGroupState{
 export interface IAccountSettingsState {
     updatedUser: Users
 }
+
 
 
 export interface IProfileInfoState {
@@ -126,6 +129,7 @@ export interface IState {
 //This needs a reducer with the name of every interface we have in the IState interface
 export const state = combineReducers<IState>({
     login: loginReducer,
+    
     accountSettings: accountSettingsReducer,
     profileInfo: profileInfoReducer,
     register: registerReducer,

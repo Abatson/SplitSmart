@@ -28,6 +28,7 @@ import ModalGSComponent from './components/modals/ModalGS.container';
 import ModalAGComponent from './components/modals/ModalAG.container';
 import FooterComponent from './components/footer/Footer.container';
 import  GroupSettingsComponent  from './components/groupSettings/GroupSettings.container';
+import LogOutComponent from './components/logout/Logout.container';
 
 
 class App extends Component {
@@ -56,6 +57,7 @@ class App extends Component {
               <Route path='/receipt' component={ReceiptComponent}/>
               <Route path='/addGroup' component={AddGroupComponent} />
               <Route path='/gsettings' component={GroupSettingsComponent}/>
+              <Route path='/logout' component={LogOutComponent}/>
 
             </div>
           </BrowserRouter>
