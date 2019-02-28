@@ -6,8 +6,11 @@ export const loginTypes = {
     UPDATE_USERNAME: 'L_UPDATE_USERNAME',
     UPDATE_PASSWORD: 'L_UPDATE_PASSWORD',
     LOGIN: 'LOGIN',
+    LOGOUT: 'LOGOUT',
     FAILED_LOGIN: 'FAILED_LOGIN',
     CLEAR_LOGIN_MESSAGE: 'CLEAR_LOGIN_MESSAGE'
+    
+    
 }
 
 
@@ -45,6 +48,15 @@ export const updateUsername = (username: string) => {
 }
 
 
+export const logout = () =>{
+    return {
+        payload:{
+
+        },
+        type: loginTypes.LOGOUT
+    }
+}
+
 //takes in a username and password and attempts to login to the api with them
 //this method is asyncronous so we have to use the dispatch method
 //you notice that our declaration is a little weird, but this is the way we have to do it
@@ -55,7 +67,7 @@ export const loginRequest = (username, password) => async (dispatch) => {
         password: password
     }
     try {
-        const res = await ssClient.post('/login', credentials);
+        const res = await ssClient.post('/users/login', credentials);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods

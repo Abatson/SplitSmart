@@ -96,7 +96,7 @@ export const updatePhone = (phone:string) => {
 export const registerRequest = (newUser) => async (dispatch ) => {
     
     try {
-      const res = await ssClient.post('/register', newUser);
+      const res = await ssClient.post('/users', newUser);
       console.log(res)
       dispatch({
           payload:{

@@ -13,9 +13,8 @@ This component is the navigation bar we will use at the top of our site for navi
 
 interface INavbarProps {
     user: Users,
-    drawerToggle: () => void
-
-
+    drawerToggle: () => void,
+    logout: () => void
 }
 
 export class NavBarComponent extends React.Component<INavbarProps, any> {
@@ -53,21 +52,32 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     pathname: '/profile',
                                     search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
-                                }}><FaUserAlt /></NavLink></li>
+                                }}><FaUserAlt />&nbsp;
+                                {this.props.user.firstName} {this.props.user.lastName}</NavLink></li>
                                 <li><NavLink to={{
                                     pathname: '/Group',
                                     search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
                                 }}>Group</NavLink></li>
                                 <li><NavLink className='innerNavBar' to={{
-                                   pathname: '/iou',
-                                   search: `?sort=${this.props.user.username}`,
+                                    pathname: '/iou',
+                                    search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
-                                  }} > IOUs</NavLink></li>
-                                <li><NavLink className='innerNavBar' to={{
-                                    pathname: '/logout',
-                                }} > Logout
-                            </NavLink></li>
+                                }} > IOUs</NavLink></li>
+
+
+
+                                {
+                                    (this.props.user.displayName) ?
+                                        <li><NavLink onClick={this.props.logout} className="logoutShown" to={{
+                                            pathname: '/logout',
+                                        }} >Logout</NavLink></li>
+                                        :
+                                        <li><NavLink onClick={this.props.logout} className="logoutShown" to={{
+                                            pathname: '/logout',
+                                        }}></NavLink></li>
+                                }
+
                                 <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }}>
                                     <button className="btn btn-danger my-2 my-sm-0" type="submit">< FaSearch /></button>
                                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
@@ -87,7 +97,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </select>
                     </div>
                 </header>
-          </Fragment>
+            </Fragment>
 
         )
     }
