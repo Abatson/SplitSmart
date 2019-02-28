@@ -65,7 +65,20 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     state: { fromDashboard: true }
                                 }} > IOUs</NavLink></li>
 
+                                 {
+                                     (this.props.user.displayName)?
+                                     <li>
+                                         <NavLink to={{
+                                             pathname: '/login',
 
+                                         }}></NavLink></li>
+                                         :
+                                         <li>
+                                         <NavLink to={{
+                                             pathname: '/login',
+
+                                         }}>Login</NavLink></li>
+                                 }
 
                                 {
                                     (this.props.user.displayName) ?

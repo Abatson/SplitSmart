@@ -43,9 +43,9 @@ class App extends Component {
             <div>
               <NavBarComponent />
               <SideBarComponent />
-              <ModalASComponent  type="AccountSettings"/>
+              {/* <ModalASComponent  type="AccountSettings"/>
               <ModalGSComponent  type="GroupSettings"/>
-              <ModalAGComponent type="AddGroup"/>
+              <ModalAGComponent type="AddGroup"/> */}
               <FooterComponent/>
               <Route path='/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
