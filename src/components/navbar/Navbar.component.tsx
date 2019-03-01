@@ -8,14 +8,12 @@ import Modal from 'reactstrap/lib/Modal';
 
 /*
 This component is the navigation bar we will use at the top of our site for navigation purposes.
-
 */
 
 interface INavbarProps {
     user: Users,
-    drawerToggle: () => void
-
-
+    drawerToggle: () => void,
+    logout: () => void
 }
 
 export class NavBarComponent extends React.Component<INavbarProps, any> {
@@ -41,20 +39,19 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         <div className="spacer"></div>
                         <div className="toolbar_navigation-items">
 
-
-
                             <ul>
 
                                 <li><NavLink to={{
                                     pathname: '/profile',
                                     search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
-                                }}><FaUserAlt /></NavLink></li>
+                                }}><FaUserAlt />&nbsp;
+                                {this.props.user.firstName} {this.props.user.lastName}</NavLink></li>
                                 <li><NavLink to={{
-                                    pathname: '/receipt',
-                                    //search: `?sort=${this.props.user.username}`,
+                                    pathname: '/Group',
+                                    search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
-                                }}>Receipt</NavLink></li>
+                                }}>Group</NavLink></li>
                                 <li><NavLink className='innerNavBar' to={{
                                     pathname: '/ious',
                                     state: { fromDashboard: true }
@@ -92,8 +89,6 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                 </form></li>
 
                             </ul>
-                            
-
                         </div>
                     </nav>
                     <div className="currencies">
@@ -107,7 +102,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </select>
                     </div>
                 </header>
-          </Fragment>
+            </Fragment>
 
         )
     }
