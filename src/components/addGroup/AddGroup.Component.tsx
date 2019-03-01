@@ -59,11 +59,8 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                 <form onSubmit={this.createGroup} className="add-group-form">
                     <table id='add-group-header'>
                         <tbody>
-                            <tr id='add-group-row'>
-                                <td>Group Name</td>
-                                <td>Description</td>
-                                <td>Picture</td>
-                                <td>Invites</td>
+                            <tr>
+                                <th>Group Name</th>
                             </tr>
                             <tr>
                                 <td>
@@ -75,7 +72,13 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         onChange={this.updateGroupName}
                                         required />
                                 </td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
                                 <td>
+
                                     <input type="text"
                                         id="Group Description"
                                         className="text-form"
@@ -84,6 +87,9 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         onChange={this.updateDescription}
                                         required />
                                 </td>
+                            </tr>
+                            <tr><th>Picture</th></tr>
+                            <tr>
                                 <td>
                                     <input type="url"
                                         id="Group Picture"
@@ -101,6 +107,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                 <form onSubmit={this.inviteUserToGroup} onReset={this.resetAddForm} className="invite-user-to-group-form">
                     <table id='add-group-header'>
                         <tbody>
+                            <tr><th>Invites</th></tr>
                             <tr>
                                 <td>
                                     <input type="text"
