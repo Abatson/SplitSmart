@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { IState } from "../../reducers";
 import { GroupComponent } from "./Group.component";
-import { setCurrentGroup, getAllGroups, addReceipt, updateReceiptName, addLineToReceiptButton, addLineToReceipt, updateNameLineToAdd, resetAddLineForm, updateLinePriceToAdd, resetAddLineNameForm, resetAddLinePriceForm } from "../../actions/Group/Group.action";
+import { setCurrentGroup, getAllGroups, addReceipt, updateReceiptName, addLineToReceipt, updateNameLineToAdd, resetAddLineForm, updateLinePriceToAdd, resetAddLineNameForm, resetAddLinePriceForm } from "../../actions/Group/Group.action";
 import { Groups } from "../../models/Groups";
 
 const mapStateToProps = (state: IState) => {
@@ -16,7 +16,6 @@ const mapStateToProps = (state: IState) => {
     getAllGroups,
     addReceipt,
     updateReceiptName,
-    addLineToReceiptButton,
     addLineToReceipt,
     updateNameLineToAdd,
     resetAddLineForm,
