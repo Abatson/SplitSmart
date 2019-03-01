@@ -1,7 +1,7 @@
 import { ssClient } from "../../axios/ss.client";
 import { Receipt } from "../../models/Receipt";
 import { Line } from "../../models/Line";
-
+import { Users } from "../../models/Users"
 
 export const receiptTypes = {
     CLAIM_RECEIPT:  'L_CLAIM_RECEIPT' ,
@@ -64,7 +64,7 @@ try {
 
   //After a receipt has been claimed, we want someone who can claim the lines of the receipt
   //claimed is the id of the line in the receipt that was claimed
-  export const claimLine = (receiptID: number, claimant: number, claimed: number) => {
+  export const claimLine = (receiptID: number, claimant: Users, claimed: number) => {
     return {
         payload:{
             receiptID,

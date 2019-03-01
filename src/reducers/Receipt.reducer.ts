@@ -45,7 +45,7 @@ export const receiptReducer = (state = initialState, action: any) => {
     {
       let newGroupReceipts = state.groupReceipts.slice()
       newGroupReceipts[action.payload.receiptID].lines[action.payload.claimed].items = 
-      newGroupReceipts[action.payload.receiptID].lines[action.payload.claimed].items.concat((() => { let l = new Item(action.payload.claimant); l.claimant = action.payload.claimant; return [l];}) )
+      newGroupReceipts[action.payload.receiptID].lines[action.payload.claimed].items.concat((() => { let l = new Item(action.payload.claimant); l.itemClaimant = action.payload.claimant; return [l];}) )
       newGroupReceipts = newGroupReceipts.slice();
       //newGroupReceipts =
 

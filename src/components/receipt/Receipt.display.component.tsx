@@ -3,6 +3,7 @@ import {Item} from '../../models/Item';
 import {Receipt} from '../../models/Receipt';
 import { claimReceipt } from '../../actions/receipt/Receipt.actions';
 import { Users } from '../../models/Users';
+
 interface iReceiptProps{
     receipt: Receipt,
     user: Users
@@ -38,15 +39,20 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       let tempJSX : any = [];
       for (let i = 0; i < this.props.receipt.lines.length; i++)
       {
-        tempJSX.push(<li><input onClick={this.props.onClick2[i]} type="checkbox" id="scales" name="scales"
-        ></input>Purchase Name: {this.props.receipt.lines[i].lineName}</li>)
+        tempJSX.push(<div><hr></hr></div>);
+        tempJSX.push(<div><button onClick={this.props.onClick2[i]}
+        >Split Purchase</button></div>)
+        tempJSX.push(<React.Fragment><br></br></React.Fragment>)
+
+        tempJSX.push(<React.Fragment>Purchase Name: {this.props.receipt.lines[i].lineName}</React.Fragment>)
+
 
         tempJSX.push(<p>Price Before Split: {this.props.receipt.lines[i].linePrice}</p>);
         tempJSX.push(<p>Equal Price Split:</p>);
 
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-                tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.username} pays ${this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)}  </div>)
+                tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.username} owes ${this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)}  </div>)
               }
         
         receiptHTML.push(<div>{tempJSX}</div>)

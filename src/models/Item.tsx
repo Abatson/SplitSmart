@@ -4,11 +4,11 @@ export class Item {
 
     
     constructor(claimant) {
-        this.claimant = claimant;
+        this.itemClaimant = claimant;
         this.itemLine = 0;
         this.itemId = 0;
     }
     itemId:number
-    claimant : Users;
+    itemClaimant : Users;
     itemLine:number;
 }
