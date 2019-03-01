@@ -6,7 +6,7 @@ export class Receipt{
 
 
     constructor(receiptId, lines : any = [], receiptName : any = "Unnamed Receipt") {
-        this.receiptId = receiptId;
+        this.receiptId = 0;
         this.lines = lines; //one receipt can have multiple lines
         this.receiptClaimant = new Users; //-1 means no claimant
         this.receiptName = receiptName; //the name of the receipt\
@@ -16,7 +16,7 @@ export class Receipt{
     receiptId : number;
     lines : Line[];
     receiptClaimant : Users;
-    receiptName : String;
+    receiptName : string;
     receiptGroupsId: Groups
   
     

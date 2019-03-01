@@ -1,7 +1,8 @@
-import { async } from "q";
 import { ssClient } from "../../axios/ss.client";
 import { Receipt } from "../../models/Receipt";
 import { Line } from "../../models/Line";
+import { state } from "../../reducers";
+import { Groups } from "../../models/Groups";
 
 export const GroupTypes = {
     SET_CURRENT_GROUP: "G_SET_CURRENT_GROUP",
@@ -16,16 +17,17 @@ export const GroupTypes = {
     UPDATE_LINE_PRICE_TO_ADD: "G_UPDATE_LINE_PRICE_TO_ADD",
     RESET_ADD_LINE_NAME_FORM: "G_RESET_ADD_LINE_NAME_FORM",
     RESET_ADD_LINE_PRICE_FORM: "G_RESET_ADD_LINE_PRICE_FORM",
+    FAILED_TO_SET_CURRENT_GROUP: "G_FAILED_TO_SET_CURRENT_GROUP"
 }
-export const setCurrentGroup = (groupId: number) => {
+export const setCurrentGroup = (currentGroup: Groups) => {
     return {
         payload: {
-            groupName: groupName
+            currentGroup: currentGroup
         },
         type: GroupTypes.SET_CURRENT_GROUP
     }
 }
-export const addReceipt = (newReceipt: Receipt) = async (dispatch) => {
+export const addReceipt = (newReceipt: Receipt) => async (dispatch) => {
     try{
         const res = await ssClient.post('/receipt', newReceipt);
         console.log(res)
@@ -33,7 +35,7 @@ export const addReceipt = (newReceipt: Receipt) = async (dispatch) => {
         //this is the same thing as returning the payload up above in our other methods
         dispatch({
             payload: {
-                group: res.data
+                receipt: res.data
             },
             type: GroupTypes.ADD_RECEIPT
         })
@@ -44,7 +46,7 @@ export const addReceipt = (newReceipt: Receipt) = async (dispatch) => {
         dispatch({
             payload: {
             },
-            type: GroupTypes.FAILED_TO_UPDATE_GROUP
+            type: GroupTypes.FAILED_TO_SET_CURRENT_GROUP
         })
 
 
@@ -53,65 +55,66 @@ export const addReceipt = (newReceipt: Receipt) = async (dispatch) => {
 export const updateReceiptName = (receiptName: string) => {
     return {
         payload: {
-            groupName: groupName
+            receiptName: receiptName
         },
-        type: GroupTypes.UPDATE_GROUP_NAME
+        type: GroupTypes.UPDATE_RECEIPT_NAME
     }
 }
 export const addLineToReceiptButton = () => {
     return {
         payload: {
-            groupName: groupName
+            ...state
         },
-        type: GroupTypes.UPDATE_GROUP_NAME
+        type: GroupTypes.ADD_LINE_TO_RECEIPT_BUTTON
     }
 }
 export const addLineToReceipt = (newLine: Line) => {
     return {
         payload: {
-            groupName: groupName
+            newLine: newLine
+            
         },
-        type: GroupTypes.UPDATE_GROUP_NAME
+        type: GroupTypes.ADD_LINE_TO_RECEIPT
     }
 }
 export const updateNameLineToAdd = (lineNameToAdd: string) => {
     return {
         payload: {
-            groupName: groupName
+            lineNameToAdd: lineNameToAdd
         },
-        type: GroupTypes.UPDATE_GROUP_NAME
+        type: GroupTypes.UPDATE_LINE_NAME_TO_ADD
     }
 }
-export const resetAddLineForm = (lineToAdd: string) => {
+export const resetAddLineForm = (lineToAdd: Line) => {
     return {
         payload: {
-            groupName: groupName
+            lineToAdd: new Line
         },
-        type: GroupTypes.UPDATE_GROUP_NAME
+        type: GroupTypes.RESET_ADD_LINE_FORM
     }
 }
 export const updateLinePriceToAdd = (linePriceToAdd: number) => {
     return {
         payload: {
-            groupName: groupName
+            linePriceToAdd: linePriceToAdd
         },
-        type: GroupTypes.UPDATE_GROUP_NAME
+        type: GroupTypes.UPDATE_LINE_PRICE_TO_ADD
     }
 }
 export const resetAddLineNameForm = (lineNameToAdd: string) => {
     return {
         payload: {
-            groupName: groupName
+            resetAddLineNameForm: ''
         },
-        type: GroupTypes.UPDATE_GROUP_NAME
+        type: GroupTypes.RESET_ADD_LINE_NAME_FORM
     }
 }
 export const resetAddLinePriceForm = (linePriceToAdd: number) => {
     return {
         payload: {
-            groupName: groupName
+            linePriceToAdd: null
         },
-        type: GroupTypes.UPDATE_GROUP_NAME
+        type: GroupTypes.RESET_ADD_LINE_PRICE_FORM
     }
 }
 

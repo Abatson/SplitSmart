@@ -19,14 +19,14 @@ interface IGroupProps {
     lineToAdd: Line,
     lineNameToAdd: string,
     linePriceToAdd: number,
-    setCurrentGroup: (groupId: number) => void,
+    setCurrentGroup: (currentGroup: Groups) => void,
     getAllGroups: (userId: number) => void,
     addReceipt: (newReceipt: Receipt) => void,
     updateReceiptName: (receiptName: string) => void,
     addLineToReceiptButton: () => void,
     addLineToReceipt: (newLine: Line) => void,
     updateNameLineToAdd: (lineNameToAdd: string) => void,
-    resetAddLineForm: (lineToAdd: string) => void,
+    resetAddLineForm: (lineToReset: Line) => void,
     updateLinePriceToAdd: (linePriceToAdd: number) => void,
     resetAddLineNameForm: (lineNameToAdd: string) => void,
     resetAddLinePriceForm: (linePriceToAdd: number) => void,
@@ -56,8 +56,8 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     addLineToReceiptButton = (event) => {
         event.preventDefault();
         let newLine = new Line
-        newLine.name = this.props.lineNameToAdd
-        newLine.itemPrice = this.props.linePriceToAdd
+        newLine.lineName = this.props.lineNameToAdd
+        newLine.linePrice = this.props.linePriceToAdd
         this.props.addLineToReceipt(newLine)
         this.props.resetAddLineForm(event.target.value)
     }
@@ -71,8 +71,8 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     resetAddLinePriceForm = (event) => {
         this.props.resetAddLinePriceForm(event.target.value)
     }
-    setCurrentGroup = (groupId: number) => {
-        this.props.setCurrentGroup(groupId);
+    setCurrentGroup = (currentGroup: Groups) => {
+        this.props.setCurrentGroup(currentGroup);
     }
     render() {
         return (
@@ -94,7 +94,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                     <tr key={'group' + group.groupId}>
                                         <td>{group.groupName}</td>
                                         <td><img src={group.groupPicture} /></td>
-                                        <td><button onClick={() => this.setCurrentGroup(group.groupId)}>View Group</button></td>
+                                        <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
                                     </tr>
                                 ))
                             }
@@ -114,7 +114,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                                 id="Receipt Name"
                                                 className="text-form"
                                                 placeholder="Receipt Name"
-                                                value={this.props.newReceipt.name}
+                                                value={this.props.newReceipt.receiptName}
                                                 onChange={this.updateReceiptName}
                                                 required />
                                         </td>
