@@ -73,10 +73,10 @@ export const addGroupReducer = (state = initialState, action: any) => {
       case addGroupTypes.INVITE_USER_TO_GROUP:
       console.log(action.payload.user)
       let newArray = [...state.newGroup.groupMembers];
-      newArray.push(action.payload.user)
-      action.payload.usernameToAdd = '';
+      newArray.push(action.payload.user);
       return{
         ...state,
+        usernameToAdd: '',
         newGroup: {
           ...state.newGroup,
           groupMembers: newArray

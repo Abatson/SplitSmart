@@ -1,13 +1,14 @@
-import { IGroupState } from ".";
+import { IGroupsState } from ".";
 import { Groups } from "../models/Groups";
 import { GroupTypes, setCurrentGroup } from "../actions/Group/Group.action";
 import { Receipt } from "../models/Receipt";
 import { Line } from "../models/Line";
 
-const initialState: IGroupState = {
+const initialState: IGroupsState = {
+    allGroups: [],
     currentGroup: new Groups,
     newReceipt: new Receipt,
-    newLine: new Line
+    newLine: new Line,
 }
 
 export const groupReducer = (state = initialState, action: any) => {

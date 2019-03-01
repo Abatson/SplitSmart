@@ -21,7 +21,7 @@ interface IGroupProps {
     user: Users,
     groupReceipts: Receipt[],
     //lines have a 1:M relationship with items
-    initializeReceipts: ()  => void,
+    initializeReceipts: (groupId: number)  => void,
     claimReceipt: (receiptID: number, claimant:number) => void, //as a user I would like to be able to claim a receipt
     claimLine: (receiptID: number, claimant:Users, claimed: number) => void, //as a user I would like to be able to claim a line
 }
@@ -65,16 +65,7 @@ componentWillMount()
     let receiptHTML : any = [];
 
 
-<<<<<<< HEAD
-    /* let dummyUser = new Users();
-    dummyUser.username = "csfrancis";
-    dummyUser.firstName = "Chris";
-    dummyUser.lastName = "Francis";
-    dummyUser.userId = 5; */
-
-=======
     let itr_1 = 0;
->>>>>>> 34ee0fb68353d6ae3a42806529585e062d138a08
     for (const key of this.props.groupReceipts)
     {
 

@@ -20,6 +20,7 @@ import { sideBarReducer } from "./Sidebar.reducer";
 import { modalASReducer } from "./ModalAS.reducer";
 import { modalGSReducer } from "./ModalGS.reducer";
 import { modalAGReducer } from "./ModalAG.reducer";
+import { groupReducer } from "./Group.Reducer";
 
 
 
@@ -109,7 +110,6 @@ export interface IState {
     profileInfo: IProfileInfoState,
     receipt: IGroupState,
     register: IRegisterState,
-    //register: IRegisterState,
     groupSettings: IGroupSettingsState,
     debt: IDebtState,
     addNewGroup: IAddGroupState,
@@ -117,6 +117,7 @@ export interface IState {
     modalAS: IModalASState,
     modalGS: IModalGSState,
     modalAG: IModalAGState,
+    group: IGroupsState
 
 }
 
@@ -139,6 +140,7 @@ export const state = combineReducers<IState>({
     modalAS: modalASReducer,
     modalGS: modalGSReducer,
     modalAG: modalAGReducer,
+    group: groupReducer,
 
 
 
