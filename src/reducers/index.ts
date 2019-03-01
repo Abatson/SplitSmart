@@ -20,8 +20,6 @@ import { sideBarReducer } from "./Sidebar.reducer";
 import { modalASReducer } from "./ModalAS.reducer";
 import { modalGSReducer } from "./ModalGS.reducer";
 import { modalAGReducer } from "./ModalAG.reducer";
-import { groupReducer } from "./Group.Reducer";
-
 
 
 
@@ -35,24 +33,26 @@ export interface ILoginState {
     user: Users,
     username: string,
     password: string,
-    loggedIn: boolean,
-    feedbackMessage: string,
-    
+    feedbackMessage: string
 }
 
 //this represents the state needed by one of our components.
 //To we need to keep track of the receipt's lines (which include items) and the receipt claimants (One receipt may have multiple claimants)
 
+export interface IReceiptState{
+    lines: Line[],
+    claimant: number
+}
+
 
 //The group state that we want to get the list of receipts from
-export interface IReceiptState{
-    groupReceipts: Receipt[],
+export interface IGroupState{
+    groupReceipts:any,
 }
 
 export interface IAccountSettingsState {
     updatedUser: Users
 }
-
 
 
 export interface IProfileInfoState {
@@ -73,7 +73,8 @@ export interface IAddGroupState {
     newGroup: Groups,
     usernameToAdd: string,
 }
-export interface IGroupState {
+export interface IGroupsState {
+    allGroups: Groups[],
     currentGroup: Groups,
     newReceipt: Receipt,
     newLine: Line,
@@ -106,8 +107,9 @@ export interface IState {
     login: ILoginState,
     accountSettings: IAccountSettingsState,
     profileInfo: IProfileInfoState,
-    receipt: IReceiptState,
+    receipt: IGroupState,
     register: IRegisterState,
+    //register: IRegisterState,
     groupSettings: IGroupSettingsState,
     debt: IDebtState,
     addNewGroup: IAddGroupState,
@@ -115,7 +117,6 @@ export interface IState {
     modalAS: IModalASState,
     modalGS: IModalGSState,
     modalAG: IModalAGState,
-    group: IGroupState,
 
 }
 
@@ -138,7 +139,6 @@ export const state = combineReducers<IState>({
     modalAS: modalASReducer,
     modalGS: modalGSReducer,
     modalAG: modalAGReducer,
-    group: groupReducer,
 
 
 

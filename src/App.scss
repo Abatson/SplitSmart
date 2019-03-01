@@ -11,6 +11,9 @@ LOGIN FORM
   background-color: #000000;
   position: absolute;
   width: 100%;
+  top:0%;
+  display:block;
+  left:0%;
   // background-color: #ccc;
   z-index:-100;
   height: 100%;
@@ -503,7 +506,8 @@ TOOLBAR
 
 }
 .toolbar_toggle{
-  margin-left: 1rem;
+  margin-left: 4%;
+  margin-top:1%;
 }
 .toolbar_toggle a:hover,
 .toolbar_toggle a:active{
@@ -577,10 +581,15 @@ position:absolute;
 /************************************
 RECEIPT
 ************************************/
-.receiptName{
-  display:none;
-}
+//.receiptName{
+//  display:none;
+//}
 
+.receiptComponent{
+  overflow:hidden;
+  width:100%;
+  height:100%;
+}
 
 /************************************
 DRAWERTOGGLEBUTTON
@@ -624,9 +633,23 @@ BACKDROP
   z-index: 100;
 }
 .search-input{
- font-size: 19px;
-  
+ font-size: 19%;
+  position: absolute;
+  width:1%;
+  display:block;
 }
+.searchBar{
+  font-size: 19%;
+   position: absolute;
+   width:25%;
+   display:block;
+ }
+ .searchButton{
+  font-size: 19%;
+   position: absolute;
+   width:5%;
+   display:block;
+ }
 #button-search{
   height: 38px;
   
@@ -779,7 +802,7 @@ select option{
   padding: 0;
   margin: 0;
 
-  font-style: italic;
+  //font-style: italic;
   font-size: 2.25vmin;
   font-weight: bold;
   font-family: Helvetica;
