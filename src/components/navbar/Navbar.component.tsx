@@ -21,14 +21,8 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
     constructor(props) {
         super(props);
     }
-
-
-
-
     render() {
         return (
-
-
             <Fragment>
                 <header className="toolbar">
                     <nav className="toolbar_navigation">

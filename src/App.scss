@@ -153,6 +153,7 @@ h1{
 }
 #accountSettingsTable td{
   padding: 30px;
+  text-align: center;
 }
 .tHeading{
   font-size: 28px;
@@ -585,27 +586,31 @@ RECEIPT
 DRAWERTOGGLEBUTTON
 ************************************/
 .toggle-button{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 24px;
-    width: 30px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  padding:5%;
+  padding-left: 35%;
+  padding-right: 35%;
+
+  box-sizing: border-box;
+  
 }
 .toggle-button:focus{
-    outline: none;
+  outline: none;
 }
 .toggle-button_line{
-    width: 30px;
-    height: 2px;
-    background: white;
+  width: 30px;
+  height: 2px;
+  background: white;
 
 }
-
 /*****************
 BACKDROP
 *****************/
@@ -624,6 +629,7 @@ BACKDROP
 }
 #button-search{
   height: 38px;
+  
 }
 .backdropModal{
 width:100%;
@@ -831,13 +837,37 @@ select option{
 LOGOUT
 ******************/ 
 .logoutMessage{
-  margin-top: 120px;
+  text-align: center;
+  position: absolute;
+  color: white;
+  margin-top: 220px;
+  margin-left: 330px;
+  width: 50%;
+  height: 9%;
+  padding: 40px;
+  background-color: rgb(243, 239, 239);
+  color: black;
+border-radius: 20px;
+border: 6px solid black;
+box-shadow: 0 16px 16px black;
+transform: translate(0);
+}
+@keyframes logoutMessage {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
 }
 .logoutShown{
   display: block;
 }
 .logoutNotShown{
   display: none;
+}
+.linkText{
+  font-size: 20px;
 }
 span{
   margin-top: 10px;
