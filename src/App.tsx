@@ -55,7 +55,7 @@ class App extends Component {
               {/* //need a better path */}
               <Route path='/debts' component={DebtComponent} />
               {/* //need a better path */}
-              <Route path='/debts' component={DebtComponent} />
+              <Route path='/ious' component={DebtComponent} />
               <Route path='/receipt' component={ReceiptComponent} />
               <Route path='/addGroup' component={AddGroupComponent} />
               <Route path='/gsettings' component={GroupSettingsComponent} />
