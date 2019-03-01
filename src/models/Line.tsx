@@ -2,10 +2,10 @@ import { Item } from "./Item";
 
 export class Line{
 
-    constructor(name : string = "Uninitialized Name", linePrice = 0) {
+    constructor() {
         this.items = []; //one line has multiple items
-        this.lineName = name;
-        this.linePrice = linePrice;
+        this.lineName = '';
+        this.linePrice = 0;
         this.lineId = 0;
         this.lineReceipt = 0;
         }

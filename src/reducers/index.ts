@@ -75,6 +75,8 @@ export interface IAddGroupState {
 }
 export interface IGroupState {
     currentGroup: Groups,
+    newReceipt: Receipt,
+    newLine: Line,
 
 }
 export interface IGroupSettingsState{

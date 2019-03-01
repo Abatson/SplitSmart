@@ -10,7 +10,6 @@ export const GroupTypes = {
     FAILED_TO_GET_ALL_GROUPS: "G_FAILED_TO_GET_ALL_GROUPS",
     ADD_RECEIPT: "G_ADD_RECEIPT",
     UPDATE_RECEIPT_NAME: "G_UPDATE_RECEIPT_NAME",
-    ADD_LINE_TO_RECEIPT_BUTTON: "G_ADD_LINE_TO_RECEIPT_BUTTON",
     ADD_LINE_TO_RECEIPT: "G_ADD_LINE_TO_RECEIPT",
     UPDATE_LINE_NAME_TO_ADD: "G_UPDATE_LINE_NAME_TO_ADD",
     RESET_ADD_LINE_FORM: "G_RESET_ADD_LINE_FORM",
@@ -58,14 +57,6 @@ export const updateReceiptName = (receiptName: string) => {
             receiptName: receiptName
         },
         type: GroupTypes.UPDATE_RECEIPT_NAME
-    }
-}
-export const addLineToReceiptButton = () => {
-    return {
-        payload: {
-            ...state
-        },
-        type: GroupTypes.ADD_LINE_TO_RECEIPT_BUTTON
     }
 }
 export const addLineToReceipt = (newLine: Line) => {
