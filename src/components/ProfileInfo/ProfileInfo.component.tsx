@@ -50,7 +50,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 <div className="profileInfo">Profile
                
                 </div>
-                <label>Username: {this.props.params.sort}</label>
+                <label>Username: {this.props.profileUser.username}</label>
                 <br/>
                 <br/>
                 <label>Display Name: {this.props.profileUser.displayName}</label>
