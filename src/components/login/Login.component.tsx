@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { ILoginState } from '../../reducers';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
 import { FaUser, FaLock } from 'react-icons/fa';
 
 
@@ -8,12 +8,12 @@ import { FaUser, FaLock } from 'react-icons/fa';
 
 //this interface is just saying what we are going to get as props from our container component
 //we coulddo this with props any but by specifying it makes it easier with out intellisense
-interface ILoginProps {
+interface ILoginProps extends RouteComponentProps<{}>{
   login: ILoginState,
   loggedIn: false,
   updatePassword: (password: string) => void,
   updateUsername: (username: string) => void,
-  loginRequest: (username: string, password: string) => void,
+  loginRequest: (username: string, password: string, history: any) => void,
   clearMessage: () => void,
   
 
@@ -49,7 +49,7 @@ export class LoginComponent extends React.Component<ILoginProps, any> {
   //when they hit submit, send the username value and password value into our login action
   login = (event) => {
     event.preventDefault(); // prevent default form submission
-    this.props.loginRequest(this.props.login.username, this.props.login.password);
+    this.props.loginRequest(this.props.login.username, this.props.login.password, this.props.history);
   }
 
   render() {
