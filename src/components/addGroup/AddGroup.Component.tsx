@@ -43,6 +43,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     inviteUserToGroup = (event) => {
         event.preventDefault();
         this.props.inviteUserToGroup(this.props.usernameToAdd)
+        this.props.resetAddForm(event.target.value)
     }
     updateUserToAdd = (event) => {
         event.preventDefault();

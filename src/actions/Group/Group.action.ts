@@ -6,10 +6,39 @@ export const GroupTypes = {
     GET_ALL_GROUPS: "G_GET_ALL_GROUPS",
     FAILED_TO_GET_ALL_GROUPS: "G_FAILED_TO_GET_ALL_GROUPS",
 }
-
 export const setCurrentGroup = (groupId: number) => {
     
 }
+export const addReceipt = (groupId: number) => {
+
+}
+export const updateReceiptName = (groupId: number) => {
+    
+}
+export const addLineToReceiptButton = (groupId: number) => {
+    
+}
+export const addLineToReceipt = (groupId: number) => {
+    
+}
+export const updateNameLineToAdd = (groupId: number) => {
+    
+}
+export const resetAddLineForm = (groupId: number) => {
+    
+}
+export const updateLinePriceToAdd = (groupId: number) => {
+    
+}
+export const resetAddLineNameForm = (groupId: number) => {
+    
+}
+export const resetAddLinePriceForm = (groupId: number) => {
+    
+}
+
+
+
 
 export const getAllGroups = (userId: number) => async(dispatch) => {
 

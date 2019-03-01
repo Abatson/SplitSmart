@@ -74,7 +74,6 @@ export interface IAddGroupState {
 }
 export interface IGroupState {
     currentGroup: Groups,
-    allGroups: Groups[],
 
 }
 export interface IGroupSettingsState{

@@ -8,14 +8,29 @@ import { initializeReceipts } from '../../actions/receipt/Receipt.actions';
 import ReceiptComponent from '../receipt/Receipt.container';
 import { getAllGroups, setCurrentGroup } from '../../actions/Group/Group.action';
 import { Users } from '../../models/Users';
+import { Line } from '../../models/Line';
 
 
 interface IGroupProps {
     user: Users,
     currentGroup: Groups,
-    allGroups: Groups[]
+    allGroups: Groups[],
+    newReceipt: Receipt,
+    lineToAdd: Line,
+    lineNameToAdd: string,
+    linePriceToAdd: number,
     setCurrentGroup: (groupId: number) => void,
     getAllGroups: (userId: number) => void,
+    addReceipt: (newReceipt: Receipt) => void,
+    updateReceiptName: (receiptName: string) => void,
+    addLineToReceiptButton: () => void,
+    addLineToReceipt: (newLine: Line) => void,
+    updateNameLineToAdd: (lineNameToAdd: string) => void,
+    resetAddLineForm: (lineToAdd: string) => void,
+    updateLinePriceToAdd: (linePriceToAdd: number) => void,
+    resetAddLineNameForm: (lineNameToAdd: string) => void,
+    resetAddLinePriceForm: (linePriceToAdd: number) => void,
+
 }
 
 export class GroupComponent extends React.Component<IGroupProps, any> {
@@ -27,39 +42,111 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
         getAllGroups(this.props.user.userId)
     }
-
+    addReceipt = (event) => {
+        event.preventDefault(); //prevent default form submission
+        this.props.addReceipt(this.props.newReceipt);
+    }
+    updateReceiptName = (event) => {
+        event.preventDefault(); //prevent default form submission
+        this.props.updateReceiptName(event.target.value);
+    }
+    updateNameLineToAdd = (event) => {
+        this.props.updateNameLineToAdd(event.target.value);
+    }
+    addLineToReceiptButton = (event) => {
+        event.preventDefault();
+        let newLine = new Line
+        newLine.name = this.props.lineNameToAdd
+        newLine.itemPrice = this.props.linePriceToAdd
+        this.props.addLineToReceipt(newLine)
+        this.props.resetAddLineForm(event.target.value)
+    }
+    resetAddLineNameForm = (event) => {
+        this.props.resetAddLineNameForm(event.target.value)
+    }
+    updateLinePriceToAdd = (event) => {
+        event.preventDefault();
+        this.props.updateLinePriceToAdd(event.target.value)
+    }
+    resetAddLinePriceForm = (event) => {
+        this.props.resetAddLinePriceForm(event.target.value)
+    }
     setCurrentGroup = (groupId: number) => {
         this.props.setCurrentGroup(groupId);
     }
-render() {
-
-    return (
-        <div>
-            <div className="receipt-in-group-component">
-                <ReceiptComponent />>
+    render() {
+        return (
+            <div>
+                <div className="receipt-in-group-component">
+                    <ReceiptComponent />
                 </div>
-            <div className="list-of-groups">
-            <table className="table-list-of-groups">
-                <thead className="table-head-list-of-groups">
-                <tr className="top-table-row-list-of-groups">
-                    <th>Group Name</th>
-                    <th>Group Picture</th>
-                </tr>
-                </thead>
-                <tbody>
-                    {
-                        this.props.allGroups.map(group => (
-                            <tr key={'group' + group.groupId}>
-                                <td>{group.groupName}</td>
-                                <td><img src={group.groupPicture} /></td>
-                                <td><button onClick={() => this.setCurrentGroup(group.groupId)}>View Group</button></td>
+                <div className="list-of-groups">
+                    <table className="table-list-of-groups">
+                        <thead className="table-head-list-of-groups">
+                            <tr className="top-table-row-list-of-groups">
+                                <th>Group Name</th>
+                                <th>Group Picture</th>
                             </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                            {
+                                this.props.allGroups.map(group => (
+                                    <tr key={'group' + group.groupId}>
+                                        <td>{group.groupName}</td>
+                                        <td><img src={group.groupPicture} /></td>
+                                        <td><button onClick={() => this.setCurrentGroup(group.groupId)}>View Group</button></td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                    <div className="add-receipt">
+                        <table id='add-receipt-header'>
+                            <tbody>
+                                <tr id='add-receipt-row'>
+                                    <td>Receipt Name</td>
+                                    <td>Lines</td>
+                                </tr>
+                                <tr>
+                                    <form onSubmit={this.addReceipt} className="add-receipt-form">
+                                        <td>
+                                            <input type="text"
+                                                id="Receipt Name"
+                                                className="text-form"
+                                                placeholder="Receipt Name"
+                                                value={this.props.newReceipt.name}
+                                                onChange={this.updateReceiptName}
+                                                required />
+                                        </td>
+                                        <button className="button-form" type="submit">Add Receipt</button>
+                                    </form>
+                                    <form onSubmit={this.addLineToReceiptButton} className="invite-user-to-group-form">
+                                        <td>
+                                            <input type="text"
+                                                id="Add Line To Receipt"
+                                                className="addLineToReceipt"
+                                                placeholder="Item"
+                                                value={this.props.lineNameToAdd}
+                                                onChange={this.updateNameLineToAdd}
+                                                required />
+                                        </td>
+                                        <td>
+                                            <input type="number"
+                                                id="Add Line Price To Receipt"
+                                                className="addLinePriceToReceipt"
+                                                placeholder="Item"
+                                                value={this.props.linePriceToAdd}
+                                                onChange={this.updateLinePriceToAdd}
+                                                required />
+                                        </td>
+                                        <button className="button-form" type="submit">Add Line</button>
+                                    </form>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-        </div>
-    )
-}
+            </div>
+        )
+    }
 }
