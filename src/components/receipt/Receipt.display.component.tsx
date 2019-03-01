@@ -20,10 +20,10 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
 
     receiptHTML.push(<div className="receiptName" >
-      Receipt Name: {this.props.user.username} {this.props.receipt.name}
+      Receipt Name: {this.props.receipt.receiptName}
 
       <p>
-      {(this.props.receipt.claimant == -1) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.claimant == -1) ? "" : this.props.receipt.claimant}  
+      {(this.props.receipt.claimant == -1) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.receiptClaimant.username == "") ? "" : this.props.receipt.receiptClaimant.username}  
       </p>
       <p>
       Claim Receipt:  <input onClick={this.props.onClick1} type="checkbox" id="scales" name="scales"
@@ -41,12 +41,12 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
         tempJSX.push(<li><input onClick={this.props.onClick2[i]} type="checkbox" id="scales" name="scales"
         ></input>Purchase Name: {this.props.receipt.lines[i].name}</li>)
 
-        tempJSX.push(<p>Price Before Split: {this.props.receipt.lines[i].itemPrice}</p>);
+        tempJSX.push(<p>Price Before Split: {this.props.receipt.lines[i].linePrice}</p>);
         tempJSX.push(<p>Equal Price Split:</p>);
 
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-                tempJSX.push(<div>{this.props.receipt.lines[i].name} pays ${this.props.receipt.lines[i].itemPrice/(this.props.receipt.lines[i].items.length)}  </div>)
+                tempJSX.push(<div>{this.props.receipt.lines[i].name} pays ${this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)}  </div>)
               }
         
         receiptHTML.push(<div>{tempJSX}</div>)
