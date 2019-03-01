@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Users } from '../../models/Users';
 import { getUserProfile } from '../../actions/profileinfo/ProfileInfo.actions';
+import  ModalAGComponent  from '../modals/ModalAG.container';
 
 interface IProfileInfo {
     user: Users,
@@ -25,7 +26,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
         // console.log(params.sort)
 
         return (
-            <div className="body">
+           
             <div className="surroundingBox">
                 <div className="profile">
                     <h1>{this.props.profileUser.firstName} {this.props.profileUser.lastName}</h1>
@@ -61,12 +62,13 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 <label>Phone: {this.props.profileUser.phone}</label><br>
                 </br>
                 <hr/>
-                <button className="buttonSettings"  data-toggle="dropdown" type="submit">Settings</button>
+                {/* <button className="buttonSettings"  data-toggle="dropdown" type="submit">Settings</button> */}
+                <ModalAGComponent type="AccountSettings" name="Account Settings" className="profileInfoBtn"/>
                 </div>
                 
                
             </div>
-            </div>
+            
 
         )
     }

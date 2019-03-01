@@ -63,10 +63,10 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                     <table id='group-settings-header'>
                         <tbody>
                             <tr id='group-settings-row'>
-                                <td>Group Name</td>
-                                <td>Description</td>
-                                <td>Picture</td>
-                                <td>Invites</td>
+                                <th>Group Name</th>
+                                <th>Description</th>
+                                <th>Picture</th>
+                                <th>Invites</th>
                             </tr>
                             <tr>
                                 <td>
@@ -99,7 +99,8 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                             </tr>
                         </tbody>
                     </table>
-                    <button className="button-form" type="submit">Create</button>
+                    <button className="addUserBtn" type="submit">Add User</button>
+                    
                 </form>
                 <form onSubmit={this.inviteUserToGroup} onReset={this.resetAddForm} className="invite-user-to-group-form">
                     <table id='group-settings-header'>
@@ -117,8 +118,9 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                             </tr>
                         </tbody>
                     </table>
-                    <button className="button-form" type="submit">Add User</button>
-                    <button className="button-form" type="reset">Reset Entry</button>
+                    <hr/>
+                    <button className="createBtn" type="submit">Create</button>
+                    <button className="resetEntryBtn" type="reset">Reset Entry</button>
                 </form>
             </div >
         );

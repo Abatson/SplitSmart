@@ -5,6 +5,7 @@ import { loginTypes } from "../actions/login/Login.actions";
 //this is our intialstate of the interface we declared for the login component
 const initialState: ILoginState = {
   user: new Users,
+  loggedIn: false,
   username: '',
   password: '',
   feedbackMessage: '',
@@ -39,6 +40,7 @@ export const loginReducer = (state = initialState, action: any) => {
       return {
         ...state,
         user: action.payload.user,
+        loggedIn: true,
         feedbackMessage: 'YOU DID IT!',
         username: username,
         password: password
@@ -62,6 +64,7 @@ export const loginReducer = (state = initialState, action: any) => {
       return {
         ...state,
         user: initialState,
+        loggedIn: false,
         feedbackMessage: "You have successfully logged out"
       }
   }
