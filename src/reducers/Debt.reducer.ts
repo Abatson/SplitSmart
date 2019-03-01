@@ -13,6 +13,7 @@ const initialState: IDebtState = {
       case debtTypes.GET_DEBTS:
         return {
           ...state,
+          allDebts: action.payload.debts
         }
       case debtTypes.PAID_DEBT:
         return {

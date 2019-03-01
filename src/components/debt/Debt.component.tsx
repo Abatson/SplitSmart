@@ -17,6 +17,11 @@ export class DebtComponent extends React.Component<IDebtProps, any> {
       super(props);
     }
 
+
+    componentDidMount() {
+      this.props.getDebts(this.props.user.userId);
+    }
+
 render() {
 
   const DebtDisplayComponent:any[] = [];

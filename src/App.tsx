@@ -41,6 +41,7 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
             <div>
+              <div className="backgroundDiv"></div>
               <NavBarComponent />
               <SideBarComponent />
               {/* <ModalASComponent  type="AccountSettings"/>
@@ -53,7 +54,7 @@ class App extends Component {
 
               <Route path='/register' component={RegisterComponent} />
             z  {/* //need a better path */}
-              <Route path='/debts' component={DebtComponent} />
+              <Route path='/ious' component={DebtComponent} />
               <Route path='/receipt' component={ReceiptComponent}/>
               <Route path='/addGroup' component={AddGroupComponent} />
               <Route path='/gsettings' component={GroupSettingsComponent}/>

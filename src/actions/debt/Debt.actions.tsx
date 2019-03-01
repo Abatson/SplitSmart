@@ -15,7 +15,7 @@ export const debtTypes = {
         console.log(res)
         dispatch({
             payload: {
-                user: res.data
+                debts: res.data
             },
             type: debtTypes.GET_DEBTS
         })

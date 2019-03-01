@@ -4,12 +4,16 @@ LOGIN FORM
 *{
   font-family: Helvetica;
 }
-.body{
+
+.backgroundDiv{
+  background-image: url('https://wallpaperplay.com/walls/full/b/0/2/29075.jpg');
+  background-size: 100% 100%;
+  background-color: #000000;
   position: absolute;
   width: 100%;
   // background-color: #ccc;
-  
-  height: 80%;
+  z-index:-100;
+  height: 100%;
 }
 
 .linkNav{
@@ -372,7 +376,7 @@ h1{
   }
 }
 .pageBody{
-  background-color: #eee;
+  background-color: #000;
 }
 
 /*************************************
@@ -940,10 +944,10 @@ font-weight: bold;
 Images
 *********************************/
 
-html{
-  background-image: url('https://wallpaperplay.com/walls/full/b/0/2/29075.jpg');
+// html{
+//   background-image: url('https://wallpaperplay.com/walls/full/b/0/2/29075.jpg');
   
-}
+// }
 
 .logoThing{
   height: 100px;
