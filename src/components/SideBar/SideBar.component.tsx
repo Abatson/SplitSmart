@@ -3,6 +3,7 @@ import { ILoginState } from '../../reducers';
 import { NavLink } from 'react-router-dom';
 import { Users } from '../../models/Users';
 import { Fragment } from 'react';
+import  ModalAGComponent  from '../modals/ModalAG.container';
 
 /*This component is the navigation bar we will use at the top of our site for navigation purposes.
 */
@@ -25,6 +26,7 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
                     <div className="sidebarTop">
                         <span className="groupHeading">Groups</span>
                     </div>
+                    <ModalAGComponent type="AddGroup" name="Add a Group" className="addAGroupBtn"/>
                     <ul>
                         <li><NavLink to={{
                             pathname: '/'

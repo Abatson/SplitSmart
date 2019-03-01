@@ -21,14 +21,8 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
     constructor(props) {
         super(props);
     }
-
-
-
-
     render() {
         return (
-
-
             <Fragment>
                 <header className="toolbar">
                     <nav className="toolbar_navigation">
@@ -41,7 +35,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </div>
                         <div className="toolbar_toggle"><NavLink to={{
                             pathname: '/'
-                        }}><FaArrowLeft /></NavLink></div>
+                        }}><img className="logoThing" src="https://i.postimg.cc/RVc10x1x/logo.png"/></NavLink></div>
                         <div className="splitsmart" style={{ textAlign: "center" }}>Split$mart</div>
                         <div className="spacer"></div>
                         <div className="toolbar_navigation-items">
@@ -60,12 +54,24 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     state: { fromDashboard: true }
                                 }}>Group</NavLink></li>
                                 <li><NavLink className='innerNavBar' to={{
-                                    pathname: '/iou',
-                                    search: `?sort=${this.props.user.username}`,
+                                    pathname: '/ious',
                                     state: { fromDashboard: true }
                                 }} > IOUs</NavLink></li>
 
+                                 {
+                                     (this.props.user.displayName)?
+                                     <li>
+                                         <NavLink to={{
+                                             pathname: '/login',
 
+                                         }}></NavLink></li>
+                                         :
+                                         <li>
+                                         <NavLink to={{
+                                             pathname: '/login',
+
+                                         }}>Login</NavLink></li>
+                                 }
 
                                 {
                                     (this.props.user.displayName) ?

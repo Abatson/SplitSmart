@@ -10,7 +10,8 @@ const mapStateToProps = (state: IState, ownProps) => {
     return {
         user: state.login.user,
         showAGModal: state.modalAG.showAGModal,
-        ownProps: ownProps
+        ownProps: ownProps,
+        
     }
 }
 

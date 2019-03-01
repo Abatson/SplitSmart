@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { ILoginState } from '../../reducers';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
 import { FaUser, FaLock } from 'react-icons/fa';
 
 
@@ -8,12 +8,14 @@ import { FaUser, FaLock } from 'react-icons/fa';
 
 //this interface is just saying what we are going to get as props from our container component
 //we coulddo this with props any but by specifying it makes it easier with out intellisense
-interface ILoginProps {
+interface ILoginProps extends RouteComponentProps<{}>{
   login: ILoginState,
+  loggedIn: false,
   updatePassword: (password: string) => void,
   updateUsername: (username: string) => void,
-  loginRequest: (username: string, password: string) => void,
-  clearMessage: () => void
+  loginRequest: (username: string, password: string, history: any) => void,
+  clearMessage: () => void,
+  
 
 
 
@@ -27,7 +29,7 @@ export class LoginComponent extends React.Component<ILoginProps, any> {
   }
 
   componentWillMount() {
-    document.body.style.backgroundColor = "#ccc";
+   
   }
 
   //when we load the component, clear the old message
@@ -47,11 +49,11 @@ export class LoginComponent extends React.Component<ILoginProps, any> {
   //when they hit submit, send the username value and password value into our login action
   login = (event) => {
     event.preventDefault(); // prevent default form submission
-    this.props.loginRequest(this.props.login.username, this.props.login.password);
+    this.props.loginRequest(this.props.login.username, this.props.login.password, this.props.history);
   }
 
   render() {
-
+     
     //get our password and username from the passed in state
     const { username, password } = this.props.login
     return (
@@ -84,9 +86,9 @@ export class LoginComponent extends React.Component<ILoginProps, any> {
                 required />
             </div>
             <p id="error-message">{this.props.login.feedbackMessage}</p>
-            <button className="login-btn" type="submit">Sign in</button>
+            <button className="login-btn" type="submit" >Sign in</button>
           </form>
-
+             
           <Link className="link-to-newAccount" to='/register'> Register A New Account</Link>
         </div>
       </div>

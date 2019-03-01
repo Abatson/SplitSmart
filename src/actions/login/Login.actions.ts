@@ -8,8 +8,8 @@ export const loginTypes = {
     LOGIN: 'LOGIN',
     LOGOUT: 'LOGOUT',
     FAILED_LOGIN: 'FAILED_LOGIN',
-    CLEAR_LOGIN_MESSAGE: 'CLEAR_LOGIN_MESSAGE'
-    
+    CLEAR_LOGIN_MESSAGE: 'CLEAR_LOGIN_MESSAGE',
+      
     
 }
 
@@ -57,10 +57,11 @@ export const logout = () =>{
     }
 }
 
+
 //takes in a username and password and attempts to login to the api with them
 //this method is asyncronous so we have to use the dispatch method
 //you notice that our declaration is a little weird, but this is the way we have to do it
-export const loginRequest = (username, password) => async (dispatch) => {
+export const loginRequest = (username, password, history) => async (dispatch) => {
 
     const credentials = {
         username: username,
@@ -77,6 +78,7 @@ export const loginRequest = (username, password) => async (dispatch) => {
             },
             type: loginTypes.LOGIN
         })
+        history.push('/groups');
 
     } catch (err) {
         //impediment, how to get api message from error

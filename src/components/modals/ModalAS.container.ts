@@ -6,10 +6,11 @@ import {ModalASComponent} from '../modals/ModalAS.component';
 
 
 //This is getting every field from the Navbar state in the interface IState
-const mapStateToProps = (state: IState) => {
+const mapStateToProps = (state: IState, ownProps) => {
     return {
         user: state.login.user,
         showASModal: state.modalAS.showASModal,
+        ownProps: ownProps,
     }
 }
 

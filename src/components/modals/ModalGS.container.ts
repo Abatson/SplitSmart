@@ -6,10 +6,11 @@ import {ModalGSComponent} from '../modals/ModalGS.component';
 
 
 //This is getting every field from the Navbar state in the interface IState
-const mapStateToProps = (state: IState) => {
+const mapStateToProps = (state: IState, ownProps) => {
     return {
         user: state.login.user,
-        showGSModal: state.modalGS.showGSModal
+        showGSModal: state.modalGS.showGSModal,
+        ownProps: ownProps,
     }
 }
 
