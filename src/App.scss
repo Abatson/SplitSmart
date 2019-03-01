@@ -5,6 +5,10 @@ LOGIN FORM
   font-family: Helvetica;
 }
 
+.debtTable{
+  padding-top: 10px;
+}
+
 .backgroundDiv{
   background-image: url('https://wallpaperplay.com/walls/full/b/0/2/29075.jpg');
   background-size: 100% 100%;
@@ -279,6 +283,7 @@ h1{
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  background-color: white;
 }
 
 #iou td, #iou th {
@@ -294,7 +299,7 @@ h1{
 #iou thead {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
   background-color: #000000;
   color: white;
 }

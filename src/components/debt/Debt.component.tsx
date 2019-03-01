@@ -38,7 +38,7 @@ render() {
   }
     return (
       <div>
-        <table id ="iou">
+        <table className="debtTable" id ="iou">
           <thead id="iou thead">
             <tr>
               <th scope="col">
