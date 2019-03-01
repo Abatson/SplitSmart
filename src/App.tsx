@@ -8,17 +8,17 @@ import {
   Switch,
 } from 'react-router-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
-import  ReceiptComponent  from './components/receipt/Receipt.container'
+import ReceiptComponent from './components/receipt/Receipt.container'
 //notice for our component import we are using the default import from the container file
 //we need to do this so that redux can connect our component to the store and actions
 
-import  LoginComponent  from './components/login/Login.container';
-import  AccountSettingsComponent  from './components/accountsettings/AccountSettings.container';
+import LoginComponent from './components/login/Login.container';
+import AccountSettingsComponent from './components/accountsettings/AccountSettings.container';
 import ProfileInfoComponent from './components/ProfileInfo/ProfileInfo.container';
-import RegisterComponent  from './components/register/Register.container';
-import  NavBarComponent  from './components/navbar/Navbar.container';
+import RegisterComponent from './components/register/Register.container';
+import NavBarComponent from './components/navbar/Navbar.container';
 import DebtComponent from './components/debt/Debt.container';
-import  AddGroupComponent  from './components/addGroup/AddGroup.container';
+import AddGroupComponent from './components/addGroup/AddGroup.container';
 
 
 
@@ -27,7 +27,7 @@ import ModalASComponent from './components/modals/ModalAS.container';
 import ModalGSComponent from './components/modals/ModalGS.container';
 import ModalAGComponent from './components/modals/ModalAG.container';
 import FooterComponent from './components/footer/Footer.container';
-import  GroupSettingsComponent  from './components/groupSettings/GroupSettings.container';
+import GroupSettingsComponent from './components/groupSettings/GroupSettings.container';
 import LogOutComponent from './components/logout/Logout.container';
 
 
@@ -41,23 +41,25 @@ class App extends Component {
         <div className="App">
           <BrowserRouter>
             <div>
+              <div className="backgroundDiv"></div>
               <NavBarComponent />
               <SideBarComponent />
-              <ModalASComponent />
-              <ModalGSComponent />
-              <ModalAGComponent />
-              <FooterComponent/>
+              {/* <ModalASComponent  type="AccountSettings"/>
+              <ModalGSComponent  type="GroupSettings"/>
+              <ModalAGComponent type="AddGroup"/> */}
+              <FooterComponent />
               <Route path='/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
-
               <Route path='/register' component={RegisterComponent} />
               {/* //need a better path */}
-              <Route path='/iou' component={DebtComponent} />
-              <Route path='/receipt' component={ReceiptComponent}/>
+              <Route path='/debts' component={DebtComponent} />
+              {/* //need a better path */}
+              <Route path='/debts' component={DebtComponent} />
+              <Route path='/receipt' component={ReceiptComponent} />
               <Route path='/addGroup' component={AddGroupComponent} />
-              <Route path='/gsettings' component={GroupSettingsComponent}/>
-              <Route path='/logout' component={LogOutComponent}/>
+              <Route path='/gsettings' component={GroupSettingsComponent} />
+              <Route path='/logout' component={LogOutComponent} />
 
             </div>
           </BrowserRouter>

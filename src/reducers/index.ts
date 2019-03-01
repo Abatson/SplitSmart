@@ -36,6 +36,7 @@ export interface ILoginState {
     user: Users,
     username: string,
     password: string,
+    loggedIn: boolean,
     feedbackMessage: string,
     
 }

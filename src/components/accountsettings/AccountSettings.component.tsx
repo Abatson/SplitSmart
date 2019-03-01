@@ -3,6 +3,7 @@ import { Users } from '../../models/Users';
 //import { reduxForm, Field } from 'redux-form';
 import { Container } from 'reactstrap';
 import { ModalASComponent } from '../modals/ModalAS.component';
+import { ModalAGComponent } from '../modals/ModalAG.component';
 
 
 
@@ -74,16 +75,22 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
     }
     render() {//renders here 
         return (
-           
+            <div className="accountSettingsBox">
+
                 <form onSubmit={this.updateUser}>
                     <table style={this.style} id="accountSettingsTable" >
+                    <tbody>
+                        <tr>
+                            <th colSpan={2} className="tHeading">ACCOUNT SETTINGS</th>
+                        </tr>
                         <tr>
                             <td><label htmlFor="username-input">Username </label>
                                 <input type="text" className="form-control" id="username-input" value={this.props.updatedUser.username} onChange={this.updateUsername} ></input>
                             </td>
                             <td><label htmlFor="displayName-input">Display Name </label>
                                 <input type="text" className="form-control" id="displayName-input" value={this.props.updatedUser.displayName} onChange={this.updateDisplayName} />
-                            </td></tr>
+                            </td>
+                        </tr>
                         <tr>
                             <td><label htmlFor="password-input">Password </label>
                                 <input type="text" className="form-control" id="password-input" value={this.props.updatedUser.password} onChange={this.updatePassword} />
@@ -110,13 +117,17 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
                                 <label htmlFor="phone-input">Phone </label>
                                 <input type="text" className="form-control" id="phone-input" value={this.props.updatedUser.phone} onChange={this.updatePhoneNumber} />
                             </td>
+
                             <td>
-                                <button type="submit" className="btn btn-primary">Update</button>
+                                <hr />
+                                <button type="submit" className="accountSettingsButton">Update</button>
+
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </form>
-            
+            </div >
 
         )
     }

@@ -22,14 +22,8 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
     constructor(props) {
         super(props);
     }
-
-
-
-
     render() {
         return (
-
-
             <Fragment>
                 <header className="toolbar">
                     <nav className="toolbar_navigation">
@@ -42,7 +36,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </div>
                         <div className="toolbar_toggle"><NavLink to={{
                             pathname: '/'
-                        }}><FaArrowLeft /></NavLink></div>
+                        }}><img className="logoThing" src="https://i.postimg.cc/RVc10x1x/logo.png"/></NavLink></div>
                         <div className="splitsmart" style={{ textAlign: "center" }}>Split$mart</div>
                         <div className="spacer"></div>
                         <div className="toolbar_navigation-items">
@@ -62,21 +56,41 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     state: { fromDashboard: true }
                                 }}>Receipt</NavLink></li>
                                 <li><NavLink className='innerNavBar' to={{
-                                   pathname: '/iou',
-                                   search: `?sort=${this.props.user.username}`,
+                                    pathname: '/ious',
                                     state: { fromDashboard: true }
-                                  }} > IOUs</NavLink></li>
-                                <li><NavLink className='innerNavBar' to={{
-                                    pathname: '/logout',
-                                }} > Logout
-                            </NavLink></li>
-                           <li>
-                               
-                            <form style={{ float: "right" }}>
-                                    <button className = "searchButton" type="submit">< FaSearch /></button>
-                                    <input className = "searchBar" type="search" placeholder="Search" aria-label="Search" />
-                                </form>
-                           </li>
+                                }} > IOUs</NavLink></li>
+
+                                 {
+                                     (this.props.user.displayName)?
+                                     <li>
+                                         <NavLink to={{
+                                             pathname: '/login',
+
+                                         }}></NavLink></li>
+                                         :
+                                         <li>
+                                         <NavLink to={{
+                                             pathname: '/login',
+
+                                         }}>Login</NavLink></li>
+                                 }
+
+                                {
+                                    (this.props.user.displayName) ?
+                                        <li><NavLink onClick={this.props.logout} className="logoutShown" to={{
+                                            pathname: '/logout',
+                                        }} >Logout</NavLink></li>
+                                        :
+                                        <li><NavLink onClick={this.props.logout} className="logoutShown" to={{
+                                            pathname: '/logout',
+                                        }}></NavLink></li>
+                                }
+
+                                <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }}>
+                                    <button className="btn btn-danger my-2 my-sm-0" type="submit">< FaSearch /></button>
+                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                                </form></li>
+
                             </ul>
                             
 

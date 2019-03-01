@@ -7,6 +7,7 @@ import { LoginComponent } from "./Login.component";
 const mapStateToProps = (state: IState) => {
   return {
     login: state.login
+    
   }
 }
 //we could also do this instead
