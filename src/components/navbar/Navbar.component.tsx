@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { ILoginState } from '../../reducers';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, RouteComponentProps } from 'react-router-dom';
 import { Users } from '../../models/Users';
 import { FaUserAlt, FaSearch, FaArrowLeft } from 'react-icons/fa';
 import { ModalASComponent } from '../modals/ModalAS.component';
@@ -11,7 +11,7 @@ This component is the navigation bar we will use at the top of our site for navi
 
 */
 
-interface INavbarProps {
+interface INavbarProps extends RouteComponentProps<{}>{
     user: Users,
     drawerToggle: () => void,
     logout: () => void
@@ -20,7 +20,28 @@ interface INavbarProps {
 export class NavBarComponent extends React.Component<INavbarProps, any> {
     constructor(props) {
         super(props);
+        this.state = {
+            searchField:''
+        }
     }
+
+
+    search = (event) =>{
+        event.preventDefault();
+        console.log(event)
+        console.log(event.target)
+        this.props.history.push(`/profile?sort=${this.state.searchField}`)
+        this.setState({
+            searchField: ''
+        })
+    }
+
+    updateSearch = (event) => {
+        this.setState({
+            searchField: event.target.value
+        })
+    }
+
     render() {
         return (
             <Fragment>
@@ -84,9 +105,9 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                         }}></NavLink></li>
                                 }
 
-                                <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }}>
+                                <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }} onSubmit={this.search}>
                                     <button className="btn btn-danger my-2 my-sm-0" type="submit">< FaSearch /></button>
-                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.searchField} onChange={this.updateSearch}/>
                                 </form></li>
 
                             </ul>

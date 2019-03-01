@@ -3,6 +3,7 @@ import { IDebtState } from '../../reducers';
 import { Users } from '../../models/Users';
 import { getDebts, paidDebt, acceptDebt } from '../../actions/debt/Debt.actions';
 import { DebtIdDisplayComponent } from './DebtId/DebtDisplay.component';
+import { Redirect } from 'react-router';
 
 interface IDebtProps {
     debt: IDebtState,
@@ -23,6 +24,11 @@ export class DebtComponent extends React.Component<IDebtProps, any> {
     }
 
 render() {
+  if(this.props.user.userId === 0) {
+    return (
+        <Redirect to='/login'/>
+    )
+} else {
 
   const DebtDisplayComponent:any[] = [];
   for (const key of this.props.debt.allDebts) {
@@ -71,5 +77,6 @@ render() {
       </div>
     )
   }
+}
 
 }

@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { drawerToggle} from '../../actions/sidebar/Sidebar.actions';
 import {logout} from '../../actions/login/Login.actions';
+import { withRouter } from 'react-router';
 
 import { IState } from "../../reducers";
 import { NavBarComponent } from "./Navbar.component";
@@ -22,4 +23,4 @@ const mapDispatchToProps = {
 
 //This statement gives all the above information to our component and as such
 //this is the export we want when we make this component in our app.tsx, or anywhere else we need it
-export default connect(mapStateToProps, mapDispatchToProps)(NavBarComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBarComponent));
