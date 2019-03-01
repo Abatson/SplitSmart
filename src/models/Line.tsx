@@ -2,15 +2,17 @@ import { Item } from "./Item";
 
 export class Line{
 
-    constructor(name : string = "Uninitialized Name", itemPrice = 0) {
+    constructor(name : string = "Uninitialized Name", linePrice = 0) {
         this.items = []; //one line has multiple items
-        this.claimant = -1; //-1 means its unclaimed
         this.name = name;
-        this.itemPrice = itemPrice;
+        this.linePrice = linePrice;
+        this.lineId = 0;
+        this.lineReceipt = 0;
         }
 
     items : Item[]
-    claimant : number; 
     name: string;
-    itemPrice: number;
+    linePrice: number;
+    lineId:number;
+    lineReceipt:number;
 }
