@@ -1,19 +1,23 @@
 import { Line } from "./Line";
+import { Users } from "./Users";
+import { Groups } from "./Groups";
 
 export class Receipt{
 
 
-    constructor(id, lines : any = [], name : any = "Unnamed Receipt") {
-        this.id = id;
+    constructor(receiptId, lines : any = [], receiptName : any = "Unnamed Receipt") {
+        this.receiptId = receiptId;
         this.lines = lines; //one receipt can have multiple lines
-        this.claimant = -1; //-1 means no claimant
-        this.name = name; //the name of the receipt
+        this.receiptClaimant = new Users; //-1 means no claimant
+        this.receiptName = receiptName; //the name of the receipt\
+        this.receiptGroupsId = new Groups
     }
     
-    id : number;
+    receiptId : number;
     lines : Line[];
-    claimant : number;
-    name : any;
+    receiptClaimant : Users;
+    receiptName : String;
+    receiptGroupsId: Groups
   
     
 
