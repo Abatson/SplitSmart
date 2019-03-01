@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { drawerToggle} from '../../actions/sidebar/Sidebar.actions';
+import {logout} from '../../actions/login/Login.actions';
 
 import { IState } from "../../reducers";
 import { NavBarComponent } from "./Navbar.component";
@@ -14,7 +15,7 @@ const mapStateToProps = (state: IState) => {
 
 const mapDispatchToProps = {
     drawerToggle,
-    
+    logout,
 }
 
 //This is getting all of the actions that our Navbar component will be able to call

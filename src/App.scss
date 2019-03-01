@@ -808,3 +808,21 @@ select option{
 .buttonGS{
   display: none;
 }
+
+/*****************8
+LOGOUT
+******************/ 
+.logoutMessage{
+  margin-top: 120px;
+}
+.logoutShown{
+  display: block;
+}
+.logoutNotShown{
+  display: none;
+}
+span{
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: Helvetica;
+}

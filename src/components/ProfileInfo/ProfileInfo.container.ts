@@ -4,6 +4,7 @@ import { getUserProfile } from '../../actions/profileinfo/ProfileInfo.actions';
 import { IState } from "../../reducers";
 import { LoginComponent } from "../login/Login.component";
 import { ProfileInfoComponent } from '../ProfileInfo/ProfileInfo.component';
+
 import { Users } from "../../models/Users";
 import qs from 'stringquery';
 

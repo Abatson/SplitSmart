@@ -20,7 +20,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
 
     receiptHTML.push(<div className="receiptName" >
-      Receipt Name: {this.props.user} {this.props.receipt.name}
+      Receipt Name: {this.props.user.username} {this.props.receipt.name}
 
       <p>
       {(this.props.receipt.claimant == -1) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.claimant == -1) ? "" : this.props.receipt.claimant}  

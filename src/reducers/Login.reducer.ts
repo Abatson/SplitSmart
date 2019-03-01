@@ -58,6 +58,12 @@ export const loginReducer = (state = initialState, action: any) => {
       }
 
     }
+    case loginTypes.LOGOUT:
+      return {
+        ...state,
+        user: initialState,
+        feedbackMessage: "You have successfully logged out"
+      }
   }
   return state;
 }
