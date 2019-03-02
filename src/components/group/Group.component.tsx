@@ -9,6 +9,7 @@ import ReceiptComponent from '../receipt/Receipt.container';
 import { getAllGroups, setCurrentGroup } from '../../actions/Group/Group.action';
 import { Users } from '../../models/Users';
 import { Line } from '../../models/Line';
+import GroupSettingsComponent from '../groupSettings/GroupSettings.container';
 
 
 interface IGroupProps {
@@ -78,6 +79,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         return (
             <div>
                 <div className="receipt-in-group-component">
+                    <GroupSettingsComponent />
                     <ReceiptComponent />
                 </div>
                 <div className="list-of-groups">

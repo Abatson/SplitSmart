@@ -19,6 +19,7 @@ export const createGroup = (newGroup: Groups) => async (dispatch) => {
 
     
     try{
+        console.log(newGroup)
         const res = await ssClient.post('/groups', newGroup);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
@@ -32,6 +33,7 @@ export const createGroup = (newGroup: Groups) => async (dispatch) => {
 
     }catch (err) {
         //impediment, how to get api message from error
+        console.log(newGroup)
         console.log(err);
         dispatch({
             payload: {

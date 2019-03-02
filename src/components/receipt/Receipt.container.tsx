@@ -8,7 +8,8 @@ const mapStateToProps = (state: IState, ownProps) => {
   return {
     // receipt: ownProps.receipt,
     groupReceipts: state.receipt.groupReceipts,
-    user: state.login.user
+    user: state.login.user,
+    currentGroup: state.group.currentGroup
   }
 }
 //This is getting all of the actions that our receipt component will be able to call

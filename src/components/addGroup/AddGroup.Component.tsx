@@ -27,6 +27,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     }
     createGroup = (event) => {
         event.preventDefault(); //prevent default form submission
+        this.props.inviteUserToGroup(this.props.user.username);
         this.props.createGroup(this.props.newGroup);
     }
     updateGroupName = (event) => {

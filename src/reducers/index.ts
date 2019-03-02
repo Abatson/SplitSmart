@@ -49,6 +49,7 @@ export interface IReceiptState{
 //The group state that we want to get the list of receipts from
 export interface IGroupState{
     groupReceipts:any,
+    currentGroup: Groups,
 }
 
 export interface IAccountSettingsState {

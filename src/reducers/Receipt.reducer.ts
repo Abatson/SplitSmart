@@ -3,11 +3,12 @@ import { receiptTypes } from "../actions/receipt/Receipt.actions";
 import { Receipt } from "../models/Receipt";
 import { Line } from "../models/Line";
 import { Item } from "../models/Item";
+import { Groups } from "../models/Groups";
 
 //this is our intialstate of the interface we declared for the receipt component
 const initialState: IGroupState = {
-        groupReceipts: []
-        
+        groupReceipts: [],
+        currentGroup: new Groups,
         
 }
 
