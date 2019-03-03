@@ -76,7 +76,7 @@ export const updateNameLineToAdd = (lineNameToAdd: string) => {
         type: GroupTypes.UPDATE_LINE_NAME_TO_ADD
     }
 }
-export const resetAddLineForm = (lineToAdd: Line) => {
+export const resetAddLineForm = () => {
     return {
         payload: {
             lineToAdd: new Line
