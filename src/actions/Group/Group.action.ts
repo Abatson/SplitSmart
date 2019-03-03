@@ -3,6 +3,8 @@ import { Receipt } from "../../models/Receipt";
 import { Line } from "../../models/Line";
 import { state } from "../../reducers";
 import { Groups } from "../../models/Groups";
+import { initializeReceipts } from "../receipt/Receipt.actions";
+import { Users } from "../../models/Users";
 
 export const GroupTypes = {
     SET_CURRENT_GROUP: "G_SET_CURRENT_GROUP",
@@ -19,6 +21,7 @@ export const GroupTypes = {
     FAILED_TO_SET_CURRENT_GROUP: "G_FAILED_TO_SET_CURRENT_GROUP"
 }
 export const setCurrentGroup = (currentGroup: Groups) => {
+    initializeReceipts(currentGroup.groupId)
     return {
         payload: {
             currentGroup: currentGroup
@@ -26,9 +29,12 @@ export const setCurrentGroup = (currentGroup: Groups) => {
         type: GroupTypes.SET_CURRENT_GROUP
     }
 }
-export const addReceipt = (newReceipt: Receipt) => async (dispatch) => {
+export const addReceipt = (newReceipt: Receipt, currentGroup:Groups, owner:Users)  => async (dispatch) => {
     try{
-        const res = await ssClient.post('/receipt', newReceipt);
+        //console.log(newReceipt)
+        newReceipt.receiptClaimant = owner;
+        newReceipt.receiptGroupsId = currentGroup
+        const res = await ssClient.post('/receipts', newReceipt);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods

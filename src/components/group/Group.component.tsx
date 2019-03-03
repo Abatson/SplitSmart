@@ -4,12 +4,13 @@ import { Receipt } from '../../models/Receipt';
 import { NavBarComponent } from '../navbar/Navbar.component';
 import { SideBarComponent } from '../SideBar/SideBar.component';
 import { bindActionCreators } from 'redux';
-import { initializeReceipts } from '../../actions/receipt/Receipt.actions';
+
 import ReceiptComponent from '../receipt/Receipt.container';
-import { getAllGroups, setCurrentGroup } from '../../actions/Group/Group.action';
+
 import { Users } from '../../models/Users';
 import { Line } from '../../models/Line';
 import GroupSettingsComponent from '../groupSettings/GroupSettings.container';
+import  ModalAGComponent  from '../modals/ModalAG.container';
 
 
 interface IGroupProps {
@@ -22,7 +23,7 @@ interface IGroupProps {
     linePriceToAdd: number,
     setCurrentGroup: (currentGroup: Groups) => void,
     getAllGroups: (userId: number) => void,
-    addReceipt: (newReceipt: Receipt) => void,
+    addReceipt: (newReceipt: Receipt, currentGroup:Groups, owner:Users) => void,
     updateReceiptName: (receiptName: string) => void,
     addLineToReceiptButton: () => void,
     addLineToReceipt: (newLine: Line) => void,
@@ -31,6 +32,7 @@ interface IGroupProps {
     updateLinePriceToAdd: (linePriceToAdd: number) => void,
     resetAddLineNameForm: (lineNameToAdd: string) => void,
     resetAddLinePriceForm: (linePriceToAdd: number) => void,
+    initializeReceipts: (groupId:number) => void,
 
 }
 
@@ -44,11 +46,11 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         console.log(this.props.user.userId)
         this.props.getAllGroups(this.props.user.userId)
         console.log(this.props.allGroups)
-        initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
+        //this.props.initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
     }
     addReceipt = (event) => {
         event.preventDefault()
-        this.props.addReceipt(this.props.newReceipt);
+        this.props.addReceipt(this.props.newReceipt, this.props.currentGroup, this.props.user);
     }
     updateReceiptName = (event) => {
         event.preventDefault(); //prevent default form submission
@@ -92,7 +94,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         return (
             <div>
                 <div className="receipt-in-group-component">
-                    <GroupSettingsComponent />
+                    <ModalAGComponent  type="GroupSettings"/>
                     <ReceiptComponent />
                 </div>
                 <div className="list-of-groups">
