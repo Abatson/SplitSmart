@@ -53,7 +53,12 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
                     </div>
                     <div className='group-sidebar-display'>
                     {/* //add table html stuff */}
-                        {sidebarHtml}
+                    <table className="table-list-of-groups">
+                        <tbody>
+                            {sidebarHtml}
+
+                        </tbody>
+                    </table>
                     </div>
                     <ModalAGComponent type="AddGroup" name="Add a Group" className="addAGroupBtn"/>
                     <ul>

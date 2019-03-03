@@ -10,7 +10,7 @@ import ReceiptComponent from '../receipt/Receipt.container';
 import { Users } from '../../models/Users';
 import { Line } from '../../models/Line';
 import GroupSettingsComponent from '../groupSettings/GroupSettings.container';
-import  ModalAGComponent  from '../modals/ModalAG.container';
+import ModalAGComponent from '../modals/ModalAG.container';
 
 
 interface IGroupProps {
@@ -23,7 +23,7 @@ interface IGroupProps {
     linePriceToAdd: number,
     setCurrentGroup: (currentGroup: Groups) => void,
     getAllGroups: (userId: number) => void,
-    addReceipt: (newReceipt: Receipt, currentGroup:Groups, owner:Users) => void,
+    addReceipt: (newReceipt: Receipt, currentGroup: Groups, owner: Users) => void,
     updateReceiptName: (receiptName: string) => void,
     addLineToReceiptButton: () => void,
     addLineToReceipt: (newLine: Line) => void,
@@ -32,7 +32,7 @@ interface IGroupProps {
     updateLinePriceToAdd: (linePriceToAdd: number) => void,
     resetAddLineNameForm: (lineNameToAdd: string) => void,
     resetAddLinePriceForm: (linePriceToAdd: number) => void,
-    initializeReceipts: (groupId:number) => void,
+    initializeReceipts: (groupId: number) => void,
 
 }
 
@@ -74,7 +74,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     resetAddLinePriceForm = (event) => {
         this.props.resetAddLinePriceForm(event.target.value)
     }
-    
+
     // checkIfCurrentGroupIsntZero = () => {
     //     if (this.props.allGroups != []) {
     //         this.props.allGroups.map(group => (
@@ -87,79 +87,72 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     //     }
     // }
     render() {
-        
+        let linesDisplay: any[] = [];
+        console.log(this.props.newReceipt.lines)
+        if (this.props.newReceipt.lines) {
+            for (const key of this.props.newReceipt.lines) {
+                linesDisplay.push(
+                    <tr key={'group' + key.lineId}>
+                        <td>{key.lineName}</td>
+                        <td>{key.linePrice}</td>
+                    </tr>
+                )
+            }
+        }
         return (
             <div>
                 <div className="receipt-in-group-component">
-                    <ModalAGComponent  type="GroupSettings"/>
+                    <ModalAGComponent type="GroupSettings" />
                     <ReceiptComponent />
                 </div>
-                <div className="list-of-groups">
-                    <table className="table-list-of-groups">
-                        <thead className="table-head-list-of-groups">
-                            <tr className="top-table-row-list-of-groups">
-                                <th className="headGroupName-of-list-of-groups">Group Name</th>
-                                <th className="headGroupPicture-of-list-of-groups">Group Picture</th>
-                            </tr>
-                        </thead>
+                <div className="add-receipt">
+                    <table id='add-receipt-header'>
                         <tbody>
+                            <tr id='add-receipt-row'>
+                                <td>Receipt Name</td>
+                                <td>Lines</td>
+                            </tr>
+                            <tr>
 
-
+                                <td>
+                                    <form onSubmit={this.addReceipt} className="add-receipt-form">
+                                        <input type="text"
+                                            id="Receipt Name"
+                                            className="text-form"
+                                            placeholder="Receipt Name"
+                                            value={this.props.newReceipt.receiptName}
+                                            onChange={this.updateReceiptName}
+                                            required />
+                                        <button className="button-form" type="submit">Add Receipt</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    {
+                                        linesDisplay
+                                    }
+                                    <form onSubmit={this.addLineToReceiptButton} className="invite-user-to-group-form">
+                                        <input type="text"
+                                            id="Add Line To Receipt"
+                                            className="addLineToReceipt"
+                                            placeholder="Item"
+                                            value={this.props.lineNameToAdd}
+                                            onChange={this.updateNameLineToAdd}
+                                            required />
+                                        <input type="number"
+                                            id="Add Line Price To Receipt"
+                                            className="addLinePriceToReceipt"
+                                            placeholder="Price"
+                                            value={this.props.linePriceToAdd}
+                                            onChange={this.updateLinePriceToAdd}
+                                            required />
+                                        <button className="button-form" type="submit">Add Line</button>
+                                    </form>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                    </div> 
-                    <div className="add-receipt">
-                        <table id='add-receipt-header'>
-                            <tbody>
-                                <tr id='add-receipt-row'>
-                                    <td>Receipt Name</td>
-                                    <td>Lines</td>
-                                </tr>
-                                <tr>
-                                    
-                                        <td>
-                                            <form onSubmit={this.addReceipt} className="add-receipt-form">
-                                            <input type="text"
-                                                id="Receipt Name"
-                                                className="text-form"
-                                                placeholder="Receipt Name"
-                                                value={this.props.newReceipt.receiptName}
-                                                onChange={this.updateReceiptName}
-                                                required />
-                                                <button className="button-form" type="submit">Add Receipt</button>
-                                            </form>
-                                            
-                                        </td>
-                                        
-                                    
-                                    
-                                        <td>
-                                        <form onSubmit={this.addLineToReceiptButton} className="invite-user-to-group-form">
-                                            <input type="text"
-                                                id="Add Line To Receipt"
-                                                className="addLineToReceipt"
-                                                placeholder="Item"
-                                                value={this.props.lineNameToAdd}
-                                                onChange={this.updateNameLineToAdd}
-                                                required />
-
-                                            <input type="number"
-                                                id="Add Line Price To Receipt"
-                                                className="addLinePriceToReceipt"
-                                                placeholder="Item"
-                                                value={this.props.linePriceToAdd}
-                                                onChange={this.updateLinePriceToAdd}
-                                                required />
-                                            <button className="button-form" type="submit">Add Line</button>
-                                        </form>
-                                        </td>
-                                       
-                                   
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
+            </div>
         )
     }
 }
