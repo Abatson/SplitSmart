@@ -49,7 +49,7 @@ claimLine = (event) => {
 }
 
 
-componentWillMount()
+componentDidMount()
 {
   this.props.initializeReceipts(this.props.currentGroup.groupId);
 }

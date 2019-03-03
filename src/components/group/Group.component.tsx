@@ -90,6 +90,8 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         }
     }
     render() {
+
+
         return (
             <div>
                 <div className="receipt-in-group-component">
@@ -105,7 +107,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.checkIfCurrentGroupIsntZero}
+                            {/* //fixThis */}{this.checkIfCurrentGroupIsntZero}
 
 
                         </tbody>
@@ -119,8 +121,9 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                     <td>Lines</td>
                                 </tr>
                                 <tr>
-                                    <form onSubmit={this.addReceipt} className="add-receipt-form">
+                                    
                                         <td>
+                                            <form onSubmit={this.addReceipt} className="add-receipt-form">
                                             <input type="text"
                                                 id="Receipt Name"
                                                 className="text-form"
@@ -128,11 +131,15 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                                 value={this.props.newReceipt.receiptName}
                                                 onChange={this.updateReceiptName}
                                                 required />
+                                                <button className="button-form" type="submit">Add Receipt</button>
+                                            </form>
+                                            
                                         </td>
-                                        <button className="button-form" type="submit">Add Receipt</button>
-                                    </form>
-                                    <form onSubmit={this.addLineToReceiptButton} className="invite-user-to-group-form">
+                                        
+                                    
+                                    
                                         <td>
+                                        <form onSubmit={this.addLineToReceiptButton} className="invite-user-to-group-form">
                                             <input type="text"
                                                 id="Add Line To Receipt"
                                                 className="addLineToReceipt"
@@ -140,8 +147,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                                 value={this.props.lineNameToAdd}
                                                 onChange={this.updateNameLineToAdd}
                                                 required />
-                                        </td>
-                                        <td>
+
                                             <input type="number"
                                                 id="Add Line Price To Receipt"
                                                 className="addLinePriceToReceipt"
@@ -149,9 +155,11 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                                 value={this.props.linePriceToAdd}
                                                 onChange={this.updateLinePriceToAdd}
                                                 required />
+                                            <button className="button-form" type="submit">Add Line</button>
+                                        </form>
                                         </td>
-                                        <button className="button-form" type="submit">Add Line</button>
-                                    </form>
+                                       
+                                   
                                 </tr>
                             </tbody>
                         </table>

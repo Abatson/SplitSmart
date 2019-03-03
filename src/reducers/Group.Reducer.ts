@@ -16,7 +16,7 @@ export const groupReducer = (state = initialState, action: any) => {
         case GroupTypes.SET_CURRENT_GROUP:
             return {
                 ...state,
-                newReceipt: action.payload.currentGroup
+                currentGroup: action.payload.currentGroup
 
             }
         case GroupTypes.GET_ALL_GROUPS:
