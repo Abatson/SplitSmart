@@ -61,7 +61,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       }
 
     return (
-      <div style={{background:'#999999'}} >
+      <div>
 
           {receiptHTML}
       

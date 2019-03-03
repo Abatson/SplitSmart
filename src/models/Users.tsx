@@ -20,7 +20,7 @@ export class Users{
         this.email = '';
         this.displayName = '';
         this.phone = '';
-        this.picture =''
+        this.picture ='';
     }
 
 }

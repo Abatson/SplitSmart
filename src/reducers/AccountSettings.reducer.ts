@@ -2,6 +2,7 @@ import { IAccountSettingsState } from '.';
 
 import { accountSettingsTypes } from '../actions/accountsettings/AccountSettings.actions'
 import { Users } from '../models/Users';
+import { logoutTypes } from '../actions/logout/Logout.actions';
 
 const initialState: IAccountSettingsState = {
     updatedUser: new Users
@@ -84,6 +85,10 @@ export const accountSettingsReducer = (state = initialState, action: any) => {
         case accountSettingsTypes.DEACTIVATE_ACCOUNT:
             return {
                 ...state
+            }
+        case logoutTypes.LOGOUT:
+            return {
+                updatedUser: new Users
             }
 
     }

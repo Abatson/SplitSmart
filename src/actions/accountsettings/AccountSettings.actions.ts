@@ -76,7 +76,7 @@ export const updateEmail = (email: string) => {
         type: accountSettingsTypes.UPDATE_EMAIL
     }
 }
-export const updateProfilePicture = (picture: Url) => {
+export const updateProfilePicture = (picture: string) => {
     return {
         payload: {
             picture: picture

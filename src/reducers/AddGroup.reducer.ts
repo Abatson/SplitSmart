@@ -4,6 +4,7 @@ import { Groups } from "../models/Groups";
 import { Url } from 'url';
 import { addGroupTypes } from "../actions/addGroup/AddGroup.actions";
 import { registerTypes } from "../actions/register/Register.actions";
+import { logoutTypes } from "../actions/logout/Logout.actions";
 const initialState: IAddGroupState = {
   newGroup: new Groups,
   usernameToAdd: ''
@@ -110,6 +111,11 @@ export const addGroupReducer = (state = initialState, action: any) => {
       return {
         ...state,
       };
+    case logoutTypes.LOGOUT:
+            return {
+              newGroup: new Groups,
+              usernameToAdd: ''
+            }
 
   }
   return state
