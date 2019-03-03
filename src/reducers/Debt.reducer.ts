@@ -1,6 +1,7 @@
 import { IDebtState } from ".";
 import { Debts } from "../models/Debts";
 import { debtTypes } from "../actions/debt/Debt.actions";
+import { logoutTypes } from "../actions/logout/Logout.actions";
 // import { DebtTypes } from "../actions/debt/Debt.actions";
 
 const initialState: IDebtState = {
@@ -36,6 +37,10 @@ const initialState: IDebtState = {
         return {
           ...state,
           allDebts: newDebt2
+        }
+      case logoutTypes.LOGOUT:
+        return {
+            allDebts: []
         }
     }
     return state;

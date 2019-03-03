@@ -10,7 +10,8 @@ import ReceiptComponent from '../receipt/Receipt.container';
 import { Users } from '../../models/Users';
 import { Line } from '../../models/Line';
 import GroupSettingsComponent from '../groupSettings/GroupSettings.container';
-import ModalAGComponent from '../modals/ModalAG.container';
+import  ModalAGComponent  from '../modals/ModalAG.container';
+import { Redirect } from 'react-router';
 
 
 interface IGroupProps {
@@ -99,6 +100,11 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                 )
             }
         }
+        if(this.props.user.userId === 0) {
+            return (
+                <Redirect to='/login'/>
+            )
+        } else
         return (
             <div>
                 <div className="receipt-in-group-component">

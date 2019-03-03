@@ -4,7 +4,7 @@ import { Users } from '../../models/Users';
 
 interface ILogOutProps {
     user: Users,
-
+    logout: () => void
 }
 
 
@@ -13,6 +13,10 @@ export class LogOutComponent extends React.Component<ILogOutProps, any> {
         super(props);
     }
 
+
+    componentDidMount() {
+        this.props.logout();
+    }
 
     render() {
         return (

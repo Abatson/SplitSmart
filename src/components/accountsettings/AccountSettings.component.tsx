@@ -16,7 +16,7 @@ interface IAccountSettingsProps {
     updateFirstName: (firstName: string) => void,
     updateLastName: (lastName: string) => void,
     updateEmail: (email: string) => void,
-    updateProfilePicture: (picture: URL) => void,
+    updateProfilePicture: (picture: string) => void,
     updatePhoneNumber: (phone: string) => void,
     deactivateAccount: () => void,
     clearMessage: () => void,
@@ -63,6 +63,10 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
     updatePhoneNumber = (event) => {
         this.props.updatePhoneNumber(event.target.value);
     }
+    updatePicture = (event) => {
+        this.props.updateProfilePicture(event.target.value);
+    }
+
     deactivateAccount = () => {
         this.props.deactivateAccount();
     }
@@ -123,10 +127,17 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
                             </td>
 
                             <td>
+                            <label htmlFor="picture-input">Picture </label>
+                                <input type="text" className="form-control" id="picture-input" value={this.props.updatedUser.picture} onChange={this.updatePicture} />
+                            </td>
+                        </tr>
+                        <tr>
+                        <td>
                                 <hr />
                                 <button type="submit" className="accountSettingsButton">Update</button>
 
                             </td>
+
                         </tr>
                         </tbody>
                     </table>
