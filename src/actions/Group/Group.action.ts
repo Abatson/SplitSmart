@@ -3,6 +3,7 @@ import { Receipt } from "../../models/Receipt";
 import { Line } from "../../models/Line";
 import { state } from "../../reducers";
 import { Groups } from "../../models/Groups";
+import { Users } from "../../models/Users";
 
 export const GroupTypes = {
     SET_CURRENT_GROUP: "G_SET_CURRENT_GROUP",
@@ -26,8 +27,9 @@ export const setCurrentGroup = (currentGroup: Groups) => {
         type: GroupTypes.SET_CURRENT_GROUP
     }
 }
-export const addReceipt = (newReceipt: Receipt) => async (dispatch) => {
+export const addReceipt = (newReceipt: Receipt, currentGroup: Groups, receiptOwner: Users) => async (dispatch) => {
     try{
+        
         const res = await ssClient.post('/receipt', newReceipt);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves

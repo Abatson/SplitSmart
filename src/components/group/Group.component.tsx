@@ -22,7 +22,7 @@ interface IGroupProps {
     linePriceToAdd: number,
     setCurrentGroup: (currentGroup: Groups) => void,
     getAllGroups: (userId: number) => void,
-    addReceipt: (newReceipt: Receipt) => void,
+    addReceipt: (newReceipt: Receipt, currentGroup: Groups, receiptOwner: Users) => void,
     updateReceiptName: (receiptName: string) => void,
     addLineToReceiptButton: () => void,
     addLineToReceipt: (newLine: Line) => void,
@@ -47,8 +47,8 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         /* initializeReceipts(this.props.currentGroup.groupId); */ //call action initialize receipts
     }
     addReceipt = (event) => {
-        event.preventDefault()
-        this.props.addReceipt(this.props.newReceipt);
+        event.preventDefault();
+        this.props.addReceipt(this.props.newReceipt,this.props.currentGroup,this.props.user);
     }
     updateReceiptName = (event) => {
         event.preventDefault(); //prevent default form submission
@@ -76,8 +76,9 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         this.props.setCurrentGroup(currentGroup);
     }
     checkIfCurrentGroupIsntZero = () => {
-        if (this.props.allGroups != []) {
-            this.props.allGroups.map(group => (
+        let allGroupsArray = [...this.props.allGroups];
+        if (allGroupsArray != []) {
+            allGroupsArray.map(group => (
                 <tr key={'group' + group.groupId}>
                     <td>{group.groupName}</td>
                     <td><img src={group.groupPicture} /></td>
@@ -99,8 +100,8 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                     <table className="table-list-of-groups">
                         <thead className="table-head-list-of-groups">
                             <tr className="top-table-row-list-of-groups">
-                                <th>Group Name</th>
-                                <th>Group Picture</th>
+                                <th className="headGroupName-of-list-of-groups">Group Name</th>
+                                <th className="headGroupPicture-of-list-of-groups">Group Picture</th>
                             </tr>
                         </thead>
                         <tbody>
