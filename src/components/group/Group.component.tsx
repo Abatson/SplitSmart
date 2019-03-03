@@ -74,23 +74,20 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     resetAddLinePriceForm = (event) => {
         this.props.resetAddLinePriceForm(event.target.value)
     }
-    setCurrentGroup = (currentGroup: Groups) => {
-        this.props.setCurrentGroup(currentGroup);
-    }
-    checkIfCurrentGroupIsntZero = () => {
-        if (this.props.allGroups != []) {
-            this.props.allGroups.map(group => (
-                <tr key={'group' + group.groupId}>
-                    <td>{group.groupName}</td>
-                    <td><img src={group.groupPicture} /></td>
-                    <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
-                </tr>
-            ))
-        }
-    }
+    
+    // checkIfCurrentGroupIsntZero = () => {
+    //     if (this.props.allGroups != []) {
+    //         this.props.allGroups.map(group => (
+    //             <tr key={'group' + group.groupId}>
+    //                 <td>{group.groupName}</td>
+    //                 <td><img src={group.groupPicture} /></td>
+    //                 <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
+    //             </tr>
+    //         ))
+    //     }
+    // }
     render() {
-
-
+        
         return (
             <div>
                 <div className="receipt-in-group-component">
@@ -106,7 +103,6 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* //fixThis */}{this.checkIfCurrentGroupIsntZero}
 
 
                         </tbody>

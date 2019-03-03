@@ -131,13 +131,14 @@ export const getAllGroups = (userId: number) => async(dispatch) => {
                 },
                 type: GroupTypes.GET_ALL_GROUPS
             })
+            if(res.data[0]) {
             dispatch({
                 payload: {
                     currentGroup: res.data[0]
                 },
                 type: GroupTypes.SET_CURRENT_GROUP
              })
-    
+            }
         }catch (err) {
             //impediment, how to get api message from error
             console.log(err);

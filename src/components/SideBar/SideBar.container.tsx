@@ -2,12 +2,14 @@ import { connect } from "react-redux";
 import { backdropClick } from '../../actions/sidebar/Sidebar.actions';
 import { IState } from "../../reducers";
 import { SideBarComponent } from "./SideBar.component";
+import {setCurrentGroup} from '../../actions/Group/Group.action'
 
 //This is getting every field from the Navbar state in the interface IState
 const mapStateToProps = (state: IState) => {
     return {
         user: state.login.user,
         sideDrawerOpen: state.sideBar.sideDrawerOpen,
+        allGroups: state.group.allGroups
 
         //pass in boolean for display
         //also action for toggleing display
@@ -15,7 +17,8 @@ const mapStateToProps = (state: IState) => {
 }
 
 const mapDispatchToProps = {
-    backdropClick
+    backdropClick,
+    setCurrentGroup,
 }
 
 //This is getting all of the actions that our Navbar component will be able to call

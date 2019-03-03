@@ -50,7 +50,9 @@ claimLine = (receiptID:number, claimant:Users, lineID: number) => {
 
 componentDidMount()
 {
-  this.props.initializeReceipts(this.props.currentGroup.groupId);
+  if(this.props.currentGroup){
+      this.props.initializeReceipts(this.props.currentGroup.groupId);
+  }
 }
 
   render() {
