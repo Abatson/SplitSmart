@@ -43,13 +43,8 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         console.log(this.props.currentGroup.groupId)
         console.log(this.props.user.userId)
         this.props.getAllGroups(this.props.user.userId)
-<<<<<<< HEAD
         console.log(this.props.allGroups) 
-        initializeReceipts(this.props.currentGroup.groupId); //call action initialize receipts
-=======
-        console.log(this.props.allGroups)
-        initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
->>>>>>> 7cff0b68fb297ce979f52953407778417b5c3b2a
+        /* initializeReceipts(this.props.currentGroup.groupId); */ //call action initialize receipts
     }
     addReceipt = (event) => {
         event.preventDefault()
@@ -95,6 +90,18 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         }
     }
     render() {
+     {
+        if (this.props.allGroups != []) {
+            this.props.allGroups.map(group => (
+                <tr key={'group' + group.groupId}>
+                    <td>{group.groupName}</td>
+                    <td><img src={group.groupPicture} /></td>
+                    <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
+                </tr>
+            ))
+            }
+        
+    }
         return (
             <div>
                 <div className="receipt-in-group-component">
@@ -110,7 +117,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.checkIfCurrentGroupIsntZero}
+                           {/*  //{this.checkIfCurrentGroupIsntZero} */}
 
 
                         </tbody>
