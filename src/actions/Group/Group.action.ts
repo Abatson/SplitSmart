@@ -3,6 +3,10 @@ import { Receipt } from "../../models/Receipt";
 import { Line } from "../../models/Line";
 import { state } from "../../reducers";
 import { Groups } from "../../models/Groups";
+<<<<<<< HEAD
+=======
+import { initializeReceipts } from "../receipt/Receipt.actions";
+>>>>>>> 6fa8492b449c84d79a23f19ae763bfbd94eb2625
 import { Users } from "../../models/Users";
 
 export const GroupTypes = {
@@ -20,6 +24,7 @@ export const GroupTypes = {
     FAILED_TO_SET_CURRENT_GROUP: "G_FAILED_TO_SET_CURRENT_GROUP"
 }
 export const setCurrentGroup = (currentGroup: Groups) => {
+    initializeReceipts(currentGroup.groupId)
     return {
         payload: {
             currentGroup: currentGroup
@@ -27,10 +32,12 @@ export const setCurrentGroup = (currentGroup: Groups) => {
         type: GroupTypes.SET_CURRENT_GROUP
     }
 }
-export const addReceipt = (newReceipt: Receipt, currentGroup: Groups, receiptOwner: Users) => async (dispatch) => {
+export const addReceipt = (newReceipt: Receipt, currentGroup:Groups, owner:Users)  => async (dispatch) => {
     try{
-        
-        const res = await ssClient.post('/receipt', newReceipt);
+        //console.log(newReceipt)
+        newReceipt.receiptClaimant = owner;
+        newReceipt.receiptGroupsId = currentGroup
+        const res = await ssClient.post('/receipts', newReceipt);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods
