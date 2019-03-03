@@ -31,11 +31,11 @@ export const debtTypes = {
 
 export const paidDebt = (debtId:number) => async (dispatch) => {
   try {
-      const res = await ssClient.post(`/paid/${debtId}`);
+      const res = await ssClient.patch(`/debts/paid/${debtId}`);
       console.log(res)
       dispatch({
           payload: {
-              user: res.data
+              debts: res.data
           },
           type: debtTypes.PAID_DEBT
       })
@@ -51,11 +51,11 @@ export const paidDebt = (debtId:number) => async (dispatch) => {
 
 export const acceptDebt = (debtId:number) => async (dispatch) => {
   try {
-      const res = await ssClient.post(`/verified/${debtId}`);
+      const res = await ssClient.patch(`/debts/verified/${debtId}`);
       console.log(res)
       dispatch({
           payload: {
-              user: res.data
+              debts: res.data
           },
           type: debtTypes.ACCEPT_PAYMENT
       })

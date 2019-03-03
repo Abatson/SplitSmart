@@ -1,6 +1,7 @@
 import { ssClient } from '../../axios/ss.client';
 import { Users } from '../../models/Users';
 import { Url } from "url";
+import { profileInfoTypes } from '../profileinfo/ProfileInfo.actions';
 
 export const accountSettingsTypes = {
     UPDATE_USERNAME: 'AS_UPDATE_USERNAME',
@@ -14,7 +15,8 @@ export const accountSettingsTypes = {
     UPDATE_USER: 'UPDATE_USER',
     DEACTIVATE_ACCOUNT: 'AS_DEACTIVATE_ACCOUNT',
     CLEAR_UPDATE_MESSAGE: 'CLEAR_UPDATE_MESSAGE',
-    BAD_USER_REQUEST: 'BAD_USER_REQUEST'
+    BAD_USER_REQUEST: 'BAD_USER_REQUEST',
+    UPDATE_USER_ID: 'UPDATE_USER_ID'
 
 }
 //Actions
@@ -90,6 +92,14 @@ export const updatePhoneNumber = (phone: string) => {
         type: accountSettingsTypes.UPDATE_PHONE_NUMBER
     }
 }
+export const updateUserId = (userId: number) => {
+    return {
+        payload: {
+            userId: userId
+        },
+        type: accountSettingsTypes.UPDATE_USER_ID
+    }
+}
 export const deactivateAccount = () => {
     return {
         payload: {
@@ -104,17 +114,24 @@ export const updateUser = (updatedUser: Users) => async (dispatch) => {
         const res = await ssClient.patch('/users', updatedUser);
         dispatch({
             payload: {
-                dirtyRbit: true
+                user: res.data
             },
             type: accountSettingsTypes.UPDATE_USER
         })
+        dispatch({
+            payload: {
+                profileUser: updatedUser
+            },
+            type: profileInfoTypes.GET_USER_BY_USERNAME
+        })
     } catch (err) {
         console.log(err);
-    } dispatch({
-        payload: {
-
-        },
-        type: accountSettingsTypes.BAD_USER_REQUEST
-
-    })
+        dispatch({
+            payload: {
+    
+            },
+            type: accountSettingsTypes.BAD_USER_REQUEST
+    
+        })
+    } 
 }

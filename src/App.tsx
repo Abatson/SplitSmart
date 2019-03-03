@@ -54,8 +54,6 @@ class App extends Component {
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
               <Route path='/register' component={RegisterComponent} />
               {/* //need a better path */}
-              <Route path='/debts' component={DebtComponent} />
-              {/* //need a better path */}
               <Route path='/ious' component={DebtComponent} />
               <Route path='/receipt' component={ReceiptComponent} />
               <Route path='/addGroup' component={AddGroupComponent} />

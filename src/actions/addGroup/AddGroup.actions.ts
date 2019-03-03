@@ -1,6 +1,7 @@
 import { Groups } from "../../models/Groups";
 import { Url } from "url";
 import { ssClient } from "../../axios/ss.client";
+import { Users } from "../../models/Users";
 
 export const addGroupTypes = {
     CREATE_GROUP: 'A_CREATE_GROUP',
@@ -74,10 +75,10 @@ export const updateGroupDescription = (groupDescription: string) => {
     }
 
 }
-export const updateGroupOwner = (userId: number) => {
+export const updateGroupOwner = (user: Users) => {
     return {
         payload: {
-            userId: userId
+            user: user
         },
         type: addGroupTypes.UPDATE_GROUP_OWNER
     }

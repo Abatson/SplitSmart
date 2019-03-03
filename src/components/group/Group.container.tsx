@@ -8,6 +8,7 @@ const mapStateToProps = (state: IState) => {
     return {
       user: state.login.user,
       currentGroup: state.group.currentGroup,
+      newReceipt: state.group.newReceipt,
     }
   }
 

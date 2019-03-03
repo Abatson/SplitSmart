@@ -16,6 +16,7 @@ export const receiptTypes = {
   export const initializeReceipts =  (groupid: number)  => async (dispatch) => {
 //api call, change to a parameter that is a number, groupid send that data to reducer, then go to receipt reducer
 try {
+    console.log(groupid)
     const res = await ssClient.get(`/receipts/groups/${groupid}`)//${groupid}`);
     console.log(res)
     //when doing an async action, we have to call the dispatcher ourselves

@@ -12,6 +12,8 @@ interface ISideBarProps {
     sideDrawerOpen: boolean,
     backdropClick: () => void,
 }
+
+//MAKES SURE THIS DOESNT SHOW WHEN NOT LOGGED IN!!!!! ALEC DO IT!!!!!
 export class SideBarComponent extends React.Component<ISideBarProps, any> {
     constructor(props) {
         super(props);

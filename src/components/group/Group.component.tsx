@@ -40,8 +40,11 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     }
 
     componentDidMount() {
-        initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
+        console.log(this.props.currentGroup.groupId)
+        console.log(this.props.user.userId)
         getAllGroups(this.props.user.userId)
+        console.log(this.props.allGroups)
+        initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
     }
     addReceipt = (event) => { 
         event.preventDefault()
@@ -75,6 +78,17 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     setCurrentGroup = (currentGroup: Groups) => {
         this.props.setCurrentGroup(currentGroup);
     }
+    checkIfCurrentGroupIsntZero = () => {
+        if(this.props.allGroups != []){
+        this.props.allGroups.map(group => (
+            <tr key={'group' + group.groupId}>
+                <td>{group.groupName}</td>
+                <td><img src={group.groupPicture} /></td>
+                <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
+            </tr>
+        ))
+        }
+    }
     render() {
         return (
             <div>
@@ -91,15 +105,9 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                this.props.allGroups.map(group => (
-                                    <tr key={'group' + group.groupId}>
-                                        <td>{group.groupName}</td>
-                                        <td><img src={group.groupPicture} /></td>
-                                        <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
-                                    </tr>
-                                ))
-                            }
+                        {this.checkIfCurrentGroupIsntZero}
+                             
+                             
                         </tbody>
                     </table>
                     <div className="add-receipt">

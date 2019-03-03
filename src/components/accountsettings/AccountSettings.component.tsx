@@ -19,7 +19,9 @@ interface IAccountSettingsProps {
     updateProfilePicture: (picture: URL) => void,
     updatePhoneNumber: (phone: string) => void,
     deactivateAccount: () => void,
-    clearMessage: () => void
+    clearMessage: () => void,
+    updateUser: (updatedUser:Users) => void
+    updateUserId: (userId: number) => void
 }
 
 export class AccountSettingsComponent extends React.Component<IAccountSettingsProps, any>{
@@ -36,6 +38,7 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
         this.props.updateLastName(this.props.user.lastName);
         this.props.updateEmail(this.props.user.email);
         this.props.updatePhoneNumber(this.props.user.phone);
+        this.props.updateUserId(this.props.user.userId);
     }
 
     updateUsername = (event) => {
@@ -66,6 +69,7 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
 
     updateUser = (event) => {
         event.preventDefault();
+        this.props.updateUser(this.props.updatedUser);
     }
 
     style = {

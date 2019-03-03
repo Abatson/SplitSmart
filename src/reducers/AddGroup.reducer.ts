@@ -49,7 +49,7 @@ export const addGroupReducer = (state = initialState, action: any) => {
         ...state,
         newGroup: {
           ...state.newGroup,
-          groupOwner: action.payload.userId
+          groupOwner: action.payload.user
         }
       }
 

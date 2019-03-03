@@ -3,6 +3,7 @@ import React from 'react'
 import { Users } from '../../models/Users';
 import { getUserProfile } from '../../actions/profileinfo/ProfileInfo.actions';
 import  ModalAGComponent  from '../modals/ModalAG.container';
+import { Redirect } from 'react-router';
 
 interface IProfileInfo {
     user: Users,
@@ -20,11 +21,19 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
         this.props.getUserProfile(this.props.params.sort);
     }
 
+    componentWillUpdate() {
+        this.props.getUserProfile(this.props.params.sort);
+    }
+
     render() {
         // const params = qs(this.props.ownProps.location.search)
         // console.log(this.props.ownProps.location.search)
         // console.log(params.sort)
-
+        if(this.props.user.userId === 0) {
+            return (
+                <Redirect to='/login'/>
+            )
+        } else
         return (
            
             <div className="surroundingBox">
@@ -41,7 +50,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 <div className="profileInfo">Profile
                
                 </div>
-                <label>Username: {this.props.params.sort}</label>
+                <label>Username: {this.props.profileUser.username}</label>
                 <br/>
                 <br/>
                 <label>Display Name: {this.props.profileUser.displayName}</label>
