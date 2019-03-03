@@ -14,7 +14,7 @@ import { Users } from '../../models/Users';
  const receiptID = 0;
  let receiptTest : Receipt[]
  let receiptLines : Line[]
- 
+
 //passing everything thru props
 interface IGroupProps {
     // receipt: Receipt,
@@ -36,14 +36,13 @@ initializeReceipts = () => {
 }
 
 // whenever the change the username input, call the updateUsername action with the value
-claimReceipt = (id:number, claiment:number) => {
-  this.props.claimReceipt(id, claiment) 
+claimReceipt = (id:number, claimant:number) => {
+  this.props.claimReceipt(id, claimant) 
 }
 
 // whenever the change the username input, call the updateUsername action with the value
-claimLine = (event) => {
-  event.preventDefault(); 
-  this.props.claimLine(receiptID, new Users(), lineID) 
+claimLine = (receiptID:number, claimant:Users, lineID: number) => {
+  this.props.claimLine(receiptID, claimant, lineID) 
 }
 
 
@@ -66,13 +65,13 @@ componentWillMount()
 
 
     let itr_1 = 0;
-    for (const key of this.props.groupReceipts)
+    for (let key of this.props.groupReceipts)
     {
-
+      //alert(JSON.stringify(this.props.groupReceipts[itr_1]));
       let onClickFuncs : any = [];
       for (let i = 0; i < this.props.groupReceipts[itr_1].lines.length; i++)
       {
-          onClickFuncs.push(()=>{this.props.claimLine(key.receiptId, this.props.user, i); alert(key.receiptId)});
+          onClickFuncs.push(()=>{this.props.claimLine(key.receiptId, this.props.user, i);});
       }
       receiptHTML.push(<ReceiptDisplayComponent user = {this.props.user} onClick1={()=>{this.props.claimReceipt(key.receiptId, 0); alert(key.receiptId)} }  onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent>)
       itr_1++;
