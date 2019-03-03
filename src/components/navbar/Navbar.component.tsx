@@ -3,7 +3,7 @@ import { ILoginState } from '../../reducers';
 import { Link, NavLink, RouteComponentProps } from 'react-router-dom';
 import { Users } from '../../models/Users';
 import { FaUserAlt, FaSearch, FaArrowLeft } from 'react-icons/fa';
-import { ModalASComponent } from '../modals/ModalAS.component';
+
 import Modal from 'reactstrap/lib/Modal';
 
 /*
