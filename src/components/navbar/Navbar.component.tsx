@@ -8,10 +8,9 @@ import Modal from 'reactstrap/lib/Modal';
 
 /*
 This component is the navigation bar we will use at the top of our site for navigation purposes.
-
 */
 
-interface INavbarProps extends RouteComponentProps<{}>{
+interface INavbarProps extends RouteComponentProps<{}> {
     user: Users,
     drawerToggle: () => void,
     logout: () => void
@@ -21,12 +20,12 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
     constructor(props) {
         super(props);
         this.state = {
-            searchField:''
+            searchField: ''
         }
     }
 
 
-    search = (event) =>{
+    search = (event) => {
         event.preventDefault();
         console.log(event)
         console.log(event.target)
@@ -56,7 +55,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                         </div>
                         <div className="toolbar_toggle"><NavLink to={{
                             pathname: '/'
-                        }}><img className="logoThing" src="https://i.postimg.cc/RVc10x1x/logo.png"/></NavLink></div>
+                        }}><img className="logoThing" src="https://i.postimg.cc/RVc10x1x/logo.png" /></NavLink></div>
                         <div className="splitsmart" style={{ textAlign: "center" }}>Split$mart</div>
                         <div className="spacer"></div>
                         <div className="toolbar_navigation-items">
@@ -70,29 +69,33 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                 }}><FaUserAlt />&nbsp;
                                 {this.props.user.firstName} {this.props.user.lastName}</NavLink></li>
                                 <li><NavLink to={{
-                                    pathname: '/Group',
-                                    search: `?sort=${this.props.user.username}`,
+                                    pathname: '/receipt',
+                                    //search: `?sort=${this.props.user.username}`,
                                     state: { fromDashboard: true }
-                                }}>Group</NavLink></li>
+                                }}>Receipt</NavLink></li>
+                                
                                 <li><NavLink className='innerNavBar' to={{
                                     pathname: '/ious',
                                     state: { fromDashboard: true }
                                 }} > IOUs</NavLink></li>
+                                <li><NavLink className='innerNavBar' to={{
+                                    pathname: '/group',
+                                    state: { fromDashboard: true }
+                                }} > Groups</NavLink></li>
+                                {
+                                    (this.props.user.displayName) ?
+                                        <li>
+                                            <NavLink to={{
+                                                pathname: '/login',
 
-                                 {
-                                     (this.props.user.displayName)?
-                                     <li>
-                                         <NavLink to={{
-                                             pathname: '/login',
+                                            }}></NavLink></li>
+                                        :
+                                        <li>
+                                            <NavLink to={{
+                                                pathname: '/login',
 
-                                         }}></NavLink></li>
-                                         :
-                                         <li>
-                                         <NavLink to={{
-                                             pathname: '/login',
-
-                                         }}>Login</NavLink></li>
-                                 }
+                                            }}>Login</NavLink></li>
+                                }
 
                                 {
                                     (this.props.user.displayName) ?
@@ -107,7 +110,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
 
                                 <li> <form className="form-inline my-2 my-lg-0" style={{ float: "right" }} onSubmit={this.search}>
                                     <button className="btn btn-danger my-2 my-sm-0" type="submit">< FaSearch /></button>
-                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.searchField} onChange={this.updateSearch}/>
+                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.searchField} onChange={this.updateSearch} />
                                 </form></li>
 
                             </ul>

@@ -85,8 +85,10 @@ export const GroupSettingsReducer = (state = initialState, action: any) => {
 
       }
       case GroupSettingsTypes.RESET_ADD_FORM:
-        initialState.usernameToAdd = '';
-        return initialState;
+        return{
+          ...state,
+          usernameToAdd: ''
+        }
 
   }
   return state

@@ -13,7 +13,7 @@ interface IAddGroupProps {
     updateGroupDescription: (groupDescription: string) => void,
     inviteUserToGroup: (username: string) => void,
     createGroup: (newGroup: Groups) => void,
-    updateGroupOwner: (ownerId: number) => void,
+    updateGroupOwner: (ownerId: Users) => void,
     resetAddForm: (usernameToAdd: string) => void,
     updateUserToAdd: (usernameToAdd: string) => void
 }
@@ -23,10 +23,11 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
         super(props);
     }
     componentDidMount() {
-        this.props.updateGroupOwner(this.props.user.userId)
+        this.props.updateGroupOwner(this.props.user)
     }
     createGroup = (event) => {
         event.preventDefault(); //prevent default form submission
+        this.props.inviteUserToGroup(this.props.user.username);
         this.props.createGroup(this.props.newGroup);
     }
     updateGroupName = (event) => {
@@ -43,6 +44,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     inviteUserToGroup = (event) => {
         event.preventDefault();
         this.props.inviteUserToGroup(this.props.usernameToAdd)
+        this.props.resetAddForm(event.target.value)
     }
     updateUserToAdd = (event) => {
         event.preventDefault();

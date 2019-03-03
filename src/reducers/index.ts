@@ -6,7 +6,6 @@ import { Line } from "../models/Line";
 import { loginReducer } from "./Login.reducer";
 import { receiptReducer } from "./Receipt.reducer";
 import { Receipt } from "../models/Receipt";
-
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
@@ -21,7 +20,7 @@ import { sideBarReducer } from "./Sidebar.reducer";
 import { modalASReducer } from "./ModalAS.reducer";
 import { modalGSReducer } from "./ModalGS.reducer";
 import { modalAGReducer } from "./ModalAG.reducer";
-
+import { groupReducer } from "./Group.Reducer";
 
 
 
@@ -35,9 +34,7 @@ export interface ILoginState {
     user: Users,
     username: string,
     password: string,
-    loggedIn: boolean,
-    feedbackMessage: string,
-    
+    feedbackMessage: string
 }
 
 //this represents the state needed by one of our components.
@@ -52,12 +49,12 @@ export interface IReceiptState{
 //The group state that we want to get the list of receipts from
 export interface IGroupState{
     groupReceipts:any,
+    currentGroup: Groups,
 }
 
 export interface IAccountSettingsState {
     updatedUser: Users
 }
-
 
 
 export interface IProfileInfoState {
@@ -76,11 +73,13 @@ export interface IDebtState{
 
 export interface IAddGroupState {
     newGroup: Groups,
-    usernameToAdd: string
+    usernameToAdd: string,
 }
 export interface IGroupsState {
     allGroups: Groups[],
     currentGroup: Groups,
+    newReceipt: Receipt,
+    newLine: Line,
 
 }
 export interface IGroupSettingsState{
@@ -119,6 +118,7 @@ export interface IState {
     modalAS: IModalASState,
     modalGS: IModalGSState,
     modalAG: IModalAGState,
+    group: IGroupsState
 
 }
 
@@ -130,7 +130,6 @@ export interface IState {
 //This needs a reducer with the name of every interface we have in the IState interface
 export const state = combineReducers<IState>({
     login: loginReducer,
-    
     accountSettings: accountSettingsReducer,
     profileInfo: profileInfoReducer,
     register: registerReducer,
@@ -142,6 +141,7 @@ export const state = combineReducers<IState>({
     modalAS: modalASReducer,
     modalGS: modalGSReducer,
     modalAG: modalAGReducer,
+    group: groupReducer,
 
 
 

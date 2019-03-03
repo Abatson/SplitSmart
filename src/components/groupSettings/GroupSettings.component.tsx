@@ -66,7 +66,6 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                                 <th>Group Name</th>
                                 <th>Description</th>
                                 <th>Picture</th>
-                                <th>Invites</th>
                             </tr>
                             <tr>
                                 <td>
@@ -105,6 +104,11 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                 <form onSubmit={this.inviteUserToGroup} onReset={this.resetAddForm} className="invite-user-to-group-form">
                     <table id='group-settings-header'>
                         <tbody>
+                            <tr id='group-settings-row'>
+                            <th >
+                                Invites
+                            </th>
+                            </tr>
                             <tr>
                                 <td>
                                     <input type="text"
