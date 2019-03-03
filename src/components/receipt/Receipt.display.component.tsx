@@ -24,7 +24,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       Receipt Name: {this.props.receipt.receiptName}
 
       <p>
-      {(this.props.receipt.claimant == -1) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.receiptClaimant.username == "") ? "" : this.props.receipt.receiptClaimant.username}  
+      {(this.props.receipt.receiptClaimant === undefined) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.receiptClaimant.username == "") ? "" : this.props.receipt.receiptClaimant.username}  
       </p>
       {/* <p> */}
       {/* Claim Receipt:  <input onClick={this.props.onClick1} type="checkbox" id="scales" name="scales" */}
@@ -52,7 +52,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-                tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.username} owes ${this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)}  </div>)
+                tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)}  </div>)
               }
         
         receiptHTML.push(<div>{tempJSX}</div>)

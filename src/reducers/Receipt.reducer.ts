@@ -44,9 +44,33 @@ export const receiptReducer = (state = initialState, action: any) => {
     //same as up above
     case receiptTypes.CLAIM_LINE:
     {
+
+      //return a new object so redux actually updates the page
       let newGroupReceipts = state.groupReceipts.slice()
-      newGroupReceipts[action.payload.receiptID].lines[action.payload.claimed].items = 
-      newGroupReceipts[action.payload.receiptID].lines[action.payload.claimed].items.concat((() => { let l = new Item(action.payload.claimant); l.itemClaimant = action.payload.claimant; return [l];}) )
+
+      //create the new item to be added to the line
+      let l = new Item(action.payload.claimant); l.itemClaimant = action.payload.claimant;
+      
+      //get a reference to the receipt we're changing
+      let changedReceipt = newGroupReceipts.findIndex((element : Receipt)=>{return element.receiptId === action.payload.receiptID})
+      let changedItem = newGroupReceipts[changedReceipt].lines[action.payload.claimed].items.findIndex(
+        (element : Item)=>{return element.itemClaimant === action.payload.claimant})
+
+      //if we are agreeing to help split the bill and we've already agreed to help, then remove our item
+      if (changedItem != -1)
+      {
+      newGroupReceipts[changedReceipt].lines[action.payload.claimed].items.splice(changedItem)
+      }
+
+      //if we are agreeing to help split the bill, then add a new item to this line
+      if (changedItem == -1)
+      {
+      newGroupReceipts[changedReceipt].lines[action.payload.claimed].items = 
+      newGroupReceipts[changedReceipt].lines[action.payload.claimed].items.concat([l])
+      }
+
+      //alert(JSON.stringify(changedReceipt));
+      
       newGroupReceipts = newGroupReceipts.slice();
       //newGroupReceipts =
 
