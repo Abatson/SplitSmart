@@ -42,7 +42,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 </div>
                {/* //DUNISEKI SAVE US */}
                 <div className="picture">
-                    <img src={this.props.profileUser.picture && this.props.profileUser.picture.toString()} width="" height=""></img>
+                    <img src={this.props.profileUser.picture && this.props.profileUser.picture.toString()} width="160" height="170"></img>
                   
                 </div>
                 <div className="line"></div>

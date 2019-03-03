@@ -22,7 +22,7 @@ export class DebtIdDisplayComponent extends React.PureComponent<IDebtIdDisplayPr
       <>
       {
         <tr>
-          <td >{this.props.debt.sender.picture && <img src={this.props.debt.sender.picture.toString()}/>} </td>
+          <td >{this.props.debt.sender.picture && <img className="picture1" src={this.props.debt.sender.picture.toString()} width="140"/>} </td>
           <td >{this.props.debt.sender.displayName} </td>
           <td >This person owes</td>
           <td >{this.props.debt.claimer.picture && <img src={this.props.debt.claimer.picture.toString()}/>} </td>
