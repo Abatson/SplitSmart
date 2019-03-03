@@ -74,35 +74,6 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     resetAddLinePriceForm = (event) => {
         this.props.resetAddLinePriceForm(event.target.value)
     }
-<<<<<<< HEAD
-    setCurrentGroup = (currentGroup: Groups) => {
-        this.props.setCurrentGroup(currentGroup);
-    }
-    /* checkIfCurrentGroupIsntZero = () => {
-        let allGroupsArray = [...this.props.allGroups];
-        if (allGroupsArray != []) {
-            allGroupsArray.map(group => (
-                <tr key={'group' + group.groupId}>
-                    <td>{group.groupName}</td>
-                    <td><img src={group.groupPicture} /></td>
-                    <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
-                </tr>
-            ))
-        }
-    } */
-    render() {
-
-        let allGroupsArray = this.props.allGroups;
-        if (allGroupsArray != []) {
-            allGroupsArray.map(group => (
-                <tr key={'group' + group.groupId}>
-                    <td>{group.groupName}</td>
-                    <td><img src={group.groupPicture} /></td>
-                    <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
-                </tr>
-            ))
-        }
-=======
     
     // checkIfCurrentGroupIsntZero = () => {
     //     if (this.props.allGroups != []) {
@@ -117,7 +88,6 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     // }
     render() {
         
->>>>>>> fad9770648f65214eb537d7e87b240a2e10d86ee
         return (
             <div>
                 <div className="receipt-in-group-component">
@@ -133,10 +103,6 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                             </tr>
                         </thead>
                         <tbody>
-<<<<<<< HEAD
-                            {/* //fixThis */}{allGroupsArray}
-=======
->>>>>>> fad9770648f65214eb537d7e87b240a2e10d86ee
 
 
                         </tbody>
