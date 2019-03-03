@@ -42,7 +42,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     componentDidMount() {
         console.log(this.props.currentGroup.groupId)
         console.log(this.props.user.userId)
-        getAllGroups(this.props.user.userId)
+        this.props.getAllGroups(this.props.user.userId)
         console.log(this.props.allGroups)
         initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
     }
