@@ -22,10 +22,10 @@ export class DebtIdDisplayComponent extends React.PureComponent<IDebtIdDisplayPr
       <>
       {
         <tr>
-          <td >{this.props.debt.sender.picture && this.props.debt.sender.picture.toString()} </td>
+          <td >{this.props.debt.sender.picture && <img src={this.props.debt.sender.picture.toString()}/>} </td>
           <td >{this.props.debt.sender.displayName} </td>
           <td >This person owes</td>
-          <td >{this.props.debt.claimer.picture && this.props.debt.claimer.picture.toString()} </td>
+          <td >{this.props.debt.claimer.picture && <img src={this.props.debt.claimer.picture.toString()}/>} </td>
           <td >{this.props.debt.claimer.displayName}</td>
           <td >{this.props.debt.debtAmount}</td>
       <td >{(this.props.owes && !this.props.debt.paid) && <button className="button3" onClick={this.props.onClickPaid}>Send Payment</button>}

@@ -3,6 +3,7 @@ import { Groups } from "../models/Groups";
 import { GroupTypes, setCurrentGroup } from "../actions/Group/Group.action";
 import { Receipt } from "../models/Receipt";
 import { Line } from "../models/Line";
+import { logoutTypes } from "../actions/logout/Logout.actions";
 
 const initialState: IGroupsState = {
     allGroups: [],
@@ -97,6 +98,13 @@ export const groupReducer = (state = initialState, action: any) => {
         case GroupTypes.FAILED_TO_SET_CURRENT_GROUP:
             return {
                 ...state,
+            }
+        case logoutTypes.LOGOUT:
+            return {
+                allGroups: [],
+                currentGroup: new Groups,
+                newReceipt: new Receipt,
+                newLine: new Line,
             }
     }
     return state;

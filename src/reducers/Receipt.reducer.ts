@@ -4,6 +4,7 @@ import { Receipt } from "../models/Receipt";
 import { Line } from "../models/Line";
 import { Item } from "../models/Item";
 import { Groups } from "../models/Groups";
+import { logoutTypes } from "../actions/logout/Logout.actions";
 
 //this is our intialstate of the interface we declared for the receipt component
 const initialState: IGroupState = {
@@ -81,7 +82,11 @@ export const receiptReducer = (state = initialState, action: any) => {
             groupReceipts : newGroupReceipts,
         }
     }
-
+    case logoutTypes.LOGOUT:
+            return {
+              groupReceipts: [],
+              currentGroup: new Groups,
+            }
  
   }
   return state;

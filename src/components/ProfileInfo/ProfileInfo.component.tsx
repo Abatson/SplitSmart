@@ -21,9 +21,9 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
         this.props.getUserProfile(this.props.params.sort);
     }
 
-    componentWillUpdate() {
-        this.props.getUserProfile(this.props.params.sort);
-    }
+    // componentDidUpdate() {
+    //     this.props.getUserProfile(this.props.params.sort);
+    // }
 
     render() {
         // const params = qs(this.props.ownProps.location.search)
@@ -40,7 +40,7 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 <div className="profile">
                     <h1>{this.props.profileUser.firstName} {this.props.profileUser.lastName}</h1>
                 </div>
-               
+               {/* //DUNISEKI SAVE US */}
                 <div className="picture">
                     <img src={this.props.profileUser.picture && this.props.profileUser.picture.toString()} width="" height=""></img>
                   
