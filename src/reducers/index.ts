@@ -6,7 +6,6 @@ import { Line } from "../models/Line";
 import { loginReducer } from "./Login.reducer";
 import { receiptReducer } from "./Receipt.reducer";
 import { Receipt } from "../models/Receipt";
-
 import { accountSettingsReducer } from "./AccountSettings.reducer";
 import { profileInfoReducer } from "./ProfileInfo.reducer";
 import { registerReducer } from "./Register.reducer";
@@ -21,6 +20,7 @@ import { sideBarReducer } from "./Sidebar.reducer";
 import { modalASReducer } from "./ModalAS.reducer";
 import { modalGSReducer } from "./ModalGS.reducer";
 import { modalAGReducer } from "./ModalAG.reducer";
+import { groupReducer } from "./Group.Reducer";
 
 
 
@@ -49,6 +49,7 @@ export interface IReceiptState{
 //The group state that we want to get the list of receipts from
 export interface IGroupState{
     groupReceipts:any,
+    currentGroup: Groups,
 }
 
 export interface IAccountSettingsState {
@@ -72,11 +73,13 @@ export interface IDebtState{
 
 export interface IAddGroupState {
     newGroup: Groups,
-    usernameToAdd: string
+    usernameToAdd: string,
 }
 export interface IGroupsState {
     allGroups: Groups[],
     currentGroup: Groups,
+    newReceipt: Receipt,
+    newLine: Line,
 
 }
 export interface IGroupSettingsState{
@@ -108,7 +111,6 @@ export interface IState {
     profileInfo: IProfileInfoState,
     receipt: IGroupState,
     register: IRegisterState,
-    //register: IRegisterState,
     groupSettings: IGroupSettingsState,
     debt: IDebtState,
     addNewGroup: IAddGroupState,
@@ -116,6 +118,7 @@ export interface IState {
     modalAS: IModalASState,
     modalGS: IModalGSState,
     modalAG: IModalAGState,
+    group: IGroupsState
 
 }
 
@@ -138,6 +141,7 @@ export const state = combineReducers<IState>({
     modalAS: modalASReducer,
     modalGS: modalGSReducer,
     modalAG: modalAGReducer,
+    group: groupReducer,
 
 
 

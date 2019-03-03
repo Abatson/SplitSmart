@@ -5,6 +5,7 @@ import { Receipt } from '../../models/Receipt';
 import { Line } from '../../models/Line';
 import { Item } from '../../models/Item';
 import { Users } from '../../models/Users';
+import { Groups } from '../../models/Groups';
 
 
 //requires the importing of Line and Item classes, which should also be in Store
@@ -20,8 +21,9 @@ interface IGroupProps {
     // receipt: Receipt,
     user: Users,
     groupReceipts: Receipt[],
+    currentGroup: Groups,
     //lines have a 1:M relationship with items
-    initializeReceipts: ()  => void,
+    initializeReceipts: (groupId: number)  => void,
     claimReceipt: (receiptID: number, claimant:number) => void, //as a user I would like to be able to claim a receipt
     claimLine: (receiptID: number, claimant:Users, claimed: number) => void, //as a user I would like to be able to claim a line
 }
@@ -31,8 +33,8 @@ export class ReceiptComponent extends React.Component<IGroupProps, any> {
   }
 
 // whenever the change the username input, call the updateUsername action with the value
-initializeReceipts = () => {
-  this.props.initializeReceipts() 
+initializeReceipts = (groupId: number) => {
+  this.props.initializeReceipts(groupId) 
 }
 
 // whenever the change the username input, call the updateUsername action with the value
@@ -48,7 +50,7 @@ claimLine = (receiptID:number, claimant:Users, lineID: number) => {
 
 componentDidMount()
 {
-  this.props.initializeReceipts();
+  this.props.initializeReceipts(this.props.currentGroup.groupId);
 }
 
   render() {

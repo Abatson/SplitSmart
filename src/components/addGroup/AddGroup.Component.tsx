@@ -13,7 +13,7 @@ interface IAddGroupProps {
     updateGroupDescription: (groupDescription: string) => void,
     inviteUserToGroup: (username: string) => void,
     createGroup: (newGroup: Groups) => void,
-    updateGroupOwner: (ownerId: number) => void,
+    updateGroupOwner: (ownerId: Users) => void,
     resetAddForm: (usernameToAdd: string) => void,
     updateUserToAdd: (usernameToAdd: string) => void
 }
@@ -23,10 +23,11 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
         super(props);
     }
     componentDidMount() {
-        this.props.updateGroupOwner(this.props.user.userId)
+        this.props.updateGroupOwner(this.props.user)
     }
     createGroup = (event) => {
         event.preventDefault(); //prevent default form submission
+        this.props.inviteUserToGroup(this.props.user.username);
         this.props.createGroup(this.props.newGroup);
     }
     updateGroupName = (event) => {
@@ -43,6 +44,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     inviteUserToGroup = (event) => {
         event.preventDefault();
         this.props.inviteUserToGroup(this.props.usernameToAdd)
+        this.props.resetAddForm(event.target.value)
     }
     updateUserToAdd = (event) => {
         event.preventDefault();
@@ -59,11 +61,8 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                 <form onSubmit={this.createGroup} className="add-group-form">
                     <table id='add-group-header'>
                         <tbody>
-                            <tr id='add-group-row'>
-                                <td>Group Name</td>
-                                <td>Description</td>
-                                <td>Picture</td>
-                                <td>Invites</td>
+                            <tr>
+                                <th>Group Name</th>
                             </tr>
                             <tr>
                                 <td>
@@ -75,7 +74,13 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         onChange={this.updateGroupName}
                                         required />
                                 </td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
                                 <td>
+
                                     <input type="text"
                                         id="Group Description"
                                         className="text-form"
@@ -84,6 +89,9 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         onChange={this.updateDescription}
                                         required />
                                 </td>
+                            </tr>
+                            <tr><th>Picture</th></tr>
+                            <tr>
                                 <td>
                                     <input type="url"
                                         id="Group Picture"
@@ -101,6 +109,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                 <form onSubmit={this.inviteUserToGroup} onReset={this.resetAddForm} className="invite-user-to-group-form">
                     <table id='add-group-header'>
                         <tbody>
+                            <tr><th>Invites</th></tr>
                             <tr>
                                 <td>
                                     <input type="text"

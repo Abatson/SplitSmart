@@ -73,6 +73,14 @@ export const accountSettingsReducer = (state = initialState, action: any) => {
                     picture: action.payload.picture
                 }
             }
+        case accountSettingsTypes.UPDATE_USER_ID:
+            return {
+                ...state,
+                updatedUser:{
+                    ...state.updatedUser,
+                    userId: action.payload.userId
+                }
+            }
         case accountSettingsTypes.DEACTIVATE_ACCOUNT:
             return {
                 ...state

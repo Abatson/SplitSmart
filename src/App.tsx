@@ -29,6 +29,7 @@ import ModalAGComponent from './components/modals/ModalAG.container';
 import FooterComponent from './components/footer/Footer.container';
 import GroupSettingsComponent from './components/groupSettings/GroupSettings.container';
 import LogOutComponent from './components/logout/Logout.container';
+import GroupComponent from './components/group/Group.container';
 
 
 class App extends Component {
@@ -53,13 +54,12 @@ class App extends Component {
               <Route path='/profile' search='?sort=username' component={ProfileInfoComponent} />
               <Route path='/register' component={RegisterComponent} />
               {/* //need a better path */}
-              <Route path='/debts' component={DebtComponent} />
-              {/* //need a better path */}
-              <Route path='/debts' component={DebtComponent} />
+              <Route path='/ious' component={DebtComponent} />
               <Route path='/receipt' component={ReceiptComponent} />
               <Route path='/addGroup' component={AddGroupComponent} />
               <Route path='/gsettings' component={GroupSettingsComponent} />
               <Route path='/logout' component={LogOutComponent} />
+              <Route path='/group' component={GroupComponent} />
 
             </div>
           </BrowserRouter>

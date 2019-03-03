@@ -12,6 +12,8 @@ interface ISideBarProps {
     sideDrawerOpen: boolean,
     backdropClick: () => void,
 }
+
+//MAKES SURE THIS DOESNT SHOW WHEN NOT LOGGED IN!!!!! ALEC DO IT!!!!!
 export class SideBarComponent extends React.Component<ISideBarProps, any> {
     constructor(props) {
         super(props);
@@ -20,6 +22,14 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
     render() {
         //I THINK MOVING THE TOOLBAR AWAY IS FINE BECAUSE OF REDUX
         //SIDEDRAWER HAS ALL THE ACTUAL STUFF
+        if(this.props.user.userId === 0)
+        {
+            return (
+                <div>
+
+                </div>
+            )
+        }else {
         return (
             <div style={{ height: '100%' }}>
                 {this.props.sideDrawerOpen ? <nav className='side-drawer open'>
@@ -43,5 +53,6 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
                 <main style={{ marginTop: "64px" }}></main>
             </div>
         )
+      }
     }
 }
