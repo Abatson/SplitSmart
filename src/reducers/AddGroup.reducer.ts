@@ -45,11 +45,15 @@ export const addGroupReducer = (state = initialState, action: any) => {
       }
 
     case addGroupTypes.UPDATE_GROUP_OWNER:
+    let newArray = [...state.newGroup.groupMembers];
+        newArray.push(action.payload.user);
       return {
         ...state,
         newGroup: {
           ...state.newGroup,
-          groupOwner: action.payload.user
+          groupOwner: action.payload.user,
+          groupMembers: newArray
+
         }
       }
 
@@ -74,7 +78,14 @@ export const addGroupReducer = (state = initialState, action: any) => {
       console.log(action.payload.user)
       console.log(state.newGroup.groupMembers)
       console.log(state.newGroup.groupMembers.includes(action.payload.user) )
-      if (state.newGroup.groupMembers.some(action.payload.user)) {
+      let check = true;
+      for(let i = 0; i <state.newGroup.groupMembers.length; i++){
+        if(state.newGroup.groupMembers[i].userId === action.payload.user.userId){
+          check = false;
+        }
+      }
+      if(check)
+      {
         let newArray = [...state.newGroup.groupMembers];
         newArray.push(action.payload.user);
         return {
