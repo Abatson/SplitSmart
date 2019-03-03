@@ -115,7 +115,7 @@ export const resetAddLinePriceForm = (linePriceToAdd: number) => {
 export const getAllGroups = (userId: number) => async(dispatch) => {
 
         try{
-            const res = await ssClient.get(`/groups/users:${userId}`);
+            const res = await ssClient.get(`/groups/users/${userId}`);
             console.log(res)
             //when doing an async action, we have to call the dispatcher ourselves
             //this is the same thing as returning the payload up above in our other methods

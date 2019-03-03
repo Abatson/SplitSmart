@@ -40,13 +40,13 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     }
 
     componentDidMount() {
-        console.log(this.props.currentGroup.groupId)
+         console.log(this.props.currentGroup.groupId)
         console.log(this.props.user.userId)
         getAllGroups(this.props.user.userId)
-        console.log(this.props.allGroups)
-        initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
+        console.log(this.props.allGroups) 
+        initializeReceipts(this.props.currentGroup.groupId); //call action initialize receipts
     }
-    addReceipt = (event) => { 
+    addReceipt = (event) => {
         event.preventDefault()
         this.props.addReceipt(this.props.newReceipt);
     }
@@ -79,14 +79,14 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         this.props.setCurrentGroup(currentGroup);
     }
     checkIfCurrentGroupIsntZero = () => {
-        if(this.props.allGroups != []){
-        this.props.allGroups.map(group => (
-            <tr key={'group' + group.groupId}>
-                <td>{group.groupName}</td>
-                <td><img src={group.groupPicture} /></td>
-                <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
-            </tr>
-        ))
+        if (this.props.allGroups != []) {
+            this.props.allGroups.map(group => (
+                <tr key={'group' + group.groupId}>
+                    <td>{group.groupName}</td>
+                    <td><img src={group.groupPicture} /></td>
+                    <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
+                </tr>
+            ))
         }
     }
     render() {
@@ -105,11 +105,12 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                             </tr>
                         </thead>
                         <tbody>
-                        {this.checkIfCurrentGroupIsntZero}
-                             
-                             
+                            {this.checkIfCurrentGroupIsntZero}
+
+
                         </tbody>
                     </table>
+                    </div> 
                     <div className="add-receipt">
                         <table id='add-receipt-header'>
                             <tbody>
@@ -156,7 +157,6 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                         </table>
                     </div>
                 </div>
-            </div>
         )
     }
 }

@@ -20,7 +20,7 @@ export const groupReducer = (state = initialState, action: any) => {
 
             }
         case GroupTypes.GET_ALL_GROUPS:
-            console.log(action.payload.user)
+            console.log(action.payload.groups)
             let newArray = [...state.allGroups];
             newArray.push(action.payload.groups);
             return {
