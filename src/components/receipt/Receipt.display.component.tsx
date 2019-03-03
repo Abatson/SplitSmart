@@ -55,11 +55,14 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
                 tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)}  </div>)
               }
         
+
         receiptHTML.push(<div>{tempJSX}</div>)
         tempJSX = [];
-        receiptHTML.push(<p></p>)
       }
 
+      receiptHTML.push(<p></p>)
+      receiptHTML.push(<div><button >Finalize Receipt</button></div>)
+      receiptHTML.push(<div><hr></hr></div>);
     return (
       <div style={{background:'#999999'}} >
 

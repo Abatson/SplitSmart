@@ -77,6 +77,7 @@ componentDidMount()
       itr_1++;
     }
 
+    receiptHTML.push(<div><button >Save Changes</button></div>);
     return (<div>{receiptHTML}</div>)
   
 
