@@ -9,7 +9,7 @@ const mapStateToProps = (state: IState) => {
       user: state.login.user,
       currentGroup: state.group.currentGroup,
       newReceipt: state.group.newReceipt,
-      newLine: state.group.newLine
+      newLine: state.group.newLine,
     }
   }
 

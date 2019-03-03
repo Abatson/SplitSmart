@@ -14,14 +14,14 @@ const initialState: IGroupsState = {
 export const groupReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case GroupTypes.SET_CURRENT_GROUP:
+        let currentGroup:Groups = action.payload.currentGroup
             return {
                 ...state,
-                currentGroup: action.payload.currentGroup
+                currentGroup: currentGroup
 
             }
         case GroupTypes.GET_ALL_GROUPS:
-            console.log(action.payload.user)
-            let newArray = [...action.payload.groups];
+            let newArray:Groups[] = [...action.payload.groups];
             return {
                 ...state,
                 allGroups: newArray
@@ -31,31 +31,37 @@ export const groupReducer = (state = initialState, action: any) => {
                 ...state,
             }
         case GroupTypes.ADD_RECEIPT:
+            let newReceipt:Receipt = action.payload.receipt
             return {
                 ...state,
-                newReceipt: action.payload.receipt,
+                newReceipt: newReceipt
             }
         case GroupTypes.UPDATE_RECEIPT_NAME:
+            let receiptName:string = action.payload.receiptName
             return {
                 ...state,
                 newReceipt: {
                     ...state.newReceipt,
-                    receiptName: action.payload.receiptName,
+                    receiptName: receiptName,
                 }
             }
         case GroupTypes.ADD_LINE_TO_RECEIPT:
-        let newLineArray = [...action.payload.newReceipt];
-        newLineArray.push(action.payload.newLine);
+            let receiptLines = [...state.newReceipt.lines]
+            receiptLines.push(action.payload.newLine);
             return {
                 ...state,
-                newReceipt: newLineArray
+               newReceipt: {
+                   ...state.newReceipt,
+                    lines: receiptLines
+                }
             }
         case GroupTypes.UPDATE_LINE_NAME_TO_ADD:
+            let lineName:string = action.payload.lineNameToAdd
             return {
                 ...state,
                 newLine: {
                     ...state.newLine,
-                    lineName: action.payload.lineNameToAdd
+                    lineName: lineName
                 }
             }
         case GroupTypes.RESET_ADD_LINE_FORM:
@@ -65,11 +71,12 @@ export const groupReducer = (state = initialState, action: any) => {
                 linePriceToAdd: '',
             }
         case GroupTypes.UPDATE_LINE_PRICE_TO_ADD:
+            let linePrice:number = action.payload.linePriceToAdd
             return {
                 ...state,
                 newLine: {
                     ...state.newLine,
-                    linePrice: action.payload.linePriceToAdd
+                    linePrice: linePrice
                 }
             }
         case GroupTypes.RESET_ADD_LINE_NAME_FORM:
@@ -84,8 +91,8 @@ export const groupReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 newLine: {
-                    ...state,
-                    linePrice: action.payload.linePriceToAdd
+                    ...state.newLine,
+                    linePrice: 0
                 }
             }
         case GroupTypes.FAILED_TO_SET_CURRENT_GROUP:

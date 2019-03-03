@@ -27,7 +27,7 @@ interface IGroupProps {
     addLineToReceiptButton: () => void,
     addLineToReceipt: (newLine: Line) => void,
     updateNameLineToAdd: (lineNameToAdd: string) => void,
-    resetAddLineForm: (lineToReset: Line) => void,
+    resetAddLineForm: () => void,
     updateLinePriceToAdd: (linePriceToAdd: number) => void,
     resetAddLineNameForm: (lineNameToAdd: string) => void,
     resetAddLinePriceForm: (linePriceToAdd: number) => void,
@@ -59,9 +59,8 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     }
     addLineToReceiptButton = (event) => {
         event.preventDefault();
-
         this.props.addLineToReceipt(this.props.newLine)
-        this.props.resetAddLineForm(event.target.value)
+        this.props.resetAddLineForm()
     }
     resetAddLineNameForm = (event) => {
         this.props.resetAddLineNameForm(event.target.value)
