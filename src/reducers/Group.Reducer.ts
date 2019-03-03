@@ -44,9 +44,11 @@ export const groupReducer = (state = initialState, action: any) => {
                 }
             }
         case GroupTypes.ADD_LINE_TO_RECEIPT:
+        let newLineArray = [...action.payload.newReceipt];
+        newLineArray.push(action.payload.newLine);
             return {
                 ...state,
-                newLine: action.payload.newLine
+                newReceipt: newLineArray
             }
         case GroupTypes.UPDATE_LINE_NAME_TO_ADD:
             return {
@@ -59,7 +61,8 @@ export const groupReducer = (state = initialState, action: any) => {
         case GroupTypes.RESET_ADD_LINE_FORM:
             return {
                 ...state,
-                newLine: new Line
+                lineName: '',
+                linePriceToAdd: '',
             }
         case GroupTypes.UPDATE_LINE_PRICE_TO_ADD:
             return {
