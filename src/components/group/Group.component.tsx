@@ -74,9 +74,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     resetAddLinePriceForm = (event) => {
         this.props.resetAddLinePriceForm(event.target.value)
     }
-    setCurrentGroup = (currentGroup: Groups) => {
-        this.props.setCurrentGroup(currentGroup);
-    }
+    
     // checkIfCurrentGroupIsntZero = () => {
     //     if (this.props.allGroups != []) {
     //         this.props.allGroups.map(group => (
