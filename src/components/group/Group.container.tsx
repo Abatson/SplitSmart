@@ -11,6 +11,7 @@ const mapStateToProps = (state: IState) => {
       currentGroup: state.group.currentGroup,
       newReceipt: state.group.newReceipt,
       newLine: state.group.newLine,
+      allGroups: state.group.allGroups
     }
   }
 
