@@ -23,11 +23,7 @@ interface IGroupProps {
     linePriceToAdd: number,
     setCurrentGroup: (currentGroup: Groups) => void,
     getAllGroups: (userId: number) => void,
-<<<<<<< HEAD
-    addReceipt: (newReceipt: Receipt, currentGroup: Groups, receiptOwner: Users) => void,
-=======
     addReceipt: (newReceipt: Receipt, currentGroup:Groups, owner:Users) => void,
->>>>>>> 6fa8492b449c84d79a23f19ae763bfbd94eb2625
     updateReceiptName: (receiptName: string) => void,
     addLineToReceiptButton: () => void,
     addLineToReceipt: (newLine: Line) => void,
@@ -81,7 +77,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     setCurrentGroup = (currentGroup: Groups) => {
         this.props.setCurrentGroup(currentGroup);
     }
-    checkIfCurrentGroupIsntZero = () => {
+    /* checkIfCurrentGroupIsntZero = () => {
         let allGroupsArray = [...this.props.allGroups];
         if (allGroupsArray != []) {
             allGroupsArray.map(group => (
@@ -92,10 +88,19 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                 </tr>
             ))
         }
-    }
+    } */
     render() {
 
-
+        let allGroupsArray = this.props.allGroups;
+        if (allGroupsArray != []) {
+            allGroupsArray.map(group => (
+                <tr key={'group' + group.groupId}>
+                    <td>{group.groupName}</td>
+                    <td><img src={group.groupPicture} /></td>
+                    <td><button onClick={() => this.setCurrentGroup(group)}>View Group</button></td>
+                </tr>
+            ))
+        }
         return (
             <div>
                 <div className="receipt-in-group-component">
@@ -111,7 +116,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* //fixThis */}{this.checkIfCurrentGroupIsntZero}
+                            {/* //fixThis */}{allGroupsArray}
 
 
                         </tbody>

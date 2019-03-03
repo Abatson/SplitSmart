@@ -3,10 +3,7 @@ import { Receipt } from "../../models/Receipt";
 import { Line } from "../../models/Line";
 import { state } from "../../reducers";
 import { Groups } from "../../models/Groups";
-<<<<<<< HEAD
-=======
 import { initializeReceipts } from "../receipt/Receipt.actions";
->>>>>>> 6fa8492b449c84d79a23f19ae763bfbd94eb2625
 import { Users } from "../../models/Users";
 
 export const GroupTypes = {
