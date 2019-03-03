@@ -46,7 +46,7 @@ claimLine = (receiptID:number, claimant:Users, lineID: number) => {
 }
 
 
-componentWillMount()
+componentDidMount()
 {
   this.props.initializeReceipts();
 }
