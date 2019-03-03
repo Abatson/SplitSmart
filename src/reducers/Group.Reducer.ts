@@ -20,16 +20,11 @@ export const groupReducer = (state = initialState, action: any) => {
 
             }
         case GroupTypes.GET_ALL_GROUPS:
-            console.log(action.payload.groups)
-            let newArray = [...state.allGroups];
-            newArray.push(action.payload.groups);
+            console.log(action.payload.user)
+            let newArray = [...action.payload.groups];
             return {
                 ...state,
-                usernameToAdd: '',
-                newGroup: {
-                    ...state.allGroups,
-                    allGroups: newArray
-                }
+                allGroups: newArray
             }
         case GroupTypes.FAILED_TO_GET_ALL_GROUPS:
             return {

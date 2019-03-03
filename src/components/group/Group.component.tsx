@@ -43,8 +43,13 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         console.log(this.props.currentGroup.groupId)
         console.log(this.props.user.userId)
         this.props.getAllGroups(this.props.user.userId)
+<<<<<<< HEAD
         console.log(this.props.allGroups) 
         initializeReceipts(this.props.currentGroup.groupId); //call action initialize receipts
+=======
+        console.log(this.props.allGroups)
+        initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
+>>>>>>> 7cff0b68fb297ce979f52953407778417b5c3b2a
     }
     addReceipt = (event) => {
         event.preventDefault()
