@@ -31,7 +31,20 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
         //I THINK MOVING THE TOOLBAR AWAY IS FINE BECAUSE OF REDUX
         //SIDEDRAWER HAS ALL THE ACTUAL STUFF
 
-        let sidebarHtml:any[] = [];
+
+        
+
+
+        if(this.props.user.userId === 0)
+        {
+            return (
+                <div>
+
+                </div>
+            )
+        }else {
+          
+          let sidebarHtml:any[] = [];
         console.log(this.props.allGroups)
         if(this.props.allGroups) {
             for(const key of this.props.allGroups){
@@ -77,5 +90,6 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
                 <main style={{ marginTop: "64px" }}></main>
             </div>
         )
+      }
     }
 }

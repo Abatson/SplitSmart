@@ -1,9 +1,8 @@
 import React from 'react';
 import { Users } from '../../models/Users';
 //import { reduxForm, Field } from 'redux-form';
-import { Container } from 'reactstrap';
-import { ModalASComponent } from '../modals/ModalAS.component';
-import { ModalAGComponent } from '../modals/ModalAG.component';
+
+
 
 
 
