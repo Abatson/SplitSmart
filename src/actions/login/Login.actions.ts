@@ -79,7 +79,7 @@ export const loginRequest = (username, password, history) => async (dispatch) =>
             },
             type: loginTypes.LOGIN
         })
-        history.push('/groups');
+        history.push('/group');
         } else {
             dispatch({
                 payload: {

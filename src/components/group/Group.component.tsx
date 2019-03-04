@@ -50,7 +50,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         //this.props.initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
     }
 
-    
+
 
 
     addReceipt = (event) => {
@@ -115,7 +115,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         return (
             <div>
                 <div className="receipt-in-group-component">
-                    {/* <ModalAGComponent type="GroupSettings" /> */}
+                    <ModalAGComponent type="GroupSettings" name="Group Settings" className="profileInfoBtn"/>
                     <ReceiptComponent />
                     </div> 
                     <div className="receiptLeft">
@@ -142,7 +142,9 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                             </form>
                                             
                                         </td>
-                                        
+                                            {
+                                                linesDisplay
+                                            }
                                     
                                     
                                         <td>

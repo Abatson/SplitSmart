@@ -9,7 +9,8 @@ export const receiptTypes = {
     INITIALIZE_RECEIPTS:  'L_INITIALIZE_RECEIPTS' ,
     UPDATE_RECEIPTS:  'L_UPDATE_RECEIPTS' ,
     FAILED_TO_GRAB: 'R_FAILED_TO_GRAB',
-    FINALIZE_RECEIPT: 'FINALIZE_RECEIPT'
+    FINALIZE_RECEIPT: 'FINALIZE_RECEIPT',
+    NOT_ALL_CLAIMED: 'NOT_ALL_CLAIMED'
   }
   
 
@@ -136,7 +137,15 @@ export const claimReceipt = (receiptID: number, claimant:number) => {
 
 export const finalizeReceipts =  (receipt: Receipt)  => async (dispatch) => {
     //api call, change to a parameter that is a number, groupid send that data to reducer, then go to receipt reducer
+   
+
+
     try {
+        for (const key of receipt.lines) {
+            if(key.items.length === 0){
+                throw new Error
+            }
+        }
         const res = await ssClient.patch(`/receipts/finalize`, receipt)//${groupid}`);
 
         dispatch({
@@ -151,8 +160,9 @@ export const finalizeReceipts =  (receipt: Receipt)  => async (dispatch) => {
         console.log(err);
         dispatch({
             payload: {
+                
             },
-            type: receiptTypes.FAILED_TO_GRAB
+            type: receiptTypes.NOT_ALL_CLAIMED
         })
     
     
