@@ -22,7 +22,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
 
     receiptHTML.push(<div className="receiptName" >
-      <br /> <br /> Receipt Name: {this.props.receipt.receiptName}
+      <br /> <br /> <div className = "receiptTitle">Receipt Name: {this.props.receipt.receiptName}</div>
 
       <p>
       {(this.props.receipt.receiptClaimant === undefined) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.receiptClaimant.username == "") ? "" : this.props.receipt.receiptClaimant.username}  
@@ -69,7 +69,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       let randGreen = Math.round(80*Math.random());
       let randBlue = Math.round(80*Math.random());
       let randColor : any = 'rgba('+randRed+','+randGreen+','+randBlue+',1)'
-      let classN = "receipt-"//+this.props.rid;
+      let classN = "receipt-"+this.props.rid;
       return (
       <div className={classN}>
 
