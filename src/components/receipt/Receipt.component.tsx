@@ -68,6 +68,9 @@ componentDidMount()
     let receiptHTML : any = [];
 
 
+    
+    receiptHTML.push(<div><button className = "saveChangesButton"  >Save Changes</button></div>);
+
     let itr_1 = 0;
     for (let key of this.props.groupReceipts)
     {
@@ -80,8 +83,6 @@ componentDidMount()
       receiptHTML.push(<ReceiptDisplayComponent user = {this.props.user} onClick1={()=>{this.props.claimReceipt(key.receiptId, 0); alert(key.receiptId)} }  onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent>)
       itr_1++;
     }
-
-    receiptHTML.push(<div><button >Save Changes</button></div>);
 
 
     return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup.groupName}"</div><div className="receiptComponent">{receiptHTML}</div></div>)

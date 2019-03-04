@@ -635,6 +635,38 @@ display:block;
 z-index:-1;
 }
 
+.saveChangesButton{
+  height: 40px;
+  border: 1px solid black;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  border-radius: 10px;
+width: 150px;
+font-weight: bold;
+
+}
+.finalizeReceiptButton{
+  height: 40px;
+  border: 1px solid black;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  border-radius: 10px;
+width: 150px;
+font-weight: bold;
+
+}
+.splitPurchaseButton{
+  height: 40px;
+  border: 1px solid black;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  border-radius: 10px;
+width: 150px;
+font-weight: bold;
+
+}
+
+
 /*
 .add-receipt{
   overflow-y: scroll;
