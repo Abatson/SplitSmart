@@ -63,7 +63,7 @@ tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} 
       }
 
       receiptHTML.push(<p></p>)
-      receiptHTML.push(<div><button className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
+      receiptHTML.push(<div><button onClick={this.props.finalize}className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
       receiptHTML.push(<div><hr></hr></div>);
     return (
       <div>

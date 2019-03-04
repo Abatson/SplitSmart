@@ -8,7 +8,8 @@ export const receiptTypes = {
     CLAIM_LINE:  'L_CLAIM_LINE' ,
     INITIALIZE_RECEIPTS:  'L_INITIALIZE_RECEIPTS' ,
     UPDATE_RECEIPTS:  'L_UPDATE_RECEIPTS' ,
-    FAILED_TO_GRAB: 'R_FAILED_TO_GRAB'
+    FAILED_TO_GRAB: 'R_FAILED_TO_GRAB',
+    FINALIZE_RECEIPT: 'FINALIZE_RECEIPT'
   }
   
 
@@ -66,7 +67,7 @@ try {
 
   //After a receipt has been claimed, we want someone who can claim the lines of the receipt
   //claimed is the id of the line in the receipt that was claimed
-  export const updateReceipts =  (receipts: Receipt[])  => async (dispatch) => {
+  export const updateReceipts =  (receipts: Receipt)  => async (dispatch) => {
     //api call, change to a parameter that is a number, groupid send that data to reducer, then go to receipt reducer
     try {
 
@@ -133,3 +134,28 @@ export const claimReceipt = (receiptID: number, claimant:number) => {
 
 }
 
+export const finalizeReceipts =  (receipt: Receipt)  => async (dispatch) => {
+    //api call, change to a parameter that is a number, groupid send that data to reducer, then go to receipt reducer
+    try {
+        const res = await ssClient.patch(`/receipts/finalize`, receipt)//${groupid}`);
+
+        dispatch({
+            payload: {
+                receipt: res.data
+            },
+            type: receiptTypes.FINALIZE_RECEIPT
+        })
+    
+    } catch (err) {
+    
+        console.log(err);
+        dispatch({
+            payload: {
+            },
+            type: receiptTypes.FAILED_TO_GRAB
+        })
+    
+    
+    }
+    
+    }
