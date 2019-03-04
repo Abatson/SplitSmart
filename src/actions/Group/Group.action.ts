@@ -3,8 +3,9 @@ import { Receipt } from "../../models/Receipt";
 import { Line } from "../../models/Line";
 import { state } from "../../reducers";
 import { Groups } from "../../models/Groups";
-import { initializeReceipts } from "../receipt/Receipt.actions";
+
 import { Users } from "../../models/Users";
+import { receiptTypes } from "../receipt/Receipt.actions";
 
 export const GroupTypes = {
     SET_CURRENT_GROUP: "G_SET_CURRENT_GROUP",
@@ -20,14 +21,26 @@ export const GroupTypes = {
     RESET_ADD_LINE_PRICE_FORM: "G_RESET_ADD_LINE_PRICE_FORM",
     FAILED_TO_SET_CURRENT_GROUP: "G_FAILED_TO_SET_CURRENT_GROUP"
 }
-export const setCurrentGroup = (currentGroup: Groups) => {
-    initializeReceipts(currentGroup.groupId)
-    return {
-        payload: {
+export const setCurrentGroup = (currentGroup: Groups) => async (dispatch) =>{
+    
+        dispatch({payload: {
             currentGroup: currentGroup
         },
         type: GroupTypes.SET_CURRENT_GROUP
+        })
+        try{
+             const res = await ssClient.get(`/receipts/groups/${currentGroup.groupId}`)
+        dispatch({
+            payload: {
+    
+                receipt: res.data
+            },
+            type: receiptTypes.INITIALIZE_RECEIPTS
+        })
+    } catch (e){
+        
     }
+
 }
 export const addReceipt = (newReceipt: Receipt, currentGroup:Groups, owner:Users)  => async (dispatch) => {
     try{
@@ -131,14 +144,14 @@ export const getAllGroups = (userId: number) => async(dispatch) => {
                 },
                 type: GroupTypes.GET_ALL_GROUPS
             })
-            if(res.data[0]) {
-            dispatch({
-                payload: {
-                    currentGroup: res.data[0]
-                },
-                type: GroupTypes.SET_CURRENT_GROUP
-             })
-            }
+            // if(res.data[0]) {
+            // dispatch({
+            //     payload: {
+            //         currentGroup: res.data[0]
+            //     },
+            //     type: GroupTypes.SET_CURRENT_GROUP
+            //  })
+            // }
         }catch (err) {
             //impediment, how to get api message from error
             console.log(err);
