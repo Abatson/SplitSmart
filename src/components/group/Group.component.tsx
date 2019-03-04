@@ -115,16 +115,21 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         return (
             <div>
                 <div className="receipt-in-group-component">
+<<<<<<< HEAD
                     <ModalAGComponent type="GroupSettings" name="Group Settings" className="profileInfoBtn"/>
+=======
+                    {/* <ModalAGComponent type="GroupSettings" /> */}
+>>>>>>> 165b6679db4bcead9b16d4eff4e2edc8b41f130f
                     <ReceiptComponent />
                     </div> 
+                    <div className="receiptLeft">
+                    <div className="receiptLeftTop"></div>
+                    </div>
+                    <div className="receiptLeftBottom"></div>
                     <div className="add-receipt">
                         <table id='add-receipt-header'>
                             <tbody>
-                                <tr id='add-receipt-row'>
-                                    <td>Receipt Name</td>
-                                    <td>Lines</td>
-                                </tr>
+                                
                                 <tr>
                                     <div className="add-form-background"></div>
                                         <td>

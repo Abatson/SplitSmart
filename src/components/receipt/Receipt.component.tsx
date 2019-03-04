@@ -6,7 +6,7 @@ import { Line } from '../../models/Line';
 import { Item } from '../../models/Item';
 import { Users } from '../../models/Users';
 import { Groups } from '../../models/Groups';
-import { finalizeReceipts } from '../../actions/receipt/Receipt.actions';
+
 
 
 //requires the importing of Line and Item classes, which should also be in Store
@@ -76,8 +76,6 @@ componentDidMount()
     let receiptHTML : any = [];
 
 
-    
-    receiptHTML.push(<div><button className = "saveChangesButton"  >Save Changes</button></div>);
 
     let itr_1 = 0;
     for (let key of this.props.groupReceipts)
@@ -93,7 +91,9 @@ componentDidMount()
     }
 
 
-    return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup && this.props.currentGroup.groupName}"</div><div className="receiptComponent">{receiptHTML}</div></div>)
+    return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup && this.props.currentGroup.groupName}"<br /><br/>   
+    <button className = "saveChangesButton"  >Save Changes</button>
+</div><div className="receiptComponent">{receiptHTML}</div></div>)
   
 
 }
