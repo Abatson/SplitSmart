@@ -13,7 +13,7 @@ interface IAddGroupProps {
     updateGroupDescription: (groupDescription: string) => void,
     inviteUserToGroup: (username: string) => void,
     createGroup: (newGroup: Groups) => void,
-    updateGroupOwner: (ownerId: number) => void,
+    updateGroupOwner: (ownerId: Users) => void,
     resetAddForm: (usernameToAdd: string) => void,
     updateUserToAdd: (usernameToAdd: string) => void
 }
@@ -23,10 +23,11 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
         super(props);
     }
     componentDidMount() {
-        this.props.updateGroupOwner(this.props.user.userId)
+        this.props.updateGroupOwner(this.props.user)
     }
     createGroup = (event) => {
         event.preventDefault(); //prevent default form submission
+        //this.props.inviteUserToGroup(this.props.user.username);
         this.props.createGroup(this.props.newGroup);
     }
     updateGroupName = (event) => {
@@ -43,6 +44,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     inviteUserToGroup = (event) => {
         event.preventDefault();
         this.props.inviteUserToGroup(this.props.usernameToAdd)
+        this.props.resetAddForm(event.target.value)
     }
     updateUserToAdd = (event) => {
         event.preventDefault();
@@ -53,6 +55,11 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     }
 
     render() {
+
+        let invitedUsers:any[] = [];
+        for(const key of this.props.newGroup.groupMembers){
+            invitedUsers.push(<tr><td>{key.username}</td></tr>);
+        }
         //console.log(this.props.newGroup)
         return (
             <div className="add-group-page">
@@ -97,7 +104,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         placeholder="URL"
                                         value={this.props.newGroup.groupPicture}
                                         onChange={this.updateGroupPicture}
-                                        required />
+                                         />
                                 </td>
                             </tr>
                         </tbody>
@@ -108,6 +115,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                     <table id='add-group-header'>
                         <tbody>
                             <tr><th>Invites</th></tr>
+                            {invitedUsers}
                             <tr>
                                 <td>
                                     <input type="text"

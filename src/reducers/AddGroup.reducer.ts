@@ -4,6 +4,7 @@ import { Groups } from "../models/Groups";
 import { Url } from 'url';
 import { addGroupTypes } from "../actions/addGroup/AddGroup.actions";
 import { registerTypes } from "../actions/register/Register.actions";
+import { logoutTypes } from "../actions/logout/Logout.actions";
 const initialState: IAddGroupState = {
   newGroup: new Groups,
   usernameToAdd: ''
@@ -44,12 +45,16 @@ export const addGroupReducer = (state = initialState, action: any) => {
         }
       }
 
-      case addGroupTypes.UPDATE_GROUP_OWNER:
+    case addGroupTypes.UPDATE_GROUP_OWNER:
+    let newArray = [...state.newGroup.groupMembers];
+        newArray.push(action.payload.user);
       return {
         ...state,
         newGroup: {
           ...state.newGroup,
-          groupOwner: action.payload.ownerId
+          groupOwner: action.payload.user,
+          groupMembers: newArray
+
         }
       }
 
@@ -59,34 +64,58 @@ export const addGroupReducer = (state = initialState, action: any) => {
         addGroupFeedback: 'Incorrect Data'
       }
 
-     case addGroupTypes.FAILED_TO_ADD_USER_TO_GROUP:
-     console.log(action.payload.user);
+    case addGroupTypes.FAILED_TO_ADD_USER_TO_GROUP:
+      console.log(action.payload.user);
       return {
         ...state,
         addGroupFeedback: 'Incorrect Data'
-      } 
-      case addGroupTypes.UPDATE_USER_TO_ADD:
-      return{
+      }
+    case addGroupTypes.UPDATE_USER_TO_ADD:
+      return {
         ...state,
         usernameToAdd: action.payload.usernameToAdd
       }
-      case addGroupTypes.INVITE_USER_TO_GROUP:
+    case addGroupTypes.INVITE_USER_TO_GROUP:
       console.log(action.payload.user)
-      let newArray = [...state.newGroup.groupMembers];
-      newArray.push(action.payload.user)
-      action.payload.usernameToAdd = '';
-      return{
-        ...state,
-        newGroup: {
-          ...state.newGroup,
-          groupMembers: newArray
+      console.log(state.newGroup.groupMembers)
+      console.log(state.newGroup.groupMembers.includes(action.payload.user) )
+      let check = true;
+      for(let i = 0; i <state.newGroup.groupMembers.length; i++){
+        if(state.newGroup.groupMembers[i].userId === action.payload.user.userId){
+          check = false;
         }
-        
+      }
+      if(check)
+      {
+        let newArray = [...state.newGroup.groupMembers];
+        newArray.push(action.payload.user);
+        return {
+          ...state,
+          usernameToAdd: '',
+          newGroup: {
+            ...state.newGroup,
+            groupMembers: newArray
+          }
+        }
+
 
       }
-      case addGroupTypes.RESET_ADD_FORM:
-        initialState.usernameToAdd = '';
-        return initialState;
+      else {
+        return {
+          ...state,
+          usernameToAdd: '',
+        }
+      }
+    case addGroupTypes.RESET_ADD_FORM:
+      initialState.usernameToAdd = '';
+      return {
+        ...state,
+      };
+    case logoutTypes.LOGOUT:
+            return {
+              newGroup: new Groups,
+              usernameToAdd: ''
+            }
 
   }
   return state

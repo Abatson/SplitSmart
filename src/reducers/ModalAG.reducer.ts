@@ -1,9 +1,10 @@
 import { IModalAGState } from '.';
 import { modalAGTypes } from '../actions/modal/ModalAG.actions';
 import { Users } from '../models/Users';
+import { logoutTypes } from '../actions/logout/Logout.actions';
 
 const initialState: IModalAGState = {
-    showAGModal: false
+    showAGModal: ''
 }
 
 export const modalAGReducer = (state = initialState, action: any) => {
@@ -11,13 +12,17 @@ export const modalAGReducer = (state = initialState, action: any) => {
         case modalAGTypes.OPEN_AGMODAL:
             return {
                 ...state,
-                showAGModal: true
+                showAGModal: action.payload.type
             };
         case modalAGTypes.CLOSE_AGMODAL:
             return {
                 ...state,
-                showAGModal: !state.showAGModal
+                showAGModal: ''
             };
+        case logoutTypes.LOGOUT:
+            return {
+                showAGModal: ''
+            }
     }
     return state;
 }//state returned here 

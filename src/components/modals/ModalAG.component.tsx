@@ -7,9 +7,9 @@ import GroupSettingsComponent from '../groupSettings/GroupSettings.container';
 
 interface IModalAGProps {
     user: Users,
-    showAGModal: boolean,
+    showAGModal: string,
     ownProps: any,
-    openAGModal: () => void,
+    openAGModal: (type:string) => void,
     closeAGModal: () => void
 }
 
@@ -19,18 +19,37 @@ export class ModalAGComponent extends React.Component<IModalAGProps, any>{
     }
 
     render() {
+        let ag = this.props.showAGModal && (this.props.showAGModal === 'AddGroup' && this.props.ownProps.type === 'AddGroup');
+        let as = this.props.showAGModal && (this.props.showAGModal === 'AccountSettings' && this.props.ownProps.type === 'AccountSettings')
+        let gs = this.props.showAGModal && (this.props.showAGModal === 'GroupSettings' && this.props.ownProps.type === 'GroupSettings')
+
 
         return (
             <div >
-                <button type="button" onClick={this.props.openAGModal} className={this.props.ownProps.className}>{this.props.ownProps.name}</button>
+                <button type="button" onClick={()=>this.props.openAGModal(this.props.ownProps.type)} className={this.props.ownProps.className}>{this.props.ownProps.name}</button>
                 {
-                    this.props.showAGModal ?
+                    
+                        ag ?
                         <div className="ModalAG open">
                             <button className="button-close" onClick={this.props.closeAGModal}>X</button>
-                            {this.props.showAGModal && (this.props.ownProps.type === 'AddGroup' && <AddGroupComponent />)}
-                            {this.props.showAGModal && (this.props.ownProps.type === 'AccountSettings' && <AccountSettingsComponent />)}
-                            {this.props.showAGModal && (this.props.ownProps.type === 'GroupSettings' && <GroupSettingsComponent />)}
+                                {<AddGroupComponent />} 
+                        </div> : 
+                        
+                
+                    
+                         as ?
+                        <div className="ModalAG open">
+                            <button className="button-close" onClick={this.props.closeAGModal}>X</button>
+                                {<AccountSettingsComponent />} 
+                        </div> : 
+                    
+                        gs ?
+                        <div className="ModalAG open">
+                            <button className="button-close" onClick={this.props.closeAGModal}>X</button>
+                                {<GroupSettingsComponent />} 
                         </div> : <div className="ModalAG close"></div>}
+                        
+                            
 
                 {
                     this.props.showAGModal ? <div className="backdropModal" onClick={this.props.closeAGModal}></div> : null

@@ -2,9 +2,11 @@ import React from 'react';
 import {Item} from '../../models/Item';
 import {Receipt} from '../../models/Receipt';
 import { claimReceipt } from '../../actions/receipt/Receipt.actions';
+import { Users } from '../../models/Users';
 
 interface iReceiptProps{
-    receipt: Receipt
+    receipt: Receipt,
+    user: Users
 }
 export class ReceiptDisplayComponent extends React.Component<any, any> {
 
@@ -18,16 +20,16 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
     let receiptHTML : any = [];
 
 
-    receiptHTML.push(  <div className="receiptName" >
-      Receipt Name: {this.props.receipt.name}
+    receiptHTML.push(<div className="receiptName" >
+      <br /> <br /> Receipt Name: {this.props.receipt.receiptName}
 
       <p>
-      {(this.props.receipt.claimant == -1) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.claimant == -1) ? "" : this.props.receipt.claimant}  
+      {(this.props.receipt.receiptClaimant === undefined) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.receiptClaimant.username == "") ? "" : this.props.receipt.receiptClaimant.username}  
       </p>
-      <p>
-      Claim Receipt:  <input onClick={this.props.onClick1} type="checkbox" id="scales" name="scales"
-     ></input>
-      </p>
+      {/* <p> */}
+      {/* Claim Receipt:  <input onClick={this.props.onClick1} type="checkbox" id="scales" name="scales" */}
+     {/* ></input> */}
+      {/* </p> */}
       <p>
       Purchases: 
       </p>
@@ -37,24 +39,34 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       let tempJSX : any = [];
       for (let i = 0; i < this.props.receipt.lines.length; i++)
       {
-        tempJSX.push(<li><input onClick={this.props.onClick2[i]} type="checkbox" id="scales" name="scales"
-        ></input>Purchase Name: {this.props.receipt.lines[i].name}</li>)
+        tempJSX.push(<div><hr></hr></div>);
+        tempJSX.push(<div><button className = "splitPurchaseButton" onClick={this.props.onClick2[i]}
+        >$plit Purchase</button></div>)
+        tempJSX.push(<React.Fragment><br></br></React.Fragment>)
 
-        tempJSX.push(<p>Price Before Split: {this.props.receipt.lines[i].itemPrice}</p>);
+        tempJSX.push(<React.Fragment>Purchase Name: {this.props.receipt.lines[i].lineName}</React.Fragment>)
+
+
+        tempJSX.push(<p>Price Before Split: {this.props.receipt.lines[i].linePrice}</p>);
         tempJSX.push(<p>Equal Price Split:</p>);
 
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-                tempJSX.push(<div>{this.props.receipt.lines[i].name} pays ${this.props.receipt.lines[i].itemPrice/(this.props.receipt.lines[i].items.length)}  </div>)
+                tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${Math.round(this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)*100)/100}  </div>)
               }
         
+
         receiptHTML.push(<div>{tempJSX}</div>)
         tempJSX = [];
-        receiptHTML.push(<p></p>)
       }
 
+      receiptHTML.push(<p></p>)
+      receiptHTML.push(<div><button onClick={this.props.update} className = "saveChangesButton"  >Save Changes</button></div>)
+      receiptHTML.push(<div><button onClick={this.props.finalize} className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
+     
+      receiptHTML.push(<div><hr></hr></div>);
     return (
-      <div style={{background:'#999999'}} >
+      <div>
 
           {receiptHTML}
       
@@ -63,4 +75,4 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
     )
   }
 
-}
+} 

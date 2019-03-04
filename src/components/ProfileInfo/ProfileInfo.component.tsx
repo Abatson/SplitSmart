@@ -21,8 +21,10 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
         this.props.getUserProfile(this.props.params.sort);
     }
 
-    componentWillUpdate() {
-        this.props.getUserProfile(this.props.params.sort);
+    componentDidUpdate() {
+        if(this.props.profileUser.username !== this.props.params.sort){
+            this.props.getUserProfile(this.props.params.sort);
+        }
     }
 
     render() {
@@ -40,9 +42,9 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 <div className="profile">
                     <h1>{this.props.profileUser.firstName} {this.props.profileUser.lastName}</h1>
                 </div>
-               
+               {/* //DUNISEKI SAVE US */}
                 <div className="picture">
-                    <img src={this.props.profileUser.picture && this.props.profileUser.picture.toString()} width="" height=""></img>
+                    <img src={this.props.profileUser.picture && this.props.profileUser.picture.toString()} width="160" height="170"></img>
                   
                 </div>
                 <div className="line"></div>
@@ -68,9 +70,9 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 <label>Email: {this.props.profileUser.email}</label>
                 <br/>
                 <br/>
-                <label>Phone: {this.props.profileUser.phone}</label><br>
-                </br>
+                <label>Phone: {this.props.profileUser.phone}</label>
                 <hr/>
+                
                 {/* <button className="buttonSettings"  data-toggle="dropdown" type="submit">Settings</button> */}
                 <ModalAGComponent type="AccountSettings" name="Account Settings" className="profileInfoBtn"/>
                 </div>

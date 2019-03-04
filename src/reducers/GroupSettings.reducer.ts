@@ -4,6 +4,7 @@ import { Groups } from "../models/Groups";
 import { Url } from 'url';
 import { GroupSettingsTypes } from "../actions/GroupSettings/GroupSettings.actions";
 import { registerTypes } from "../actions/register/Register.actions";
+import { logoutTypes } from "../actions/logout/Logout.actions";
 const initialState: IGroupSettingsState = {
   usernameToAdd: '',
   updatedGroup: new Groups,
@@ -85,8 +86,15 @@ export const GroupSettingsReducer = (state = initialState, action: any) => {
 
       }
       case GroupSettingsTypes.RESET_ADD_FORM:
-        initialState.usernameToAdd = '';
-        return initialState;
+        return{
+          ...state,
+          usernameToAdd: ''
+        }
+      case logoutTypes.LOGOUT:
+            return {
+              usernameToAdd: '',
+              updatedGroup: new Groups,
+            }
 
   }
   return state

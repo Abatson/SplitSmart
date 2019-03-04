@@ -7,7 +7,9 @@ LOGIN FORM
 
 .debtTable{
   padding-top: 10px;
+  margin-top: 1.2em;
 }
+
 
 .backgroundDiv{
   background-image: url('https://wallpaperplay.com/walls/full/b/0/2/29075.jpg');
@@ -15,6 +17,10 @@ LOGIN FORM
   background-color: #000000;
   position: absolute;
   width: 100%;
+  overflow-y:hidden;
+  top:0%;
+  display:fixed;
+  left:0%;
   // background-color: #ccc;
   z-index:-100;
   height: 100%;
@@ -146,9 +152,10 @@ h1{
 }
 #accountSettingsTable{
   border: 6px solid black;
-  margin-left: 4.7em;
-  //margin-top: 0.1em;
-  height: 55%;
+  margin-left: 3.4em;
+  margin-bottom: 40px;
+  top: 0.6em;
+  height: 20%;
   padding: 35px;
     font-weight: bold;
     background-color: #ccc;
@@ -156,12 +163,13 @@ h1{
     text-align: center;
 }
 #accountSettingsTable td{
-  padding: 30px;
+  padding: 20px;
   text-align: center;
 }
 .tHeading{
   font-size: 28px;
   height: 40px;
+  margin-top: 0;
   font-family: Helvetica;
   text-shadow: 0 10px 10px black;
     border: 1px solid black;
@@ -191,6 +199,7 @@ PROFILE INFO
   margin: 5px;
   letter-spacing: 0.2pc;
 }
+
 .surroundingBox{
   border: 1px solid black;
   margin: 35px 100px 0px 360px;
@@ -216,8 +225,11 @@ PROFILE INFO
   height: 170px;
   margin-left: 70px;
   margin-top: 30px;
-  border-radius: 10px;
+ // border-radius: 10px;
   
+}
+.picture1{
+  float: left;
 }
 .profileInfoBox{
   margin-left: 250px;
@@ -284,11 +296,17 @@ h1{
   border-collapse: collapse;
   width: 100%;
   background-color: white;
+  
 }
 
-#iou td, #iou th {
-  border: 1px solid #ddd;
+#iou td{
+  
+  border: 1px solid black;
+}
+#iou th {
+  border: 1px solid black;
   padding: 8px;
+  
   //test comment
 }
 
@@ -508,7 +526,8 @@ TOOLBAR
 
 }
 .toolbar_toggle{
-  margin-left: 1rem;
+  margin-left: 4%;
+  margin-top:1%;
 }
 .toolbar_toggle a:hover,
 .toolbar_toggle a:active{
@@ -582,10 +601,177 @@ position:absolute;
 /************************************
 RECEIPT
 ************************************/
-.receiptName{
-  display:none;
+//.receiptName{
+//  display:none;
+//}
+
+.receiptComponent{
+  overflow-y: scroll;
+  width:50.2vw;
+  position:absolute;
+  left:24%;
+  top:21.8%;
+  height:71vh;
+  display:fixed;
+  background-color: #eee;
+  z-index: 1;
 }
 
+.receiptHeader{
+  font-style: italic;
+  font-size: 2vmin;
+  font-weight: bold;
+  font-family: Helvetica;
+  left:24%;
+  height:7.5%;
+  width:48.15%;
+  top:10%;
+  text-align: center;
+  padding:2.25vmin;
+color: white;
+text-shadow: 0 18px 18px black;
+background-color:#000066;
+position:absolute;
+display:block;
+z-index:10;
+}
+
+.saveChangesButton{
+  height: 40px;
+  border: 1px solid black;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  border-radius: 10px;
+  margin-top: 0px;
+width: 150px;
+font-weight: bold;
+z-index:1;
+
+}
+.finalizeReceiptButton{
+  height: 40px;
+  border: 1px solid black;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  border-radius: 10px;
+width: 150px;
+font-weight: bold;
+
+}
+.splitPurchaseButton{
+  height: 40px;
+  border: 1px solid black;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  border-radius: 10px;
+width: 150px;
+font-weight: bold;
+
+}
+.receiptLeft{
+  position: absolute;
+  float: left;
+  border: 1px solid black;
+  top: 67px;
+  width: 370px;
+  height: 435px;
+  background: #aaaaaa;
+
+}
+.receiptLeftTop{
+  position: absolute;
+  background-color:#000066;
+  width: 100%;
+  height: 80px;
+}
+.receiptLeftBottom{
+  position: absolute;
+  height: 235px;
+  margin-top: 440px;
+  background-color:#000066;
+  width: 372px;
+   height: 123px;
+}
+/*
+.add-receipt{
+  overflow-y: scroll;
+  width:50vw;
+  position:absolute;
+  left:75.5%;
+  top:10.25%;
+  height:80vh;
+  display:fixed;
+
+}*/
+
+.add-line-to-receipt-form{
+  position:absolute;
+  bottom:7.25%;
+  left:74.125%;
+  width:26%;
+  z-index:2;
+  background-color:#000066;
+  padding: 10px;
+}
+
+.add-receipt-form{
+  position:absolute;
+  top:10.25%;
+  left:74.125%;
+  width:26%;
+  height:12.5%;
+  z-index:2;
+  background-color:#000066;
+}
+
+.add-form-background{
+  overflow-y: scroll;
+  //display: fixed;
+  position: absolute;
+  flex: 1;
+  top:100px;
+  left:74.125%;
+  width:26%;
+  height:100%;
+  z-index:-1;
+  background-color:rgb(235, 230, 230);
+  text-align: center;
+  //display: fixed;
+}
+.lineText{
+  position: absolute;
+  overflow: auto;
+  display: fixed;
+ text-align: center;
+  margin-top: 150px;
+  margin-left: 1200px;
+  position: fixed;
+  height: 30%;
+  z-index:1;
+  width: 270px;
+  border: 1px solid black;
+  box-shadow: 0 16px 16px black;
+
+}
+.lineTextTop{
+  padding: 3px;
+  letter-spacing: 0.5pc;
+  position: absolute;
+  width: 266px;
+  height: 20px;
+  background-color: black;
+  margin-top: 130px;
+  margin-left: 1200px;
+  color: white;
+  text-align: left;
+}
+
+.receipt-in-group-component
+{
+
+  height:100%;
+  display:block;
+}
 
 /************************************
 DRAWERTOGGLEBUTTON
@@ -629,9 +815,23 @@ BACKDROP
   z-index: 100;
 }
 .search-input{
- font-size: 19px;
-  
+ font-size: 19%;
+  position: absolute;
+  width:1%;
+  display:block;
 }
+.searchBar{
+  font-size: 19%;
+   position: absolute;
+   width:25%;
+   display:block;
+ }
+ .searchButton{
+  font-size: 19%;
+   position: absolute;
+   width:5%;
+   display:block;
+ }
 #button-search{
   height: 38px;
   
@@ -659,7 +859,7 @@ MODAL
   //box-shadow: 0 14px 14px black;
   padding: 16px; 
   left: 15%;
-  top: 30%;
+  top: 10%;
   box-sizing: border-box;
   transition: all 500ms ease;
   transform: translate (0px, -50px);
@@ -684,12 +884,12 @@ MODAL
   color: black;
   z-index: 500;
   background-color: rgb(202, 218, 230);
-  width: 60%;
+  width: 58%;
   border: 1px solid black;
   //box-shadow: 0 14px 14px black;
   padding: 16px; 
   left: 19.5%;
-  top: 13%;
+  top: 12%;
   height: 80%;
   box-sizing: border-box;
   transition: all 500ms ease;
@@ -784,7 +984,7 @@ select option{
   padding: 0;
   margin: 0;
 
-  font-style: italic;
+  //font-style: italic;
   font-size: 2.25vmin;
   font-weight: bold;
   font-family: Helvetica;
@@ -995,6 +1195,7 @@ ACCOUNT SETTINGS
   border: 1px solid black;
   width: 150px;
   height: 40px;
+  float: right;
   border-radius: 10px;
   background-color: rgb(25, 107, 133);
   color: white;
@@ -1016,4 +1217,18 @@ input{
   height: 35px;
   width: 100px;
   margin-top: 5px;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+.viewArea{
+  overflow:hidden;
+  display:fixed;
+  position:absolute;
+  height: 100%;
+  width: 100%;
 }

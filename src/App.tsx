@@ -23,12 +23,12 @@ import AddGroupComponent from './components/addGroup/AddGroup.container';
 
 
 import SideBarComponent from './components/SideBar/SideBar.container';
-import ModalASComponent from './components/modals/ModalAS.container';
-import ModalGSComponent from './components/modals/ModalGS.container';
-import ModalAGComponent from './components/modals/ModalAG.container';
+
+
 import FooterComponent from './components/footer/Footer.container';
 import GroupSettingsComponent from './components/groupSettings/GroupSettings.container';
 import LogOutComponent from './components/logout/Logout.container';
+import GroupComponent from './components/group/Group.container';
 
 
 class App extends Component {
@@ -37,6 +37,7 @@ class App extends Component {
       // this is what makes it so we can use redux at all
       //we need to have all other components inside of the provider
       //however this is easy
+      <div className = "viewArea">
       <Provider store={store}>
         <div className="App">
           <BrowserRouter>
@@ -44,9 +45,7 @@ class App extends Component {
               <div className="backgroundDiv"></div>
               <NavBarComponent />
               <SideBarComponent />
-              {/* <ModalASComponent  type="AccountSettings"/>
-              <ModalGSComponent  type="GroupSettings"/>
-              <ModalAGComponent type="AddGroup"/> */}
+              
               <FooterComponent />
               <Route path='/login' component={LoginComponent} />
               <Route path='/usersettings' component={AccountSettingsComponent} />
@@ -58,11 +57,13 @@ class App extends Component {
               <Route path='/addGroup' component={AddGroupComponent} />
               <Route path='/gsettings' component={GroupSettingsComponent} />
               <Route path='/logout' component={LogOutComponent} />
+              <Route path='/group' component={GroupComponent} />
 
             </div>
           </BrowserRouter>
         </div>
       </Provider>
+      </div>
     );
   }
 }

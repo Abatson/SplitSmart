@@ -4,9 +4,10 @@ export const modalAGTypes = {
     CLOSE_AGMODAL: "MOD_CLOSE_AGMODAL"
 }
 
-export const openAGModal = () => {
+export const openAGModal = (type:string) => {
     return {
         payload: {
+            type: type
         },
         type: modalAGTypes.OPEN_AGMODAL
     }
