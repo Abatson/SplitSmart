@@ -10,7 +10,6 @@ import { logoutTypes } from "../actions/logout/Logout.actions";
 const initialState: IGroupState = {
         groupReceipts: [],
         currentGroup: new Groups,
-        
 }
 
 

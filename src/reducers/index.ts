@@ -40,7 +40,8 @@ export interface ILoginState {
 
 export interface IReceiptState{
     lines: Line[],
-    claimant: number
+    claimant: number,
+    
 }
 
 
@@ -48,6 +49,7 @@ export interface IReceiptState{
 export interface IGroupState{
     groupReceipts:any,
     currentGroup: Groups,
+
 }
 
 export interface IAccountSettingsState {

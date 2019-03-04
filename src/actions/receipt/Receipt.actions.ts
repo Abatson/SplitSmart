@@ -149,7 +149,7 @@ export const claimReceipt = (receiptID: number, claimant:number) => {
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods
-        alert(JSON.stringify(res.data));
+
         dispatch({
             payload: {
     

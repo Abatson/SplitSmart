@@ -7,7 +7,7 @@ import { Item } from '../../models/Item';
 import { Users } from '../../models/Users';
 import { Groups } from '../../models/Groups';
 import { updateReceipts, populateCurrencies } from '../../actions/receipt/Receipt.actions';
-
+import { ssClient } from "../../axios/ss.client";
 
 
 //requires the importing of Line and Item classes, which should also be in Store
@@ -30,7 +30,6 @@ interface IGroupProps {
     claimLine: (receiptID: number, claimant:Users, claimed: number) => void, //as a user I would like to be able to claim a line
     finalizeReceipts:(receipt:Receipt) => void,
     updateReceipts:(receipt:Receipt) => void,
-    populateCurrencies:() => void
   }
 export class ReceiptComponent extends React.Component<IGroupProps, any> {
   constructor(props) {
@@ -59,9 +58,6 @@ updateReceipt = (receipt:Receipt) => {
   this.props.updateReceipts(receipt)
 }
 
-populateCurrencies = () =>{
-  this.props.populateCurrencies();
-}
 
 
 componentDidMount()
@@ -69,7 +65,8 @@ componentDidMount()
   // if(this.props.currentGroup){
   //     this.props.initializeReceipts(this.props.currentGroup.groupId);
   // }
-  this.props.populateCurrencies();
+  //this.props.populateCurrencies();
+
 }
 
 
