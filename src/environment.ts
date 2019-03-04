@@ -11,5 +11,5 @@ const dev = {
   export let environment = prod;
   
   if (process.env.NODE_ENV === 'production') {
-    environment = dev;
+    environment = prod;
   }

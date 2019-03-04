@@ -51,7 +51,7 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
                 sidebarHtml.push(
                     <tr key={'group' + key.groupId}>
                         <td>{key.groupName}</td>
-                        <td><img src={key.groupPicture} /></td>
+                        <td><img src={key.groupPicture} width="70" height="70"/></td>
                         <td><button onClick={() => this.setCurrentGroup(key)}>View Group</button></td>
                     </tr>
                 )
