@@ -84,7 +84,11 @@ componentDidMount()
     }
 
 
+<<<<<<< HEAD
     return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup.groupName}"<br /><br/>   
+=======
+    return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup && this.props.currentGroup.groupName}"<br /><br/>   
+>>>>>>> cdc5b2a5e9917d0cc5bc404fab72d2d1cd29a803
     <button className = "saveChangesButton"  >Save Changes</button>
 </div><div className="receiptComponent">{receiptHTML}</div></div>)
   

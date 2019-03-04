@@ -52,9 +52,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-
-
-tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${Math.round(this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)*100)/100}  </div>)
+                tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${Math.round(this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)*100)/100}  </div>)
               }
         
 
