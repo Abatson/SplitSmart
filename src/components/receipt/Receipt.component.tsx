@@ -99,7 +99,7 @@ componentDidMount()
 
 
     
-    return (<div>    <div className = "currenciesSelectTitle">Currency Conversion<br />  
+    return (<div>    <div className = "currenciesSelectTitle"><br />  
     
     </div>
     <div className = "receiptHeader">Receipts for Group "{this.props.currentGroup && this.props.currentGroup.groupName}"<br /><br/>   
