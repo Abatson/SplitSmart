@@ -37,6 +37,7 @@ class App extends Component {
       // this is what makes it so we can use redux at all
       //we need to have all other components inside of the provider
       //however this is easy
+      <div className = "viewArea">
       <Provider store={store}>
         <div className="App">
           <BrowserRouter>
@@ -62,6 +63,7 @@ class App extends Component {
           </BrowserRouter>
         </div>
       </Provider>
+      </div>
     );
   }
 }
