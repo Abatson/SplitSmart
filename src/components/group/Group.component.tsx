@@ -115,7 +115,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         return (
             <div>
                 <div className="receipt-in-group-component">
-                    <ModalAGComponent type="GroupSettings" name="Group Settings" className="profileInfoBtn"/>
+                    <ModalAGComponent type="GroupSettings" name="Group Settings" className="groupSettingsBtn"/>
                     <ReceiptComponent />
                     </div> 
                     <div className="receiptLeft">

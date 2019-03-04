@@ -86,7 +86,7 @@ componentDidMount()
       {
           onClickFuncs.push(()=>{this.props.claimLine(key.receiptId, this.props.user, i);});
       }
-      receiptHTML = [<ReceiptDisplayComponent user = {this.props.user} finalize={()=>this.finalizeReceipts(key)} onClick1={()=>{this.props.claimReceipt(key.receiptId, 0); alert(key.receiptId)} }  onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent>].push(receiptHTML);
+      receiptHTML.push(<ReceiptDisplayComponent user = {this.props.user} finalize={()=>this.finalizeReceipts(key)} onClick1={()=>{this.props.claimReceipt(key.receiptId, 0); alert(key.receiptId)} }  onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent>);
       itr_1++;
     }
 

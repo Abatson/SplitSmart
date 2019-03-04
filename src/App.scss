@@ -667,6 +667,9 @@ width: 150px;
 font-weight: bold;
 
 }
+
+
+
 .receiptLeft{
   position: absolute;
   float: left;
@@ -711,6 +714,23 @@ font-weight: bold;
   z-index:2;
   background-color:#000066;
   padding: 10px;
+}
+
+.groupSettingsBtn
+{
+  border: 1px solid black;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  font-family: Helvetica;
+  margin-top: 50px;
+  position:absolute;
+  top:0%;
+  left:0%;
+  z-index:100;
+
 }
 
 .add-receipt-form{
