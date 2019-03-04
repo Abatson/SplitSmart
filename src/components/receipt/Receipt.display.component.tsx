@@ -21,7 +21,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
 
     receiptHTML.push(<div className="receiptName" >
-      Receipt Name: {this.props.receipt.receiptName}
+      <br /> <br /> Receipt Name: {this.props.receipt.receiptName}
 
       <p>
       {(this.props.receipt.receiptClaimant === undefined) ? "No one has claimed this receipt!" : "Receipt Claimant:"}   {(this.props.receipt.receiptClaimant.username == "") ? "" : this.props.receipt.receiptClaimant.username}  
@@ -41,7 +41,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       {
         tempJSX.push(<div><hr></hr></div>);
         tempJSX.push(<div><button className = "splitPurchaseButton" onClick={this.props.onClick2[i]}
-        >Split Purchase</button></div>)
+        >$plit Purchase</button></div>)
         tempJSX.push(<React.Fragment><br></br></React.Fragment>)
 
         tempJSX.push(<React.Fragment>Purchase Name: {this.props.receipt.lines[i].lineName}</React.Fragment>)
@@ -52,7 +52,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
 
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
-                tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)}  </div>)
+                tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${Math.round(this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)*100)/100}  </div>)
               }
         
 
