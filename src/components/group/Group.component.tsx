@@ -102,7 +102,8 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                 linesDisplay.push(
                     <tr key={'group' + key.lineId}>
                         <td>{key.lineName}</td>
-                        <td>{key.linePrice}</td>
+                        <td> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>${key.linePrice}</td>
                     </tr>
                 )
             }
@@ -115,19 +116,21 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         return (
             <div>
                 <div className="receipt-in-group-component">
-                    <ModalAGComponent type="GroupSettings" name="Group Settings" className="profileInfoBtn"/>
+                    <ModalAGComponent type="GroupSettings" name="Group Settings" className="groupSettingsButton"/>
                     <ReceiptComponent />
                     </div> 
-                    <div className="receiptLeft">
-                    <div className="receiptLeftTop"></div>
-                    </div>
-                    <div className="receiptLeftBottom"></div>
+                   
                     <div className="add-receipt">
                         <table id='add-receipt-header'>
                             <tbody>
                                 
                                 <tr>
-                                    <div className="add-form-background"></div>
+                                    <div className="add-form-background">
+                                </div>
+                                <div className="lineTextTop"></div>
+                                    <div className="lineText">{linesDisplay}
+                                    
+                                    </div>
                                         <td>
                                             <form onSubmit={this.addReceipt} className="add-receipt-form">
                                             <input type="text"
@@ -142,11 +145,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                             </form>
                                             
                                         </td>
-                                            {
-                                                linesDisplay
-                                            }
-                                    
-                                    
+                                        
                                         <td>
                                         <form onSubmit={this.addLineToReceiptButton} className="add-line-to-receipt-form">
                                             <br />
