@@ -21,9 +21,11 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
         this.props.getUserProfile(this.props.params.sort);
     }
 
-    // componentDidUpdate() {
-    //     this.props.getUserProfile(this.props.params.sort);
-    // }
+    componentDidUpdate() {
+        if(this.props.profileUser.username !== this.props.params.sort){
+            this.props.getUserProfile(this.props.params.sort);
+        }
+    }
 
     render() {
         // const params = qs(this.props.ownProps.location.search)

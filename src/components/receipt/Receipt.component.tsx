@@ -6,7 +6,7 @@ import { Line } from '../../models/Line';
 import { Item } from '../../models/Item';
 import { Users } from '../../models/Users';
 import { Groups } from '../../models/Groups';
-import { finalizeReceipts } from '../../actions/receipt/Receipt.actions';
+
 
 
 //requires the importing of Line and Item classes, which should also be in Store
