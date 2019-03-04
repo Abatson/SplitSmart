@@ -43,12 +43,16 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     }
 
     componentDidMount() {
-        console.log(this.props.currentGroup.groupId)
+        //console.log(this.props.currentGroup.groupId)
         console.log(this.props.user.userId)
         this.props.getAllGroups(this.props.user.userId)
         console.log(this.props.allGroups)
         //this.props.initializeReceipts(this.props.currentGroup.groupId);//call action initialize receipts
     }
+
+    
+
+
     addReceipt = (event) => {
         event.preventDefault()
         this.props.addReceipt(this.props.newReceipt, this.props.currentGroup, this.props.user);
@@ -88,6 +92,9 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     //     }
     // }
     render() {
+        if(!this.props.currentGroup || (this.props.currentGroup && this.props.currentGroup.groupId === 0)){
+            this.props.setCurrentGroup(this.props.allGroups[0])
+        }
         let linesDisplay: any[] = [];
         console.log(this.props.newReceipt.lines)
         if (this.props.newReceipt.lines) {

@@ -50,10 +50,11 @@ claimLine = (receiptID:number, claimant:Users, lineID: number) => {
 
 componentDidMount()
 {
-  if(this.props.currentGroup){
-      this.props.initializeReceipts(this.props.currentGroup.groupId);
-  }
+  // if(this.props.currentGroup){
+  //     this.props.initializeReceipts(this.props.currentGroup.groupId);
+  // }
 }
+
 
   render() {
      
@@ -83,7 +84,7 @@ componentDidMount()
     }
 
 
-    return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup.groupName}"<br /><br/>   
+    return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup && this.props.currentGroup.groupName}"<br /><br/>   
     <button className = "saveChangesButton"  >Save Changes</button>
 </div><div className="receiptComponent">{receiptHTML}</div></div>)
   
