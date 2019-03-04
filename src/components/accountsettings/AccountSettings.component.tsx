@@ -38,6 +38,7 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
         this.props.updateEmail(this.props.user.email);
         this.props.updatePhoneNumber(this.props.user.phone);
         this.props.updateUserId(this.props.user.userId);
+        this.props.updateProfilePicture(this.props.user.picture)
     }
 
     updateUsername = (event) => {
