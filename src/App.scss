@@ -7,6 +7,7 @@ LOGIN FORM
 
 .debtTable{
   padding-top: 10px;
+  margin-top: 1.2em;
 }
 
 .backgroundDiv{
@@ -149,9 +150,10 @@ h1{
 }
 #accountSettingsTable{
   border: 6px solid black;
-  margin-left: 4.7em;
-  //margin-top: 0.1em;
-  height: 55%;
+  margin-left: 3.4em;
+  margin-bottom: 40px;
+  top: 0.6em;
+  height: 20%;
   padding: 35px;
     font-weight: bold;
     background-color: #ccc;
@@ -159,12 +161,13 @@ h1{
     text-align: center;
 }
 #accountSettingsTable td{
-  padding: 30px;
+  padding: 20px;
   text-align: center;
 }
 .tHeading{
   font-size: 28px;
   height: 40px;
+  margin-top: 0;
   font-family: Helvetica;
   text-shadow: 0 10px 10px black;
     border: 1px solid black;
@@ -290,11 +293,17 @@ h1{
   border-collapse: collapse;
   width: 100%;
   background-color: white;
+  
 }
 
-#iou td, #iou th {
-  border: 1px solid #ddd;
+#iou td{
+  
+  border: 1px solid black;
+}
+#iou th {
+  border: 1px solid black;
   padding: 8px;
+  
   //test comment
 }
 
@@ -685,7 +694,7 @@ MODAL
   //box-shadow: 0 14px 14px black;
   padding: 16px; 
   left: 15%;
-  top: 30%;
+  top: 10%;
   box-sizing: border-box;
   transition: all 500ms ease;
   transform: translate (0px, -50px);
@@ -710,12 +719,12 @@ MODAL
   color: black;
   z-index: 500;
   background-color: rgb(202, 218, 230);
-  width: 60%;
+  width: 58%;
   border: 1px solid black;
   //box-shadow: 0 14px 14px black;
   padding: 16px; 
   left: 19.5%;
-  top: 13%;
+  top: 12%;
   height: 80%;
   box-sizing: border-box;
   transition: all 500ms ease;
@@ -1021,6 +1030,7 @@ ACCOUNT SETTINGS
   border: 1px solid black;
   width: 150px;
   height: 40px;
+  float: right;
   border-radius: 10px;
   background-color: rgb(25, 107, 133);
   color: white;

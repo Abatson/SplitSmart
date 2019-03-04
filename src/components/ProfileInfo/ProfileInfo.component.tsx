@@ -68,9 +68,9 @@ export class ProfileInfoComponent extends React.Component<IProfileInfo, any> {
                 <label>Email: {this.props.profileUser.email}</label>
                 <br/>
                 <br/>
-                <label>Phone: {this.props.profileUser.phone}</label><br>
-                </br>
+                <label>Phone: {this.props.profileUser.phone}</label>
                 <hr/>
+                
                 {/* <button className="buttonSettings"  data-toggle="dropdown" type="submit">Settings</button> */}
                 <ModalAGComponent type="AccountSettings" name="Account Settings" className="profileInfoBtn"/>
                 </div>

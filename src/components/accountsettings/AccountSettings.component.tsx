@@ -130,16 +130,11 @@ export class AccountSettingsComponent extends React.Component<IAccountSettingsPr
                                 <input type="text" className="form-control" id="picture-input" value={this.props.updatedUser.picture} onChange={this.updatePicture} />
                             </td>
                         </tr>
-                        <tr>
-                        <td>
-                                <hr />
-                                <button type="submit" className="accountSettingsButton">Update</button>
-
-                            </td>
-
-                        </tr>
                         </tbody>
                     </table>
+                    
+                    <hr />
+                                <button type="submit" className="accountSettingsButton">Update</button>
                 </form>
             </div >
 
