@@ -40,7 +40,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       for (let i = 0; i < this.props.receipt.lines.length; i++)
       {
         tempJSX.push(<div><hr></hr></div>);
-        tempJSX.push(<div><button onClick={this.props.onClick2[i]}
+        tempJSX.push(<div><button className = "splitPurchaseButton" onClick={this.props.onClick2[i]}
         >Split Purchase</button></div>)
         tempJSX.push(<React.Fragment><br></br></React.Fragment>)
 
@@ -55,11 +55,14 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
                 tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)}  </div>)
               }
         
+
         receiptHTML.push(<div>{tempJSX}</div>)
         tempJSX = [];
-        receiptHTML.push(<p></p>)
       }
 
+      receiptHTML.push(<p></p>)
+      receiptHTML.push(<div><button className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
+      receiptHTML.push(<div><hr></hr></div>);
     return (
       <div>
 
