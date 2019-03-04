@@ -93,7 +93,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
         if (this.props.newReceipt.lines) {
             for (const key of this.props.newReceipt.lines) {
                 linesDisplay.push(
-                    <tr key={'group' + key.lineId}>
+                    <tr className="lines-that-are-added" key={'group' + key.lineId}>
                         <td>{key.lineName}</td>
                         <td>{key.linePrice}</td>
                     </tr>
