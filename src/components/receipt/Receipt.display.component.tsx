@@ -6,7 +6,8 @@ import { Users } from '../../models/Users';
 
 interface iReceiptProps{
     receipt: Receipt,
-    user: Users
+    user: Users,
+    rid: number
 }
 export class ReceiptDisplayComponent extends React.Component<any, any> {
 
@@ -63,8 +64,14 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       receiptHTML.push(<p></p>)
       receiptHTML.push(<div><button onClick={this.props.finalize}className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
       receiptHTML.push(<div><hr></hr></div>);
-    return (
-      <div>
+    
+      let randRed = Math.round(80*Math.random());
+      let randGreen = Math.round(80*Math.random());
+      let randBlue = Math.round(80*Math.random());
+      let randColor : any = 'rgba('+randRed+','+randGreen+','+randBlue+',1)'
+      let classN = "receipt-"//+this.props.rid;
+      return (
+      <div className={classN}>
 
           {receiptHTML}
       

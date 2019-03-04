@@ -605,6 +605,15 @@ RECEIPT
 //  display:none;
 //}
 
+$colors-list: rgb(233, 83, 83) rgb(240, 190, 149) rgb(255, 209, 111) rgb(166, 247, 74) rgb(70, 255, 141) rgb(65, 214, 224) rgba(36, 128, 233, 0.925) rgb(49, 82, 230) rgb(180, 58, 236) rgb(218, 19, 218) rgb(233, 83, 83) rgba(240, 190, 149, 0.925) rgb(255, 209, 111) rgb(166, 247, 74) rgb(70, 255, 141) rgb(65, 214, 224) rgba(36, 128, 233, 0.925) rgb(49, 82, 230) rgb(180, 58, 236) rgb(218, 19, 218);
+@each $current-color in $colors-list {
+    $i: index($colors-list, $current-color);
+    .receipt-#{$i} { 
+        background-color: $current-color;
+        width:100%;
+    }
+}
+
 .receiptComponent{
   overflow-y: scroll;
   width:50.2vw;
@@ -613,7 +622,7 @@ RECEIPT
   top:21.8%;
   height:71vh;
   display:fixed;
-  background-color: #eee;
+  //background-color: #eee;
   z-index: 1;
 }
 
@@ -670,31 +679,6 @@ font-weight: bold;
 }
 
 
-
-.receiptLeft{
-  position: absolute;
-  float: left;
-  border: 1px solid black;
-  top: 67px;
-  width: 370px;
-  height: 435px;
-  background: #aaaaaa;
-
-}
-.receiptLeftTop{
-  position: absolute;
-  background-color:#000066;
-  width: 100%;
-  height: 80px;
-}
-.receiptLeftBottom{
-  position: absolute;
-  height: 235px;
-  margin-top: 440px;
-  background-color:#000066;
-  width: 372px;
-   height: 123px;
-}
 /*
 .add-receipt{
   overflow-y: scroll;
@@ -721,14 +705,14 @@ font-weight: bold;
 {
   border: 1px solid black;
   width: 150px;
-  height: 40px;
+  height: 36px;
   border-radius: 10px;
   background-color: rgb(25, 107, 133);
   color: white;
   font-family: Helvetica;
   margin-top: 50px;
   position:absolute;
-  top:0%;
+  top:75%;
   left:0%;
   z-index:100;
 
@@ -752,6 +736,38 @@ font-weight: bold;
   height:100%;
   z-index:-1;
   background-color:#aaaaaa;
+}
+
+
+
+.receiptLeft{
+  position:absolute;
+  top:0%;
+  left:0%;
+  width:26%;
+  height:100%;
+  z-index:-1;
+  background-color:#aaaaaa;
+
+}
+.receiptLeftTop{
+  position:absolute;
+  top:10.25%;
+  left:0%;
+  width:100%;
+  height:12.5%;
+  z-index:2;
+  background-color:#000066;
+}
+.receiptLeftBottom{
+  position:absolute;
+  bottom:7.25%;
+  left:0%;
+  height:13%;
+  width:22.5%;
+  z-index:2;
+  background-color:#000066;
+  padding: 10px;
 }
 
 .receipt-in-group-component
