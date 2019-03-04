@@ -53,7 +53,7 @@ export const updateGroupName = (groupName: string) => {
     }
 
 }
-export const updateGroupPicture = (groupPicture: Url) => {
+export const updateGroupPicture = (groupPicture: string) => {
     return {
         payload: {
             groupPicture: groupPicture
