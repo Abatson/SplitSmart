@@ -72,6 +72,7 @@ export const loginRequest = (username, password, history) => async (dispatch) =>
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves
         //this is the same thing as returning the payload up above in our other methods
+        if(res.data){
         dispatch({
             payload: {
                 user: res.data
@@ -79,6 +80,13 @@ export const loginRequest = (username, password, history) => async (dispatch) =>
             type: loginTypes.LOGIN
         })
         history.push('/groups');
+        } else {
+            dispatch({
+                payload: {
+                },
+                type: loginTypes.FAILED_LOGIN
+            })
+        }
 
     } catch (err) {
         //impediment, how to get api message from error
