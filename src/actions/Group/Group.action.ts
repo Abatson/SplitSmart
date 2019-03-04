@@ -45,8 +45,14 @@ export const setCurrentGroup = (currentGroup: Groups) => async (dispatch) =>{
 export const addReceipt = (newReceipt: Receipt, currentGroup:Groups, owner:Users)  => async (dispatch) => {
     try{
         //console.log(newReceipt)
+        if(newReceipt.lines.length < 1)
+        {
+            alert("Please add lines before attempting to create a new receipt!");
+            return;
+        }
         newReceipt.receiptClaimant = owner;
         newReceipt.receiptGroupsId = currentGroup
+
         const res = await ssClient.post('/receipts', newReceipt);
         console.log(res)
         //when doing an async action, we have to call the dispatcher ourselves

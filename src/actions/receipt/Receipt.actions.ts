@@ -10,7 +10,8 @@ export const receiptTypes = {
     UPDATE_RECEIPTS:  'L_UPDATE_RECEIPTS' ,
     FAILED_TO_GRAB: 'R_FAILED_TO_GRAB',
     FINALIZE_RECEIPT: 'FINALIZE_RECEIPT',
-    NOT_ALL_CLAIMED: 'NOT_ALL_CLAIMED'
+    NOT_ALL_CLAIMED: 'NOT_ALL_CLAIMED',
+    POPULATE_CURRENCIES: 'POPULATE_CURRENCIES'
   }
   
 
@@ -133,6 +134,47 @@ export const claimReceipt = (receiptID: number, claimant:number) => {
         type: receiptTypes.CLAIM_RECEIPT
     }
 
+}
+
+    //Initially we want someone to claim the receipt
+  //claimant is the user ID of the person who claims the receipt
+  //claimant is the user ID of the person who claims the line
+  export const populateCurrencies = async (dispatch) => {
+    try {
+
+
+        const res = await ssClient.get(`https://free.currencyconverterapi.com/api/v6/currencies?apiKey=95a24859ebe3d3422dea`)//${groupid}`);
+
+
+        console.log(res)
+        //when doing an async action, we have to call the dispatcher ourselves
+        //this is the same thing as returning the payload up above in our other methods
+
+        dispatch({
+            payload: {
+    
+                //dummy data
+    
+                //receipt: dummyReceipt
+    
+                //axios
+                currencies: res.data
+                
+            },
+            type: receiptTypes.POPULATE_CURRENCIES
+        })
+    
+    } catch (err) {
+        //impediment, how to get api message from error
+        console.log(err);
+        dispatch({
+            payload: {
+            },
+            type: receiptTypes.FAILED_TO_GRAB
+        })
+    
+    
+    }
 }
 
 export const finalizeReceipts =  (receipt: Receipt)  => async (dispatch) => {

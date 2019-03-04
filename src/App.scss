@@ -605,16 +605,66 @@ RECEIPT
 //  display:none;
 //}
 
+$colors-list: rgb(153, 146, 209) rgb(195, 205, 209) rgb(134, 129, 173) rgb(212, 226, 231) rgb(124, 122, 141) rgb(184, 189, 190) rgb(135, 124, 221) rgb(208, 216, 219) rgb(119, 111, 179) rgb(182, 188, 190) rgb(156, 145, 238) rgb(189, 209, 218) rgb(183, 179, 212) rgb(197, 219, 228) rgb(121, 115, 165) rgb(157, 166, 170);
+@each $current-color in $colors-list {
+    $i: index($colors-list, $current-color);
+    .receipt-#{$i} { 
+        background-color: $current-color;
+        width:100%;
+    }
+}
+
 .receiptComponent{
   overflow-y: scroll;
   width:50.2vw;
   position:absolute;
   left:24%;
-  top:21.8%;
-  height:71vh;
+  top:22.75%;
+  height:69.75vh;
   display:fixed;
-  background-color: #eee;
+  font-weight:bold;
+  border: 3px solid black;
+  //background-color: #eee;
   z-index: 1;
+}
+
+.itemClaimantImg{
+  border-radius:50%;
+
+}
+
+
+.currenciesSelectTitle{
+  font-style: italic;
+  font-size: 2vmin;
+  font-weight: bold;
+  font-family: Helvetica;
+  left:0%;
+  height:8.25%;
+  width:24.15%;
+  top:10%;
+  text-align: center;
+  padding:2.25vmin;
+color: white;
+text-shadow: 0 18px 18px black;
+background-color:#000066;
+position:absolute;
+display:block;
+z-index:10;
+}
+
+.currenciesSelect{
+  overflow-y: scroll;
+  width:50.2vw;
+  position:absolute;
+  left:24%;
+  top:22.75%;
+  height:69.75vh;
+  display:fixed;
+  font-weight:bold;
+  border: 3px solid black;
+  //background-color: #eee;
+  z-index: 100;
 }
 
 .receiptHeader{
@@ -623,7 +673,7 @@ RECEIPT
   font-weight: bold;
   font-family: Helvetica;
   left:24%;
-  height:7.5%;
+  height:8.25%;
   width:48.15%;
   top:10%;
   text-align: center;
@@ -651,7 +701,7 @@ z-index:1;
 .finalizeReceiptButton{
   height: 40px;
   border: 1px solid black;
-  background-color: rgb(25, 107, 133);
+  background-color: rgb(240, 107, 133);
   color: white;
   border-radius: 10px;
 width: 150px;
@@ -668,30 +718,8 @@ width: 150px;
 font-weight: bold;
 
 }
-.receiptLeft{
-  position: absolute;
-  float: left;
-  border: 1px solid black;
-  top: 67px;
-  width: 370px;
-  height: 435px;
-  background: #aaaaaa;
 
-}
-.receiptLeftTop{
-  position: absolute;
-  background-color:#000066;
-  width: 100%;
-  height: 80px;
-}
-.receiptLeftBottom{
-  position: absolute;
-  height: 235px;
-  margin-top: 440px;
-  background-color:#000066;
-  width: 372px;
-   height: 123px;
-}
+
 /*
 .add-receipt{
   overflow-y: scroll;
@@ -714,15 +742,47 @@ font-weight: bold;
   padding: 10px;
 }
 
+.groupSettingsBtn
+{
+  border: 1px solid black;
+  width: 150px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgb(25, 107, 133);
+  color: white;
+  font-family: Helvetica;
+  margin-top: 50px;
+  position:absolute;
+  top:75%;
+  left:0%;
+  z-index:100;
+
+}
+
 .add-receipt-form{
   position:absolute;
   top:10.25%;
   left:74.125%;
   width:26%;
-  height:12.5%;
+  height:10.75%;
+  padding-top:1%;
   z-index:2;
   background-color:#000066;
 }
+
+.receiptTitle{
+font-style:bold;
+color:white;
+background-color:rgba(0,0,0,0.25);
+padding:4%;
+}
+
+.lineTitle{
+  font-style:bold;
+  color:white;
+  background-color:rgba(0,0,0,0.15);
+  padding:2%;
+  }
 
 .add-form-background{
   overflow-y: scroll;
@@ -764,6 +824,38 @@ font-weight: bold;
   margin-left: 1200px;
   color: white;
   text-align: left;
+}
+
+
+
+.receiptLeft{
+  position:absolute;
+  top:0%;
+  left:0%;
+  width:26%;
+  height:100%;
+  z-index:-1;
+  background-color:#aaaaaa;
+
+}
+.receiptLeftTop{
+  position:absolute;
+  top:10.25%;
+  left:0%;
+  width:100%;
+  height:12.5%;
+  z-index:2;
+  background-color:#000066;
+}
+.receiptLeftBottom{
+  position:absolute;
+  bottom:7.25%;
+  left:0%;
+  height:13%;
+  width:22.5%;
+  z-index:2;
+  background-color:#000066;
+  padding: 10px;
 }
 
 .receipt-in-group-component

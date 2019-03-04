@@ -6,8 +6,8 @@ import { Line } from '../../models/Line';
 import { Item } from '../../models/Item';
 import { Users } from '../../models/Users';
 import { Groups } from '../../models/Groups';
-import { updateReceipts } from '../../actions/receipt/Receipt.actions';
-
+import { updateReceipts, populateCurrencies } from '../../actions/receipt/Receipt.actions';
+import { ssClient } from "../../axios/ss.client";
 
 
 //requires the importing of Line and Item classes, which should also be in Store
@@ -29,7 +29,7 @@ interface IGroupProps {
     claimReceipt: (receiptID: number, claimant:number) => void, //as a user I would like to be able to claim a receipt
     claimLine: (receiptID: number, claimant:Users, claimed: number) => void, //as a user I would like to be able to claim a line
     finalizeReceipts:(receipt:Receipt) => void,
-    updateReceipts:(receipt:Receipt) => void
+    updateReceipts:(receipt:Receipt) => void,
   }
 export class ReceiptComponent extends React.Component<IGroupProps, any> {
   constructor(props) {
@@ -65,6 +65,8 @@ componentDidMount()
   // if(this.props.currentGroup){
   //     this.props.initializeReceipts(this.props.currentGroup.groupId);
   // }
+  //this.props.populateCurrencies();
+
 }
 
 
@@ -91,12 +93,16 @@ componentDidMount()
       {
           onClickFuncs.push(()=>{this.props.claimLine(key.receiptId, this.props.user, i);});
       }
-      receiptHTML.push(<ReceiptDisplayComponent user = {this.props.user} update={()=>this.updateReceipt(key)} finalize={()=>this.finalizeReceipts(key)} onClick1={()=>{this.props.claimReceipt(key.receiptId, 0); alert(key.receiptId)} }  onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent>)
+      receiptHTML.push(<ReceiptDisplayComponent rid = {itr_1+1} user = {this.props.user} finalize={()=>this.finalizeReceipts(key)} onClick1={()=>{this.props.claimReceipt(key.receiptId, 0); alert(key.receiptId)} }  onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent>);
       itr_1++;
     }
 
 
-    return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup && this.props.currentGroup.groupName}"<br /><br/>   
+    
+    return (<div>    <div className = "currenciesSelectTitle">Currency Conversion<br />  
+    
+    </div>
+    <div className = "receiptHeader">Receipts for Group "{this.props.currentGroup && this.props.currentGroup.groupName}"<br /><br/>   
     
 </div><div className="receiptComponent">{receiptHTML}</div></div>)
   

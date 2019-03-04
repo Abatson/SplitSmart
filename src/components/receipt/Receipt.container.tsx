@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import {claimReceipt, claimLine, initializeReceipts, finalizeReceipts, updateReceipts} from '../../actions/receipt/Receipt.actions'
+import {claimReceipt, claimLine, populateCurrencies, initializeReceipts, finalizeReceipts, updateReceipts} from '../../actions/receipt/Receipt.actions'
 import { IState } from "../../reducers";
 import { ReceiptComponent } from "./Receipt.component";
 
@@ -9,7 +9,8 @@ const mapStateToProps = (state: IState, ownProps) => {
     // receipt: ownProps.receipt,
     groupReceipts: state.receipt.groupReceipts,
     user: state.login.user,
-    currentGroup: state.group.currentGroup
+    currentGroup: state.group.currentGroup,
+
   }
 }
 //This is getting all of the actions that our receipt component will be able to call
@@ -18,7 +19,8 @@ const mapDispatchToProps = {
   claimReceipt,
   claimLine,
   finalizeReceipts,
-  updateReceipts
+  updateReceipts,
+  populateCurrencies
 }
 
 //This statement gives all the above information to our component and as such
