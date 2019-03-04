@@ -55,6 +55,11 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
     }
 
     render() {
+
+        let invitedUsers:any[] = [];
+        for(const key of this.props.newGroup.groupMembers){
+            invitedUsers.push(<tr><td>{key.username}</td></tr>);
+        }
         //console.log(this.props.newGroup)
         return (
             <div className="add-group-page">
@@ -99,7 +104,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                                         placeholder="URL"
                                         value={this.props.newGroup.groupPicture}
                                         onChange={this.updateGroupPicture}
-                                        required />
+                                         />
                                 </td>
                             </tr>
                         </tbody>
@@ -110,6 +115,7 @@ export class AddGroupComponent extends React.Component<IAddGroupProps, any> {
                     <table id='add-group-header'>
                         <tbody>
                             <tr><th>Invites</th></tr>
+                            {invitedUsers}
                             <tr>
                                 <td>
                                     <input type="text"

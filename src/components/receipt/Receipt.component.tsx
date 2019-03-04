@@ -6,6 +6,7 @@ import { Line } from '../../models/Line';
 import { Item } from '../../models/Item';
 import { Users } from '../../models/Users';
 import { Groups } from '../../models/Groups';
+import { updateReceipts } from '../../actions/receipt/Receipt.actions';
 
 
 
@@ -28,6 +29,7 @@ interface IGroupProps {
     claimReceipt: (receiptID: number, claimant:number) => void, //as a user I would like to be able to claim a receipt
     claimLine: (receiptID: number, claimant:Users, claimed: number) => void, //as a user I would like to be able to claim a line
     finalizeReceipts:(receipt:Receipt) => void,
+    updateReceipts:(receipt:Receipt) => void
   }
 export class ReceiptComponent extends React.Component<IGroupProps, any> {
   constructor(props) {
@@ -51,6 +53,9 @@ claimLine = (receiptID:number, claimant:Users, lineID: number) => {
 
 finalizeReceipts = (receipt:Receipt) => {
   this.props.finalizeReceipts(receipt);
+}
+updateReceipt = (receipt:Receipt) => {
+  this.props.updateReceipts(receipt)
 }
 
 
@@ -86,13 +91,13 @@ componentDidMount()
       {
           onClickFuncs.push(()=>{this.props.claimLine(key.receiptId, this.props.user, i);});
       }
-      receiptHTML.push(<ReceiptDisplayComponent user = {this.props.user} finalize={()=>this.finalizeReceipts(key)} onClick1={()=>{this.props.claimReceipt(key.receiptId, 0); alert(key.receiptId)} }  onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent>)
+      receiptHTML.push(<ReceiptDisplayComponent user = {this.props.user} update={()=>this.updateReceipt(key)} finalize={()=>this.finalizeReceipts(key)} onClick1={()=>{this.props.claimReceipt(key.receiptId, 0); alert(key.receiptId)} }  onClick2={onClickFuncs} claimReceipt = {this.claimReceipt} claimItem = {this.claimLine} receipt={key}></ReceiptDisplayComponent>)
       itr_1++;
     }
 
 
     return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup && this.props.currentGroup.groupName}"<br /><br/>   
-    <button className = "saveChangesButton"  >Save Changes</button>
+    
 </div><div className="receiptComponent">{receiptHTML}</div></div>)
   
 

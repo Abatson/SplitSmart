@@ -86,6 +86,17 @@ export const receiptReducer = (state = initialState, action: any) => {
       return {
         ...state
       }
+    case receiptTypes.UPDATE_RECEIPTS:
+      let newGroupReceipts = [...state.groupReceipts]
+      for (let key of newGroupReceipts) {
+        if(key.receiptId === action.payload.receipt.receiptId){
+          key = action.payload.receipt;
+        }
+      }
+      return{
+        ...state,
+        groupReceipts: newGroupReceipts
+      }
     case logoutTypes.LOGOUT:
             return {
               groupReceipts: [],
