@@ -1,6 +1,7 @@
 import { IRegisterState } from ".";
 import { Users } from "../models/Users";
 import { registerTypes } from "../actions/register/Register.actions";
+import { logoutTypes } from "../actions/logout/Logout.actions";
 
 
 const initialState: IRegisterState = {
@@ -92,6 +93,11 @@ const initialState: IRegisterState = {
           }
   
       }
+      case logoutTypes.LOGOUT:
+            return {
+              newUser: new Users,
+              registerFeedback: '',
+            }
     }
     return state;
   }

@@ -1,6 +1,7 @@
 import { ILoginState } from ".";
 import { Users } from "../models/Users";
 import { loginTypes } from "../actions/login/Login.actions";
+import { logoutTypes } from "../actions/logout/Logout.actions";
 
 //this is our intialstate of the interface we declared for the login component
 const initialState: ILoginState = {
@@ -58,6 +59,14 @@ export const loginReducer = (state = initialState, action: any) => {
       }
 
     }
+    case logoutTypes.LOGOUT:
+            return {
+              user: new Users,
+              username: '',
+              password: '',
+              feedbackMessage: '',
+            }
+
   }
   return state;
 }

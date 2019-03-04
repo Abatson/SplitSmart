@@ -3,7 +3,7 @@ import { ILoginState } from '../../reducers';
 import { Link, NavLink, RouteComponentProps } from 'react-router-dom';
 import { Users } from '../../models/Users';
 import { FaUserAlt, FaSearch, FaArrowLeft } from 'react-icons/fa';
-import { ModalASComponent } from '../modals/ModalAS.component';
+
 import Modal from 'reactstrap/lib/Modal';
 
 /*
@@ -54,7 +54,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                             </button>
                         </div>
                         <div className="toolbar_toggle"><NavLink to={{
-                            pathname: '/'
+                            pathname: '/login'
                         }}><img className="logoThing" src="https://i.postimg.cc/RVc10x1x/logo.png" /></NavLink></div>
                         <div className="splitsmart" style={{ textAlign: "center" }}>Split$mart</div>
                         <div className="spacer"></div>
@@ -68,12 +68,7 @@ export class NavBarComponent extends React.Component<INavbarProps, any> {
                                     state: { fromDashboard: true }
                                 }}><FaUserAlt />&nbsp;
                                 {this.props.user.firstName} {this.props.user.lastName}</NavLink></li>
-                                <li><NavLink to={{
-                                    pathname: '/receipt',
-                                    //search: `?sort=${this.props.user.username}`,
-                                    state: { fromDashboard: true }
-                                }}>Receipt</NavLink></li>
-                                
+                                                              
                                 <li><NavLink className='innerNavBar' to={{
                                     pathname: '/ious',
                                     state: { fromDashboard: true }

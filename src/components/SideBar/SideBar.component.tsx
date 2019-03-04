@@ -32,7 +32,19 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
         //SIDEDRAWER HAS ALL THE ACTUAL STUFF
 
 
-        let sidebarHtml:any[] = [];
+        
+
+
+        if(this.props.user.userId === 0)
+        {
+            return (
+                <div>
+
+                </div>
+            )
+        }else {
+          
+          let sidebarHtml:any[] = [];
         console.log(this.props.allGroups)
         if(this.props.allGroups) {
             for(const key of this.props.allGroups){
@@ -54,7 +66,12 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
                     </div>
                     <div className='group-sidebar-display'>
                     {/* //add table html stuff */}
-                        {sidebarHtml}
+                    <table className="table-list-of-groups">
+                        <tbody>
+                            {sidebarHtml}
+
+                        </tbody>
+                    </table>
                     </div>
                     <ModalAGComponent type="AddGroup" name="Add a Group" className="addAGroupBtn"/>
                     <ul>
@@ -75,3 +92,4 @@ export class SideBarComponent extends React.Component<ISideBarProps, any> {
         )
       }
     }
+}

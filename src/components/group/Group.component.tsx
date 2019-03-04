@@ -11,6 +11,7 @@ import { Users } from '../../models/Users';
 import { Line } from '../../models/Line';
 import GroupSettingsComponent from '../groupSettings/GroupSettings.container';
 import  ModalAGComponent  from '../modals/ModalAG.container';
+import { Redirect } from 'react-router';
 
 
 interface IGroupProps {
@@ -23,7 +24,7 @@ interface IGroupProps {
     linePriceToAdd: number,
     setCurrentGroup: (currentGroup: Groups) => void,
     getAllGroups: (userId: number) => void,
-    addReceipt: (newReceipt: Receipt, currentGroup:Groups, owner:Users) => void,
+    addReceipt: (newReceipt: Receipt, currentGroup: Groups, owner: Users) => void,
     updateReceiptName: (receiptName: string) => void,
     addLineToReceiptButton: () => void,
     addLineToReceipt: (newLine: Line) => void,
@@ -32,7 +33,7 @@ interface IGroupProps {
     updateLinePriceToAdd: (linePriceToAdd: number) => void,
     resetAddLineNameForm: (lineNameToAdd: string) => void,
     resetAddLinePriceForm: (linePriceToAdd: number) => void,
-    initializeReceipts: (groupId:number) => void,
+    initializeReceipts: (groupId: number) => void,
 
 }
 
@@ -42,7 +43,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     }
 
     componentDidMount() {
-         console.log(this.props.currentGroup.groupId)
+        console.log(this.props.currentGroup.groupId)
         console.log(this.props.user.userId)
         this.props.getAllGroups(this.props.user.userId)
         console.log(this.props.allGroups)
@@ -74,7 +75,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     resetAddLinePriceForm = (event) => {
         this.props.resetAddLinePriceForm(event.target.value)
     }
-    
+
     // checkIfCurrentGroupIsntZero = () => {
     //     if (this.props.allGroups != []) {
     //         this.props.allGroups.map(group => (
@@ -87,26 +88,28 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
     //     }
     // }
     render() {
-        
+        let linesDisplay: any[] = [];
+        console.log(this.props.newReceipt.lines)
+        if (this.props.newReceipt.lines) {
+            for (const key of this.props.newReceipt.lines) {
+                linesDisplay.push(
+                    <tr key={'group' + key.lineId}>
+                        <td>{key.lineName}</td>
+                        <td>{key.linePrice}</td>
+                    </tr>
+                )
+            }
+        }
+        if(this.props.user.userId === 0) {
+            return (
+                <Redirect to='/login'/>
+            )
+        } else
         return (
             <div>
                 <div className="receipt-in-group-component">
-                    <ModalAGComponent  type="GroupSettings"/>
+                    <ModalAGComponent type="GroupSettings" />
                     <ReceiptComponent />
-                </div>
-                <div className="list-of-groups">
-                    <table className="table-list-of-groups">
-                        <thead className="table-head-list-of-groups">
-                            <tr className="top-table-row-list-of-groups">
-                                <th>Group Name</th>
-                                <th>Group Picture</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-
-                        </tbody>
-                    </table>
                     </div> 
                     <div className="add-receipt">
                         <table id='add-receipt-header'>
@@ -163,7 +166,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                             </tbody>
                         </table>
                     </div>
-                </div>
+            </div>
         )
     }
 }

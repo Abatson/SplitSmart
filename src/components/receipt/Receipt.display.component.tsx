@@ -64,7 +64,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       receiptHTML.push(<div><button >Finalize Receipt</button></div>)
       receiptHTML.push(<div><hr></hr></div>);
     return (
-      <div style={{background:'#999999'}} >
+      <div>
 
           {receiptHTML}
       
