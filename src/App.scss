@@ -9,14 +9,16 @@ LOGIN FORM
   padding-top: 10px;
 }
 
+
 .backgroundDiv{
   background-image: url('https://wallpaperplay.com/walls/full/b/0/2/29075.jpg');
   background-size: 100% 100%;
   background-color: #000000;
   position: absolute;
   width: 100%;
+  overflow-y:hidden;
   top:0%;
-  display:block;
+  display:fixed;
   left:0%;
   // background-color: #ccc;
   z-index:-100;
@@ -194,6 +196,7 @@ PROFILE INFO
   margin: 5px;
   letter-spacing: 0.2pc;
 }
+
 .surroundingBox{
   border: 1px solid black;
   margin: 35px 100px 0px 360px;
@@ -591,9 +594,80 @@ RECEIPT
 //}
 
 .receiptComponent{
-  overflow:hidden;
-  width:100%;
+  overflow-y: scroll;
+  width:50vw;
+  position:absolute;
+  left:24%;
+  top:22.5%;
+  height:70vh;
+  display:fixed;
+
+}
+
+.receiptHeader{
+  font-style: italic;
+  font-size: 2vmin;
+  font-weight: bold;
+  font-family: Helvetica;
+  left:24%;
+  height:12.5%;
+  width:50%;
+  top:10.5%;
+  text-align: center;
+color: white;
+text-shadow: 0 18px 18px black;
+background-color:#000077;
+position:absolute;
+display:block;
+
+}
+
+/*
+.add-receipt{
+  overflow-y: scroll;
+  width:50vw;
+  position:absolute;
+  left:75.5%;
+  top:10.25%;
+  height:80vh;
+  display:fixed;
+
+}*/
+
+.add-line-to-receipt-form{
+  position:absolute;
+  bottom:7.25%;
+  left:74.125%;
+  width:26%;
+  z-index:2;
+  background-color:#000066;
+}
+
+.add-receipt-form{
+  position:absolute;
+  top:10.25%;
+  left:74.125%;
+  width:26%;
+  height:12.5%;
+  z-index:2;
+  background-color:#000066;
+}
+
+.add-form-background{
+  position:absolute;
+  top:0%;
+  left:74.125%;
+  width:26%;
   height:100%;
+  z-index:-1;
+  background-color:#aaaaaa;
+}
+
+.receipt-in-group-component
+{
+
+  height:100%;
+  display:block;
 }
 
 /************************************
@@ -1039,4 +1113,18 @@ input{
   height: 35px;
   width: 100px;
   margin-top: 5px;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+.viewArea{
+  overflow:hidden;
+  display:fixed;
+  position:absolute;
+  height: 100%;
+  width: 100%;
 }

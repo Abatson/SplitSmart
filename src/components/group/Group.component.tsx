@@ -116,7 +116,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                     <td>Lines</td>
                                 </tr>
                                 <tr>
-                                    
+                                    <div className="add-form-background"></div>
                                         <td>
                                             <form onSubmit={this.addReceipt} className="add-receipt-form">
                                             <input type="text"
@@ -126,6 +126,7 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                                 value={this.props.newReceipt.receiptName}
                                                 onChange={this.updateReceiptName}
                                                 required />
+                                                <br />
                                                 <button className="button-form" type="submit">Add Receipt</button>
                                             </form>
                                             
@@ -134,23 +135,26 @@ export class GroupComponent extends React.Component<IGroupProps, any> {
                                     
                                     
                                         <td>
-                                        <form onSubmit={this.addLineToReceiptButton} className="invite-user-to-group-form">
+                                        <form onSubmit={this.addLineToReceiptButton} className="add-line-to-receipt-form">
+                                            <br />
                                             <input type="text"
                                                 id="Add Line To Receipt"
                                                 className="addLineToReceipt"
-                                                placeholder="Item"
+                                                placeholder="Enter Line Name"
                                                 value={this.props.lineNameToAdd}
                                                 onChange={this.updateNameLineToAdd}
                                                 required />
-
+                                            <br />
                                             <input type="number"
                                                 id="Add Line Price To Receipt"
                                                 className="addLinePriceToReceipt"
-                                                placeholder="Item"
+                                                placeholder="Enter Line Price in USD$"
                                                 value={this.props.linePriceToAdd}
                                                 onChange={this.updateLinePriceToAdd}
                                                 required />
+                                            <br />
                                             <button className="button-form" type="submit">Add Line</button>
+                                            <br />
                                         </form>
                                         </td>
                                        

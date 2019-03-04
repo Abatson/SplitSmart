@@ -82,7 +82,9 @@ componentDidMount()
     }
 
     receiptHTML.push(<div><button >Save Changes</button></div>);
-    return (<div>{receiptHTML}</div>)
+
+
+    return (<div><div className = "receiptHeader">Receipts for Group "{this.props.currentGroup.groupName}"</div><div className="receiptComponent">{receiptHTML}</div></div>)
   
 
 }
