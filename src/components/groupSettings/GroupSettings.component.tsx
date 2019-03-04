@@ -10,7 +10,7 @@ interface IGroupSettingsProps {
     usernameToAdd: string,
     updatedGroup: Groups,
     updateGroupName: (groupName: string) => void,
-    updateGroupPicture: (Url: Url) => void,
+    updateGroupPicture: (picture: string) => void,
     updateGroupDescription: (groupDescription: string) => void,
     inviteUserToGroup: (username: string) => void,
     resetAddForm: (usernameToAdd: string) => void,
@@ -26,6 +26,9 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
 
     componentDidMount() {
         this.props.initializeGroupSettings(this.props.currentGroup);
+        this.props.updateGroupDescription(this.props.currentGroup.groupDescription);
+        this.props.updateGroupName(this.props.currentGroup.groupName)
+        this.props.updateGroupPicture(this.props.currentGroup.groupPicture);
     }
 
 
@@ -57,6 +60,11 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
 
     render() {
         //console.log(this.props.newGroup)
+        let invitedUsers:any[] = [];
+        for(const key of this.props.updatedGroup.groupMembers){
+            invitedUsers.push(<tr><td>{key.username}</td></tr>);
+        }
+
         return (
             <div className="group-settings-page">
                 <form onSubmit={this.updateGroup} className="group-settings-form">
@@ -109,6 +117,7 @@ export class GroupSettingsComponent extends React.Component<IGroupSettingsProps,
                                 Invites
                             </th>
                             </tr>
+                            {invitedUsers}
                             <tr>
                                 <td>
                                     <input type="text"

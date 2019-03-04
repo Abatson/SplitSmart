@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import {claimReceipt, claimLine, initializeReceipts, finalizeReceipts} from '../../actions/receipt/Receipt.actions'
+import {claimReceipt, claimLine, populateCurrencies, initializeReceipts, finalizeReceipts, updateReceipts} from '../../actions/receipt/Receipt.actions'
 import { IState } from "../../reducers";
 import { ReceiptComponent } from "./Receipt.component";
 
@@ -18,6 +18,8 @@ const mapDispatchToProps = {
   claimReceipt,
   claimLine,
   finalizeReceipts,
+  updateReceipts,
+  populateCurrencies
 }
 
 //This statement gives all the above information to our component and as such

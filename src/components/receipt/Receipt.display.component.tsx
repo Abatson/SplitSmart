@@ -45,7 +45,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
         >$plit Purchase</button></div>)
         tempJSX.push(<React.Fragment><br></br></React.Fragment>)
 
-        tempJSX.push(<React.Fragment>Purchase Name: {this.props.receipt.lines[i].lineName}</React.Fragment>)
+        tempJSX.push(<React.Fragment><div className = "lineTitle">Purchase Name: {this.props.receipt.lines[i].lineName}</div></React.Fragment>)
 
 
         tempJSX.push(<p>Price Before Split: {this.props.receipt.lines[i].linePrice}</p>);
@@ -54,6 +54,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
               for (let j = 0; j < this.props.receipt.lines[i].items.length; j++)
               {
                 tempJSX.push(<div>{this.props.receipt.lines[i].items[j].itemClaimant.firstName} has agreed to pay ${Math.round(this.props.receipt.lines[i].linePrice/(this.props.receipt.lines[i].items.length)*100)/100}  </div>)
+                tempJSX.push(<img className = "itemClaimantImg" src = {this.props.receipt.lines[i].items[j].itemClaimant.picture}></img>);
               }
         
 
@@ -62,7 +63,9 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       }
 
       receiptHTML.push(<p></p>)
-      receiptHTML.push(<div><button onClick={this.props.finalize}className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
+      receiptHTML.push(<div><button onClick={this.props.update} className = "saveChangesButton"  >Save Changes</button></div>)
+      receiptHTML.push(<div><button onClick={this.props.finalize} className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
+     
       receiptHTML.push(<div><hr></hr></div>);
     
       let randRed = Math.round(80*Math.random());
