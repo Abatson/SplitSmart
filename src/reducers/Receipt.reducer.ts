@@ -82,6 +82,10 @@ export const receiptReducer = (state = initialState, action: any) => {
             groupReceipts : newGroupReceipts,
         }
     }
+    case receiptTypes.FINALIZE_RECEIPT:
+      return {
+        ...state
+      }
     case logoutTypes.LOGOUT:
             return {
               groupReceipts: [],

@@ -61,7 +61,7 @@ export class ReceiptDisplayComponent extends React.Component<any, any> {
       }
 
       receiptHTML.push(<p></p>)
-      receiptHTML.push(<div><button className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
+      receiptHTML.push(<div><button onClick={this.props.finalize}className = "finalizeReceiptButton" >Finalize Receipt</button></div>)
       receiptHTML.push(<div><hr></hr></div>);
     return (
       <div>
